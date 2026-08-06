@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookSafe — Deine Bibliothek. Schön, schnell, privat.</title>
+<meta name="description" content="BookSafe ist die Buch-App ohne Konto, ohne Tracking, ohne Abo — Bibliothek, Wunschliste und Lesestatistik für iPhone und iPad. Kostenlos bis 50 Bücher.">
+<link rel="icon" type="image/png" href="assets/app-icon.png">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/">
+<meta property="og:title" content="BookSafe — Deine Bibliothek. Schön, schnell, privat.">
+<meta property="og:description" content="Die Buch-App ohne Konto, ohne Tracking, ohne Abo — für iPhone und iPad.">
+<meta property="og:image" content="https://booksafe.app/assets/de-today.jpg">
+<meta property="og:url" content="https://booksafe.app/">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+    --shadow: 0 18px 40px var(--web-shadow-light);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+      --shadow: 0 18px 40px var(--web-shadow-dark);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--gold-deep); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 72px 24px 84px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  .hero .icon {
+    width: 112px;
+    height: 112px;
+    border-radius: 26px;
+    margin: 0 auto 28px;
+    box-shadow: 0 12px 30px var(--web-hero-icon-shadow);
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5.4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    max-width: 15em;
+    margin: 0 auto;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .sub {
+    font-size: clamp(17px, 2.4vw, 21px);
+    color: var(--web-hero-text-muted);
+    max-width: 34em;
+    margin: 18px auto 34px;
+  }
+  .store-badge img { height: 56px; width: auto; margin: 0 auto; }
+
+  /* ---------- Features ---------- */
+  main { max-width: 1060px; margin: 0 auto; padding: 24px 24px 0; }
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: clamp(28px, 6vw, 72px);
+    padding: 64px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .feature:last-of-type { border-bottom: none; }
+  .feature:nth-of-type(even) { flex-direction: row-reverse; }
+  .feature .copy { flex: 1 1 320px; }
+  .feature .shot { flex: 0 0 min(300px, 78vw); }
+  .feature .shot img {
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+  }
+  .kicker {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 10px;
+  }
+  .feature h2 {
+    font-size: clamp(24px, 3.6vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .feature ul { list-style: none; }
+  .feature li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 17px;
+  }
+  .feature li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .feature li strong { color: var(--text); font-weight: 650; }
+
+  /* ---------- Pro-Banner ---------- */
+  .pro {
+    background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    border-radius: 24px;
+    text-align: center;
+    padding: 44px 28px;
+    margin: 56px 0;
+  }
+  .pro h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.015em; }
+  .pro h2 em { font-style: normal; color: var(--gold); }
+  .pro p { color: var(--web-hero-text-muted); margin-top: 10px; font-size: 17px; }
+
+  /* ---------- Familie ---------- */
+  .family { text-align: center; padding: 8px 0 40px; }
+  .family h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 800; margin-bottom: 10px; }
+  .family p { color: var(--muted); max-width: 40em; margin: 0 auto 10px; font-size: 17px; }
+  .family p.quote { color: var(--text); font-weight: 600; }
+
+  /* ---------- Presse ---------- */
+  .press {
+    text-align: center;
+    padding: 8px 0 72px;
+  }
+  .press h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 800; margin-bottom: 10px; }
+  .press p { color: var(--muted); max-width: 36em; margin: 0 auto; font-size: 17px; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  @media (max-width: 720px) {
+    .feature, .feature:nth-of-type(even) {
+      flex-direction: column;
+      text-align: left;
+      padding: 48px 0;
+    }
+    .feature .shot { flex-basis: auto; width: min(300px, 78vw); margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
+  <img class="icon" src="assets/app-icon.png" alt="BookSafe App-Icon" width="112" height="112">
+  <h1>Deine Bibliothek.<br><em>Schön, schnell, privat.</em></h1>
+  <p class="sub">BookSafe ist die Buch-App ohne Konto, ohne Tracking, ohne Abo — für iPhone und iPad.</p>
+  <a class="store-badge" href="https://apps.apple.com/de/app/booksafe/id6779730178">
+    <img src="assets/badge-de.svg" alt="Laden im App Store" height="56">
+  </a>
+</header>
+
+<main>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Privat</p>
+      <h2>Deine Bibliothek gehört dir</h2>
+      <ul>
+        <li><strong>Kein Konto, keine Werbung, keine Datensammlung</strong> — deine Bibliothek liegt auf deinem Gerät und in deiner privaten iCloud, sonst nirgendwo.</li>
+        <li><strong>iPhone + iPad, immer synchron</strong> — ohne Konto-Anlage. Funktioniert auch offline; nur die Buchsuche per ISBN fragt öffentliche Buchdatenbanken an.</li>
+        <li>Exportiere deine Bibliothek jederzeit als <strong>CSV oder PDF</strong> — deine Daten gehören dir.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-library.jpg" alt="BookSafe Bibliothek auf dem iPhone" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Heute</p>
+      <h2>Dein Lesetag auf einen Blick</h2>
+      <ul>
+        <li>Der <strong>Heute-Tab</strong> begrüßt dich mit einem Tagesblatt: dein Jahresziel, das Buch, das du gerade liest, und deine nächsten Termine.</li>
+        <li>Jeden Tag ein neuer, kuratierter <strong>Spruch des Tages</strong> — in täglich wechselnder Kartengestaltung.</li>
+        <li>Auf dem iPad zweispaltig — mit „Was ansteht" und „Zuletzt beendet".</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages, Jahresziel und Terminen" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Reihen</p>
+      <h2>Endlich Reihen, die stimmen</h2>
+      <ul>
+        <li><strong>ISBN scannen</strong> — Titel, Autor, Cover, Verlag und mehr kommen automatisch aus mehreren Buchdatenbanken.</li>
+        <li>Reihen werden <strong>automatisch gruppiert</strong> — sieh, welcher Band dir noch fehlt, und füge ihn in der gewünschten Ausgabe direkt hinzu.</li>
+        <li>Auch Sonderbände wie <strong>„Band 8,5"</strong> werden richtig einsortiert.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-detail.jpg" alt="Buchdetail-Ansicht mit Reiheninformation" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Fairer Preis</p>
+      <h2>Einmal kaufen statt Abo</h2>
+      <ul>
+        <li><strong>Kostenlos für bis zu 50 Bücher</strong> — mit allen Funktionen.</li>
+        <li><strong>BookSafe Pro: einmalig 3,99 €</strong> für unbegrenzt viele Bücher. Kein Abo.</li>
+        <li>Keine versteckten Kosten, keine Werbung — einmal kaufen, für immer deins.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-paywall.jpg" alt="BookSafe Pro — einmaliger Kauf statt Abo" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Zum Herzeigen</p>
+      <h2>Schön genug zum Herzeigen</h2>
+      <ul>
+        <li>Teile Lieblingsbücher als <strong>hübsche Share-Karten</strong>.</li>
+        <li><strong>Statistiken, Lesestreak, Abzeichen</strong> und eine jährliche Lese-Challenge mit eigenem Ziel.</li>
+        <li>Am Erscheinungstag feiert BookSafe mit großem Cover und einem kleinen <strong>Feuerwerk</strong> — Widgets für Home- und Sperrbildschirm inklusive.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-stats.jpg" alt="Lesestatistiken in BookSafe" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature">
+    <div class="copy">
+      <p class="kicker">Rückblick</p>
+      <h2>Dein Lesejahr als Film</h2>
+      <ul>
+        <li>Am Jahresende macht BookSafe aus deinen gelesenen Büchern einen <strong>Rückblick</strong>: Bücher, Seiten, Top-Genre, produktivster Monat und längstes Buch.</li>
+        <li><strong>Kröne deine drei Lieblingsbücher</strong> aufs Top-3-Podest — Gold, Silber, Bronze; die Bestbewerteten schlägt BookSafe dir vor.</li>
+        <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/de-yearinreview.jpg" alt="Jahresrückblick mit Kennzahlen und Top-3-Podest" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="pro">
+    <h2>Kostenlos bis 50 Bücher. <em>BookSafe Pro: einmalig 3,99 €, kein Abo.</em></h2>
+    <p>Alle Funktionen sind schon in der Gratis-Version enthalten — Pro hebt nur das Limit auf.</p>
+  </section>
+
+  <section class="family" id="familie">
+    <h2>Wer hinter BookSafe steckt</h2>
+    <p>Eine Familie in Süddeutschland. Der Vater programmiert, die Mutter liest jede Zeile gegen und findet die Fehler, die sonst niemand sieht, und die Tochter sammelt Buchreihen — dass die Reihenerkennung bis hin zu „Band 8,5“ stimmt, geht auf ihren Anspruch zurück. Von ihr stammt auch das Feuerwerk am Erscheinungstag.</p>
+    <p class="quote">Dass es kein Konto und kein Tracking gibt, war keine Produktentscheidung, sondern eine Familienentscheidung.</p>
+    <p>Die ganze Geschichte steht im <a href="presse/">Presse-Kit</a>.</p>
+  </section>
+
+  <section class="press" id="presse">
+    <h2>Presse &amp; Kontakt</h2>
+    <p>Du schreibst über Buch-Apps, Lese-Tracking oder darüber, wer solche Apps baut? Im <a href="presse/">Presse-Kit</a> findest du Eckdaten, Kernfunktionen, Datenschutz-Fakten sowie Screenshots und App-Icon zum Download. Rezensions-Codes für BookSafe Pro gibt es kostenlos: <a href="mailto:kontakt@sisofa.de?subject=BookSafe%20Presseanfrage">kontakt@sisofa.de</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="support/">Support</a>
+    <a href="support/">Datenschutz</a>
+    <a href="support/#kontakt">Kontakt</a>
+    <a href="presse/">Presse</a>
+    <a href="en/" hreflang="en" lang="en">English</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+</footer>
+
+</body>
+</html>

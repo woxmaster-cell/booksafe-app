@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookSafe — Press</title>
+<meta name="description" content="Press kit for BookSafe, the book manager for iPhone and iPad: key facts, core features, privacy facts, screenshots and app icon to download — no account, no tracking, only your private iCloud.">
+<link rel="icon" type="image/png" href="../../assets/app-icon.png">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/presse/">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 22px 0 4px; }
+  .updated { color: var(--muted); font-size: 13.5px; }
+  ul { padding-left: 1.2em; }
+  li { margin-bottom: 4px; }
+  ol { padding-left: 1.2em; }
+  ol li { margin-bottom: 10px; }
+  p + p { margin-top: 10px; }
+  .contact-mail { font-size: 17px; font-weight: 600; }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-top: 14px; }
+  .shots a { display: block; }
+  .shots img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--hairline); display: block; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  .pull { margin: 18px 0; padding: 14px 18px; border-left: 3px solid var(--gold-deep); background: var(--bg); border-radius: 0 10px 10px 0; }
+  .pull p { font-size: 17px; font-weight: 600; }
+  .pull cite { display: block; margin-top: 6px; font-style: normal; font-size: 14.5px; color: var(--muted); }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../../presse/" hreflang="de" lang="de">Deutsch</a>
+  <img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72">
+  <h1>Press</h1>
+  <p class="sub">Press kit for BookSafe 1.0</p>
+  <a class="home" href="../">← Back to home</a>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>In brief</h2>
+    <p class="updated">As of July 2026 · everything below is cleared for publication</p>
+    <p>BookSafe is a book manager for iPhone and iPad: scan books by ISBN, track your reading, keep a wishlist, stay on top of series. What sets it apart from Goodreads and StoryGraph: <strong>no account, no tracking, no third-party servers.</strong> Data lives on the device and syncs only through the user's own private iCloud.</p>
+    <p>Built by a family in southern Germany — the father writes the code, the mother proofreads every line, their daughter makes sure the series are right. Particular care goes into German book metadata (Deutsche Nationalbibliothek). Free for up to 50 books, then a one-time €3.99 — no subscription.</p>
+  </section>
+
+  <section class="card">
+    <h2>Key facts</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Name</th><td>BookSafe</td></tr>
+        <tr><th>Tagline</th><td>“Your library belongs to you.”</td></tr>
+        <tr><th>Category</th><td>Books (secondary: Productivity)</td></tr>
+        <tr><th>Platform</th><td>iPhone and iPad, iOS 18.0 and later</td></tr>
+        <tr><th>Languages</th><td>German and English (follows the device language)</td></tr>
+        <tr><th>Price</th><td>Free for up to 50 books — with every feature. “BookSafe Pro” lifts the limit: €3.99, one-time purchase, no subscription</td></tr>
+        <tr><th>Age rating</th><td>4+</td></tr>
+        <tr><th>Version</th><td>1.0</td></tr>
+        <tr><th>App Store</th><td><a href="https://apps.apple.com/app/booksafe/id6779730178">apps.apple.com/app/booksafe</a></td></tr>
+        <tr><th>Developer</th><td>Sisofa — a family in southern Germany; not a company, no investors</td></tr>
+        <tr><th>Press contact</th><td><a href="mailto:kontakt@sisofa.de?subject=BookSafe%20press%20enquiry">kontakt@sisofa.de</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Five core features</h2>
+    <ol>
+      <li><strong>Your library belongs to you.</strong> No account, no tracking, no third-party servers. Everything lives on the device and syncs only to the user's own private iCloud — the app works offline, too. The App Store privacy label reads, verbatim: <em>Data Not Collected.</em></li>
+      <li><strong>Series that finally add up.</strong> BookSafe identifies book series and volume numbers from several library catalogues — including the German National Library — and groups them automatically, special volumes such as “book 8.5” included. Missing volumes are visible at a glance and can be added in the edition you prefer.</li>
+      <li><strong>Add books in seconds.</strong> Scan an ISBN with the camera — title, author, cover, publisher, genre and release date arrive automatically. Duplicates are caught before they reach the library, and CSV import handles Goodreads exports.</li>
+      <li><strong>From reading day to reading year.</strong> A “Today” daily page with a quote of the day and yearly goal, reading sessions with a live timer and streak, statistics on genres, pages and years, milestone stamps and a yearly challenge — and at year's end, a year in review as an animated film to share.</li>
+      <li><strong>Wishlist, countdown and library loans.</strong> Save upcoming titles — a widget counts down the days, and on release day the app celebrates with fireworks. Borrowed books can be marked as loans, with a countdown that reminds you before they're due back.</li>
+    </ol>
+    <p class="note"><strong>New in 1.0:</strong> iPhone and iPad stay in sync — via the user's private iCloud, with no sign-up.</p>
+  </section>
+
+  <section class="card">
+    <h2>Privacy — the facts</h2>
+    <ul>
+      <li><strong>App Store privacy label:</strong> “Data Not Collected.”</li>
+      <li><strong>No user account</strong>, no sign-up, no email address required.</li>
+      <li>No analytics SDK, no ad network, no third-party frameworks in the app.</li>
+      <li>No in-app review prompt — a deliberate decision.</li>
+      <li><strong>Sync</strong> runs through Apple's CloudKit in the user's private iCloud database. The developer has no access to it.</li>
+      <li><strong>Outgoing connections</strong> happen only when looking up book metadata and cover art — they carry the ISBN, never a user identifier.</li>
+      <li><strong>Export any time</strong> as CSV or PDF.</li>
+    </ul>
+    <p class="note">A note for quoting: BookSafe is <strong>not</strong> “end-to-end encrypted”, and as of 1.0 it is no longer “fully offline” either. The accurate phrasing is: no third-party servers, only your own private iCloud, works offline.</p>
+  </section>
+
+  <section class="card">
+    <h2>About us</h2>
+    <p>BookSafe was built at a kitchen table, not at a company. The father has been working on the app in his spare time since May 2026 — though on his own it would not have become what it is.</p>
+    <p>The mother proofreads every line: store copy, app text, the hundred-plus quotes of the day. She finds the mistakes nobody else does. The daughter collects book series and reports every single volume filed in the wrong place — the fact that series detection gets even special volumes like “book 8.5” right is down to her standards. The wishlist with its release-day fireworks was her idea, too. And in this family, the question of which ideas are worth showing is not answered by the developer.</p>
+    <blockquote class="pull"><p>“There is no account and no tracking, and that was never a product decision — it was a family decision. Our daughter's reading list is nobody's business but hers, including ours if she'd rather keep it that way. So it stays on her device and in our own iCloud, nowhere else.”</p><cite>— Sisofa</cite></blockquote>
+    <p>BookSafe is not a company: no team, no investors, no ad revenue. Version 1.0 is the eighth version released on the App Store, written entirely in Swift and SwiftUI with zero third-party dependencies; most of the care goes into the book-metadata detection.</p>
+    <p class="note"><strong>A note for press:</strong> The family appears publicly as Sisofa; we do not publish the names of the mother and daughter and do not arrange interviews with them. We are happy to answer questions about their contributions ourselves at <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Assets</h2>
+    <p>All materials may be used freely in editorial coverage of BookSafe.</p>
+    <h3>App icon</h3>
+    <p><a href="../../assets/app-icon-1024.png" download>app-icon-1024.png</a> — App Store resolution (1024 × 1024 px)</p>
+    <h3>Screenshots</h3>
+    <div class="shots">
+      <a href="../../assets/en-today.jpg" download><img src="../../assets/en-today.jpg" alt="Today tab with the daily page" loading="lazy" width="720" height="1564"></a>
+      <a href="../../assets/en-library.jpg" download><img src="../../assets/en-library.jpg" alt="Library view" loading="lazy" width="720" height="1564"></a>
+      <a href="../../assets/en-detail.jpg" download><img src="../../assets/en-detail.jpg" alt="Book detail with series information" loading="lazy" width="720" height="1564"></a>
+      <a href="../../assets/en-stats.jpg" download><img src="../../assets/en-stats.jpg" alt="Statistics" loading="lazy" width="720" height="1564"></a>
+      <a href="../../assets/en-yearinreview.jpg" download><img src="../../assets/en-yearinreview.jpg" alt="Year in review with the top-3 podium" loading="lazy" width="720" height="1564"></a>
+      <a href="../../assets/en-paywall.jpg" download><img src="../../assets/en-paywall.jpg" alt="BookSafe Pro" loading="lazy" width="720" height="1564"></a>
+    </div>
+    <p class="note">German versions of the same screens, iPad shots and unframed originals are available on request — just send a short email.</p>
+  </section>
+
+  <section class="card">
+    <h2>Contact &amp; review codes</h2>
+    <p class="contact-mail"><a href="mailto:kontakt@sisofa.de?subject=BookSafe%20press%20enquiry">kontakt@sisofa.de</a></p>
+    <p>Review codes for BookSafe Pro are free for any publication or blog — just ask.</p>
+    <p>Instagram and TikTok: <strong>@booksafe.app</strong></p>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#contact">Contact</a>
+    <a href="../../presse/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+</footer>
+
+</body>
+</html>

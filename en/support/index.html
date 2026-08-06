@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookSafe — Support &amp; Privacy</title>
+<meta name="description" content="Support, frequently asked questions, and privacy policy for the BookSafe app for iPhone and iPad — no account, no tracking, your data only on your device and in your private iCloud.">
+<link rel="icon" type="image/png" href="../../assets/app-icon.png">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/support/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 22px 0 4px; }
+  .updated { color: var(--muted); font-size: 13.5px; }
+  ul { padding-left: 1.2em; }
+  li { margin-bottom: 4px; }
+  .contact-mail { font-size: 17px; font-weight: 600; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../../support/" hreflang="de" lang="de">Deutsch</a>
+  <img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72">
+  <h1>Support &amp; Privacy</h1>
+  <p class="sub">BookSafe for iPhone and iPad</p>
+  <a class="home" href="../">← Back to home</a>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>Support</h2>
+    <p>Have a question, found a bug, or have a feature request? Get in touch — we're happy to help.</p>
+    <p class="contact-mail"><a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+    <p>When reporting a problem, please include your iPhone model and iOS version so we can help faster.</p>
+  </section>
+
+  <section class="card">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How do I add a book?</h3>
+    <p>Tap “+” and scan the ISBN barcode on the back of the book — title, author, cover, and description are loaded automatically. You can also add books manually.</p>
+
+    <h3>A cover or detail is missing — what can I do?</h3>
+    <p>Not every book is listed in all databases. You can edit the cover, title, description, and every other field yourself at any time in the detail view.</p>
+
+    <h3>Is my data backed up?</h3>
+    <p>Your library is stored on your device and is included in your iPhone backup (iCloud backup or Finder/iTunes). With iCloud enabled, BookSafe additionally keeps your library in sync across your devices via your private iCloud. Via “Settings → Data Export” you can additionally export your books as CSV or PDF.</p>
+
+    <h3>How does sync between iPhone and iPad work?</h3>
+    <p>BookSafe uses your private iCloud (Apple CloudKit): if you’re signed in with the same Apple ID on both devices and iCloud is enabled for BookSafe, your devices stay in sync automatically — no sign-up needed. You can see the status in the app’s settings; to turn sync off, use the iOS Settings (Apple ID → iCloud → BookSafe).</p>
+  </section>
+
+  <section class="card">
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last updated: July 2026</p>
+
+    <p>BookSafe is built so that your data belongs to you. There is no user account, no sign-up, no advertising, and no tracking.</p>
+
+    <h3>What data does the app process?</h3>
+    <ul>
+      <li><strong>Your library</strong> (books, ratings, notes, reading progress, reading sessions) is stored <strong>on your device</strong> and — if iCloud is enabled — synced via <strong>your private iCloud</strong> (see “iCloud sync”). We have no access to it.</li>
+      <li><strong>Camera:</strong> During an ISBN scan, the camera is used only to detect the barcode. No images are stored or transmitted.</li>
+      <li><strong>Photos:</strong> If you choose a cover from your photo library, only that single image is imported into the app.</li>
+      <li><strong>Notifications:</strong> Release reminders are scheduled locally on your device.</li>
+    </ul>
+
+    <h3>iCloud sync</h3>
+    <p>To keep your devices in sync, BookSafe uses the private iCloud database of your Apple account (Apple CloudKit). Your library is processed by Apple as part of your iCloud storage; Apple’s privacy policy applies. There is no BookSafe account and there are no BookSafe servers — we have no access to the contents of your private iCloud. You can disable sync for BookSafe at any time in the iOS Settings (Apple ID → iCloud); the app also works without iCloud and offline.</p>
+
+    <h3>Network connections</h3>
+    <p>When you scan an ISBN or search for a book, the app fetches publicly available book metadata (title, author, cover, description) from third-party providers. Only the relevant ISBN or your search term is transmitted — no personal data. Services used: the German National Library, K10plus (GBV/SWB), lobid (hbz), the Library of Congress, Open Library, Apple iTunes, Wikidata, and cover image servers (e.g. Amazon CDN). Their respective privacy policies apply to their data processing.</p>
+
+    <h3>What we do NOT do</h3>
+    <ul>
+      <li>No analytics or tracking services</li>
+      <li>No sharing or selling of data</li>
+      <li>No advertising networks</li>
+      <li>No user accounts</li>
+    </ul>
+
+    <h3>Children</h3>
+    <p>The app collects no personal data and is suitable for all ages.</p>
+
+    <h3>Controller</h3>
+    <p>Controller for data processing: Fabian Grill (Sisofa), <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+
+    <h3>Contact</h3>
+    <p>Privacy questions? <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  </section>
+
+  <section class="card" id="contact">
+    <h2>Contact</h2>
+    <p>BookSafe is developed by a family in southern Germany, appearing publicly as <strong>Sisofa</strong>.</p>
+    <p>
+      Sisofa<br>
+      Fabian Grill<br>
+      Email: <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a>
+    </p>
+    <p>BookSafe is not a company: no team, no investors, no ad revenue. The app is distributed exclusively through Apple's App Store.</p>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../../support/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+</footer>
+
+</body>
+</html>
