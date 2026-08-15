@@ -149,6 +149,15 @@
   }
   .feature li strong { color: var(--text); font-weight: 650; }
 
+  /* Uhr-Sektion (OPT-282): etwas breitere Karte. Die Telefon-Shots sind rohe
+     Screenshots (720x1564) — das Geraet fuellt die Bildbreite ganz. Das Uhr-Motiv ist ein
+     KOMPONIERTES Bild (720x1062) mit 73 px Eigenrand je Seite, die Uhr fuellt also nur
+     ~80 % der Breite; bei 300 px Karte raenderte sie nur ~240 px und wirkte neben den
+     Telefonen klein. Doppelte Klasse (Spezifitaet 0,3,0) schlaegt `.feature .shot`
+     (0,2,0) UNABHAENGIG von der Quellreihenfolge — mit einfacher Klasse waeren beide
+     gleich spezifisch und die Wirkung haenge daran, wo dieser Block steht. */
+  .feature.feature--watch .shot { flex-basis: min(360px, 78vw); }
+
   /* ---------- Pro banner ---------- */
   .pro {
     background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 100%);
@@ -195,6 +204,17 @@
       padding: 48px 0;
     }
     .feature .shot { flex-basis: auto; width: min(300px, 78vw); margin: 0 auto; }
+    /* OPT-282: `flex-basis: auto` MUSS hier mit, sonst ueberlaeuft das Uhr-Bild.
+       Die Desktop-Regel oben (`.feature.feature--watch .shot`) steht ausserhalb dieser
+       Media Query, ist mit 0,3,0 aber spezifischer als das `.feature .shot` (0,2,0) eine
+       Zeile darueber — sie gilt also auch hier weiter. In `flex-direction: column` bemisst
+       `flex-basis` die HOEHE: der Container bekaeme ~304 px, das Bild ist bei ~304 px
+       Breite aber 448 px hoch, und `flex-shrink: 0` (aus dem `flex`-Kurzschreibweise-Wert)
+       laesst ihn nicht mitwachsen — rund 144 px Ueberlauf in den Folgeinhalt.
+       Die Breite bindet hier ohnehin fast immer ueber `78vw` (bei 390 px Viewport 304 px
+       gegen 300 px, ~4 px Unterschied); sie steht mit, damit die beiden Breakpoints nicht
+       auseinanderlaufen, wenn jemand spaeter an einer der Zahlen dreht. */
+    .feature.feature--watch .shot { flex-basis: auto; width: min(360px, 78vw); }
   }
 </style>
 </head>
@@ -288,6 +308,19 @@
       </ul>
     </div>
     <div class="shot"><img src="../assets/en-yearinreview.jpg" alt="Year in review with key figures and a top-three podium" loading="lazy" width="720" height="1564"></div>
+  </section>
+
+  <section class="feature feature--watch">
+    <div class="copy">
+      <p class="kicker">Apple Watch</p>
+      <h2>Start on your wrist</h2>
+      <ul>
+        <li>The books you are <strong>currently reading</strong>, right on your wrist — tap, and the reading session is running.</li>
+        <li><strong>No iPhone nearby:</strong> your watch remembers everything and syncs up later on its own.</li>
+        <li>Set the <strong>end page with the Crown</strong> — progress and reading time land in your statistics.</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="../assets/en-watch.jpg" alt="BookSafe on Apple Watch Ultra: a running reading session with timer" loading="lazy" width="720" height="1062"></div>
   </section>
 
   <section class="pro">
