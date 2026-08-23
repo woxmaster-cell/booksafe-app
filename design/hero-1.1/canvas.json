@@ -1,0 +1,34 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",            "title": "A · Ruhig weiterentwickelt — Desktop", "x": 0,    "y": 0,    "w": 1440, "h": 820 },
+    { "file": "DirectionB.dc.html",      "title": "B · Die Bibliothek zeigen — Desktop",  "x": 1560, "y": 0,    "w": 1440, "h": 820 },
+    { "file": "DirectionC.dc.html",      "title": "C · Das Versprechen zuerst — Desktop", "x": 3120, "y": 0,    "w": 1440, "h": 820 },
+    { "file": "MainPhone.dc.html",       "title": "A · iPhone",                           "x": 0,    "y": 1020, "w": 390,  "h": 844 },
+    { "file": "DirectionBPhone.dc.html", "title": "B · iPhone",                           "x": 1560, "y": 1020, "w": 390,  "h": 844 },
+    { "file": "DirectionCPhone.dc.html", "title": "C · iPhone",                           "x": 3120, "y": 1020, "w": 390,  "h": 844 }
+  ],
+  "annotations": [
+    {
+      "id": "note-a",
+      "x": 0,
+      "y": -460,
+      "w": 460,
+      "text": "A · Ruhig weiterentwickelt\n\nDer heutige Hero, nur aufgeräumt: gleicher Navy-Verlauf, gleiche Systemschrift, aber zweispaltig statt zentriert — links die Aussage, rechts iPhone und Uhr als Paar. Die Watch kommt als goldene Pille „Neu in 1.1“ rein.\n\nWetten auf: Vertrautheit. Könnte nächste Woche live gehen.\nHaken: verändert wenig — wer die Seite kennt, merkt kaum, dass 1.1 da ist."
+    },
+    {
+      "id": "note-b",
+      "x": 1560,
+      "y": -460,
+      "w": 460,
+      "text": "B · Die Bibliothek zeigen\n\nProdukt nach vorn: Saira als Display-Schrift (eure App-Schrift aus tokens.css), 78px Schlagzeile, rechts ein Geräte-Stapel, der über den Rand hinausläuft. Unten eine Zeile mit den drei Nein-Fakten.\n\nWetten auf: Dass Cover und echte Screens mehr verkaufen als Text.\nHaken: die dichteste der drei — braucht gute Screenshots und verzeiht wenig."
+    },
+    {
+      "id": "note-c",
+      "x": 3120,
+      "y": -460,
+      "w": 460,
+      "text": "C · Das Versprechen zuerst\n\nDreht den Hero um: heller Papierton statt Navy, das Versprechen als 86px-Aussage, das Gerät nur als ruhige Navy-Fläche am Rand. Die Uhr sitzt als kleine Karte mit „Neu in 1.1“ davor.\n\nWetten auf: Euren stärksten Satz — kein Konto, kein Tracking — als Hauptmotiv.\nHaken: hell bricht mit dem Rest der Seite; die Sektionen darunter müssten mitziehen."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

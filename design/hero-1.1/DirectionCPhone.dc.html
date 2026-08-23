@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;700;800&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: #9A7E3F;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #7A6230;
+    }
+  </style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; box-sizing: border-box; background: #F7F5F1; color: #22334A; overflow: hidden; display: flex; flex-direction: column; padding: 20px 24px 0;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img src="app-icon.jpg" alt="BookSafe" style="width: 30px; height: 30px; border-radius: 8px; display: block;">
+      <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.01em;">BookSafe</span>
+    </div>
+    <span style="font-size: 13px; color: #5A6B82; border: 1px solid rgba(27, 52, 80, 0.14); border-radius: 999px; padding: 4px 12px;">English</span>
+  </div>
+
+  <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: {{accent}}; margin: 34px 0 0;">Für iPhone, iPad und Apple Watch</p>
+
+  <h1 style="font-family: 'Saira', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; margin: 16px 0 0;">Deine Bibliothek<br>gehört <span style="color: {{accent}};">dir.</span></h1>
+
+  <span style="display: block; width: 56px; height: 3px; background: {{accent}}; margin: 22px 0 20px;"></span>
+
+  <p style="font-size: 17px; color: #5A6B82; margin: 0;">Kein Konto. Kein Tracking. Kein Abo. Deine Bücher liegen auf deinem Gerät und in deiner privaten iCloud.</p>
+
+  <div style="display: flex; align-items: center; gap: 16px; margin-top: 24px;">
+    <img src="badge-de.svg" alt="Laden im App Store" style="height: 48px; width: auto; display: block;">
+    <span style="font-size: 12px; line-height: 1.4; color: #5A6B82;">Kostenlos bis<br>50 Bücher.</span>
+  </div>
+
+  <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 300px; border-radius: 28px 28px 0 0; background: linear-gradient(180deg, #2C4B6B 0%, #1B3450 100%); overflow: hidden;">
+    <img src="shot-today.jpg" alt="Heute-Tab in BookSafe" style="position: absolute; right: 26px; top: 30px; width: 188px; border-radius: 18px; display: block;">
+    <div style="position: absolute; left: 24px; top: 62px; width: 130px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(242, 245, 249, 0.14);">
+      <img src="shot-watch.jpg" alt="Lesesitzung auf der Apple Watch" style="width: 100%; display: block;">
+    </div>
+    <span style="position: absolute; left: 24px; top: 26px; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A961;">Neu in 1.1</span>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#9A7E3F","options":["#9A7E3F","#C9A961","#7A6230","#1B3450"],"section":"Marke"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#9A7E3F' };
+  }
+}
+</script>
+</body>
+</html>
