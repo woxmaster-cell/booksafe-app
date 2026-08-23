@@ -14,6 +14,7 @@
 <meta property="og:url" content="https://booksafe.app/">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/fonts.css">
 <style>
   :root {
     --navy: var(--brand-navy);
@@ -56,46 +57,168 @@
   /* ---------- Hero ---------- */
   .hero {
     position: relative;
-    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    background: linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 46%, var(--web-dark-bg) 100%);
     color: var(--web-hero-text);
-    text-align: center;
-    padding: 72px 24px 84px;
+    padding: 26px 24px 46px;
+    overflow: hidden;
+  }
+  /* Lichtschein hinter den Geraeten: hebt sie vom Verlauf ab, ohne eine Kante
+     zu setzen. Liegt hinter allem (`z-index: 0` + `position: relative` auf den
+     Kindern), damit er keine Klicks abfaengt. */
+  .hero::before {
+    content: "";
+    position: absolute;
+    right: -8%;
+    top: 40px;
+    width: 62%;
+    height: 760px;
+    max-height: 100%;
+    background: radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--app-dark-accent-blue) 28%, transparent) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-bar, .hero-inner { position: relative; }
+  .hero-bar {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .hero-brand img {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
   }
   .lang-switch {
-    position: absolute;
-    top: 18px;
-    right: 20px;
     font-size: 14px;
     color: var(--web-hero-text-subtle);
     text-decoration: none;
     border: 1px solid var(--web-hero-pill-stroke);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 5px 14px;
   }
   .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
-  .hero .icon {
-    width: 112px;
-    height: 112px;
-    border-radius: 26px;
-    margin: 0 auto 28px;
-    box-shadow: 0 12px 30px var(--web-hero-icon-shadow);
+
+  .hero-inner {
+    max-width: 1280px;
+    margin: 68px auto 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
+    grid-template-areas:
+      "copy  shots"
+      "facts facts";
+    column-gap: 56px;
+    row-gap: 26px;
+    align-items: center;
+  }
+  .hero-copy  { grid-area: copy; }
+  .hero-facts { grid-area: facts; }
+  .hero-shots { grid-area: shots; }
+  .hero-kicker {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .hero-kicker::before {
+    content: "";
+    display: inline-block;
+    width: 44px;
+    height: 2px;
+    margin-right: 14px;
+    vertical-align: middle;
+    background: var(--gold);
   }
   .hero h1 {
-    font-size: clamp(30px, 5.4vw, 52px);
+    font-family: var(--font-display);
+    font-size: clamp(44px, 7.4vw, 78px);
     font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
-    max-width: 15em;
-    margin: 0 auto;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+    margin: 0;
   }
   .hero h1 em { font-style: normal; color: var(--gold); }
   .hero .sub {
     font-size: clamp(17px, 2.4vw, 21px);
     color: var(--web-hero-text-muted);
-    max-width: 34em;
-    margin: 18px auto 34px;
+    max-width: 21em;
+    margin: 26px 0 0;
   }
-  .store-badge img { height: 56px; width: auto; margin: 0 auto; }
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 36px;
+  }
+  .store-badge img { height: 56px; width: auto; display: block; }
+  .hero-price {
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--web-hero-text-faint);
+  }
+  .hero-facts {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 26px;
+    font-size: 15px;
+    font-weight: 650;
+  }
+  .hero-facts li { display: flex; align-items: center; gap: 26px; }
+  /* Der goldene Punkt sitzt VOR jedem Eintrag ausser dem ersten — so bleibt
+     hinter dem letzten keiner stehen, egal wie viele Eintraege es sind. */
+  .hero-facts li + li::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  /* Geraete-Stapel: feste Proportion, Kinder in Prozent — so skaliert die
+     Komposition mit der Spaltenbreite, statt bei jedem Breakpoint neu gesetzt
+     werden zu muessen. Werte stammen aus dem Entwurf (Rahmen 700 x 710 px). */
+  .hero-shots {
+    position: relative;
+    aspect-ratio: 700 / 710;
+  }
+  .hero-shots img {
+    position: absolute;
+    border-radius: var(--radius-card);
+    box-shadow: 0 18px 40px var(--web-shadow-dark);
+    display: block;
+  }
+  .hero-shots .shot-today   { right: 0;     top: 0;     width: 35.7%; opacity: 0.9; }
+  .hero-shots .shot-library { right: 30.9%; top: 11%;   width: 42.9%; }
+  .hero-shots .shot-watch {
+    position: absolute;
+    right: 62.9%;
+    top: 56.3%;
+    width: 30%;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--app-dark-chip-stroke);
+    box-shadow: 0 18px 40px var(--web-shadow-dark);
+  }
+  .hero-shots .shot-watch img {
+    position: static;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
 
   /* ---------- Features ---------- */
   main { max-width: 1060px; margin: 0 auto; padding: 24px 24px 0; }
@@ -197,7 +320,50 @@
   footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
   footer nav a:hover { text-decoration: underline; }
 
+  /* Ab hier passen Text und Geraete nicht mehr nebeneinander: der Hero stapelt
+     sich, die Geraete ruecken unter die Aussage. Die Prozentwerte im Stapel
+     bleiben unveraendert — nur der Rahmen wird schmaler. */
+  @media (max-width: 960px) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: "copy" "facts" "shots";
+      row-gap: 30px;
+      margin-top: 54px;
+    }
+    .hero .sub { max-width: 24em; }
+    .hero-shots {
+      width: min(620px, 100%);
+      margin: 0 auto;
+    }
+    .hero::before {
+      right: auto;
+      left: -20%;
+      top: auto;
+      bottom: -120px;
+      width: 120%;
+    }
+  }
+
   @media (max-width: 720px) {
+    /* Die Fakten-Zeile faellt weg: der Fliesstext darueber sagt dasselbe schon,
+       und umgebrochen auf zwei Zeilen wirkt sie wie eine zweite Navigation. */
+    .hero-facts { display: none; }
+    .hero-kicker { font-size: 11px; }
+    .hero-kicker::before { width: 32px; margin-right: 12px; }
+    .hero-cta { gap: 16px; }
+    .store-badge img { height: 48px; }
+    .hero-price { font-size: 13px; }
+
+    /* Auf dem Telefon traegt der Kicker nur noch die Neuigkeit: die volle
+       Plattformliste bricht bei 390 px auf zwei Zeilen und schiebt den Strich weg. */
+    .kicker-mid { display: none; }
+    .hero-brand { font-size: 16px; gap: 10px; }
+    .hero-brand img { width: 30px; height: 30px; border-radius: 8px; }
+    .lang-switch { font-size: 13px; padding: 4px 12px; }
+    /* Badge und Preis nebeneinander lassen dem Preis ~150 px — er braeche dann
+       mitten im Betrag um. Deshalb hier untereinander. */
+    .hero-cta { flex-direction: column; align-items: flex-start; gap: 12px; }
+
     .feature, .feature:nth-of-type(even) {
       flex-direction: column;
       text-align: left;
@@ -216,18 +382,57 @@
        auseinanderlaufen, wenn jemand spaeter an einer der Zahlen dreht. */
     .feature.feature--watch .shot { flex-basis: auto; width: min(360px, 78vw); }
   }
+  /* Erst hier wird der Dreier-Stapel zu klein, um etwas zu zeigen: der
+     Heute-Screen entfaellt, Bibliothek und Uhr ruecken dafuer groesser auf.
+     Bei 720 px stuende der Stapel sonst 850 px hoch im Weg. */
+  @media (max-width: 560px) {
+    .hero-shots { aspect-ratio: 342 / 470; }
+    .hero-shots .shot-today { display: none; }
+    .hero-shots .shot-library { right: 0; top: 0; width: 62%; }
+    .hero-shots .shot-watch { right: 56%; top: 25%; width: 44%; }
+  }
+
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
-  <img class="icon" src="assets/app-icon.png" alt="BookSafe App-Icon" width="112" height="112">
-  <h1>Deine Bibliothek.<br><em>Schön, schnell, privat.</em></h1>
-  <p class="sub">BookSafe ist die Buch-App ohne Konto, ohne Tracking, ohne Abo — für iPhone und iPad.</p>
-  <a class="store-badge" href="https://apps.apple.com/de/app/booksafe/id6779730178">
-    <img src="assets/badge-de.svg" alt="Laden im App Store" height="56">
-  </a>
+  <div class="hero-bar">
+    <span class="hero-brand">
+      <img src="assets/app-icon.png" alt="BookSafe App-Icon" width="36" height="36">
+      BookSafe
+    </span>
+    <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker">BookSafe 1.1<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <h1>Deine Bibliothek<br>gehört <em>dir.</em></h1>
+      <p class="sub">Bücher per ISBN scannen, Reihen bis zum Sonderband im Griff, die Lesesitzung am Handgelenk starten — ohne Konto, ohne Tracking, ohne Abo.</p>
+      <div class="hero-cta">
+        <a class="store-badge" href="https://apps.apple.com/de/app/booksafe/id6779730178">
+          <img src="assets/badge-de.svg" alt="Laden im App Store" height="56">
+        </a>
+        <p class="hero-price">Kostenlos bis 50 Bücher.<br>Pro: einmalig 3,99 € — kein Abo.</p>
+      </div>
+    </div>
+
+    <ul class="hero-facts">
+      <li>Kein Konto</li>
+      <li>Kein Tracking</li>
+      <li>Kein Abo</li>
+      <li>Alles auf deinem Gerät</li>
+    </ul>
+
+    <div class="hero-shots">
+      <img class="shot-today" src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages und Jahresziel" width="720" height="1564">
+      <img class="shot-library" src="assets/de-library.jpg" alt="Bibliothek mit Lesestatus und Leihfristen" width="720" height="1564">
+      <span class="shot-watch">
+        <img src="assets/de-watch.jpg" alt="Laufende Lesesitzung auf der Apple Watch" width="720" height="1062">
+      </span>
+    </div>
+  </div>
 </header>
 
 <main>
