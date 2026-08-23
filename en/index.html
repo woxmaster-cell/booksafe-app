@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BookSafe — Your library. Beautiful, fast, private.</title>
-<meta name="description" content="BookSafe is the book app with no account, no tracking, no subscription — library, wishlist and reading stats for iPhone and iPad. Free for up to 50 books.">
+<meta name="description" content="BookSafe is the book app with no account, no tracking, no subscription — library, wishlist and reading stats for iPhone, iPad and Apple Watch. Free for up to 50 books.">
 <link rel="icon" type="image/png" href="../assets/app-icon.png">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
 <meta property="og:title" content="BookSafe — Your library. Beautiful, fast, private.">
-<meta property="og:description" content="The book app with no account, no tracking, no subscription — for iPhone and iPad.">
-<meta property="og:image" content="https://booksafe.app/assets/en-today.jpg">
+<meta property="og:description" content="The book app with no account, no tracking, no subscription — for iPhone, iPad and Apple Watch.">
+<meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Your library belongs to you.">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:url" content="https://booksafe.app/en/">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="../assets/tokens.css">
@@ -285,7 +290,14 @@
     padding: 64px 0;
     border-bottom: 1px solid var(--hairline);
   }
-  .feature:last-of-type { border-bottom: none; }
+  /* Die alte Regel lautete `.feature:last-of-type` und griff nie: `:last-of-type`
+     zaehlt alle <section>-Geschwister, und die letzte Sektion ist die Presse-,
+     nicht die letzte Feature-Sektion. Die unterste Feature-Zeile behielt dadurch
+     eine Trennlinie direkt ueber dem Pro-Banner. `:has()` fragt stattdessen, ob
+     ueberhaupt noch eine Feature-Sektion folgt — das bleibt richtig, wenn jemand
+     spaeter eine Zeile ergaenzt oder entfernt. Browser ohne `:has()` ignorieren
+     die Regel und sehen den bisherigen Stand. */
+  .feature:not(:has(~ .feature)) { border-bottom: none; }
   .feature:nth-of-type(even) { flex-direction: row-reverse; }
   .feature .copy { flex: 1 1 320px; }
   .feature .shot { flex: 0 0 min(300px, 78vw); }
