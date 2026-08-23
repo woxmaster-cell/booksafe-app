@@ -220,6 +220,62 @@
     box-shadow: none;
   }
 
+  /* ---------- Lead ---------- */
+  /* Bruecke zwischen Hero und Feature-Reihen. Der Hero behauptet „kein Konto,
+     kein Tracking" — hier steht, woran man das nachpruefen kann. Bleibt ein
+     <section>, damit `.feature:nth-of-type(even)` dieselben Reihen spiegelt
+     wie vorher; wuerde das Element wegfallen, kippte die Seite komplett. */
+  .lead {
+    text-align: center;
+    padding: 76px 0 64px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .lead .kicker { margin-bottom: 20px; }
+  .lead-statement {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4.4vw, 46px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    max-width: 15em;
+    margin: 0 auto;
+    text-wrap: balance;
+  }
+  .lead-source {
+    font-size: 15px;
+    color: var(--muted);
+    margin-top: 18px;
+  }
+  .lead-text {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 38em;
+    margin: 26px auto 0;
+  }
+  .lead-points {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px;
+    margin-top: 52px;
+    text-align: left;
+  }
+  .lead-points li { font-size: 16px; color: var(--muted); }
+  .lead-points li::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 14px;
+  }
+  .lead-points strong {
+    display: block;
+    color: var(--text);
+    font-weight: 650;
+    margin-bottom: 8px;
+  }
+
   /* ---------- Features ---------- */
   main { max-width: 1060px; margin: 0 auto; padding: 24px 24px 0; }
   .feature {
@@ -363,6 +419,13 @@
     /* Badge und Preis nebeneinander lassen dem Preis ~150 px — er braeche dann
        mitten im Betrag um. Deshalb hier untereinander. */
     .hero-cta { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .lead { padding: 56px 0 48px; }
+    .lead-source { font-size: 14px; }
+    .lead-points {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+      margin-top: 40px;
+    }
 
     .feature, .feature:nth-of-type(even) {
       flex-direction: column;
@@ -437,17 +500,16 @@
 
 <main>
 
-  <section class="feature">
-    <div class="copy">
-      <p class="kicker">Privat</p>
-      <h2>Deine Bibliothek gehört dir</h2>
-      <ul>
-        <li><strong>Kein Konto, keine Werbung, keine Datensammlung</strong> — deine Bibliothek liegt auf deinem Gerät und in deiner privaten iCloud, sonst nirgendwo.</li>
-        <li><strong>iPhone + iPad, immer synchron</strong> — ohne Konto-Anlage. Funktioniert auch offline; nur die Buchsuche per ISBN fragt öffentliche Buchdatenbanken an.</li>
-        <li>Exportiere deine Bibliothek jederzeit als <strong>CSV oder PDF</strong> — deine Daten gehören dir.</li>
-      </ul>
-    </div>
-    <div class="shot"><img src="assets/de-library.jpg" alt="BookSafe Bibliothek auf dem iPhone" loading="lazy" width="720" height="1564"></div>
+  <section class="lead">
+    <p class="kicker">Privat</p>
+    <p class="lead-statement">„Es werden keine Daten erfasst.“</p>
+    <p class="lead-source">So steht es im App Store unter „App-Datenschutz“.</p>
+    <p class="lead-text">BookSafe hat keine eigenen Server. Deine Bibliothek liegt auf deinem Gerät und gleicht sich ausschließlich über deine private iCloud ab — auf deren Inhalte haben wir keinen Zugriff. Und du kommst jederzeit wieder raus: Export als CSV oder PDF.</p>
+    <ul class="lead-points">
+      <li><strong>Kein Konto, keine Registrierung</strong>Keine E-Mail-Adresse, kein Passwort, nichts anzulegen — und weder Werbung noch ein Analyse-Dienst in der App.</li>
+      <li><strong>iPhone und iPad, immer synchron</strong>Über Apples CloudKit in deiner privaten iCloud. Abschalten kannst du den Abgleich in den iOS-Einstellungen.</li>
+      <li><strong>Nur die ISBN verlässt das Gerät</strong>Beim Nachschlagen von Buchdaten, ohne Nutzerkennung. Sonst arbeitet die App auch offline.</li>
+    </ul>
   </section>
 
   <section class="feature">
