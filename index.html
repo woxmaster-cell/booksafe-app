@@ -6,6 +6,7 @@
 <title>BookSafe — Deine Bibliothek. Schön, schnell, privat.</title>
 <meta name="description" content="BookSafe ist die Buch-App ohne Konto, ohne Tracking, ohne Abo — Bibliothek, Wunschliste und Lesestatistik für iPhone, iPad und Apple Watch. Kostenlos bis 50 Bücher.">
 <link rel="icon" type="image/png" href="assets/app-icon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/">
 <meta property="og:title" content="BookSafe — Deine Bibliothek. Schön, schnell, privat.">
@@ -47,6 +48,8 @@
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Das <picture> um jeden Screenshot soll keine eigene Box bilden. */
+  picture { display: contents; }
   html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -468,13 +471,43 @@
   }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BookSafe",
+  "url": "https://booksafe.app/",
+  "applicationCategory": "BookApplication",
+  "operatingSystem": "iOS 18.0, watchOS 11.0",
+  "softwareVersion": "1.1",
+  "inLanguage": [
+    "de",
+    "en"
+  ],
+  "description": "Buchverwaltung für iPhone, iPad und Apple Watch: Bücher per ISBN scannen, Lesefortschritt verfolgen, Reihen im Blick behalten. Kein Konto, kein Tracking, keine fremden Server. Kostenlos bis 50 Bücher; BookSafe Pro hebt das Limit einmalig für 3,99 € auf, ohne Abo.",
+  "image": "https://booksafe.app/assets/og-de.jpg",
+  "screenshot": "https://booksafe.app/assets/de-today.jpg",
+  "downloadUrl": "https://apps.apple.com/de/app/booksafe/id6779730178",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Sisofa",
+    "url": "https://booksafe.app/",
+    "email": "kontakt@sisofa.de"
+  }
+}
+</script>
 </head>
 <body>
 
 <header class="hero">
   <div class="hero-bar">
     <span class="hero-brand">
-      <img src="assets/app-icon.png" alt="BookSafe App-Icon" width="36" height="36">
+      <picture><source srcset="assets/app-icon.webp" type="image/webp"><img src="assets/app-icon.png" alt="BookSafe App-Icon" width="36" height="36"></picture>
       BookSafe
     </span>
     <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
@@ -501,10 +534,10 @@
     </ul>
 
     <div class="hero-shots">
-      <img class="shot-today" src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages und Jahresziel" width="720" height="1564">
-      <img class="shot-library" src="assets/de-library.jpg" alt="Bibliothek mit Lesestatus und Leihfristen" width="720" height="1564">
+      <picture><source srcset="assets/de-today.webp" type="image/webp"><img class="shot-today" src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages und Jahresziel" width="720" height="1564"></picture>
+      <picture><source srcset="assets/de-library.webp" type="image/webp"><img class="shot-library" src="assets/de-library.jpg" alt="Bibliothek mit Lesestatus und Leihfristen" width="720" height="1564"></picture>
       <span class="shot-watch">
-        <img src="assets/de-watch.jpg" alt="Laufende Lesesitzung auf der Apple Watch" width="720" height="1062">
+        <picture><source srcset="assets/de-watch.webp" type="image/webp"><img src="assets/de-watch.jpg" alt="Laufende Lesesitzung auf der Apple Watch" width="720" height="1062"></picture>
       </span>
     </div>
   </div>
@@ -534,7 +567,7 @@
         <li>Auf dem iPad zweispaltig — mit „Was ansteht" und „Zuletzt beendet".</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages, Jahresziel und Terminen" loading="lazy" width="720" height="1564"></div>
+    <div class="shot"><picture><source srcset="assets/de-today.webp" type="image/webp"><img src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages, Jahresziel und Terminen" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <section class="feature">
@@ -547,7 +580,7 @@
         <li>Auch Sonderbände wie <strong>„Band 8,5"</strong> werden richtig einsortiert.</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-detail.jpg" alt="Buchdetail-Ansicht mit Reiheninformation" loading="lazy" width="720" height="1564"></div>
+    <div class="shot"><picture><source srcset="assets/de-detail.webp" type="image/webp"><img src="assets/de-detail.jpg" alt="Buchdetail-Ansicht mit Reiheninformation" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <section class="feature">
@@ -560,7 +593,7 @@
         <li>Keine versteckten Kosten, keine Werbung — einmal kaufen, für immer deins.</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-paywall.jpg" alt="BookSafe Pro — einmaliger Kauf statt Abo" loading="lazy" width="720" height="1564"></div>
+    <div class="shot"><picture><source srcset="assets/de-paywall.webp" type="image/webp"><img src="assets/de-paywall.jpg" alt="BookSafe Pro — einmaliger Kauf statt Abo" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <section class="feature">
@@ -573,7 +606,7 @@
         <li>Am Erscheinungstag feiert BookSafe mit großem Cover und einem kleinen <strong>Feuerwerk</strong> — Widgets für Home- und Sperrbildschirm inklusive.</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-stats.jpg" alt="Lesestatistiken in BookSafe" loading="lazy" width="720" height="1564"></div>
+    <div class="shot"><picture><source srcset="assets/de-stats.webp" type="image/webp"><img src="assets/de-stats.jpg" alt="Lesestatistiken in BookSafe" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <section class="feature">
@@ -586,7 +619,7 @@
         <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen.</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-yearinreview.jpg" alt="Jahresrückblick mit Kennzahlen und Top-3-Podest" loading="lazy" width="720" height="1564"></div>
+    <div class="shot"><picture><source srcset="assets/de-yearinreview.webp" type="image/webp"><img src="assets/de-yearinreview.jpg" alt="Jahresrückblick mit Kennzahlen und Top-3-Podest" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <section class="feature feature--watch">
@@ -599,7 +632,7 @@
         <li>Am Ende die <strong>Endseite über die Krone</strong> einstellen — Fortschritt und Lesezeit landen in deiner Statistik.</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/de-watch.jpg" alt="BookSafe auf der Apple Watch Ultra: laufende Lesesitzung mit Timer" loading="lazy" width="720" height="1062"></div>
+    <div class="shot"><picture><source srcset="assets/de-watch.webp" type="image/webp"><img src="assets/de-watch.jpg" alt="BookSafe auf der Apple Watch Ultra: laufende Lesesitzung mit Timer" loading="lazy" width="720" height="1062"></picture></div>
   </section>
 
   <section class="pro">

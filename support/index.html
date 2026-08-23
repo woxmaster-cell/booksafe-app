@@ -6,6 +6,7 @@
 <title>BookSafe — Support &amp; Datenschutz</title>
 <meta name="description" content="Support, häufige Fragen und Datenschutzerklärung der BookSafe-App für iPhone und iPad — kein Konto, kein Tracking, deine Daten nur auf deinem Gerät und in deiner privaten iCloud.">
 <link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/support/">
 <link rel="stylesheet" href="../assets/tokens.css">
@@ -34,6 +35,8 @@
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Das <picture> um jeden Screenshot soll keine eigene Box bilden. */
+  picture { display: contents; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
@@ -96,7 +99,7 @@
 
 <header>
   <a class="lang-switch" href="../en/support/" hreflang="en" lang="en">English</a>
-  <img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72">
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
   <h1>Support &amp; Datenschutz</h1>
   <p class="sub">BookSafe für iPhone und iPad</p>
   <a class="home" href="../">← Zur Startseite</a>

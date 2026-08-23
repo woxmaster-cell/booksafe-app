@@ -6,6 +6,7 @@
 <title>BookSafe — Press</title>
 <meta name="description" content="Press kit for BookSafe, the book manager for iPhone, iPad and Apple Watch: key facts, core features, privacy facts, screenshots and app icon to download — no account, no tracking, only your private iCloud.">
 <link rel="icon" type="image/png" href="../../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/presse/">
 <link rel="stylesheet" href="../../assets/tokens.css">
@@ -34,6 +35,8 @@
     }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Das <picture> um jeden Screenshot soll keine eigene Box bilden. */
+  picture { display: contents; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
@@ -111,7 +114,7 @@
 
 <header>
   <a class="lang-switch" href="../../presse/" hreflang="de" lang="de">Deutsch</a>
-  <img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72">
+  <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
   <h1>Press</h1>
   <p class="sub">Press kit for BookSafe 1.1</p>
   <a class="home" href="../">← Back to home</a>
@@ -192,13 +195,13 @@
     <p><a href="../../assets/app-icon-1024.png" download>app-icon-1024.png</a> — App Store resolution (1024 × 1024 px)</p>
     <h3>Screenshots</h3>
     <div class="shots">
-      <a href="../../assets/en-today.jpg" download><img src="../../assets/en-today.jpg" alt="Today tab with the daily page" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-library.jpg" download><img src="../../assets/en-library.jpg" alt="Library view" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-detail.jpg" download><img src="../../assets/en-detail.jpg" alt="Book detail with series information" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-stats.jpg" download><img src="../../assets/en-stats.jpg" alt="Statistics" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-yearinreview.jpg" download><img src="../../assets/en-yearinreview.jpg" alt="Year in review with the top-3 podium" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-paywall.jpg" download><img src="../../assets/en-paywall.jpg" alt="BookSafe Pro" loading="lazy" width="720" height="1564"></a>
-      <a href="../../assets/en-watch.jpg" download><img src="../../assets/en-watch.jpg" alt="Reading session running on Apple Watch" loading="lazy" width="720" height="1062"></a>
+      <a href="../../assets/en-today.jpg" download><picture><source srcset="../../assets/en-today.webp" type="image/webp"><img src="../../assets/en-today.jpg" alt="Today tab with the daily page" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-library.jpg" download><picture><source srcset="../../assets/en-library.webp" type="image/webp"><img src="../../assets/en-library.jpg" alt="Library view" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-detail.jpg" download><picture><source srcset="../../assets/en-detail.webp" type="image/webp"><img src="../../assets/en-detail.jpg" alt="Book detail with series information" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-stats.jpg" download><picture><source srcset="../../assets/en-stats.webp" type="image/webp"><img src="../../assets/en-stats.jpg" alt="Statistics" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-yearinreview.jpg" download><picture><source srcset="../../assets/en-yearinreview.webp" type="image/webp"><img src="../../assets/en-yearinreview.jpg" alt="Year in review with the top-3 podium" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-paywall.jpg" download><picture><source srcset="../../assets/en-paywall.webp" type="image/webp"><img src="../../assets/en-paywall.jpg" alt="BookSafe Pro" loading="lazy" width="720" height="1564"></picture></a>
+      <a href="../../assets/en-watch.jpg" download><picture><source srcset="../../assets/en-watch.webp" type="image/webp"><img src="../../assets/en-watch.jpg" alt="Reading session running on Apple Watch" loading="lazy" width="720" height="1062"></picture></a>
     </div>
     <p class="note">German versions of the same screens, iPad shots and unframed originals are available on request — just send a short email.</p>
   </section>

@@ -1,0 +1,5 @@
+# BookSafe — booksafe.app
+User-agent: *
+Allow: /
+
+Sitemap: https://booksafe.app/sitemap.xml
