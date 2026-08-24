@@ -5,6 +5,7 @@
     <loc>https://booksafe.app/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>1.0</priority>
   </url>
@@ -12,6 +13,7 @@
     <loc>https://booksafe.app/en/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>1.0</priority>
   </url>
@@ -19,6 +21,7 @@
     <loc>https://booksafe.app/presse/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>0.8</priority>
   </url>
@@ -26,6 +29,7 @@
     <loc>https://booksafe.app/en/press/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>0.8</priority>
   </url>
@@ -33,6 +37,7 @@
     <loc>https://booksafe.app/support/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>0.6</priority>
   </url>
@@ -40,6 +45,7 @@
     <loc>https://booksafe.app/en/support/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
     <lastmod>2026-08-24</lastmod>
     <priority>0.6</priority>
   </url>
