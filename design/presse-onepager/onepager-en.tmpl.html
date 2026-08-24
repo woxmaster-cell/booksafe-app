@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BookSafe — Press Information</title>
+<style>
+  @font-face {
+    font-family: "Saira";
+    font-style: normal;
+    font-weight: 800;
+    font-stretch: 100%;
+    src: url(data:font/woff2;base64,__SAIRA__) format("woff2");
+  }
+  @font-face {
+    font-family: "Source Sans 3";
+    font-style: normal;
+    font-weight: 200 900;
+    src: url(data:font/woff2;base64,__SANS__) format("woff2");
+  }
+
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --navy: #1B3450;
+    --navy-2: #2C4B6B;
+    --gold: #C9A961;
+    --gold-deep: #9A7E3F;
+    --ink: #22334A;
+    --muted: #5A6B82;
+    --hairline: rgba(27, 52, 80, 0.16);
+    --panel: #F7F5F1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #8A929C; }
+  body {
+    font-family: "Source Sans 3", sans-serif;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .masthead {
+    background: linear-gradient(150deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: #F2F5F9;
+    padding: 26px 48px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand img { width: 54px; height: 54px; border-radius: 13px; display: block; }
+  .brand-name {
+    font-family: "Saira", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .brand-sub { font-size: 14px; color: rgba(242, 245, 249, 0.82); margin-top: 2px; }
+  .doctype { text-align: right; flex-shrink: 0; }
+  .doctype-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .doctype-meta { font-size: 14px; color: rgba(242, 245, 249, 0.82); margin-top: 5px; }
+
+  .body { flex-grow: 1; padding: 30px 48px 0; display: flex; flex-direction: column; }
+  .claim {
+    font-family: "Saira", sans-serif;
+    font-weight: 800;
+    font-size: 38px;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+  .claim em { font-style: normal; color: var(--gold-deep); }
+  .claim-rule { width: 56px; height: 3px; background: var(--gold-deep); margin: 16px 0; }
+  .intro { font-size: 16px; color: var(--muted); }
+  .intro strong { color: var(--ink); font-weight: 600; }
+
+  .facts {
+    background: var(--panel);
+    border-top: 2px solid var(--gold-deep);
+    padding: 16px 22px 14px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 34px;
+    row-gap: 11px;
+  }
+  .fact { display: grid; grid-template-columns: 84px minmax(0, 1fr); column-gap: 12px; align-items: baseline; }
+  .fact dt {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+  }
+  .fact dd { font-size: 14px; }
+
+  .cols {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr);
+    column-gap: 34px;
+  }
+  h2 {
+    font-family: "Saira", sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--navy);
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 13px;
+  }
+  .features { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .features strong { display: block; font-weight: 600; font-size: 16px; }
+  .features span { display: block; font-size: 14px; color: var(--muted); }
+
+  .privacy { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .privacy li { font-size: 14px; color: var(--muted); padding-left: 15px; position: relative; }
+  .privacy li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .privacy li strong { color: var(--ink); font-weight: 600; }
+  .quote-fact {
+    font-family: "Saira", sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .quote-fact span {
+    display: block;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 400;
+    font-size: 12.5px;
+    letter-spacing: 0;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+
+  .note {
+    margin-top: 18px;
+    border-left: 3px solid var(--gold-deep);
+    background: var(--panel);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .note strong { color: var(--ink); font-weight: 600; }
+
+  footer {
+    margin-top: auto;
+    border-top: 1px solid var(--hairline);
+    padding: 14px 0 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  footer strong { color: var(--ink); font-weight: 600; }
+  footer a { color: var(--gold-deep); text-decoration: none; }
+  .foot-right { text-align: right; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="brand">
+      <img src="data:image/jpeg;base64,__ICON__" alt="BookSafe app icon">
+      <div>
+        <div class="brand-name">BookSafe</div>
+        <div class="brand-sub">Book manager for iPhone, iPad and Apple Watch</div>
+      </div>
+    </div>
+    <div class="doctype">
+      <div class="doctype-label">Press Information</div>
+      <div class="doctype-meta">Version 1.1 &#183; August 2026</div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <p class="claim">Your library belongs to <em>you.</em></p>
+    <div class="claim-rule"></div>
+
+    <p class="intro">BookSafe is a book manager for iPhone, iPad and Apple Watch: scan books by ISBN, track your reading, stay on top of series. What sets it apart from Goodreads and StoryGraph: <strong>no account, no tracking, no third-party servers.</strong> Data lives on the device and syncs only through the user&#8217;s own private iCloud. Built by a family in southern Germany.</p>
+
+    <dl class="facts">
+      <div class="fact"><dt>Platform</dt><dd>iPhone, iPad, Apple Watch</dd></div>
+      <div class="fact"><dt>Price</dt><dd>Free for up to 50 books</dd></div>
+      <div class="fact"><dt>Version</dt><dd>1.1 &#183; iOS 18.0 / watchOS 11.0</dd></div>
+      <div class="fact"><dt>Pro</dt><dd>&#8364;3.99 one-time, no subscription</dd></div>
+      <div class="fact"><dt>Languages</dt><dd>German and English</dd></div>
+      <div class="fact"><dt>Category</dt><dd>Books &#183; Productivity &#183; 4+</dd></div>
+      <div class="fact"><dt>Developer</dt><dd>Sisofa, southern Germany</dd></div>
+      <div class="fact"><dt>App Store</dt><dd>apps.apple.com/app/booksafe</dd></div>
+    </dl>
+
+    <div class="cols">
+      <section>
+        <h2>Five key features</h2>
+        <ul class="features">
+          <li><strong>Add books in seconds</strong><span>Scan an ISBN and title, author, cover and publisher arrive automatically. CSV import handles Goodreads exports.</span></li>
+          <li><strong>From reading day to reading year</strong><span>Daily page, reading sessions with a timer, statistics, a yearly challenge &#8212; and at year&#8217;s end, a year in review as a film.</span></li>
+          <li><strong>Wishlist, countdown and library loans</strong><span>A widget counts down the days to release; borrowed books carry a countdown that reminds you before they are due back.</span></li>
+          <li><strong>Start from your wrist</strong><span>New in 1.1: start a reading session on Apple Watch &#8212; even with no iPhone in range.</span></li>
+          <li><strong>Series that finally add up</strong><span>Volume numbers from several library catalogues &#8212; special volumes such as &#8220;book 8.5&#8221; included.</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Privacy &#8212; the facts</h2>
+        <p class="quote-fact">&#8220;Data Not Collected.&#8221;<span>App Store privacy label</span></p>
+        <ul class="privacy">
+          <li><strong>No user account</strong>, no sign-up, no email address.</li>
+          <li><strong>No analytics SDK</strong>, no ad network, no third-party frameworks.</li>
+          <li>Sync through <strong>Apple&#8217;s CloudKit</strong> in the private iCloud &#8212; no developer access.</li>
+          <li>Outgoing connections only for book metadata &#8212; carrying the <strong>ISBN, never a user identifier</strong>.</li>
+          <li><strong>Export any time</strong> as CSV or PDF.</li>
+          <li>No in-app review prompt.</li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="note"><strong>A note for quoting:</strong> BookSafe is not &#8220;end-to-end encrypted&#8221;, and as of 1.0 it is no longer &#8220;fully offline&#8221; either. The accurate phrasing is: no third-party servers, only your own private iCloud, works offline.</p>
+
+    <footer>
+      <div>
+        <strong>Press contact:</strong> Sisofa &#183; <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a><br>
+        Review codes for BookSafe Pro are free &#8212; just drop us a line.
+      </div>
+      <div class="foot-right">
+        <strong>Press kit</strong> with screenshots and app icon:<br>
+        <a href="https://booksafe.app/en/press/">booksafe.app/en/press</a>
+      </div>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
