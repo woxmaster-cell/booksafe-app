@@ -3,12 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Deine Bibliothek. Schön, schnell, privat.</title>
 <meta name="description" content="BookSafe ist die Buch-App ohne Konto, ohne Tracking, ohne Abo — Bibliothek, Wunschliste und Lesestatistik für iPhone, iPad und Apple Watch. Kostenlos bis 50 Bücher.">
 <link rel="icon" type="image/png" href="assets/app-icon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/">
 <meta property="og:title" content="BookSafe — Deine Bibliothek. Schön, schnell, privat.">
 <meta property="og:description" content="Die Buch-App ohne Konto, ohne Tracking, ohne Abo — für iPhone, iPad und Apple Watch.">
 <meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
@@ -537,11 +540,22 @@
   "image": "https://booksafe.app/assets/og-de.jpg",
   "screenshot": "https://booksafe.app/assets/de-today.jpg",
   "downloadUrl": "https://apps.apple.com/de/app/booksafe/id6779730178",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "BookSafe",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "Kostenlos bis 50 Bücher."
+    },
+    {
+      "@type": "Offer",
+      "name": "BookSafe Pro",
+      "price": "3.99",
+      "priceCurrency": "EUR",
+      "description": "Einmalkauf ohne Abo — hebt das Limit von 50 Büchern auf."
+    }
+  ],
   "author": {
     "@type": "Organization",
     "name": "Sisofa",

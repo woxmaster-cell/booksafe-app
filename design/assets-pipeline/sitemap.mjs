@@ -14,6 +14,8 @@ const WURZEL = path.resolve(import.meta.dirname, '../..');
 const BASIS = 'https://booksafe.app';
 
 // Jedes Paar ist dieselbe Seite in beiden Sprachen; die Prioritaet gilt fuer beide.
+// x-default zeigt auf die deutsche Fassung: sie liegt unter der nackten URL und
+// ist die Seite, die Besucher ohne passende Sprache bekommen sollen.
 const PAARE = [
   { de: { pfad: 'index.html',            url: '/' },
     en: { pfad: 'en/index.html',         url: '/en/' },        prioritaet: '1.0' },
@@ -45,6 +47,7 @@ for (const { de, en, prioritaet } of PAARE) {
       `    <loc>${BASIS}${seite.url}</loc>`,
       `    <xhtml:link rel="alternate" hreflang="de" href="${BASIS}${de.url}"/>`,
       `    <xhtml:link rel="alternate" hreflang="en" href="${BASIS}${en.url}"/>`,
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASIS}${de.url}"/>`,
       `    <lastmod>${commitDatum(seite.pfad)}</lastmod>`,
       `    <priority>${prioritaet}</priority>`,
       '  </url>',
