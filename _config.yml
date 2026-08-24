@@ -1,0 +1,22 @@
+# GitHub Pages baut die Seite mit Jekyll, solange keine .nojekyll-Datei
+# existiert. Diese Datei aendert daran nichts — sie sagt dem vorhandenen
+# Build nur, welche Ordner nicht ins Ergebnis gehoeren.
+#
+# design/ ist Arbeitsmaterial: Entwurfsdateien, Schriften, Vorlagen und die
+# Skripte, mit denen One-Pager und Sharing-Karte erzeugt werden. Das gehoert
+# ins Repository, aber nicht unter booksafe.app — die fertigen Dateien liegen
+# in assets/ und werden von den Presse-Seiten verlinkt.
+#
+# Die Liste ersetzt Jekylls Standardausschluesse, deshalb stehen sie mit drin.
+exclude:
+  - design
+  - .sass-cache/
+  - .jekyll-cache/
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles
+  - node_modules
+  - vendor/
+
+# Keine Jekyll-Verarbeitung der HTML-Dateien: sie haben kein Front Matter und
+# werden unveraendert kopiert. Hier steht bewusst nichts weiter.
