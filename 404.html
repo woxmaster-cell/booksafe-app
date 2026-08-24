@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookSafe — Seite nicht gefunden</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/assets/app-icon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/tokens.css">
+<link rel="stylesheet" href="/assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 48px 24px;
+    background: linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 46%, var(--web-dark-bg) 100%);
+    color: var(--web-hero-text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { width: 100%; max-width: 640px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; display: block; }
+  .brand span { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+  .rule { width: 56px; height: 3px; background: var(--gold); margin: 24px 0; }
+  p { font-size: 18px; color: var(--web-hero-text-muted); }
+  p + p { margin-top: 10px; }
+  p.en { font-size: 16px; color: var(--web-hero-text-faint); }
+  nav { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  nav a {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--web-hero-text);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 9px 20px;
+  }
+  nav a:hover { background: var(--web-hero-pill-hover-fill); }
+  nav a.stark { background: var(--gold); border-color: var(--gold); color: var(--brand-navy); }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <img src="/assets/app-icon.png" alt="BookSafe App-Icon" width="40" height="40">
+      <span>BookSafe</span>
+    </div>
+
+    <h1>Diese Seite gibt es nicht.</h1>
+    <div class="rule"></div>
+    <p>Vielleicht hat sich ein Tippfehler eingeschlichen, oder die Adresse ist älter als die Seite.</p>
+    <p class="en" lang="en">This page does not exist — the address may be outdated.</p>
+
+    <nav>
+      <a class="stark" href="/">Zur Startseite</a>
+      <a href="/presse/">Presse</a>
+      <a href="/support/">Support &amp; Datenschutz</a>
+      <a href="/en/" hreflang="en" lang="en">English</a>
+    </nav>
+  </div>
+</body>
+</html>

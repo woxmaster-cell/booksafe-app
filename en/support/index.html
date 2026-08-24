@@ -20,8 +20,13 @@
 <link rel="alternate" hreflang="de" href="https://booksafe.app/support/">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/">
 <link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/fonts.css">
 <style>
   :root {
+    /* Im Druck gilt immer der dunkle Textton — der Dunkelmodus des
+       Geraets darf nicht auf weisses Papier durchschlagen. */
+    --ink-print: #22334A;
+    --muted-print: #5A6B82;
     --navy: var(--brand-navy);
     --navy-2: var(--brand-navy-light);
     --gold: var(--brand-gold);
@@ -87,6 +92,10 @@
     padding: 24px 26px;
     margin-bottom: 24px;
   }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift.
+     Ohne das steht die Presse-Seite in einer anderen Schrift als die Seite,
+     von der die Leserin gerade kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
   h2 { font-size: 22px; margin-bottom: 6px; }
   h3 { font-size: 17px; margin: 22px 0 4px; }
   .updated { color: var(--muted); font-size: 13.5px; }
@@ -131,6 +140,54 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+  }
+
+  /* ---------- Druck ---------- */
+  /* Diese Seite wird tatsaechlich ausgedruckt oder als PDF gesichert —
+     Redaktionen machen das mit dem Presse-Kit, Nutzerinnen mit der
+     Datenschutzerklaerung. Ohne eigene Regeln flutet der Navy-Kopf eine
+     Viertelseite mit Farbe, und Links verlieren beim Druck ihr Ziel. */
+  @media print {
+    header {
+      background: none;
+      color: var(--ink-print);
+      padding: 0 0 24px;
+      text-align: left;
+      border-bottom: 2px solid var(--gold-deep);
+    }
+    header .sub { color: var(--muted-print); }
+    header .icon { width: 56px; height: 56px; margin: 0 0 12px; box-shadow: none; }
+    /* Sprachumschalter und Zurueck-Link fuehren auf Papier ins Leere. */
+    header .lang-switch, header .home { display: none; }
+
+    body { background: #fff; color: var(--ink-print); font-size: 11pt; }
+    main { max-width: none; padding: 0; }
+    section.card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0 0 18pt;
+      /* Eine Karte soll nicht mitten im Satz auf die naechste Seite rutschen. */
+      break-inside: avoid;
+    }
+    h2 { break-after: avoid; }
+
+    /* Ein Link ohne sichtbares Ziel ist auf Papier wertlos. */
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 9pt;
+      color: #555;
+      word-break: break-all;
+    }
+    /* Ausser bei den Downloads: dort steht der Dateiname schon im Text. */
+    a[download]::after { content: none; }
+
+    /* Die Screenshot-Kacheln sind auf Papier Beleg, nicht Hauptsache. */
+    .shots { grid-template-columns: repeat(4, 1fr); gap: 8pt; }
+    .shots img { border: 1px solid #bbb; }
+
+    footer { border-top: 1px solid #bbb; padding: 12pt 0 0; text-align: left; }
   }
 </style>
 </head>
