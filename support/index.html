@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BookSafe — Support &amp; Datenschutz</title>
 <meta name="description" content="Support, häufige Fragen und Datenschutzerklärung der BookSafe-App für iPhone und iPad — kein Konto, kein Tracking, deine Daten nur auf deinem Gerät und in deiner privaten iCloud.">
+<meta property="og:title" content="BookSafe — Support &amp; Datenschutz">
+<meta property="og:description" content="Häufige Fragen, Kontakt und die vollständige Datenschutzerklärung: kein Konto, kein Tracking, nur deine private iCloud.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/support/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="../assets/app-icon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/">
@@ -93,6 +103,35 @@
   footer nav { margin-bottom: 12px; }
   footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
   footer nav a:hover { text-decoration: underline; }
+
+  /* B — Sichtbarer Fokus fuer Tastaturnutzung. Bisher gab es keine :focus-Regel;
+     der Standard-Umriss des Browsers ist fast schwarz und auf dem Navy-Kopf
+     praktisch unsichtbar. Navy auf dem hellen Grund, Gold auf den dunklen
+     Flaechen — beide Kombinationen liegen ueber 5:1. */
+  /* Kein border-radius hier: der Umriss folgt in modernen Browsern von selbst
+     der Rundung des Elements — eine eigene Angabe wuerde die Pillenform des
+     Sprachumschalters beim Fokussieren zu einem Rechteck machen. */
+  :focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+  .hero :focus-visible,
+  header :focus-visible,
+  .pro :focus-visible {
+    outline-color: var(--gold);
+  }
+
+  /* C — Wer im System „Bewegung reduzieren“ eingestellt hat, bekommt kein
+     weiches Scrollen und keine Uebergaenge mehr. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -101,7 +140,7 @@
   <a class="lang-switch" href="../en/support/" hreflang="en" lang="en">English</a>
   <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
   <h1>Support &amp; Datenschutz</h1>
-  <p class="sub">BookSafe für iPhone und iPad</p>
+  <p class="sub">BookSafe für iPhone, iPad und Apple Watch</p>
   <a class="home" href="../">← Zur Startseite</a>
 </header>
 
@@ -139,6 +178,7 @@
     <h3>Welche Daten verarbeitet die App?</h3>
     <ul>
       <li><strong>Deine Bibliothek</strong> (Bücher, Bewertungen, Notizen, Lesefortschritt, Lesesitzungen) wird <strong>auf deinem Gerät</strong> gespeichert und — wenn iCloud aktiviert ist — über <strong>deine private iCloud</strong> synchronisiert (siehe „iCloud-Sync“). Wir haben keinen Zugriff darauf.</li>
+      <li><strong>Apple Watch:</strong> Auf der Uhr liegen die Liste deiner Bücher am Lesen und die Daten der laufenden Lesesitzung — verstrichene Zeit und Seitenzahl. Sie bleiben auf der Uhr, bis sie sich mit deinem iPhone abgleichen; an uns oder an Dritte sendet die Uhr nichts.</li>
       <li><strong>Kamera:</strong> Beim ISBN-Scan wird die Kamera nur zum Erkennen des Barcodes genutzt. Es werden keine Bilder gespeichert oder übertragen.</li>
       <li><strong>Fotos:</strong> Wenn du selbst ein Cover aus deiner Fotomediathek auswählst, wird nur dieses eine Bild in die App übernommen.</li>
       <li><strong>Mitteilungen:</strong> Erscheinungs-Erinnerungen werden lokal auf deinem Gerät geplant.</li>

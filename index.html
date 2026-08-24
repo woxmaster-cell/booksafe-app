@@ -470,6 +470,35 @@
     .hero-shots .shot-watch { right: 56%; top: 25%; width: 44%; }
   }
 
+
+  /* B — Sichtbarer Fokus fuer Tastaturnutzung. Bisher gab es keine :focus-Regel;
+     der Standard-Umriss des Browsers ist fast schwarz und auf dem Navy-Kopf
+     praktisch unsichtbar. Navy auf dem hellen Grund, Gold auf den dunklen
+     Flaechen — beide Kombinationen liegen ueber 5:1. */
+  /* Kein border-radius hier: der Umriss folgt in modernen Browsern von selbst
+     der Rundung des Elements — eine eigene Angabe wuerde die Pillenform des
+     Sprachumschalters beim Fokussieren zu einem Rechteck machen. */
+  :focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+  .hero :focus-visible,
+  header :focus-visible,
+  .pro :focus-visible {
+    outline-color: var(--gold);
+  }
+
+  /* C — Wer im System „Bewegung reduzieren“ eingestellt hat, bekommt kein
+     weiches Scrollen und keine Uebergaenge mehr. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -535,7 +564,7 @@
 
     <div class="hero-shots">
       <picture><source srcset="assets/de-today.webp" type="image/webp"><img class="shot-today" src="assets/de-today.jpg" alt="Heute-Tab mit Spruch des Tages und Jahresziel" width="720" height="1564"></picture>
-      <picture><source srcset="assets/de-library.webp" type="image/webp"><img class="shot-library" src="assets/de-library.jpg" alt="Bibliothek mit Lesestatus und Leihfristen" width="720" height="1564"></picture>
+      <picture><source srcset="assets/de-library.webp" type="image/webp"><img fetchpriority="high" class="shot-library" src="assets/de-library.jpg" alt="Bibliothek mit Lesestatus und Leihfristen" width="720" height="1564"></picture>
       <span class="shot-watch">
         <picture><source srcset="assets/de-watch.webp" type="image/webp"><img src="assets/de-watch.jpg" alt="Laufende Lesesitzung auf der Apple Watch" width="720" height="1062"></picture>
       </span>

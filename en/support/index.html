@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BookSafe — Support &amp; Privacy</title>
 <meta name="description" content="Support, frequently asked questions, and privacy policy for the BookSafe app for iPhone and iPad — no account, no tracking, your data only on your device and in your private iCloud.">
+<meta property="og:title" content="BookSafe — Support &amp; Privacy">
+<meta property="og:description" content="Common questions, contact details and the full privacy policy: no account, no tracking, only your private iCloud.">
+<meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Your library belongs to you.">
+<meta property="og:url" content="https://booksafe.app/en/support/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="../../assets/app-icon.png">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/support/">
@@ -93,6 +103,35 @@
   footer nav { margin-bottom: 12px; }
   footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
   footer nav a:hover { text-decoration: underline; }
+
+  /* B — Sichtbarer Fokus fuer Tastaturnutzung. Bisher gab es keine :focus-Regel;
+     der Standard-Umriss des Browsers ist fast schwarz und auf dem Navy-Kopf
+     praktisch unsichtbar. Navy auf dem hellen Grund, Gold auf den dunklen
+     Flaechen — beide Kombinationen liegen ueber 5:1. */
+  /* Kein border-radius hier: der Umriss folgt in modernen Browsern von selbst
+     der Rundung des Elements — eine eigene Angabe wuerde die Pillenform des
+     Sprachumschalters beim Fokussieren zu einem Rechteck machen. */
+  :focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+  .hero :focus-visible,
+  header :focus-visible,
+  .pro :focus-visible {
+    outline-color: var(--gold);
+  }
+
+  /* C — Wer im System „Bewegung reduzieren“ eingestellt hat, bekommt kein
+     weiches Scrollen und keine Uebergaenge mehr. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -101,7 +140,7 @@
   <a class="lang-switch" href="../../support/" hreflang="de" lang="de">Deutsch</a>
   <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
   <h1>Support &amp; Privacy</h1>
-  <p class="sub">BookSafe for iPhone and iPad</p>
+  <p class="sub">BookSafe for iPhone, iPad and Apple Watch</p>
   <a class="home" href="../">← Back to home</a>
 </header>
 
@@ -139,6 +178,7 @@
     <h3>What data does the app process?</h3>
     <ul>
       <li><strong>Your library</strong> (books, ratings, notes, reading progress, reading sessions) is stored <strong>on your device</strong> and — if iCloud is enabled — synced via <strong>your private iCloud</strong> (see “iCloud sync”). We have no access to it.</li>
+      <li><strong>Apple Watch:</strong> The watch holds the list of books you are currently reading and the data of the running reading session — elapsed time and page number. It stays on the watch until it syncs with your iPhone; the watch sends nothing to us or to third parties.</li>
       <li><strong>Camera:</strong> During an ISBN scan, the camera is used only to detect the barcode. No images are stored or transmitted.</li>
       <li><strong>Photos:</strong> If you choose a cover from your photo library, only that single image is imported into the app.</li>
       <li><strong>Notifications:</strong> Release reminders are scheduled locally on your device.</li>
