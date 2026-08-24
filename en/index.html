@@ -289,6 +289,10 @@
   .feature {
     display: flex;
     align-items: center;
+    /* Die begrenzte Textbreite laesst Platz uebrig. Ohne space-between sammelt
+       er sich in den gespiegelten Reihen am linken Rand, und deren Inhalt steht
+       dann nicht mehr buendig zur Trennlinie. */
+    justify-content: space-between;
     gap: clamp(28px, 6vw, 72px);
     padding: 64px 0;
     border-bottom: 1px solid var(--hairline);
@@ -302,11 +306,20 @@
      die Regel und sehen den bisherigen Stand. */
   .feature:not(:has(~ .feature)) { border-bottom: none; }
   .feature:nth-of-type(even) { flex-direction: row-reverse; }
-  .feature .copy { flex: 1 1 320px; }
+  .feature .copy { flex: 1 1 320px; max-width: 34em; }
   .feature .shot { flex: 0 0 min(300px, 78vw); }
   .feature .shot img {
     border-radius: 22px;
     box-shadow: var(--shadow);
+  }
+  .feature .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background: currentColor;
   }
   .kicker {
     font-size: 13px;
@@ -316,10 +329,17 @@
     color: var(--gold-deep);
     margin-bottom: 10px;
   }
+  /* Hero und Aussage-Block tragen die Display-Schrift; die Sektions-
+     ueberschriften ziehen nach, sonst bricht die Seite ab der ersten
+     Feature-Zeile in die Systemschrift zurueck. Saira braucht bei diesen
+     Groessen etwas mehr negative Laufweite als die Systemschrift. */
+  .feature h2,
+  .pro h2,
+  .family h2,
+  .press h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .feature h2 {
     font-size: clamp(24px, 3.6vw, 34px);
     font-weight: 800;
-    letter-spacing: -0.015em;
     line-height: 1.2;
     margin-bottom: 14px;
   }
