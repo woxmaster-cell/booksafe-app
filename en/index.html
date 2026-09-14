@@ -120,6 +120,38 @@
   }
   .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
 
+  /* Hinweis auf die Detailseite zur aktuellen Version, direkt unter der
+     Markenzeile. Bewusst eine Pille wie der Sprachumschalter, aber in Gold:
+     Sie ist ein Angebot, keine zweite Navigation — und Gold ist auf dem Navy
+     der Ton, mit dem die Seite ohnehin betont. */
+  .hero-update {
+    max-width: 1280px;
+    margin: 14px auto 0;
+  }
+  .hero-update a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 6px 15px;
+  }
+  .hero-update a:hover {
+    background: var(--web-hero-pill-hover-fill);
+    text-decoration: underline;
+  }
+  .hero-update .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex: none;
+  }
+
   .hero-inner {
     max-width: 1280px;
     margin: 68px auto 0;
@@ -576,9 +608,11 @@
     <a class="lang-switch" href="../" hreflang="de" lang="de">Deutsch</a>
   </div>
 
+  <p class="hero-update"><a href="whats-new-1-2/"><span class="dot" aria-hidden="true"></span>New in version 1.2 — details</a></p>
+
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.1<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.2<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
       <h1>Your library<br>belongs to <em>you.</em></h1>
       <p class="sub">Scan books by ISBN, keep every series straight down to the half-volume, start a reading session from your wrist — no account, no tracking, no subscription.</p>
       <div class="hero-cta">
