@@ -1,6 +1,6 @@
 # Presse-Onepager (A4)
 
-Einseitige Presse-Information zu BookSafe 1.1, deutsch und englisch, verdichtet
+Einseitige Presse-Information zu BookSafe 1.2, deutsch und englisch, verdichtet
 aus `presse/index.html` bzw. `en/press/index.html`.
 
 | Datei | Zweck |
@@ -20,7 +20,19 @@ beiden Presse-Seiten sie zum Download. Nach jeder Änderung also mitkopieren:
 `render.mjs` prüft dabei, ob der Inhalt noch aufs Blatt passt, ob das PDF
 einseitig bleibt und ob beide Schriften geladen sind — es endet mit
 Exit-Code 1, wenn eine Fassung durchfällt. Das Blatt schneidet sonst
-stillschweigend ab. Reserve über dem Fuß: rund 70 px (DE) bzw. 50 px (EN).
+stillschweigend ab.
+
+**Reserve über dem Fuß: 15 px in beiden Fassungen (Stand 1.2, vorher ~70/50 px).**
+Das Blatt ist damit voll. Wer etwas ergänzt, muss an anderer Stelle kürzen — und
+sieht am Exit-Code, ob es gereicht hat. Drei Erfahrungswerte aus dem 1.2-Umbau:
+
+* Ein zusätzlicher Aufzählungspunkt in der halbbreiten Funktionsspalte kostet rund
+  **85 px**; dieselbe Aussage im vollbreiten Hinweiskasten nur rund **40 px**.
+  Deshalb steht der Neu-in-1.2-Absatz dort und nicht als sechster Punkt.
+* Eine Zeile der Funktionsspalte fasst etwa **90 Zeichen**. Wer darüber kommt,
+  zahlt eine weitere Zeile, also 21 px.
+* Die **linke Spalte ist der Treiber** (gemessen 416 gegen 347 px Inhalt) — Kürzen
+  in der Datenschutz-Spalte bringt nichts, solange links mehr steht.
 
 ## Schriften
 
