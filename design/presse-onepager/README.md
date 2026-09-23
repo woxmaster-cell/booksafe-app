@@ -1,6 +1,6 @@
 # Presse-Onepager (A4)
 
-Einseitige Presse-Information zu BookSafe 1.2, deutsch und englisch, verdichtet
+Einseitige Presse-Information zu BookSafe 1.3, deutsch und englisch, verdichtet
 aus `presse/index.html` bzw. `en/press/index.html`.
 
 | Datei | Zweck |

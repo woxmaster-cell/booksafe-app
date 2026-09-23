@@ -19,6 +19,10 @@ const BASIS = 'https://booksafe.app';
 const PAARE = [
   { de: { pfad: 'index.html',            url: '/' },
     en: { pfad: 'en/index.html',         url: '/en/' },        prioritaet: '1.0' },
+  { de: { pfad: 'neu-in-1-3/index.html',  url: '/neu-in-1-3/' },
+    en: { pfad: 'en/whats-new-1-3/index.html', url: '/en/whats-new-1-3/' }, prioritaet: '0.8' },
+  { de: { pfad: 'neu-in-1-2/index.html',  url: '/neu-in-1-2/' },
+    en: { pfad: 'en/whats-new-1-2/index.html', url: '/en/whats-new-1-2/' }, prioritaet: '0.5' },
   { de: { pfad: 'presse/index.html',     url: '/presse/' },
     en: { pfad: 'en/press/index.html',   url: '/en/press/' },  prioritaet: '0.8' },
   { de: { pfad: 'support/index.html',    url: '/support/' },
