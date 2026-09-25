@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — What’s new in version 1.4</title>
+<meta name="description" content="What BookSafe 1.4 adds: moving from other book apps with ratings, reading dates and notes, series as a single entry, a location for printed books and sorting by last name.">
+<meta property="og:title" content="BookSafe — What’s new in version 1.4">
+<meta property="og:description" content="A feature update: moving with everything included, grouped series, a location for your books and sorting by last name — in more detail than the App Store release notes.">
+<meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Your library belongs to you.">
+<meta property="og:url" content="https://booksafe.app/en/whats-new-1-4/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/en/whats-new-1-4/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-4/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-4/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-4/">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+</style></head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../../neu-in-1-4/" hreflang="de" lang="de">Deutsch</a>
+  <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
+  <h1>What’s new in version 1.4</h1>
+  <p class="sub">On the App Store since 25 September 2026</p>
+  <a class="home" href="../">← Back to the home page</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.4 brings new features around your own library: if you are moving over from another book app, your ratings, reading dates and notes now come with you. Series can be grouped into a single entry, printed books get a location, and authors can be sorted by last name.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.4 · released on 25 September 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Moving from another book app with everything included</h3>
+    <p>Importing CSV files from other book apps now brings over each book’s <strong>rating, reading status, reading dates, shelves or tags, review and notes, series and volume, format and loan</strong> — previously only the ISBN came along. Anything BookSafe doesn’t know itself, such as purchase details, goes into a separate block in the book’s note, so nothing is lost. A rating on a ten-point scale is converted to five stars.</p>
+    <p>Books without an ISBN now come along too, and ISBNs that lost their leading zeros when the file was edited in Excel are repaired. Titles, covers and the other book details are filled in by the online search as before.</p>
+
+    <h3><span class="num">2</span>Group series</h3>
+    <p>A new switch under <strong>Settings → Appearance → “Group Series”</strong> shows every series with two or more books as a single entry in your library, with a cover and the number of books — in the list and in the grid. One tap opens the series with all its volumes. When you search, you still see the individual books. The switch starts out off, and it changes nothing about the library itself.</p>
+
+    <h3><span class="num">3</span>A location for your own books</h3>
+    <p>In the book detail and when adding a book, you can now record where a printed book lives: a place you name yourself, like “Living room bookcase”, and, if you like, a shelf. Places and shelves you have used before are offered for selection, so you only type them once. Library search finds books by their location, too. If an imported file includes location details, they are carried over.</p>
+
+    <h3><span class="num">4</span>“Author (Last Name)” sorting</h3>
+    <p>Next to the existing author sorting there is now <strong>“Author (Last Name)”</strong>: “Sebastian Fitzek” sits under F, “Ursula K. Le Guin” under L, “Ludwig van Beethoven” under B. The sorting is also available in the wishlist.</p>
+  </section>
+
+  <section class="card">
+    <h2>Fixed</h2>
+    <ul>
+      <li>some texts in the import dialog appeared in German in the English version</li>
+    </ul>
+    <p class="note">Plus many further refinements. What version 1.3 brought is on the <a href="../whats-new-1-3/">version 1.3 page</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Good to know</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Requirements</th><td>iPhone and iPad on iOS 18 or later, Apple Watch on watchOS 11 or later</td></tr>
+        <tr><th>Your data</th><td>No account, no tracking. Your library lives on your device and syncs through <strong>your own private iCloud</strong>.</td></tr>
+        <tr><th>Price</th><td>Free for up to 50 books. BookSafe Pro lifts the limit for good: €3.99 once, no subscription.</td></tr>
+        <tr><th>Updating</th><td>Comes through the App Store — on iPhone under “App Store → profile → update apps”.</td></tr>
+      </table>
+    </div>
+    <div class="store">
+      <a href="https://apps.apple.com/app/booksafe/id6779730178"><img src="../../assets/badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <a href="../">← Back to the home page</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#contact">Contact</a>
+    <a href="../../neu-in-1-4/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+</footer>
+
+</body>
+</html>

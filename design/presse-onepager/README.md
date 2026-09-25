@@ -1,6 +1,6 @@
 # Presse-Onepager (A4)
 
-Einseitige Presse-Information zu BookSafe 1.3, deutsch und englisch, verdichtet
+Einseitige Presse-Information zu BookSafe 1.4, deutsch und englisch, verdichtet
 aus `presse/index.html` bzw. `en/press/index.html`.
 
 | Datei | Zweck |
@@ -22,7 +22,7 @@ einseitig bleibt und ob beide Schriften geladen sind — es endet mit
 Exit-Code 1, wenn eine Fassung durchfällt. Das Blatt schneidet sonst
 stillschweigend ab.
 
-**Reserve über dem Fuß: 15 px in beiden Fassungen (Stand 1.2, vorher ~70/50 px).**
+**Reserve über dem Fuß: 34 px in beiden Fassungen (Stand 1.4; 1.2/1.3: 15 px, davor ~70/50 px).**
 Das Blatt ist damit voll. Wer etwas ergänzt, muss an anderer Stelle kürzen — und
 sieht am Exit-Code, ob es gereicht hat. Drei Erfahrungswerte aus dem 1.2-Umbau:
 
