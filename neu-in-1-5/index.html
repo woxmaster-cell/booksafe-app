@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — Neu in Version 1.5</title>
+<meta name="description" content="Was BookSafe 1.5 neu bringt: eigene Listen mit eigener Ansicht, Listen und Wunschliste teilen, die Lesesitzung auf dem Sperrbildschirm, Ausgabe wechseln und Sitzungen an der Uhr verwerfen.">
+<meta property="og:title" content="BookSafe — Neu in Version 1.5">
+<meta property="og:description" content="Ein Funktions-Update: eigene Listen, Teilen als Bild oder Text, Live-Aktivität für die Lesesitzung und Ausgabe wechseln — im Detail, ausführlicher als die Versionshinweise im App Store.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/neu-in-1-5/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/neu-in-1-5/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-5/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-5/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-5/">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../en/whats-new-1-5/" hreflang="en" lang="en">English</a>
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
+  <h1>Neu in Version 1.5</h1>
+  <p class="sub">Im App Store seit 27. September 2026</p>
+  <a class="home" href="../">← Zur Startseite</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.5 bringt eigene Listen: Bücher lassen sich selbst benannten Listen zuordnen, in einer eigenen Ansicht durchblättern und mit anderen teilen — ebenso die ganze Wunschliste. Eine laufende Lesesitzung erscheint jetzt auf dem Sperrbildschirm, eine falsch erwischte Ausgabe lässt sich tauschen, und an der Apple Watch lässt sich eine versehentlich gestartete Sitzung verwerfen.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.5 · veröffentlicht am 27. September 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Eigene Listen</h3>
+    <p>Bücher lassen sich jetzt selbst benannten Listen zuordnen — etwa „Herbstbücher“ oder „Urlaub 2027“; ein Buch darf in mehreren Listen stehen. Im Buchdetail heißt die Sektion dafür <strong>„Standort &amp; eigene Listen“</strong>: Ein Tipp auf „Listen“ öffnet die Auswahl zum Abhaken, dort legst du auch neue Listen an. Das geht ebenso beim Hinzufügen eines Buchs.</p>
+    <p>Unter <strong>„Sortieren &amp; Filtern“</strong> filtert der neue Block „Filter nach eigenen Listen“ die Bibliothek nach einer Liste, mit der Zahl der Bücher; langes Drücken benennt eine Liste um oder löscht sie. Die Suche findet Bücher auch über ihre Listen. Listen aus früheren Importen erscheinen automatisch.</p>
+
+    <h3><span class="num">2</span>Die Ansicht „Eigene Listen“</h3>
+    <p>In Bibliothek und Wunschliste gibt es neben Liste und Kacheln jetzt eine dritte Ansicht. Sie zeigt jede eigene Liste als Karussell mit Covern und der Zahl der Bücher. Über einen Knopf ordnest du mehrere Bücher auf einmal einer Liste zu. Eine geöffnete Liste hat ihre eigene Suche und ihre eigene Sortierung, die sich das Gerät merkt.</p>
+
+    <h3><span class="num">3</span>Listen und Wunschliste teilen</h3>
+    <p>Jede eigene Liste lässt sich teilen — als <strong>Story-Bild</strong> mit den Covern, dem Listennamen, der Anzahl und dem Lesefortschritt, oder als <strong>Text</strong> mit allen Büchern samt ISBN, passend für Nachrichten und Mail. Passt eine Liste nicht auf ein Bild, steht zuletzt „+ N weitere“; der Text enthält immer alle Bücher.</p>
+    <p>Ein neuer Knopf in der Wunschliste teilt auf dieselbe Weise die ganze Wunschliste, sortiert nach Priorität — praktisch für Familie und Freunde. Bücher, die noch erscheinen, tragen ihr Erscheinungsdatum, besonders gewünschte einen Stern.</p>
+
+    <h3><span class="num">4</span>Die Lesesitzung auf dem Sperrbildschirm</h3>
+    <p>Eine laufende Lesesitzung erscheint jetzt als <strong>Live-Aktivität</strong> auf dem Sperrbildschirm und in der Dynamic Island — mit Cover, Titel, Startseite und der laufenden Lesezeit. Pausieren und Fortsetzen geht direkt dort, ohne die App zu öffnen; läuft die Sitzung auch auf der Apple Watch, zieht die Uhr mit. Ein Tipp auf die Anzeige öffnet die Sitzung in der App.</p>
+
+    <h3><span class="num">5</span>Ausgabe wechseln</h3>
+    <p>Beim Hinzufügen die falsche Ausgabe erwischt, etwa das E-Book statt des Taschenbuchs? Im Buchdetail lässt sie sich unter <strong>„Weitere Aktionen → Ausgabe wechseln“</strong> gegen eine andere Ausgabe desselben Bands tauschen, statt das Buch zu löschen und neu anzulegen. Eine Vorschau zeigt vorher, was sich ändert. Lesestatus, Bewertung, Notizen, Lesesitzungen, Standort und eigene Listen bleiben erhalten, ein eigenes Cover-Foto ebenfalls, solange du nicht das neue Cover wählst. Die Funktion steht für Bücher einer Reihe zur Verfügung.</p>
+
+    <h3><span class="num">6</span>Lesesitzung an der Apple Watch verwerfen</h3>
+    <p>Versehentlich gestartet oder den Timer vergessen? Über das ✕ oben links im Timer der Uhr lässt sich eine Sitzung nach einer Rückfrage verwerfen. Sie verschwindet auf Uhr und iPhone und taucht nicht in der Statistik auf.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert und behoben</h2>
+    <ul>
+      <li>der Import von CSV-Dateien aus anderen Buch-Apps erkennt ein weiteres Format, übernimmt den Lagerort als Standort und liest mehr Datumsangaben</li>
+      <li>der PDF-Export der Bibliothek nimmt die Cover aus den auf dem Gerät gespeicherten Miniaturen — bei großen Bibliotheken deutlich schneller, und die Cover erscheinen auch ohne Netz</li>
+      <li>„Weitere Bände der Reihe“ ließ gelegentlich einen Band aus</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen. Was Version 1.4 gebracht hat, steht auf der <a href="../neu-in-1-4/">Seite zu Version 1.4</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Gut zu wissen</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Voraussetzung</th><td>iPhone und iPad ab iOS 18, Apple Watch ab watchOS 11</td></tr>
+        <tr><th>Deine Daten</th><td>Kein Konto, kein Tracking. Deine Bibliothek liegt auf deinem Gerät und gleicht sich über <strong>deine private iCloud</strong> ab.</td></tr>
+        <tr><th>Preis</th><td>Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit dauerhaft auf: einmalig 3,99 €, kein Abo.</td></tr>
+        <tr><th>Update</th><td>Kommt über den App Store — auf dem iPhone unter „App Store → Profil → Apps aktualisieren“.</td></tr>
+      </table>
+    </div>
+    <div class="store">
+      <a href="https://apps.apple.com/de/app/booksafe/id6779730178"><img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <a href="../">← Zurück zur Startseite</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Startseite</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#kontakt">Kontakt</a>
+    <a href="../en/whats-new-1-5/" hreflang="en" lang="en">English</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+</footer>
+
+</body>
+</html>
