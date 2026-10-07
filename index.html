@@ -561,6 +561,9 @@
     /* Auf dem Telefon traegt der Kicker nur noch die Neuigkeit: die volle
        Plattformliste bricht bei 390 px auf zwei Zeilen und schiebt den Strich weg. */
     .kicker-mid { display: none; }
+    /* Ebenso die Pille: „— Details“ braeche sie bei 390 px auf zwei Zeilen; der Link fuehrt
+       ohnehin zur Detailseite. */
+    .pill-more { display: none; }
     .hero-brand { font-size: 16px; gap: 10px; }
     .hero-brand img { width: 30px; height: 30px; border-radius: 8px; }
     .lang-switch { font-size: 13px; padding: 4px 12px; }
@@ -690,7 +693,7 @@
     <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
   </div>
 
-  <p class="hero-update"><a href="neu-in-1-6/"><span class="dot" aria-hidden="true"></span>Neu in 1.6: bereit fürs iPhone Duo — Details</a></p>
+  <p class="hero-update"><a href="neu-in-1-6/"><span class="dot" aria-hidden="true"></span>Neu in 1.6: bereit fürs iPhone Duo<span class="pill-more"> — Details</span></a></p>
 
   <div class="hero-inner">
     <div class="hero-copy">
