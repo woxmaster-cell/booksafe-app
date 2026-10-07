@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — What’s new in version 1.6</title>
+<meta name="description" content="What BookSafe 1.6 adds: ready for iPhone Duo, list and book side by side on iPad in landscape, ending a reading session from the Live Activity and editing past sessions.">
+<meta property="og:title" content="BookSafe — What’s new in version 1.6">
+<meta property="og:description" content="The device update: iPhone Duo with outer and inner display, two columns on iPad in landscape, ending from the Live Activity and editing sessions — in more detail than the App Store release notes.">
+<meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Your library belongs to you.">
+<meta property="og:url" content="https://booksafe.app/en/whats-new-1-6/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/en/whats-new-1-6/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-6/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-6/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-6/">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  /* iPhone Duo: beide Displays nebeneinander, im echten Groessenverhaeltnis
+     (innen 669 pt, aussen 466 pt breit) und unten buendig. */
+  .duo-figure {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 520px;
+  }
+  .duo-figure figure { margin: 0; }
+  .duo-figure .duo-open   { flex: 0 0 56.5%; }
+  .duo-figure .duo-closed { flex: 0 0 39.5%; }
+  .duo-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .duo-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  picture { display: contents; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+</style></head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../../neu-in-1-6/" hreflang="de" lang="de">Deutsch</a>
+  <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
+  <h1>What’s new in version 1.6</h1>
+  <p class="sub">On the App Store since 7 October 2026</p>
+  <a class="home" href="../">← Back to the home page</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.6 is the device update: the app is ready for iPhone Duo and uses both its outer and inner display. On iPad in landscape, list and book sit side by side, a running reading session can be ended straight from the Live Activity, and finished reading sessions can now be edited.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.6 · released 7 October 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Ready for iPhone Duo</h3>
+    <p>BookSafe uses both displays of iPhone Duo. <strong>Folded</strong>, the toolbar runs as a vertical bar along the right edge. So that filter, sorting and view don’t disappear into an overflow menu, they sit in their own row of chips above the list, and the buttons in sheets show ✕ and ✓ instead of text.</p>
+    <p><strong>Unfolded</strong>, the tiles in your library and your own lists line up with the fold: the number of columns is even, so no tile sits in the fold. “Today” and the statistics use the width in two columns. In landscape the list stays wide, and an open book shows the cover to the left of the fold and the details to the right.</p>
+    <p>In <strong>tabletop mode</strong> — half open on the table — the reading timer puts cover and reading time above the fold, with “Pause” and “End Session” below.</p>
+    <div class="duo-figure">
+      <figure class="duo-open">
+        <picture><source srcset="../../assets/en-duo-open.webp" type="image/webp"><img src="../../assets/en-duo-open.jpg" alt="BookSafe unfolded on iPhone Duo: the Today tab in two columns" loading="lazy" width="720" height="1023"></picture>
+        <figcaption>Unfolded</figcaption>
+      </figure>
+      <figure class="duo-closed">
+        <picture><source srcset="../../assets/en-duo-closed.webp" type="image/webp"><img src="../../assets/en-duo-closed.jpg" alt="BookSafe folded on iPhone Duo: the library with a vertical bar along the right edge" loading="lazy" width="720" height="1047"></picture>
+        <figcaption>Folded</figcaption>
+      </figure>
+    </div>
+
+    <h3><span class="num">2</span>iPad in landscape: list and book side by side</h3>
+    <p>On iPad in landscape, library and wishlist show the list on the left and the selected book on the right. The split stays in place while you search with the keyboard open. Portrait stays as you know it.</p>
+
+    <h3><span class="num">3</span>End a reading session from the Live Activity</h3>
+    <p>The reading session’s Live Activity now has an <strong>“End”</strong> button — on the Lock Screen and in the Dynamic Island. After unlocking, BookSafe opens straight to the end page. Because iOS only runs the button once you unlock, the session ends at that moment.</p>
+    <p>The expanded view in the Dynamic Island has been rearranged: the reading time sits in the control row and stays fully readable past the one-hour mark.</p>
+
+    <h3><span class="num">4</span>Edit past reading sessions</h3>
+    <p>In the book detail, every finished session has a pencil after its duration. It opens the <strong>“Session”</strong> sheet with date and time, duration and pages read. If you change the number of pages, the book’s reading progress moves by the difference.</p>
+    <p>From six sessions on, <strong>“All Sessions (n)”</strong> leads to the full list — where older sessions, previously out of reach, can be edited and deleted too. Deleting leaves the reading progress unchanged.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved and fixed</h2>
+    <ul>
+      <li>anthologies and collections without an author in the catalogue now take the editor as author</li>
+      <li>if a title or author is still missing, “Add Book” now tells you what’s missing instead of silently disabling the button</li>
+      <li>VoiceOver reads title, author and status in the tile view</li>
+      <li>in the reading timer, “Pause” and “End Session” stack when space is tight instead of wrapping</li>
+      <li>in a series opened from “Today” or the statistics, tapping a volume did nothing</li>
+      <li>in the release celebration in landscape, “Done” sat below the screen edge</li>
+      <li>milestone stamps now carry English names in the English interface</li>
+    </ul>
+    <p class="note">Plus many further refinements. What version 1.5 brought is on the <a href="../whats-new-1-5/">version 1.5 page</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Good to know</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Requirements</th><td>iPhone and iPad on iOS 18 or later, Apple Watch on watchOS 11 or later</td></tr>
+        <tr><th>Your data</th><td>No account, no tracking. Your library lives on your device and syncs through <strong>your own private iCloud</strong>.</td></tr>
+        <tr><th>Price</th><td>Free for up to 50 books. BookSafe Pro lifts the limit for good: €3.99 once, no subscription.</td></tr>
+        <tr><th>Updating</th><td>Comes through the App Store — on iPhone under “App Store → profile → update apps”.</td></tr>
+      </table>
+    </div>
+    <div class="store">
+      <a href="https://apps.apple.com/app/booksafe/id6779730178"><img src="../../assets/badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <a href="../">← Back to the home page</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#contact">Contact</a>
+    <a href="../../neu-in-1-6/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+</footer>
+
+</body>
+</html>

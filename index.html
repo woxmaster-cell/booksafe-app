@@ -398,6 +398,84 @@
   }
   .feature li strong { color: var(--text); font-weight: 650; }
 
+  /* ---------- iPhone Duo (1.6) ---------- */
+  /* Eigenes Band direkt unter dem Hero — das Highlight von 1.6. Es steht bewusst
+     AUSSERHALB von <main>: `.feature:nth-of-type(even)` zaehlt die <section>-Geschwister
+     in <main>; eine weitere Sektion dort drehte die Spiegelung aller Feature-Reihen um.
+     Die beiden Bilder stehen im echten Groessenverhaeltnis der Displays (innen 669 pt,
+     aussen 466 pt breit = 0,70) und schliessen unten buendig ab. */
+  .duo {
+    background: var(--panel);
+    border-bottom: 1px solid var(--hairline);
+    padding: 76px 24px 72px;
+  }
+  .duo-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 540px);
+    gap: clamp(28px, 6vw, 72px);
+    align-items: center;
+  }
+  .duo .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background: currentColor;
+  }
+  .duo h2 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4.6vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    margin-bottom: 16px;
+  }
+  .duo-text { font-size: 18px; color: var(--muted); margin-bottom: 20px; max-width: 30em; }
+  .duo ul { list-style: none; }
+  .duo li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    color: var(--muted);
+    font-size: 17px;
+  }
+  .duo li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .duo li strong { color: var(--text); font-weight: 650; }
+  .duo-more { margin-top: 18px; font-weight: 600; }
+  .duo-shots {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4%;
+  }
+  .duo-shots figure { margin: 0; }
+  .duo-shots .duo-open   { flex: 0 0 56.5%; }
+  .duo-shots .duo-closed { flex: 0 0 39.5%; }
+  .duo-shots img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+  .duo-shots figcaption {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+  }
+
   /* Uhr-Sektion (OPT-282): etwas breitere Karte. Die Telefon-Shots sind rohe
      Screenshots (720x1564) — das Geraet fuellt die Bildbreite ganz. Das Uhr-Motiv ist ein
      KOMPONIERTES Bild (720x1062) mit 73 px Eigenrand je Seite, die Uhr fuellt also nur
@@ -497,6 +575,10 @@
       margin-top: 40px;
     }
 
+    .duo { padding: 56px 24px 52px; }
+    .duo-inner { grid-template-columns: minmax(0, 1fr); }
+    .duo-shots { width: min(460px, 100%); margin: 0 auto; }
+
     .feature, .feature:nth-of-type(even) {
       flex-direction: column;
       text-align: left;
@@ -563,7 +645,7 @@
   "url": "https://booksafe.app/",
   "applicationCategory": "BookApplication",
   "operatingSystem": "iOS 18.0, watchOS 11.0",
-  "softwareVersion": "1.5",
+  "softwareVersion": "1.6",
   "inLanguage": [
     "de",
     "en"
@@ -608,11 +690,11 @@
     <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
   </div>
 
-  <p class="hero-update"><a href="neu-in-1-5/"><span class="dot" aria-hidden="true"></span>Neue Version 1.5 — Detailinformationen</a></p>
+  <p class="hero-update"><a href="neu-in-1-6/"><span class="dot" aria-hidden="true"></span>Neu in 1.6: bereit fürs iPhone Duo — Details</a></p>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.5<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.6 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
       <h1>Deine Bibliothek<br>gehört <em>dir.</em></h1>
       <p class="sub">Bücher per ISBN scannen, Reihen bis zum Sonderband im Griff, die Lesesitzung am Handgelenk starten — ohne Konto, ohne Tracking, ohne Abo.</p>
       <div class="hero-cta">
@@ -639,6 +721,32 @@
     </div>
   </div>
 </header>
+
+<section class="duo" id="iphone-duo" aria-labelledby="duo-title">
+  <div class="duo-inner">
+    <div class="duo-copy">
+      <p class="kicker">Neu in 1.6 · iPhone Duo</p>
+      <h2 id="duo-title">Bereit fürs iPhone Duo</h2>
+      <p class="duo-text">BookSafe nutzt beide Displays: zugeklappt die vertraute App für unterwegs, aufgeklappt eine große Bibliothek, die sich an der Falte ausrichtet.</p>
+      <ul>
+        <li><strong>Außen voll bedienbar</strong> — die Werkzeugleiste steht rechts als senkrechte Leiste, Filter und Ansichten bleiben als eigene Chip-Zeile direkt erreichbar.</li>
+        <li><strong>Aufgeklappt an der Falte ausgerichtet</strong> — Kacheln teilen sich links und rechts der Falte auf; im Querformat steht das Cover links der Falte, die Angaben rechts.</li>
+        <li><strong>Im Tischstand</strong> liegen Cover und Lesezeit über der Falte, die Bedienung darunter — der Lesetimer steht wie ein kleines Pult neben dem Buch.</li>
+      </ul>
+      <p class="duo-more"><a href="neu-in-1-6/">Alles Neue in Version 1.6 →</a></p>
+    </div>
+    <div class="duo-shots">
+      <figure class="duo-open">
+        <picture><source srcset="assets/de-duo-open.webp" type="image/webp"><img src="assets/de-duo-open.jpg" alt="BookSafe aufgeklappt auf dem iPhone Duo: Heute-Tab zweispaltig mit Lese-Challenge und Am-Lesen-Liste" loading="lazy" width="720" height="1023"></picture>
+        <figcaption>Aufgeklappt</figcaption>
+      </figure>
+      <figure class="duo-closed">
+        <picture><source srcset="assets/de-duo-closed.webp" type="image/webp"><img src="assets/de-duo-closed.jpg" alt="BookSafe zugeklappt auf dem iPhone Duo: Bibliothek mit senkrechter Leiste am rechten Rand" loading="lazy" width="720" height="1047"></picture>
+        <figcaption>Zugeklappt</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
 
 <main>
 
