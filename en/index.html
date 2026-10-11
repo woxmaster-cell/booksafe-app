@@ -476,6 +476,61 @@
     text-align: center;
   }
 
+  /* ---------- Filmdesigns (1.7) ---------- */
+  /* Drei Filmstile des Jahresrueckblicks nebeneinander, direkt unter der Rueckblick-Zeile.
+     Bewusst ein <div>, keine <section>: `.feature:nth-of-type(even)` zaehlt die
+     <section>-Geschwister in <main> — eine weitere Sektion drehte die Spiegelung der
+     folgenden Feature-Reihen um. Die Bilder sind gerenderte Filmszenen (FilmStripTests,
+     `landingpageJeDesign`), 720 x 1561, im Endzustand der Szene. */
+  .films {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 52px clamp(20px, 4vw, 48px) 44px;
+    margin: 8px 0 48px;
+    text-align: center;
+  }
+  .films .kicker::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    margin-right: 12px;
+    vertical-align: middle;
+    background: currentColor;
+  }
+  .films h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.6vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .films-text { font-size: 17px; color: var(--muted); max-width: 34em; margin: 0 auto; }
+  .films-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 36px);
+    margin-top: 36px;
+  }
+  .films-grid figure { margin: 0; }
+  .films-grid img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+  .films-grid figcaption { margin-top: 16px; text-align: left; }
+  .films-grid figcaption strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .films-grid figcaption span { display: block; font-size: 15px; color: var(--muted); line-height: 1.5; }
+
   /* Uhr-Sektion (OPT-282): etwas breitere Karte. Die Telefon-Shots sind rohe
      Screenshots (720x1564) — das Geraet fuellt die Bildbreite ganz. Das Uhr-Motiv ist ein
      KOMPONIERTES Bild (720x1062) mit 73 px Eigenrand je Seite, die Uhr fuellt also nur
@@ -599,6 +654,22 @@
        gegen 300 px, ~4 px Unterschied); sie steht mit, damit die beiden Breakpoints nicht
        auseinanderlaufen, wenn jemand spaeter an einer der Zahlen dreht. */
     .feature.feature--watch .shot { flex-basis: auto; width: min(360px, 78vw); }
+
+    /* Drei Filmbilder nebeneinander waeren bei 390 px nur ~100 px breit. Stattdessen
+       eine wischbare Reihe: die Reihe scrollt in sich, die Seite nicht (body hat
+       overflow-x: hidden, die Reihe bleibt innerhalb des Panels). */
+    .films { padding: 40px 20px 32px; }
+    .films-grid {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: 68%;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      margin: 28px -20px 0;
+      padding: 0 20px 12px;
+    }
+    .films-grid li { scroll-snap-align: center; }
   }
   /* Erst hier wird der Dreier-Stapel zu klein, um etwas zu zeigen: der
      Heute-Screen entfaellt, Bibliothek und Uhr ruecken dafuer groesser auf.
@@ -837,11 +908,31 @@
       <ul>
         <li>At the end of the year BookSafe turns your finished books into a <strong>recap</strong>: books, pages, top genre, most productive month and longest book.</li>
         <li><strong>Crown your three favourites</strong> on the top-three podium — gold, silver, bronze; BookSafe suggests your highest-rated ones.</li>
-        <li>And if you like, as an <strong>animated film</strong> to watch and share.</li>
+        <li>And if you like, as an <strong>animated film</strong> to watch and share — in three designs.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-yearinreview.webp" type="image/webp"><img src="../assets/en-yearinreview.jpg" alt="Year in review with key figures and a top-three podium" loading="lazy" width="720" height="1564"></picture></div>
   </section>
+
+  <div class="films" id="filmdesigns" role="region" aria-labelledby="films-title">
+    <p class="kicker">New in 1.7 · Film designs</p>
+    <h2 id="films-title">Three films, one reading year</h2>
+    <p class="films-text">Choose how your Year in Review film looks — each with its own music, shareable as a video.</p>
+    <ul class="films-grid" tabindex="0" aria-label="The three film designs">
+      <li><figure>
+        <picture><source srcset="../assets/en-film-gilded.webp" type="image/webp"><img src="../assets/en-film-gilded.jpg" alt="Gilded film design: “A total of 13862 pages” in golden numerals on a blue-violet gradient" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Gilded</strong><span>Golden numbers on a glowing gradient — the classic, 40 seconds.</span></figcaption>
+      </figure></li>
+      <li><figure>
+        <picture><source srcset="../assets/en-film-clothbound.webp" type="image/webp"><img src="../assets/en-film-clothbound.jpg" alt="Clothbound film design: “Reading catalogue” index card stamped “Fantasy” on green cloth" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Clothbound</strong><span>Your year as a bound book in three volumes: shelf, paper stack, catalogue card. One minute.</span></figcaption>
+      </figure></li>
+      <li><figure>
+        <picture><source srcset="../assets/en-film-almanac.webp" type="image/webp"><img src="../assets/en-film-almanac.jpg" alt="Almanac film design: front page of “The BookSafe Almanac”, 2026 edition" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Almanac</strong><span>A historic newspaper with printing roller, stamp and sepia engravings. One minute.</span></figcaption>
+      </figure></li>
+    </ul>
+  </div>
 
   <section class="feature feature--watch">
     <div class="copy">
