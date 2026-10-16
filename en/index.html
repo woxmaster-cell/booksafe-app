@@ -476,8 +476,8 @@
     text-align: center;
   }
 
-  /* ---------- Filmdesigns (1.7) ---------- */
-  /* Drei Filmstile des Jahresrueckblicks nebeneinander, direkt unter der Rueckblick-Zeile.
+  /* ---------- Filmdesigns (1.7/1.8) ---------- */
+  /* Vier Filmstile des Jahresrueckblicks nebeneinander, direkt unter der Rueckblick-Zeile.
      Bewusst ein <div>, keine <section>: `.feature:nth-of-type(even)` zaehlt die
      <section>-Geschwister in <main> — eine weitere Sektion drehte die Spiegelung der
      folgenden Feature-Reihen um. Die Bilder sind gerenderte Filmszenen (FilmStripTests,
@@ -656,7 +656,7 @@
        auseinanderlaufen, wenn jemand spaeter an einer der Zahlen dreht. */
     .feature.feature--watch .shot { flex-basis: auto; width: min(360px, 78vw); }
 
-    /* Drei Filmbilder nebeneinander waeren bei 390 px nur ~100 px breit. Stattdessen
+    /* Vier Filmbilder nebeneinander waeren bei 390 px nur ~100 px breit. Stattdessen
        eine wischbare Reihe: die Reihe scrollt in sich, die Seite nicht (body hat
        overflow-x: hidden, die Reihe bleibt innerhalb des Panels). */
     .films { padding: 40px 20px 32px; }
@@ -720,7 +720,7 @@
   "url": "https://booksafe.app/en/",
   "applicationCategory": "BookApplication",
   "operatingSystem": "iOS 18.0, watchOS 11.0",
-  "softwareVersion": "1.7",
+  "softwareVersion": "1.8",
   "inLanguage": [
     "de",
     "en"
@@ -765,11 +765,11 @@
     <a class="lang-switch" href="../" hreflang="de" lang="de">Deutsch</a>
   </div>
 
-  <p class="hero-update"><a href="whats-new-1-7/"><span class="dot" aria-hidden="true"></span>New in 1.7: your year as a film<span class="pill-more"> — details</span></a></p>
+  <p class="hero-update"><a href="whats-new-1-8/"><span class="dot" aria-hidden="true"></span>New in 1.8: comics and the Passport<span class="pill-more"> — details</span></a></p>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.7 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.8 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
       <h1>Your library<br>belongs to <em>you.</em></h1>
       <p class="sub">Scan books by ISBN, keep every series straight down to the half-volume, start a reading session from your wrist — no account, no tracking, no subscription.</p>
       <div class="hero-cta">
@@ -909,14 +909,14 @@
       <ul>
         <li>At the end of the year BookSafe turns your finished books into a <strong>recap</strong>: books, pages, top genre, most productive month and longest book.</li>
         <li><strong>Crown your three favourites</strong> on the top-three podium — gold, silver, bronze; BookSafe suggests your highest-rated ones.</li>
-        <li>And if you like, as an <strong>animated film</strong> to watch and share — in three designs.</li>
+        <li>And if you like, as an <strong>animated film</strong> to watch and share — in four designs.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-yearinreview.webp" type="image/webp"><img src="../assets/en-yearinreview.jpg" alt="Year in review with key figures and a top-three podium" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <div class="films" id="filmdesigns" role="region" aria-labelledby="films-title">
-    <p class="kicker">New in 1.7 · Film designs</p>
+    <p class="kicker">New in 1.8 · Film designs</p>
     <h2 id="films-title">Four films, one reading year</h2>
     <p class="films-text">Choose how your Year in Review film looks — each with its own music, shareable as a video.</p>
     <ul class="films-grid" tabindex="0" aria-label="The four film designs">
@@ -937,7 +937,7 @@
         <figcaption><strong>Passport</strong><span>Your reading year as a comic reading passport: ten pages to flip through, with its own song. 80 seconds.</span></figcaption>
       </figure></li>
     </ul>
-    <p class="films-more"><a href="whats-new-1-7/">Everything new in version 1.7 →</a></p>
+    <p class="films-more"><a href="whats-new-1-8/">Everything new in version 1.8 →</a></p>
   </div>
 
   <section class="feature feature--watch">
