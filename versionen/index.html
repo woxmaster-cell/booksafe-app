@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — Ältere Versionen</title>
+<meta name="description" content="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.7: was jede Version neu gebracht hat — und damit alles, was die App kann.">
+<meta property="og:title" content="BookSafe — Ältere Versionen">
+<meta property="og:description" content="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.7.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/versionen/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/versionen/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  /* iPhone Duo: beide Displays nebeneinander, im echten Groessenverhaeltnis
+     (innen 669 pt, aussen 466 pt breit) und unten buendig. */
+  .duo-figure {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 520px;
+  }
+  .duo-figure figure { margin: 0; }
+  .duo-figure .duo-open   { flex: 0 0 56.5%; }
+  .duo-figure .duo-closed { flex: 0 0 39.5%; }
+  .duo-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .duo-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  /* Filmdesigns (1.7): drei gerenderte Filmszenen nebeneinander, gleiche Groesse (720 x 1561). */
+  .film-figure {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 560px;
+  }
+  .film-figure figure { margin: 0; }
+  .film-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .film-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  picture { display: contents; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+
+  /* Archiv (versionen/): Sprungleiste zu den Versionen und die tieferen Ebenen,
+     die durch das Einbetten der Detailseiten entstehen (h3 -> h4). */
+  .version-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .version-nav a {
+    font-size: 14px; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--hairline); border-radius: 999px; padding: 4px 12px;
+  }
+  .version-nav a:hover { background: var(--hairline); }
+  section.version { scroll-margin-top: 16px; }
+  section.version > h2 { font-size: 24px; }
+  section.version h3 { font-size: 18px; margin: 24px 0 4px; }
+  section.version h4 { font-size: 16px; margin: 18px 0 4px; }
+  section.version h4 .num { font-family: var(--font-display); color: var(--gold-deep); margin-right: 8px; }
+  .more { margin-top: 18px; font-weight: 600; }
+  .archive-link { display: inline-block; margin-top: 12px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../en/versions/" hreflang="en" lang="en">English</a>
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
+  <h1>Ältere Versionen</h1>
+  <p class="sub">Alles, was BookSafe von Version 0.4 bis 1.7 dazugelernt hat</p>
+  <a class="home" href="../neu-in-1-8/">← Neu in Version 1.8</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>Was BookSafe alles kann</h2>
+    <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-8/">Seite zu Version 1.8</a>.</p>
+    <nav class="version-nav" aria-label="Versionen">
+      <a href="#v1-7">1.7</a>
+      <a href="#v1-6">1.6</a>
+      <a href="#v1-5">1.5</a>
+      <a href="#v1-4">1.4</a>
+      <a href="#v1-3">1.3</a>
+      <a href="#v1-2">1.2</a>
+      <a href="#v1-1">1.1</a>
+      <a href="#v1-0">1.0</a>
+      <a href="#v0-9">0.9</a>
+      <a href="#v0-8">0.8</a>
+      <a href="#v0-7">0.7</a>
+      <a href="#v0-6">0.6</a>
+      <a href="#v0-5">0.5</a>
+      <a href="#v0-4">0.4</a>
+    </nav>
+  </section>
+
+  <section class="card version" id="v1-7">
+    <h2>Version 1.7</h2>
+    <p class="updated">Im App Store seit 12. Oktober 2026</p>
+    <p>BookSafe 1.7 ist das Jahresrückblick-Update: Dein Lesejahr gibt es jetzt als Film in drei Designs — neben dem bekannten „Glanz“ neu als gebundenes Buch („Einband“) und als historische Zeitung („Almanach“). Dazu erkennt BookSafe Tropes auch dann, wenn ein Buch keinen Klappentext hat, und sortiert ungelesene Leihbücher nach Rückgabedatum nach vorn.</p>
+    <h3>Neu</h3>
+
+    <h4><span class="num">1</span>Zwei neue Filmdesigns für den Jahresrückblick</h4>
+    <p>Der Jahresrückblick hat einen neuen <strong>Paletten-Knopf</strong>. Darüber wählst du, wie der Film zu deinem Lesejahr aussieht. Jedes Design hat seinen eigenen Song, und jeder Film lässt sich als Video teilen.</p>
+    <p><strong>Einband</strong> erzählt dein Jahr als gebundenes Buch in drei Bänden: Bücherregal, Papierstapel und Karteikarte aus dem Lesekatalog, mit aufklappendem Leineneinband und umblätternden Seiten. Der Film dauert eine Minute.</p>
+    <p><strong>Almanach</strong> macht aus deinem Jahr eine historische Zeitung — mit Druckwalze, Stempel und Stichen in Sepia. Dein Buch des Jahres steht als freigestelltes Buch auf dem Podest. Auch dieser Film dauert eine Minute.</p>
+    <p><strong>Glanz</strong>, das bisherige Design mit goldenen Zahlen auf leuchtendem Verlauf, bleibt erhalten (40 Sekunden).</p>
+    <div class="film-figure">
+      <figure>
+        <picture><source srcset="../assets/de-film-gilded.webp" type="image/webp"><img src="../assets/de-film-gilded.jpg" alt="Filmdesign Glanz: goldene Ziffern auf blau-violettem Verlauf" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Glanz</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../assets/de-film-clothbound.webp" type="image/webp"><img src="../assets/de-film-clothbound.jpg" alt="Filmdesign Einband: Karteikarte „Lesekatalog“ mit Stempel auf grünem Leinen" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Einband</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../assets/de-film-almanac.webp" type="image/webp"><img src="../assets/de-film-almanac.jpg" alt="Filmdesign Almanach: Titelseite der Zeitung „The BookSafe Almanac“" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Almanach</figcaption>
+      </figure>
+    </div>
+
+    <h4><span class="num">2</span>Tropes auch ohne Klappentext</h4>
+    <p>Bisher hat BookSafe Tropes nur im Klappentext gefunden. Jetzt übernimmt die App sie auch aus den <strong>Schlagwörtern, die der Verlag an die Deutsche Nationalbibliothek meldet</strong> — etwa „Enemies to Lovers“ oder „Forced Proximity“. Gerade bei Neuerscheinungen, für die es noch keinen Klappentext gibt, sind die Tropes damit gleich beim Hinzufügen da.</p>
+  
+    <h3>Verbessert und behoben</h3>
+    <ul>
+      <li>Bibliothek nach Status sortiert: Ungelesene Leihbücher stehen jetzt zuerst, das mit dem nächsten Rückgabedatum ganz oben</li>
+      <li>Buchdaten auch bei einer Störung der Deutschen Nationalbibliothek: BookSafe weicht dann auf ein zweites Datenformat aus; antwortet die Bibliothek gar nicht, sagt die App das, statt zu melden, das Buch stehe in keinem Katalog</li>
+      <li>die Beschriftungen der Kennzahlen in Statistik und Jahresrückblick sind besser lesbar</li>
+      <li>VoiceOver liest am Podest des Jahresrückblicks „Buch des Jahres – Platz 1“ samt Titel und Autor vor</li>
+      <li>das Erscheinungsfeuerwerk zeigt vom ersten Moment an die richtigen Bücher und Cover</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-7/">Ausführliche Seite zu Version 1.7 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-6">
+    <h2>Version 1.6</h2>
+    <p class="updated">Im App Store seit 7. Oktober 2026</p>
+    <p>BookSafe 1.6 ist das Geräte-Update: Die App ist bereit für das iPhone Duo und nutzt dessen Außen- und Innendisplay. Auf dem iPad stehen im Querformat Liste und Buch nebeneinander, eine laufende Lesesitzung lässt sich direkt aus der Live-Aktivität beenden, und abgeschlossene Lesesitzungen lassen sich nachträglich bearbeiten.</p>
+    <h3>Neu</h3>
+
+    <h4><span class="num">1</span>Bereit für das iPhone Duo</h4>
+    <p>BookSafe nutzt beide Displays des iPhone Duo. <strong>Zugeklappt</strong> steht die Werkzeugleiste als senkrechte Leiste am rechten Rand. Damit Filter, Sortierung und Ansicht nicht in einem Überlaufmenü verschwinden, stehen sie dort als eigene Chip-Zeile über der Liste, und die Knöpfe in Blättern zeigen ✕ und ✓ statt Text.</p>
+    <p><strong>Aufgeklappt</strong> richten sich die Kacheln in Bibliothek und eigenen Listen an der Falte aus: Die Spaltenzahl ist gerade, sodass keine Kachel in der Falte liegt. „Heute“ und die Statistik nutzen die Breite zweispaltig. Im Querformat bleibt die Liste breit, und ein geöffnetes Buch zeigt das Cover links der Falte und die Angaben rechts.</p>
+    <p>Im <strong>Tischstand</strong> — halb aufgeklappt auf dem Tisch — liegen im Lesetimer Cover und Lesezeit über der Falte, „Pause“ und „Sitzung beenden“ darunter.</p>
+    <div class="duo-figure">
+      <figure class="duo-open">
+        <picture><source srcset="../assets/de-duo-open.webp" type="image/webp"><img src="../assets/de-duo-open.jpg" alt="BookSafe aufgeklappt auf dem iPhone Duo: Heute-Tab zweispaltig" loading="lazy" width="720" height="1023"></picture>
+        <figcaption>Aufgeklappt</figcaption>
+      </figure>
+      <figure class="duo-closed">
+        <picture><source srcset="../assets/de-duo-closed.webp" type="image/webp"><img src="../assets/de-duo-closed.jpg" alt="BookSafe zugeklappt auf dem iPhone Duo: Bibliothek mit senkrechter Leiste am rechten Rand" loading="lazy" width="720" height="1047"></picture>
+        <figcaption>Zugeklappt</figcaption>
+      </figure>
+    </div>
+
+    <h4><span class="num">2</span>iPad im Querformat: Liste und Buch nebeneinander</h4>
+    <p>Auf dem iPad zeigen Bibliothek und Wunschliste im Querformat die Liste links und das gewählte Buch rechts. Die Aufteilung bleibt auch stehen, während du suchst und die Tastatur offen ist. Hochkant bleibt alles wie gewohnt.</p>
+
+    <h4><span class="num">3</span>Lesesitzung aus der Live-Aktivität beenden</h4>
+    <p>Die Live-Aktivität der Lesesitzung hat jetzt einen Knopf <strong>„Beenden“</strong> — auf dem Sperrbildschirm und in der Dynamic Island. Nach dem Entsperren öffnet BookSafe direkt die Eingabe der Endseite. Weil iOS den Knopf erst nach dem Entsperren ausführt, endet die Sitzung in diesem Moment.</p>
+    <p>Die erweiterte Ansicht in der Dynamic Island ist neu geordnet: Die Lesezeit steht in der Bedienzeile und bleibt auch nach einer Stunde vollständig lesbar.</p>
+
+    <h4><span class="num">4</span>Lesesitzungen nachträglich bearbeiten</h4>
+    <p>Im Buchdetail steht hinter der Lesedauer jeder abgeschlossenen Sitzung ein Stift. Er öffnet das Blatt <strong>„Sitzung“</strong> mit Datum und Uhrzeit, Dauer und gelesenen Seiten. Änderst du die Seitenzahl, verschiebt sich der Lesestand des Buchs um die Differenz.</p>
+    <p>Ab sechs Sitzungen führt <strong>„Alle Sitzungen (n)“</strong> zur vollständigen Liste — dort lassen sich auch ältere Sitzungen bearbeiten und löschen, die vorher nicht erreichbar waren. Löschen lässt den Lesestand unverändert.</p>
+  
+    <h3>Verbessert und behoben</h3>
+    <ul>
+      <li>Sammelbände und Anthologien ohne Autor im Katalog übernehmen jetzt den Herausgeber als Autor</li>
+      <li>fehlt zum Speichern noch Titel oder Autor, sagt „Buch hinzufügen“ jetzt, was fehlt, statt den Knopf still zu sperren</li>
+      <li>VoiceOver liest in der Kachelansicht Titel, Autor und Status vor</li>
+      <li>im Lesetimer stehen „Pause“ und „Sitzung beenden“ bei wenig Platz untereinander, statt umzubrechen</li>
+      <li>in einer Reihe, die aus „Heute“ oder der Statistik geöffnet wurde, öffnete ein Tipp auf einen Band nichts</li>
+      <li>bei der Erscheinungs-Feier im Querformat lag „Fertig“ unter dem Bildschirmrand</li>
+      <li>Meilenstein-Stempel tragen in der englischen Oberfläche jetzt englische Namen</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-6/">Ausführliche Seite zu Version 1.6 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-5">
+    <h2>Version 1.5</h2>
+    <p class="updated">Im App Store seit 27. September 2026</p>
+    <p>BookSafe 1.5 bringt eigene Listen: Bücher lassen sich selbst benannten Listen zuordnen, in einer eigenen Ansicht durchblättern und mit anderen teilen — ebenso die ganze Wunschliste. Eine laufende Lesesitzung erscheint jetzt auf dem Sperrbildschirm, eine falsch erwischte Ausgabe lässt sich tauschen, und an der Apple Watch lässt sich eine versehentlich gestartete Sitzung verwerfen.</p>
+    <h3>Neu</h3>
+
+    <h4><span class="num">1</span>Eigene Listen</h4>
+    <p>Bücher lassen sich jetzt selbst benannten Listen zuordnen — etwa „Herbstbücher“ oder „Urlaub 2027“; ein Buch darf in mehreren Listen stehen. Im Buchdetail heißt die Sektion dafür <strong>„Standort &amp; eigene Listen“</strong>: Ein Tipp auf „Listen“ öffnet die Auswahl zum Abhaken, dort legst du auch neue Listen an. Das geht ebenso beim Hinzufügen eines Buchs.</p>
+    <p>Unter <strong>„Sortieren &amp; Filtern“</strong> filtert der neue Block „Filter nach eigenen Listen“ die Bibliothek nach einer Liste, mit der Zahl der Bücher; langes Drücken benennt eine Liste um oder löscht sie. Die Suche findet Bücher auch über ihre Listen. Listen aus früheren Importen erscheinen automatisch.</p>
+
+    <h4><span class="num">2</span>Die Ansicht „Eigene Listen“</h4>
+    <p>In Bibliothek und Wunschliste gibt es neben Liste und Kacheln jetzt eine dritte Ansicht. Sie zeigt jede eigene Liste als Karussell mit Covern und der Zahl der Bücher. Über einen Knopf ordnest du mehrere Bücher auf einmal einer Liste zu. Eine geöffnete Liste hat ihre eigene Suche und ihre eigene Sortierung, die sich das Gerät merkt.</p>
+
+    <h4><span class="num">3</span>Listen und Wunschliste teilen</h4>
+    <p>Jede eigene Liste lässt sich teilen — als <strong>Story-Bild</strong> mit den Covern, dem Listennamen, der Anzahl und dem Lesefortschritt, oder als <strong>Text</strong> mit allen Büchern samt ISBN, passend für Nachrichten und Mail. Passt eine Liste nicht auf ein Bild, steht zuletzt „+ N weitere“; der Text enthält immer alle Bücher.</p>
+    <p>Ein neuer Knopf in der Wunschliste teilt auf dieselbe Weise die ganze Wunschliste, sortiert nach Priorität — praktisch für Familie und Freunde. Bücher, die noch erscheinen, tragen ihr Erscheinungsdatum, besonders gewünschte einen Stern.</p>
+
+    <h4><span class="num">4</span>Die Lesesitzung auf dem Sperrbildschirm</h4>
+    <p>Eine laufende Lesesitzung erscheint jetzt als <strong>Live-Aktivität</strong> auf dem Sperrbildschirm und in der Dynamic Island — mit Cover, Titel, Startseite und der laufenden Lesezeit. Pausieren und Fortsetzen geht direkt dort, ohne die App zu öffnen; läuft die Sitzung auch auf der Apple Watch, zieht die Uhr mit. Ein Tipp auf die Anzeige öffnet die Sitzung in der App.</p>
+
+    <h4><span class="num">5</span>Ausgabe wechseln</h4>
+    <p>Beim Hinzufügen die falsche Ausgabe erwischt, etwa das E-Book statt des Taschenbuchs? Im Buchdetail lässt sie sich unter <strong>„Weitere Aktionen → Ausgabe wechseln“</strong> gegen eine andere Ausgabe desselben Bands tauschen, statt das Buch zu löschen und neu anzulegen. Eine Vorschau zeigt vorher, was sich ändert. Lesestatus, Bewertung, Notizen, Lesesitzungen, Standort und eigene Listen bleiben erhalten, ein eigenes Cover-Foto ebenfalls, solange du nicht das neue Cover wählst. Die Funktion steht für Bücher einer Reihe zur Verfügung.</p>
+
+    <h4><span class="num">6</span>Lesesitzung an der Apple Watch verwerfen</h4>
+    <p>Versehentlich gestartet oder den Timer vergessen? Über das ✕ oben links im Timer der Uhr lässt sich eine Sitzung nach einer Rückfrage verwerfen. Sie verschwindet auf Uhr und iPhone und taucht nicht in der Statistik auf.</p>
+  
+    <h3>Verbessert und behoben</h3>
+    <ul>
+      <li>der Import von CSV-Dateien aus anderen Buch-Apps erkennt ein weiteres Format, übernimmt den Lagerort als Standort und liest mehr Datumsangaben</li>
+      <li>der PDF-Export der Bibliothek nimmt die Cover aus den auf dem Gerät gespeicherten Miniaturen — bei großen Bibliotheken deutlich schneller, und die Cover erscheinen auch ohne Netz</li>
+      <li>„Weitere Bände der Reihe“ ließ gelegentlich einen Band aus</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-5/">Ausführliche Seite zu Version 1.5 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-4">
+    <h2>Version 1.4</h2>
+    <p class="updated">Im App Store seit 25. September 2026</p>
+    <p>BookSafe 1.4 bringt neue Funktionen rund um die eigene Bibliothek: Wer aus einer anderen Buch-App umzieht, nimmt jetzt seine Bewertungen, Lesedaten und Notizen mit. Reihen lassen sich zu einem Eintrag bündeln, gedruckte Bücher bekommen einen Standort, und Autoren lassen sich nach dem Nachnamen sortieren.</p>
+    <h3>Neu</h3>
+
+    <h4><span class="num">1</span>Umzug aus anderen Buch-Apps mit allen Angaben</h4>
+    <p>Der Import von CSV-Dateien aus anderen Buch-Apps übernimmt jetzt je Buch <strong>Bewertung, Lesestatus, Lesedaten, Regale bzw. Tags, Rezension und Notizen, Reihe und Band, Format und Leihe</strong> — bisher kam nur die ISBN mit. Was BookSafe selbst nicht kennt, etwa Kaufangaben, landet als eigener Block in der Notiz des Buchs, damit nichts verloren geht. Eine Bewertung auf einer Zehnerskala wird auf fünf Sterne umgerechnet.</p>
+    <p>Bücher ohne ISBN kommen jetzt ebenfalls mit, und ISBNs, denen Excel beim Bearbeiten der Datei die führenden Nullen genommen hat, werden repariert. Titel, Cover und die übrigen Buchdaten ergänzt wie gewohnt die Online-Suche.</p>
+
+    <h4><span class="num">2</span>Reihen bündeln</h4>
+    <p>Ein neuer Schalter unter <strong>Einstellungen → Darstellung → „Reihen bündeln“</strong> zeigt jede Reihe ab zwei Büchern als einen einzigen Eintrag in der Bibliothek, mit Cover und der Zahl der Bücher — in der Liste und im Raster. Ein Tipp öffnet die Reihe mit allen Bänden. Wer sucht, sieht weiterhin die einzelnen Bücher. Der Schalter ist zu Beginn aus; an der Bibliothek selbst ändert er nichts.</p>
+
+    <h4><span class="num">3</span>Ein Standort für eigene Bücher</h4>
+    <p>Im Buchdetail und beim Hinzufügen lässt sich jetzt festhalten, wo ein gedrucktes Buch zu Hause steht: ein selbst benannter Ort wie „Regal Wohnzimmer“ und, wenn du magst, ein Fach. Bereits vergebene Orte und Fächer stehen zur Auswahl, du musst sie also nur einmal eintippen. Die Bibliothekssuche findet Bücher auch über ihren Standort. Bringt eine importierte Datei Standortangaben mit, werden sie übernommen.</p>
+
+    <h4><span class="num">4</span>Sortierung „Autor (Nachname)“</h4>
+    <p>Neben der bisherigen Sortierung nach Autor gibt es jetzt <strong>„Autor (Nachname)“</strong>: „Sebastian Fitzek“ steht unter F, „Ursula K. Le Guin“ unter L, „Ludwig van Beethoven“ unter B. Die Sortierung ist auch in der Wunschliste wählbar.</p>
+  
+    <h3>Behoben</h3>
+    <ul>
+      <li>im Import-Dialog erschienen in der englischen Fassung einige Texte auf Deutsch</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-4/">Ausführliche Seite zu Version 1.4 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-3">
+    <h2>Version 1.3</h2>
+    <p class="updated">Im App Store seit 23. September 2026</p>
+    <p>BookSafe 1.3 ist ein Feinschliff-Update. Es bringt keine neuen Bereiche, sondern macht das Vorhandene verlässlicher, schneller und schöner: Erscheinungs-Meldungen kommen zuverlässig an, die Widgets nutzen ihre Fläche, und die App reagiert spürbar flotter.</p>
+    <h3>Verbessert</h3>
+
+    <h4>Erscheinungs-Meldungen kommen zuverlässig</h4>
+    <p>Steht ein Buch mit Erscheinungsdatum auf deiner Wunschliste, meldet BookSafe sich am Erscheinungstag — jetzt auch dann zuverlässig, wenn das Buch <strong>auf einem anderen Gerät</strong> auf die Wunschliste kam oder sein genaues Datum erst später bekannt wurde. Die App plant die Meldungen bei jedem Start aus dem aktuellen Stand deiner Wunschliste neu, statt sich auf einmal gesetzte Termine zu verlassen.</p>
+    <p>Erscheinen mehrere Bücher am selben Tag, bekommst du <strong>eine Meldung für alle</strong> statt einer je Buch.</p>
+
+    <h4>Die Widgets nutzen ihre Fläche</h4>
+    <p>Weniger Rand, mehr Inhalt: die Cover sind größer, und Buchtitel dürfen zwei Zeilen lang sein, statt nach wenigen Buchstaben abgeschnitten zu werden. Im großen Widget passen <strong>fünf Bücher je Spalte statt vier</strong>. Die kleinen Widgets stellen den Countdown neben ein größeres Cover, die mittleren folgen derselben Aufteilung.</p>
+
+    <h4>Schnellere Tab-Wechsel und ein schnellerer Start</h4>
+    <p>Beim Wechsel zwischen den Tabs lädt BookSafe die Bibliothek nur noch neu, wenn sich an ihr tatsächlich etwas geändert hat. Eine Aufräum-Prüfung, die bisher bei jedem Öffnen der App lief, läuft nur noch einmal. Und die Widgets werden nur noch neu gezeichnet, wenn sich an ihren Daten etwas geändert hat. Am deutlichsten merkt man das bei großen Bibliotheken und auf älteren iPhones.</p>
+
+    <h4>Bücher ohne Cover sehen gut aus</h4>
+    <p>Hat ein Buch kein Cover, zeigt BookSafe jetzt überall eine gestaltete Fläche mit dem Titel statt eines leeren Buchsymbols — in der Liste, im Raster, auf den Heute-Karten und im Buchdetail. So bleibt jedes Buch auf einen Blick erkennbar.</p>
+
+    <h4>Das Leseupdate füllt den Raum</h4>
+    <p>Das Story-Bild aus dem Heute-Tab nutzt den freien Platz besser: Ist der Spruch kurz, zeigt es <strong>bis zu vier Bücher statt drei</strong>.</p>
+  
+    <h3>Behoben</h3>
+    <ul>
+      <li>ein Fehlalarm am Monatsersten, wenn zu einem Buch der Wunschliste nur Monat und Jahr bekannt sind</li>
+      <li>beim Spruchstil „Urkunde“ lief der Ring durch die Signaturzeile</li>
+      <li>beim Spruchstil „Erste Auflage“ lief der Goldrahmen unter den Goldschnitt und eine lange Zeile in die Eckrauten</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-3/">Ausführliche Seite zu Version 1.3 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-2">
+    <h2>Version 1.2</h2>
+    <p class="updated">Im App Store seit 14. September 2026</p>
+    <p>BookSafe 1.2 bringt fünf neue Funktionen — und daneben eine Menge Arbeit an einer Stelle, die man nicht sieht, sondern merkt: Cover sind jetzt sofort da, auch ohne Netz.</p>
+    <h3>Fünf neue Funktionen</h3>
+
+    <h4><span class="num">1</span>Backup — deine Bibliothek in einer Datei</h4>
+    <p>Sichere deine komplette Bibliothek als eine einzige Datei: alle Bücher mit ihren Daten, die Lesesitzungen und die Cover, die du selbst aus deiner Fotomediathek gewählt hast. Auf einem neuen Gerät spielst du sie wieder ein — du wählst die Datei aus, siehst eine Vorschau dessen, was passieren wird, und bestätigst dann.</p>
+    <p>Die Wiederherstellung <strong>füllt nur Lücken und überschreibt nichts</strong>. Ein Buch, das auf dem Gerät schon existiert, behält seine Werte; aus dem Backup kommen nur Felder dazu, die vorher leer waren. Lesefortschritt und Lesestatus werden dabei nie zurückgesetzt.</p>
+
+    <h4><span class="num">2</span>Der Scanner liest auch die gedruckte ISBN</h4>
+    <p>Bücher mit beschädigtem, überklebtem oder ganz fehlendem Barcode lassen sich jetzt trotzdem erfassen. Der Scanner sucht in einem Durchgang nach beidem — dem Barcode und der gedruckten ISBN auf dem Umschlag oder im Impressum.</p>
+    <p>Eine erkannte Zahl wird nur übernommen, wenn ihre Prüfziffer stimmt. Stehen mehrere mögliche Nummern auf der Seite, fragt der Scanner nach, statt zu raten.</p>
+
+    <h4><span class="num">3</span>Lesestatus „Abgebrochen“</h4>
+    <p>Für Bücher, die du bewusst nicht zu Ende liest. Sie verschwinden aus „Am Lesen“, <strong>ohne als gelesen zu zählen</strong> — weder in der Statistik noch im Jahresziel noch im Lesestreak. In der Übersicht der Statistiken bekommen sie eine eigene Zeile, getrennt von „Gelesen“.</p>
+
+    <h4><span class="num">4</span>Leseupdate teilen</h4>
+    <p>Ein Tipp im Heute-Tab erzeugt ein fertiges Story-Bild mit den Büchern, die du gerade liest, samt Fortschritt — 1080 × 1920 Pixel und damit ohne Zuschnitt passend für die Instagram-Story oder den WhatsApp-Status.</p>
+
+    <h4><span class="num">5</span>Wunschliste und Lesehistorie</h4>
+    <p>Die Wunschliste zeigt jetzt unter jedem Erscheinungsdatum <strong>die Sprache der Ausgabe</strong> — welcher Titel die deutsche Übersetzung ist und welcher das Original, steht damit direkt in der Zeile. Und ein Tipp auf ein Polaroid in der Lesehistorie öffnet das Buch, statt nur schön auszusehen.</p>
+  
+    <h3>Verbessert</h3>
+
+    <h4>Cover sind sofort da — auch offline</h4>
+    <p>BookSafe behält von jedem Cover eine kleine Vorschau dauerhaft auf dem Gerät, statt sie bei jedem Blättern neu zu laden. Beim Scrollen durch die Bibliothek kommen die Bilder deshalb aus dem Gerät und nicht aus dem Netz — und sie sind auch dann da, wenn gerade keine Verbindung besteht. Nach einer Wiederherstellung oder einem Gerätewechsel füllt die App diese Ebene von allein wieder auf.</p>
+
+    <h4>Die Cover-Auswahl trifft das richtige Buch</h4>
+    <p>Bei Reihen erscheint kein fremder Band mehr, leere und Platzhalter-Kacheln sind verschwunden, und eine Cover-Adresse, die nicht mehr erreichbar ist, wird automatisch durch eine gültige ersetzt. <strong>Ein Cover, das du selbst ausgewählt hast, bleibt deine Wahl</strong> — die Automatik fasst es nicht mehr an.</p>
+
+    <h4>Englischsprachige Bücher</h4>
+    <p>Englischsprachige ISBNs werden jetzt in weiteren Katalogen gesucht, und die Sprache der Ausgabe wird zuverlässiger erkannt. Findet sich zu einer ISBN nichts, geht es direkt zur Titelsuche weiter, statt mit leeren Feldern dazustehen.</p>
+
+    <h4>Apple Watch</h4>
+    <p>Nach einem Update oder einer Neuinstallation kommen die Cover auf der Uhr wieder an, statt grau zu bleiben.</p>
+  
+    <h3>Behoben</h3>
+    <ul>
+      <li>ein falsches Abschlussdatum bei nachträglich eingetragenen Lesesitzungen</li>
+      <li>ein Buch, das auf „Gelesen“ sprang, wenn während einer Sitzung an der Uhr die Seitenzahl korrigiert wurde</li>
+      <li>„2.026“ statt „2026“ auf der Schlussseite des Jahresfilms</li>
+      <li>Text von einer Verlagswebsite statt des Klappentexts in Buchbeschreibungen</li>
+      <li>ein Heute-Tab, der einen anderen Spruch teilte, als er zeigte</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  
+    <p class="more"><a href="../neu-in-1-2/">Ausführliche Seite zu Version 1.2 →</a></p>
+  </section>
+
+  <section class="card version" id="v1-1">
+    <h2>Version 1.1</h2>
+    <p class="updated">Im App Store seit 15. August 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>Apple Watch – starte, pausiere und beende Lesesitzungen direkt am Handgelenk, mit Endseiten-Eingabe über die Digital Crown. Die Uhr funktioniert auch ohne iPhone in Reichweite – deine Sitzungen kommen später sicher auf dem iPhone an.</li>
+      <li>Eine laufende Lesesitzung bleibt jetzt erhalten, auch wenn du die App schließt – ein Streifen in „Heute" und im Buchdetail bringt dich mit einem Tipp zurück.</li>
+      <li>„Buchdaten erneut suchen" – hol dir die Daten eines Buches mit einer Vergleichsliste noch einmal und entscheide je Feld, was übernommen wird.</li>
+      <li>Deine eigenen Änderungen sind geschützt – von Hand bearbeitete Felder überschreibt die Automatik nicht mehr. Und im Buchdetail lässt sich jetzt jedes Feld bearbeiten.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Scrollen und App-Start bleiben flüssig, auch während iCloud im Hintergrund synchronisiert.</li>
+      <li>Die Cover-Suche findet die passende Ausgabe zuverlässiger und in höherer Auflösung. Automatisches Cover-Verbessern ist jetzt ein Schalter – standardmäßig aus.</li>
+    </ul>
+    <h3>Behoben</h3>
+    <ul>
+      <li>Ein Absturz beim Löschen aus dem Buchdetail und eine Auszeichnungs-Animation, die bei jeder Sternvergabe lief.</li>
+    </ul>
+    <p class="note">Viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card version" id="v1-0">
+    <h2>Version 1.0</h2>
+    <p class="updated">Im App Store seit 6. August 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>ICloud-Sync – deine Bibliothek gleicht sich automatisch über alle Geräte mit derselben Apple-ID ab. Sie bleibt dabei auf deinem Gerät und in deiner privaten iCloud – offline-fähig, ohne Konto-Anlage, für alle und ohne Pro. Bewusst angelegte Zweitexemplare bleiben beim Zusammenführen erhalten.</li>
+      <li>Besitz-Chip in der Bibliothek – ein Tipp schaltet zwischen Alle, Eigentum und Ausgeliehen um.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Der App-Start läuft spürbar flüssiger, auch während im Hintergrund synchronisiert wird.</li>
+      <li>Dein Jahresziel für die Lese-Challenge synct jetzt ebenfalls.</li>
+    </ul>
+    <h3>Behoben</h3>
+    <ul>
+      <li>Der Tipp auf „Reihe" öffnet jetzt immer die Reihenansicht – auch aus „Heute" oder der Statistik.</li>
+      <li>Die Durchschnittsbewertung übersteigt nie mehr die 5-Sterne-Skala, deutsche Geräte zeigen wieder das Dezimalkomma, englische Texte keine deutschen Anführungszeichen.</li>
+    </ul>
+    <p class="note">Viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card version" id="v0-9">
+    <h2>Version 0.9</h2>
+    <p class="updated">Im App Store seit 28. Juli 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>„Heute" – dein neuer Start-Tab. BookSafe begrüßt dich mit einem Tagesblatt: dem Spruch des Tages, deinem Jahresziel samt nächstem Sammelstempel, dem Buch, das du gerade liest, und deinen nächsten Terminen (Erscheinungen und Leih-Rückgaben). Auf dem iPad zweispaltig – mit den neuen Breitkarten „Was ansteht" und „Zuletzt beendet".</li>
+      <li>Spruch des Tages – jeden Tag ein neuer, kuratierter Lese-Spruch (über 100, Deutsch und Englisch gemischt) in täglich wechselnder Kartengestaltung: von Buchseite über Kreidetafel und Sternenkarte bis Kino-Marquee.</li>
+      <li>Die Statistiken zeigen jetzt Meilensteine &amp; Lesehistorie – die Inhalte des bisherigen Erfolge-Tabs sind dorthin umgezogen. Die Lesehistorie bringt zusätzlich einen Jahresüberblick mit antippbaren Monaten.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>„Weitere Bücher des Autors" findet jetzt deutlich mehr – auch wenn der Autor im Katalog mit Mittelinitial („Douglas J. Preston") oder Doppelnamen („Marie von Ebner-Eschenbach") geführt wird.</li>
+      <li>„Exzellent"-Siegel und Top-3-Medaillen erscheinen jetzt überall zuverlässig am Cover – auch in Reihen, Genre-Ansichten und im Heute-Tab.</li>
+      <li>Die vier besonderen Sammelstempel stehen jetzt vor den Zähl-Stempeln – sie werden meist zuerst erreicht.</li>
+      <li>Bei sehr großer Schrift bleiben Termin-Zeilen lesbar – Cover und Countdown stapeln sich, statt den Titel zu stauchen.</li>
+    </ul>
+    <h3>Behoben</h3>
+    <ul>
+      <li>Bei Büchern mit mehreren Autoren öffnet der Tipp auf einen Namen jetzt die richtige Werkliste.</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen und mehr Stabilität im Alltag.</p>
+  </section>
+
+  <section class="card version" id="v0-8">
+    <h2>Version 0.8</h2>
+    <p class="updated">Im App Store seit 24. Juli 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>Dein Lesejahr als animierter Film – aufblätternde Kennzahlen, eine Monats-Timeline deiner gelesenen Bücher, die hochzählende Seitenzahl und als Finale dein Top-3-Podest mit Gold, Silber und Bronze. Mit Musik direkt in der App ansehen oder als Video teilen (Statistiken → „Jahresrückblick" → Play).</li>
+      <li>Jahresrückblick mit „Top 3 des Jahres" – Kennzahlen wie Bücher, Seiten, Top-Genre und produktivster Monat; deine drei Bücher des Jahres tragen Gold-, Silber- und Bronze-Medaillen, quer durch die App sichtbar.</li>
+      <li>Frisches Design – neue Akzentschrift, aufgeräumte Farben (Wunschliste lila, eigene Bücher gold), neu gestaltete App-Icons und eine überarbeitete Polaroid-Pinnwand in den Erfolgen.</li>
+      <li>Geteilte Karten tragen dezentes BookSafe-Branding; die Bibliotheks-Karte zeigt das Cover jetzt vollständig.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>„Weitere Bücher des Autors" öffnet beim Übernehmen den bereits ausgefüllten „Buch hinzufügen"-Screen – Lesestatus, Bewertung und Format direkt im selben Zug setzen.</li>
+      <li>Cover erscheinen zuverlässiger – auch bei Ausgaben ohne eigenes Cover; der Cover-Auswahldialog bietet wieder hochauflösende Kandidaten.</li>
+      <li>Das Ausleih-Widget nutzt den Platz besser und trägt die Farbwelt des Covers; das extragroße iPad-Widget zeigt 8 Bücher.</li>
+      <li>Flüssigeres Scrollen in der Kachelansicht und ein wieder butterweicher Lesefortschritt-Regler.</li>
+      <li>Statistik und Lese-Challenge zählen jetzt identisch; der PDF-Export kürzt lange Titel sauber.</li>
+      <li>Benachrichtigungen erscheinen auch bei geöffneter App als Banner.</li>
+    </ul>
+    <h3>Behoben</h3>
+    <ul>
+      <li>Falsche Bände-Angaben wie „von 998"; pulsierende Countdowns respektieren „Bewegung reduzieren".</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen und mehr Stabilität im Alltag.</p>
+  </section>
+
+  <section class="card version" id="v0-7">
+    <h2>Version 0.7</h2>
+    <p class="updated">Im App Store seit 16. Juli 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>Weitere Bücher des Autors – tippe in den Statistiken oder im Buchdetail auf einen Autornamen und stöbere durch alle seine Bücher; eigene Bücher tragen ein goldenes Siegel, fremde landen nach Rückfrage direkt auf der Wunschliste.</li>
+      <li>Genres zum Antippen – ein Tipp auf ein Genre in den Statistiken zeigt alle deine Bücher dieses Genres als Cover-Raster.</li>
+      <li>Autor-Suche in „Buch hinzufügen" – die Lupe neben dem Autor-Feld findet alle Bücher des Autors und übernimmt den gewählten Treffer mit allen Daten.</li>
+      <li>Erscheinungstag-Feuerwerk – ist ein Wunschlisten-Buch erschienen, feiert BookSafe beim nächsten App-Start mit großem Cover und einem kurzen Feuerwerk (abschaltbar).</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Die Titelsuche nach einem Reihennamen findet die deutschen Bände jetzt zuverlässig – auch wenn die Bände eigene Episodentitel tragen.</li>
+      <li>„Weitere Bände der Reihe" zeigt nur noch Ausgaben in deiner Gerätesprache – mit korrekten Bandnummern und dem richtigen Cover je Band.</li>
+      <li>Erscheinungstermine von Vorbestellern schärfen sich automatisch nach, sobald der Katalog den genauen Tag kennt; jahresgenaue Termine werden ehrlich als Jahr angezeigt und lassen sich antippen und präzisieren.</li>
+      <li>Filter und Sortierung von Bibliothek und Wunschliste bleiben beim Neustart erhalten.</li>
+      <li>Die Leihliste zeigt den Lesestatus direkt in der Zeile und ordnet gleiche Status nach Fälligkeit; auf dem iPhone haben Titel und Autor wieder volle Breite.</li>
+      <li>IPad: Die Seitenleiste startet jetzt platzsparend eingeklappt – über die Einstellungen änderbar.</li>
+      <li>Autor-, Reihen- und Genre-Ansichten mit einheitlichem, ruhigem Hintergrund-Verlauf und exakt bündigen Cover-Rastern.</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen: einheitliche Autoren-Initialen („J. K. Rowling"), stabileres Teilen und mehr Zuverlässigkeit im Alltag.</p>
+  </section>
+
+  <section class="card version" id="v0-6">
+    <h2>Version 0.6</h2>
+    <p class="updated">Im App Store seit 12. Juli 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>Sonderbände mit halber Bandnummer – Zwischenbände wie „Band 8,5" werden beim Scannen korrekt erkannt, überall richtig angezeigt („8,5 von 9"), sauber einsortiert und lassen sich auch manuell eingeben.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Der Reihenscreen bietet je Band jetzt alle Ausgaben zur Auswahl – gebunden, Taschenbuch, E-Book und Hörbuch, jede mit eigenem Cover.</li>
+      <li>„Weitere Bände suchen" findet deutlich mehr Bände; ein hinzugefügter Band verschwindet sofort aus den Vorschlägen und übernimmt Reihe + Bandnummer zuverlässig.</li>
+      <li>Trägt die gedruckte Ausgabe keine Reihen-Angabe, übernimmt BookSafe sie automatisch von der E-Book- oder Hörbuch-Ausgabe – inklusive Bandnummer.</li>
+      <li>Die Titel-Suche zeigt Ausgaben jetzt einzeln (gebunden, Taschenbuch, E-Book, Hörbuch) in einer neuen, aufgeräumten Trefferliste mit Jahr und Ausführung.</li>
+      <li>„Buch hinzufügen" aufgeräumt – ISBN-Eingabe und Scanner stehen jetzt ganz oben, der Rest füllt sich automatisch.</li>
+      <li>Wunschliste, Besitz und Ausleihe sind jetzt konsequent getrennt – beim Verlassen der Wunschliste wählst du „Gekauft" oder „Ausgeliehen".</li>
+      <li>Werden mehrere Leihbücher am selben Tag fällig, erinnert BookSafe mit einer gebündelten Mitteilung statt vieler einzelner.</li>
+      <li>Die Cover-Auswahl bietet zusätzlich die Cover anderer Ausgaben desselben Buchs an.</li>
+    </ul>
+    <h3>Behoben</h3>
+    <ul>
+      <li>Möglicher Absturz beim Löschen eines Buchs, während im Hintergrund noch Daten geladen wurden.</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen: stabilere und einheitlichere Buchdaten, neue Tropes, korrigierte Darstellungs-Kleinigkeiten und mehr Zuverlässigkeit beim App-Update.</p>
+  </section>
+
+  <section class="card version" id="v0-5">
+    <h2>Version 0.5</h2>
+    <p class="updated">Im App Store seit 7. Juli 2026</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>BookSafe für iPad – echtes iPad-Layout mit Seitenleiste, breiten Listenzeilen, zweispaltigen Statistiken, großem Kalender und einem extragroßen Widget.</li>
+      <li>Der 6. Stern „Exzellent" – zeichne deine absoluten Lieblingsbücher mit einem besonderen, glänzenden Stern aus.</li>
+      <li>Weitere Bände einer Reihe finden – lass dir die fehlenden Bände anzeigen und füge sie mit einem Tipp hinzu.</li>
+      <li>Buch per Titel suchen – tippe in „Buch hinzufügen" auf die Lupe und finde dein Buch auch ohne ISBN.</li>
+      <li>Top-Autoren in den Statistiken – sieh auf einen Blick, wen du am meisten liest.</li>
+      <li>Automatische Themen-/Tropes-Erkennung aus der Buchbeschreibung.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Bessere Lesbarkeit im Hellmodus auf dunklen Cover-Hintergründen.</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen und mehr Stabilität.</p>
+  </section>
+
+  <section class="card version" id="v0-4">
+    <h2>Version 0.4</h2>
+    <p class="updated">Im App Store seit 1. Juli 2026</p>
+    <p>Die erste Version im deutschen und englischen App Store, mit den Inhalten von 0.3.</p>
+    <h3>Neu</h3>
+    <ul>
+      <li>Frisches Design für die gesamte App – ruhige Verlauf-Hintergründe, klare Karten-Optik, perfekt in Hell und Dunkel.</li>
+      <li>Countdown-Widget „Nächste Veröffentlichung" für Home- und Sperrbildschirm – behalte den Erscheinungstermin deines nächsten Wunschbuchs immer im Blick.</li>
+      <li>BookSafe Pro – die kostenlose Version umfasst bis zu 50 Bücher, mit Pro speicherst du unbegrenzt viele. Einmaliger Kauf, kein Abo.</li>
+      <li>Ausleih-Tracker für Büchereibücher – behalte Rückgabefristen im Blick und werde rechtzeitig erinnert.</li>
+      <li>Bücherei-Ausleihbeleg scannen – fotografiere deinen Leihbeleg und BookSafe markiert die Bücher automatisch als ausgeliehen samt Rückgabefrist.</li>
+      <li>Vollständig auf Deutsch und Englisch.</li>
+    </ul>
+    <h3>Verbessert</h3>
+    <ul>
+      <li>Deutlich treffsicherere Reihen- und Bandnummer-Erkennung.</li>
+    </ul>
+    <p class="note">Viele Detailverbesserungen, Fehlerbehebungen und mehr Stabilität.</p>
+  </section>
+
+  <section class="card">
+    <div class="store">
+      <a href="https://apps.apple.com/de/app/booksafe/id6779730178"><img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <a href="../">← Zurück zur Startseite</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Startseite</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#kontakt">Kontakt</a>
+    <a href="../en/versions/" hreflang="en" lang="en">English</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+</footer>
+
+</body>
+</html>

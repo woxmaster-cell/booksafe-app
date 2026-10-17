@@ -476,8 +476,8 @@
     text-align: center;
   }
 
-  /* ---------- Filmdesigns (1.7) ---------- */
-  /* Drei Filmstile des Jahresrueckblicks nebeneinander, direkt unter der Rueckblick-Zeile.
+  /* ---------- Filmdesigns (1.7/1.8) ---------- */
+  /* Vier Filmstile des Jahresrueckblicks nebeneinander, direkt unter der Rueckblick-Zeile.
      Bewusst ein <div>, keine <section>: `.feature:nth-of-type(even)` zaehlt die
      <section>-Geschwister in <main> — eine weitere Sektion drehte die Spiegelung der
      folgenden Feature-Reihen um. Die Bilder sind gerenderte Filmszenen (FilmStripTests,
@@ -510,7 +510,7 @@
   .films-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: clamp(16px, 3vw, 36px);
     margin-top: 36px;
   }
@@ -656,7 +656,7 @@
        auseinanderlaufen, wenn jemand spaeter an einer der Zahlen dreht. */
     .feature.feature--watch .shot { flex-basis: auto; width: min(360px, 78vw); }
 
-    /* Drei Filmbilder nebeneinander waeren bei 390 px nur ~100 px breit. Stattdessen
+    /* Vier Filmbilder nebeneinander waeren bei 390 px nur ~100 px breit. Stattdessen
        eine wischbare Reihe: die Reihe scrollt in sich, die Seite nicht (body hat
        overflow-x: hidden, die Reihe bleibt innerhalb des Panels). */
     .films { padding: 40px 20px 32px; }
@@ -720,7 +720,7 @@
   "url": "https://booksafe.app/",
   "applicationCategory": "BookApplication",
   "operatingSystem": "iOS 18.0, watchOS 11.0",
-  "softwareVersion": "1.7",
+  "softwareVersion": "1.8",
   "inLanguage": [
     "de",
     "en"
@@ -765,11 +765,11 @@
     <a class="lang-switch" href="en/" hreflang="en" lang="en">English</a>
   </div>
 
-  <p class="hero-update"><a href="neu-in-1-7/"><span class="dot" aria-hidden="true"></span>Neu in 1.7: dein Lesejahr als Film<span class="pill-more"> — Details</span></a></p>
+  <p class="hero-update"><a href="neu-in-1-8/"><span class="dot" aria-hidden="true"></span>Neu in 1.8: Comics und der Lesepass<span class="pill-more"> — Details</span></a></p>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.7 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.8 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
       <h1>Deine Bibliothek<br>gehört <em>dir.</em></h1>
       <p class="sub">Bücher per ISBN scannen, Reihen bis zum Sonderband im Griff, die Lesesitzung am Handgelenk starten — ohne Konto, ohne Tracking, ohne Abo.</p>
       <div class="hero-cta">
@@ -909,17 +909,17 @@
       <ul>
         <li>Am Jahresende macht BookSafe aus deinen gelesenen Büchern einen <strong>Rückblick</strong>: Bücher, Seiten, Top-Genre, produktivster Monat und längstes Buch.</li>
         <li><strong>Kröne deine drei Lieblingsbücher</strong> aufs Top-3-Podest — Gold, Silber, Bronze; die Bestbewerteten schlägt BookSafe dir vor.</li>
-        <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen — in drei Designs.</li>
+        <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen — in vier Designs.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="assets/de-yearinreview.webp" type="image/webp"><img src="assets/de-yearinreview.jpg" alt="Jahresrückblick mit Kennzahlen und Top-3-Podest" loading="lazy" width="720" height="1564"></picture></div>
   </section>
 
   <div class="films" id="filmdesigns" role="region" aria-labelledby="films-title">
-    <p class="kicker">Neu in 1.7 · Filmdesigns</p>
-    <h2 id="films-title">Drei Filme, ein Lesejahr</h2>
+    <p class="kicker">Neu in 1.8 · Filmdesigns</p>
+    <h2 id="films-title">Vier Filme, ein Lesejahr</h2>
     <p class="films-text">Wähle im Jahresrückblick, wie dein Film aussieht — jeder mit eigener Musik und als Video zum Teilen.</p>
-    <ul class="films-grid" tabindex="0" aria-label="Die drei Filmdesigns">
+    <ul class="films-grid" tabindex="0" aria-label="Die vier Filmdesigns">
       <li><figure>
         <picture><source srcset="assets/de-film-gilded.webp" type="image/webp"><img src="assets/de-film-gilded.jpg" alt="Filmdesign Glanz: „Auf insgesamt 13862 Seiten“ in goldenen Ziffern auf blau-violettem Verlauf" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Glanz</strong><span>Goldene Zahlen auf leuchtendem Verlauf — der Klassiker, 40 Sekunden.</span></figcaption>
@@ -932,8 +932,12 @@
         <picture><source srcset="assets/de-film-almanac.webp" type="image/webp"><img src="assets/de-film-almanac.jpg" alt="Filmdesign Almanach: Titelseite der Zeitung „The BookSafe Almanac“, Jahrgang 2026" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Almanach</strong><span>Eine historische Zeitung mit Druckwalze, Stempel und Sepia-Stichen. Eine Minute.</span></figcaption>
       </figure></li>
+      <li><figure>
+        <picture><source srcset="assets/de-film-passport.webp" type="image/webp"><img src="assets/de-film-passport.jpg" alt="Filmdesign Lesepass: Titelseite „Ein Jahr in Büchern“, Jahrgang 2026, mit Ticket „42 Bücher“ und Stempel" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Lesepass</strong><span>Dein Lesejahr als Comic-Lesepass: zehn Seiten zum Umblättern, mit eigenem Song. 80 Sekunden.</span></figcaption>
+      </figure></li>
     </ul>
-    <p class="films-more"><a href="neu-in-1-7/">Alles Neue in Version 1.7 →</a></p>
+    <p class="films-more"><a href="neu-in-1-8/">Alles Neue in Version 1.8 →</a></p>
   </div>
 
   <section class="feature feature--watch">
