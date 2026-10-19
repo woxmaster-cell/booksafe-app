@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Für Autorinnen und Autoren</title>
-<meta name="description" content="Dein Erscheinungstag auf den Wunschlisten deiner Leser: BookSafe zählt bis zum Erscheinen herunter, erinnert am Tag selbst und feiert mit. Kostenloses Kit mit Story-Grafik und Anleitung zum Kopieren.">
+<meta name="description" content="Dein Erscheinungstag auf den Wunschlisten deiner Leser: BookSafe zählt bis zum Erscheinen herunter, erinnert am Tag selbst und feiert mit. Kostenloses Kit mit Story-Grafik, Video und Text zum Kopieren.">
 <meta property="og:title" content="BookSafe — Für Autorinnen und Autoren">
 <meta property="og:description" content="Setz mein Buch auf deine Wunschliste: ein kostenloses Kit für deinen Erscheinungstag.">
 <meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
@@ -122,6 +122,7 @@
   .kit { display: flex; gap: 22px; align-items: flex-start; margin-top: 14px; flex-wrap: wrap; }
   .kit img { width: 150px; height: auto; border-radius: 10px; border: 1px solid var(--hairline); display: block; }
   .kit .text { flex: 1 1 260px; }
+  .kit video { width: 150px; height: auto; border-radius: 10px; border: 1px solid var(--hairline); display: block; background: #000; }
   .download {
     display: inline-block;
     margin-top: 10px;
@@ -160,7 +161,7 @@
     header { padding: 40px 20px 44px; }
     header h1 { font-size: 24px; }
     section.card { padding: 20px 18px; }
-    .kit img { width: 120px; }
+    .kit img, .kit video { width: 120px; }
   }
 </style>
 </head>
@@ -178,7 +179,7 @@
   <section class="card lead">
     <h2>Worum es geht</h2>
     <p>Dein Buch erscheint bald, und du möchtest, dass deine Leserinnen und Leser den Tag nicht verpassen? In BookSafe setzen sie es auf ihre <strong>Wunschliste</strong>. Die App zählt bis zum Erscheinen herunter, erinnert am Tag selbst und feiert ihn mit einem kleinen Feuerwerk.</p>
-    <p>Dafür gibt es hier ein kostenloses Kit: eine Story-Grafik und einen Text zum Kopieren. Ohne Anmeldung, ohne Kosten, und deine Leser brauchen kein Konto.</p>
+    <p>Dafür gibt es hier ein kostenloses Kit: eine Story-Grafik, ein kurzes Video und einen Text zum Kopieren. Ohne Anmeldung, ohne Kosten, und deine Leser brauchen kein Konto.</p>
   </section>
 
   <section class="card">
@@ -201,7 +202,7 @@
     <p>Am Erscheinungstag kommt um 9 Uhr eine Mitteilung, sofern die Mitteilungen erlaubt sind.</p>
 
     <h3><span class="num">3</span>Mitfeiern</h3>
-    <p>Beim nächsten Öffnen der App erscheint dein Cover groß, mit einem Feuerwerk.</p>
+    <p>Beim nächsten Öffnen der App erscheint dein Cover groß, mit einem Feuerwerk. Das Video unten zeigt, wie das aussieht.</p>
 
     <p class="note"><strong>Wichtig:</strong> Erinnerung und Feuerwerk brauchen den <strong>genauen Tag</strong>. Bei Büchern, die noch nicht erschienen sind, steht im Katalog oft nur das Jahr. Deshalb gehört der dritte Schritt unten in jeden Aufruf.</p>
   </section>
@@ -224,6 +225,17 @@ Dann zählt die App bis zum Erscheinen herunter, erinnert dich am Tag selbst und
       <div class="text">
         <p>Format 1080 × 1920 für Instagram- und TikTok-Storys. In der Mitte ist Platz für dein Cover: Leg es in der Story-Ansicht als Bild darüber. Datum und Link fügst du als Sticker hinzu.</p>
         <a class="download" href="../assets/booksafe-story-wunschliste.png" download>Grafik herunterladen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Das Video vom Erscheinungstag</h2>
+    <div class="kit">
+      <video src="../assets/booksafe-feuerwerk.mp4" poster="../assets/booksafe-feuerwerk-poster.jpg" width="1080" height="2168" controls muted playsinline loop preload="none" aria-label="Bildschirmvideo: BookSafe zeigt am Erscheinungstag „Erscheint heute!“ mit dem Cover und einem Feuerwerk"></video>
+      <div class="text">
+        <p>So sieht der Erscheinungstag in BookSafe aus: sieben Sekunden, ohne Ton, im Hochformat. Du kannst es in deine Story oder dein Reel schneiden und dazu den Text von oben schreiben.</p>
+        <a class="download" href="../assets/booksafe-feuerwerk.mp4" download>Video herunterladen</a>
       </div>
     </div>
   </section>
