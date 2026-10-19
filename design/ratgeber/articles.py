@@ -143,7 +143,7 @@ ARTICLES = [
         "sub": "Vom Regal in die App, ein Buch nach dem anderen oder alle auf einmal.",
         "teaser": "ISBN scannen, Standort festhalten, bestehende Listen übernehmen und die Daten sichern.",
         "body": """
-    <p class="lead">Eine eigene Bücherliste lohnt sich: Man kauft nichts doppelt, findet Bücher im Regal wieder und weiß, was man verliehen hat. Der Aufwand ist kleiner, als er aussieht.</p>
+    <p class="lead">Eine eigene Bücherliste lohnt sich: Du kaufst nichts doppelt, findest Bücher im Regal wieder, und sie erinnert dich, welche Bücher aus der Bücherei zurückmüssen. Der Aufwand ist kleiner, als er aussieht.</p>
 
     <h3>Die ISBN ist der Schlüssel</h3>
     <p>Fast jedes Buch trägt eine ISBN, meist als Strichcode auf der Rückseite. In BookSafe hältst du die Kamera darauf, und Titel, Autor, Cover, Verlag und Erscheinungsdatum kommen aus Bibliothekskatalogen. Ist der Strichcode beschädigt oder überklebt, liest der Scanner auch die gedruckte Nummer darüber. Ältere Bücher ohne ISBN findest du über die Titelsuche oder trägst sie von Hand ein.</p>
