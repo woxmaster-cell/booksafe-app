@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — Für Autorinnen und Autoren</title>
+<meta name="description" content="Dein Erscheinungstag auf den Wunschlisten deiner Leser: BookSafe zählt bis zum Erscheinen herunter, erinnert am Tag selbst und feiert mit. Kostenloses Kit mit Story-Grafik und Anleitung zum Kopieren.">
+<meta property="og:title" content="BookSafe — Für Autorinnen und Autoren">
+<meta property="og:description" content="Setz mein Buch auf deine Wunschliste: ein kostenloses Kit für deinen Erscheinungstag.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/autoren/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/autoren/">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  .lead p { font-size: 17px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  /* Zwei Screenshots nebeneinander, gleiche Größe (720 × 1564). */
+  .shots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5%;
+    margin: 18px auto 6px;
+    max-width: 440px;
+  }
+  .shots figure { margin: 0; }
+  .shots img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .shots figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  picture { display: contents; }
+  /* Der Text zum Kopieren: sichtbar als Block, damit klar ist, was mitgeht. */
+  .copy-box {
+    margin-top: 14px;
+    border: 1px solid var(--hairline);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 16px;
+    white-space: pre-line;
+    font-size: 15.5px;
+  }
+  .copy-btn {
+    margin-top: 10px;
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-pill);
+    padding: 6px 16px;
+    cursor: pointer;
+  }
+  .copy-btn:hover { border-color: var(--gold); }
+  .kit { display: flex; gap: 22px; align-items: flex-start; margin-top: 14px; flex-wrap: wrap; }
+  .kit img { width: 150px; height: auto; border-radius: 10px; border: 1px solid var(--hairline); display: block; }
+  .kit .text { flex: 1 1 260px; }
+  .download {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    border-radius: var(--radius-pill);
+    padding: 6px 16px;
+  }
+  .download:hover { background: var(--gold); color: var(--navy); }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+  @media (prefers-color-scheme: dark) {
+    :focus-visible { outline-color: var(--gold); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+    .kit img { width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
+  <h1>Für Autorinnen und Autoren</h1>
+  <p class="sub">Dein Erscheinungstag auf den Wunschlisten deiner Leser</p>
+  <a class="home" href="../">← Zur Startseite</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>Worum es geht</h2>
+    <p>Dein Buch erscheint bald, und du möchtest, dass deine Leserinnen und Leser den Tag nicht verpassen? In BookSafe setzen sie es auf ihre <strong>Wunschliste</strong>. Die App zählt bis zum Erscheinen herunter, erinnert am Tag selbst und feiert ihn mit einem kleinen Feuerwerk.</p>
+    <p>Dafür gibt es hier ein kostenloses Kit: eine Story-Grafik und einen Text zum Kopieren. Ohne Anmeldung, ohne Kosten, und deine Leser brauchen kein Konto.</p>
+  </section>
+
+  <section class="card">
+    <h2>Was BookSafe für deine Leser tut</h2>
+
+    <h3><span class="num">1</span>Herunterzählen</h3>
+    <p>In der Wunschliste steht bei deinem Buch, wie viele Tage es noch dauert. Der Erscheinungskalender zeigt es am richtigen Tag.</p>
+    <div class="shots">
+      <figure>
+        <picture><source srcset="../assets/de-wishlist.webp" type="image/webp"><img src="../assets/de-wishlist.jpg" alt="Wunschliste in BookSafe: anstehende Erscheinungen mit Countdown in Tagen" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Wunschliste mit Countdown</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../assets/de-calendar.webp" type="image/webp"><img src="../assets/de-calendar.jpg" alt="Erscheinungskalender in BookSafe: Cover an ihrem Erscheinungstag im Monatsblatt" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Erscheinungskalender</figcaption>
+      </figure>
+    </div>
+
+    <h3><span class="num">2</span>Erinnern</h3>
+    <p>Am Erscheinungstag kommt um 9 Uhr eine Mitteilung, sofern die Mitteilungen erlaubt sind.</p>
+
+    <h3><span class="num">3</span>Mitfeiern</h3>
+    <p>Beim nächsten Öffnen der App erscheint dein Cover groß, mit einem Feuerwerk.</p>
+
+    <p class="note"><strong>Wichtig:</strong> Erinnerung und Feuerwerk brauchen den <strong>genauen Tag</strong>. Bei Büchern, die noch nicht erschienen sind, steht im Katalog oft nur das Jahr. Deshalb gehört der dritte Schritt unten in jeden Aufruf.</p>
+  </section>
+
+  <section class="card">
+    <h2>Der Text für deine Leser</h2>
+    <p>Kopiere ihn in deine Story, deinen Post oder deinen Newsletter und setze ISBN und Datum ein.</p>
+    <div class="copy-box" id="leser-text">Setz mein Buch auf deine Wunschliste, dann verpasst du den Erscheinungstag nicht:
+1. BookSafe laden (kostenlos, ohne Konto): booksafe.app
+2. Die ISBN [ISBN] scannen oder eintippen und „Wunschliste“ wählen.
+3. Unter „Weitere Angaben“ beim Erscheinungsdatum auf den Stift tippen und den [TT.MM.JJJJ] eintragen.
+Dann zählt die App bis zum Erscheinen herunter, erinnert dich am Tag selbst und feiert mit dir.</div>
+    <button class="copy-btn" type="button" data-copy="leser-text">Text kopieren</button>
+  </section>
+
+  <section class="card">
+    <h2>Die Story-Grafik</h2>
+    <div class="kit">
+      <a href="../assets/booksafe-story-wunschliste.png"><img src="../assets/booksafe-story-wunschliste.png" alt="Story-Grafik: „Setz mein Buch auf deine Wunschliste“, freie Fläche für das Cover, drei Schritte" width="1080" height="1920" loading="lazy"></a>
+      <div class="text">
+        <p>Format 1080 × 1920 für Instagram- und TikTok-Storys. In der Mitte ist Platz für dein Cover: Leg es in der Story-Ansicht als Bild darüber. Datum und Link fügst du als Sticker hinzu.</p>
+        <a class="download" href="../assets/booksafe-story-wunschliste.png" download>Grafik herunterladen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Sollen wir mitfeiern?</h2>
+    <p>Schreib uns an <a href="mailto:kontakt@sisofa.de?subject=Erscheinungstag">kontakt@sisofa.de</a>, wann dein Buch erscheint. Wir freuen uns über jeden Erscheinungstag, den BookSafe begleiten darf.</p>
+    <div class="store">
+      <a href="https://apps.apple.com/de/app/booksafe/id6779730178"><img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <a href="../">← Zurück zur Startseite</a>
+    </div>
+    <p class="note">BookSafe gibt es für iPhone und iPad ab iOS 18. Kostenlos bis 50 Bücher.</p>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Startseite</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#kontakt">Kontakt</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+</footer>
+
+<script>
+  // Kopiert den sichtbaren Text des Blocks; ohne Clipboard-API bleibt der Text markierbar.
+  document.querySelectorAll('[data-copy]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = document.getElementById(btn.dataset.copy).innerText;
+      if (!navigator.clipboard) return;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.textContent = 'Kopiert';
+        setTimeout(function () { btn.textContent = 'Text kopieren'; }, 2000);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
