@@ -17,6 +17,11 @@ beiden Presse-Seiten sie zum Download. Nach jeder Änderung also mitkopieren:
     python3 build.py && node render.mjs
     cp BookSafe-*-Onepager.pdf BookSafe-*-Onepager.png ../../assets/
 
+`render.mjs` hat die Pfade der Web-Session fest eingetragen (`/opt/node22`, `/home/user`). Am Mac
+(19.10.2026) lief er als Kopie mit drei ersetzten Stellen: Playwright aus einem `npm i playwright`
+im Scratch-Ordner, `B` auf diesen Ordner, `chromium.launch({ channel: 'chrome' })` (installiertes
+Chrome). Die Pixel weichen dadurch überall leicht ab (Kantenglättung), Layout und Reserve nicht.
+
 `render.mjs` prüft dabei, ob der Inhalt noch aufs Blatt passt, ob das PDF
 einseitig bleibt und ob beide Schriften geladen sind — es endet mit
 Exit-Code 1, wenn eine Fassung durchfällt. Das Blatt schneidet sonst
