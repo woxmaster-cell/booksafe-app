@@ -23,6 +23,36 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://booksafe.app/ratgeber/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/neuerscheinungen-nicht-verpassen/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/buchreihe-reihenfolge/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/sub-abbauen/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/buecherei-leihfristen/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/buecher-erfassen/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://booksafe.app/neu-in-1-8/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-8/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-8/"/>
