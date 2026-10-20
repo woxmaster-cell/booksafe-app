@@ -194,6 +194,17 @@ def cta(rel):
   </section>"""
 
 
+def breadcrumbs(*trail):
+    """Pfad für das Suchergebnis: BookSafe › Ratgeber › Artikel."""
+    steps = (("BookSafe", "https://booksafe.app/"),) + trail
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{"@type": "ListItem", "position": i, "name": name, "item": link}
+                            for i, (name, link) in enumerate(steps, start=1)],
+    }
+
+
 def build():
     publisher = {"@type": "Organization", "name": "Sisofa", "url": "https://booksafe.app/"}
     written = []
@@ -233,6 +244,7 @@ def build():
             "mainEntityOfPage": url,
             "image": "https://booksafe.app/assets/og-de.jpg",
         }
+        jsonld = [jsonld, breadcrumbs(("Ratgeber", BASE), (a["h1"], url))]
         doc = page(url=url, rel=rel, title=a["title"], description=a["description"], h1=a["h1"],
                    sub=a["sub"], kicker="Ratgeber", body=content, jsonld=jsonld)
         target = ROOT / "ratgeber" / a["slug"] / "index.html"
@@ -257,6 +269,7 @@ def build():
         "publisher": publisher,
         "hasPart": [{"@type": "Article", "headline": o["h1"], "url": f"{BASE}{o['slug']}/"} for o in ARTICLES],
     }
+    jsonld = [jsonld, breadcrumbs(("Ratgeber", BASE))]
     doc = page(url=BASE, rel="../", title="BookSafe Ratgeber: rund ums Lesen und Sammeln",
                description="Kurze Ratgeber rund um die eigene Bibliothek: Neuerscheinungen im Blick behalten, Buchreihen in der richtigen Reihenfolge lesen, den Stapel ungelesener Bücher abbauen, Leihfristen und Bücher erfassen.",
                h1="Ratgeber rund ums Lesen und Sammeln", sub="Kurze Antworten auf Fragen, die sich jede Leserin und jeder Leser irgendwann stellt.",
