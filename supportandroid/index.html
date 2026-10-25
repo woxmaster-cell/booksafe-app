@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe für Android — Support &amp; Datenschutz</title>
+<meta name="description" content="Support, häufige Fragen und Datenschutzerklärung der BookSafe-App für Android — kein Konto, keine Werbung, deine Bibliothek nur auf deinem Gerät.">
+<meta property="og:title" content="BookSafe für Android — Support &amp; Datenschutz">
+<meta property="og:description" content="Häufige Fragen, Kontakt und die vollständige Datenschutzerklärung für Android: kein Konto, keine Werbung, deine Bibliothek nur auf deinem Gerät.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/supportandroid/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/supportandroid/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root {
+    /* Im Druck gilt immer der dunkle Textton — der Dunkelmodus des
+       Geraets darf nicht auf weisses Papier durchschlagen. */
+    --ink-print: #22334A;
+    --muted-print: #5A6B82;
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Das <picture> um jeden Screenshot soll keine eigene Box bilden. */
+  picture { display: contents; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: 999px;
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift.
+     Ohne das steht die Presse-Seite in einer anderen Schrift als die Seite,
+     von der die Leserin gerade kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 22px 0 4px; }
+  .updated { color: var(--muted); font-size: 13.5px; }
+  ul { padding-left: 1.2em; }
+  li { margin-bottom: 4px; }
+  .contact-mail { font-size: 17px; font-weight: 600; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* B — Sichtbarer Fokus fuer Tastaturnutzung. Bisher gab es keine :focus-Regel;
+     der Standard-Umriss des Browsers ist fast schwarz und auf dem Navy-Kopf
+     praktisch unsichtbar. Navy auf dem hellen Grund, Gold auf den dunklen
+     Flaechen — beide Kombinationen liegen ueber 5:1. */
+  /* Kein border-radius hier: der Umriss folgt in modernen Browsern von selbst
+     der Rundung des Elements — eine eigene Angabe wuerde die Pillenform des
+     Sprachumschalters beim Fokussieren zu einem Rechteck machen. */
+  :focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 3px;
+  }
+  .hero :focus-visible,
+  header :focus-visible,
+  .pro :focus-visible {
+    outline-color: var(--gold);
+  }
+
+  /* C — Wer im System „Bewegung reduzieren“ eingestellt hat, bekommt kein
+     weiches Scrollen und keine Uebergaenge mehr. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ---------- Druck ---------- */
+  /* Diese Seite wird tatsaechlich ausgedruckt oder als PDF gesichert —
+     Redaktionen machen das mit dem Presse-Kit, Nutzerinnen mit der
+     Datenschutzerklaerung. Ohne eigene Regeln flutet der Navy-Kopf eine
+     Viertelseite mit Farbe, und Links verlieren beim Druck ihr Ziel. */
+  @media print {
+    header {
+      background: none;
+      color: var(--ink-print);
+      padding: 0 0 24px;
+      text-align: left;
+      border-bottom: 2px solid var(--gold-deep);
+    }
+    header .sub { color: var(--muted-print); }
+    header .icon { width: 56px; height: 56px; margin: 0 0 12px; box-shadow: none; }
+    /* Sprachumschalter und Zurueck-Link fuehren auf Papier ins Leere. */
+    header .lang-switch, header .home { display: none; }
+
+    body { background: #fff; color: var(--ink-print); font-size: 11pt; }
+    main { max-width: none; padding: 0; }
+    section.card {
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
+      margin: 0 0 18pt;
+      /* Eine Karte soll nicht mitten im Satz auf die naechste Seite rutschen. */
+      break-inside: avoid;
+    }
+    h2 { break-after: avoid; }
+
+    /* Ein Link ohne sichtbares Ziel ist auf Papier wertlos. */
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 9pt;
+      color: #555;
+      word-break: break-all;
+    }
+    /* Ausser bei den Downloads: dort steht der Dateiname schon im Text. */
+    a[download]::after { content: none; }
+
+    /* Die Screenshot-Kacheln sind auf Papier Beleg, nicht Hauptsache. */
+    .shots { grid-template-columns: repeat(4, 1fr); gap: 8pt; }
+    .shots img { border: 1px solid #bbb; }
+
+    footer { border-top: 1px solid #bbb; padding: 12pt 0 0; text-align: left; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://booksafe.app/supportandroid/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie füge ich ein Buch hinzu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tippe auf das „+“ und scanne den ISBN-Barcode auf der Buchrückseite – Titel, Autor, Cover und Beschreibung werden automatisch geladen. Du kannst Bücher auch manuell anlegen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werden meine Daten gesichert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deine Bibliothek wird auf deinem Gerät gespeichert. Ist auf deinem Smartphone die Android-Sicherung eingeschaltet, ist BookSafe darin enthalten. Über „Daten-Export“ kannst du deine Bücher zusätzlich als CSV oder PDF sichern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich meine Bibliothek vom iPhone übernehmen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Exportiere auf dem iPhone ein Backup und übernimm es in BookSafe für Android im Tab „Optionen“. Einen laufenden Sync zwischen Android und iPhone gibt es nicht."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../en/supportandroid/" hreflang="en" lang="en">English</a>
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
+  <h1>Support &amp; Datenschutz</h1>
+  <p class="sub">BookSafe für Android</p>
+  <a class="home" href="../">← Zur Startseite</a>
+</header>
+
+<main>
+
+  <section class="card">
+    <h2>Support</h2>
+    <p>Du hast eine Frage, einen Fehler gefunden oder einen Wunsch? Schreib uns – wir helfen gern.</p>
+    <p class="contact-mail"><a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+    <p>Bitte gib bei einem Problem dein Smartphone-Modell und deine Android-Version an, damit wir schneller helfen können.</p>
+    <p>Du nutzt BookSafe auf iPhone oder iPad? Dann findest du alles auf der <a href="../support/">Support-Seite für iPhone und iPad</a>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Häufige Fragen</h2>
+
+    <h3>Wie füge ich ein Buch hinzu?</h3>
+    <p>Tippe auf das „+“ und scanne den ISBN-Barcode auf der Buchrückseite – Titel, Autor, Cover und Beschreibung werden automatisch geladen. Du kannst Bücher auch manuell anlegen.</p>
+
+    <h3>Ein Cover oder eine Angabe fehlt – was tun?</h3>
+    <p>Nicht jedes Buch ist in allen Datenbanken erfasst. Du kannst Cover, Titel, Beschreibung und alle weiteren Felder jederzeit in der Detailansicht selbst bearbeiten.</p>
+
+    <h3>Werden meine Daten gesichert?</h3>
+    <p>Deine Bibliothek wird auf deinem Gerät gespeichert. Ist auf deinem Smartphone die Android-Sicherung eingeschaltet, ist BookSafe darin enthalten. Über „Daten-Export“ kannst du deine Bücher zusätzlich als CSV oder PDF sichern.</p>
+
+    <h3>Kann ich meine Bibliothek vom iPhone übernehmen?</h3>
+    <p>Ja. Exportiere auf dem iPhone ein Backup und übernimm es in BookSafe für Android im Tab „Optionen“. Einen laufenden Sync zwischen Android und iPhone gibt es nicht.</p>
+  </section>
+
+  <section class="card">
+    <h2>Datenschutzerklärung</h2>
+    <p class="updated">Stand: Oktober 2026 · gilt für BookSafe für Android</p>
+
+    <p>BookSafe ist so gebaut, dass deine Daten dir gehören. Es gibt kein Nutzerkonto, keine Registrierung, keine Werbung und keine BookSafe-Server. Wir selbst erhalten keine Daten von dir.</p>
+
+    <h3>Welche Daten verarbeitet die App?</h3>
+    <ul>
+      <li><strong>Deine Bibliothek</strong> (Bücher, Bewertungen, Notizen, Lesefortschritt, Lesesitzungen) wird <strong>nur auf deinem Gerät</strong> gespeichert. Wir haben keinen Zugriff darauf.</li>
+      <li><strong>Kamera:</strong> Beim ISBN-Scan wird das Kamerabild nur auf deinem Gerät ausgewertet, um den Barcode zu erkennen. Es werden keine Bilder gespeichert oder übertragen.</li>
+      <li><strong>Cover-Fotos:</strong> Wenn du selbst ein Cover fotografierst oder auswählst, wird nur dieses eine Bild in die App übernommen und bleibt auf deinem Gerät.</li>
+      <li><strong>Mitteilungen:</strong> Erscheinungs-Erinnerungen werden lokal auf deinem Gerät geplant. Damit sie nach einem Neustart erhalten bleiben, darf die App beim Gerätestart kurz laufen.</li>
+    </ul>
+
+    <h3>Android-Sicherung</h3>
+    <p>Hast du in den Android-Einstellungen die Sicherung eingeschaltet, sichert Android die Daten von BookSafe zusammen mit deinen anderen Apps in deinem Google-Konto. Das übernimmt Google, nicht BookSafe; es gelten die Datenschutzbestimmungen von Google. Wir haben keinen Zugriff auf diese Sicherung. Du kannst sie in den Android-Einstellungen abschalten.</p>
+
+    <h3>Google ML Kit (Barcode- und Texterkennung)</h3>
+    <p>Für den ISBN-Scan, die Texterkennung und den Cover-Scanner nutzt BookSafe Googles ML Kit. Die Erkennung selbst läuft auf deinem Gerät; Kamerabilder verlassen es nicht. ML Kit sendet aber Diagnose- und Nutzungsdaten an Google: Angaben zu Gerät und App, Leistungswerte, Fehlercodes und eine Kennung je Installation, die weder dich noch dein Gerät eindeutig identifizieren soll. Die Daten werden verschlüsselt übertragen und laut Google nicht an Dritte weitergegeben. Einzelheiten: <a href="https://developers.google.com/ml-kit/android-data-disclosure">Googles Angaben zu ML Kit</a>. Der Barcode- und der Dokumentscanner laufen in den Google Play-Diensten; dafür gelten die Datenschutzbestimmungen von Google.</p>
+
+    <h3>Netzwerkverbindungen</h3>
+    <p>Wenn du eine ISBN scannst oder ein Buch suchst, ruft die App öffentlich verfügbare Buch-Metadaten (Titel, Autor, Cover, Beschreibung) von Drittanbietern ab. Dabei wird ausschließlich die jeweilige ISBN bzw. dein Suchbegriff übertragen — keine persönlichen Daten. Genutzte Dienste: Deutsche Nationalbibliothek, K10plus (GBV/SWB), lobid (hbz), Library of Congress, Jisc Library Hub, Open Library, Apple iTunes, Wikidata sowie Cover-Bild-Server (z. B. Amazon-CDN). Für deren Datenverarbeitung gelten die jeweiligen Datenschutzbestimmungen.</p>
+
+    <h3>Was wir NICHT tun</h3>
+    <ul>
+      <li>Keine eigenen Analyse- oder Tracking-Dienste, keine Werbe-ID</li>
+      <li>Keine Weitergabe oder Verkauf von Daten</li>
+      <li>Kein Werbe-Netzwerk</li>
+      <li>Keine Nutzerkonten</li>
+    </ul>
+
+    <h3>Daten löschen</h3>
+    <p>Da alle Daten auf deinem Gerät liegen, entfernst du sie, indem du Bücher in der App löschst oder die App deinstallierst. Eine Sicherung in deinem Google-Konto verwaltest du in den Android-Einstellungen.</p>
+
+    <h3>Kinder</h3>
+    <p>BookSafe für Android richtet sich an Nutzerinnen und Nutzer ab 13 Jahren. Die App sammelt keine personenbezogenen Daten.</p>
+
+    <h3>Verantwortlich</h3>
+    <p>Verantwortlich für die Datenverarbeitung: Fabian Grill (Sisofa), <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+
+    <h3>Kontakt</h3>
+    <p>Fragen zum Datenschutz? <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  </section>
+
+  <section class="card" id="kontakt">
+    <h2>Kontakt</h2>
+    <p>BookSafe wird von einer Familie in Süddeutschland entwickelt, die öffentlich als <strong>Sisofa</strong> auftritt.</p>
+    <p>
+      Sisofa<br>
+      Fabian Grill<br>
+      E-Mail: <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a>
+    </p>
+    <p>BookSafe ist kein Unternehmen: kein Team, keine Investoren, keine Werbefinanzierung. Die Android-App wird ausschließlich über Google Play vertrieben.</p>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Startseite</a>
+    <a href="../support/">iPhone &amp; iPad</a>
+    <a href="../en/supportandroid/" hreflang="en" lang="en">English</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Android und Google Play sind Marken von Google LLC.</p>
+</footer>
+
+</body>
+</html>

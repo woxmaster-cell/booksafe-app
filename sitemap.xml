@@ -212,4 +212,20 @@
     <lastmod>2026-08-24</lastmod>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://booksafe.app/supportandroid/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/supportandroid/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
+    <lastmod>2026-10-25</lastmod>
+    <priority>0.6</priority>
+  </url>
 </urlset>
