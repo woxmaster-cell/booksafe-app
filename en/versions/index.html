@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Earlier versions</title>
-<meta name="description" content="Archive of every earlier BookSafe version from 0.4 to 1.7: what each version added — and with it, everything the app can do.">
+<meta name="description" content="Archive of every earlier BookSafe version from 0.4 to 1.8: what each version added — and with it, everything the app can do.">
 <meta property="og:title" content="BookSafe — Earlier versions">
-<meta property="og:description" content="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.7.">
+<meta property="og:description" content="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.8.">
 <meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -187,6 +187,7 @@
   section.version h4 .num { font-family: var(--font-display); color: var(--gold-deep); margin-right: 8px; }
   .more { margin-top: 18px; font-weight: 600; }
   .archive-link { display: inline-block; margin-top: 12px; font-weight: 600; }
+  .film-figure.four { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 720px; }
 </style>
 </head>
 <body>
@@ -195,8 +196,8 @@
   <a class="lang-switch" href="../../versionen/" hreflang="de" lang="de">Deutsch</a>
   <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
   <h1>Earlier versions</h1>
-  <p class="sub">Everything BookSafe learned from version 0.4 to 1.7</p>
-  <a class="home" href="../whats-new-1-8/">← What’s new in version 1.8</a>
+  <p class="sub">Everything BookSafe learned from version 0.4 to 1.8</p>
+  <a class="home" href="../whats-new-1-9/">← What’s new in version 1.9</a>
 </header>
 
 <main>
@@ -204,8 +205,9 @@
   <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-8/">version 1.8 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-9/">version 1.9 page</a>.</p>
     <nav class="version-nav" aria-label="Versions">
+      <a href="#v1-8">1.8</a>
       <a href="#v1-7">1.7</a>
       <a href="#v1-6">1.6</a>
       <a href="#v1-5">1.5</a>
@@ -221,6 +223,58 @@
       <a href="#v0-5">0.5</a>
       <a href="#v0-4">0.4</a>
     </nav>
+  </section>
+
+  <section class="card version" id="v1-8">
+    <h2>Version 1.8</h2>
+    <p class="updated">On the App Store since 17 October 2026</p>
+    <p>BookSafe 1.8 is the update for everyone who collects comics and series: comics like Asterix are recognised correctly, you enter the cover, the volume and “Total volumes” right when adding a book, and Year in Review gets its fourth film design — the “Passport”.</p>
+    <h3>New</h3>
+
+    <h4><span class="num">1</span>A fourth film design: the Passport</h4>
+    <p>Alongside “Gilded”, “Clothbound” and “Almanac”, Year in Review now offers the <strong>Passport</strong>. It tells your reading year as a comic-style ID: ten pages to flip through, with stamps, a ticket and its own song. The film runs 80 seconds. Pick it like the other designs with the palette button.</p>
+    <div class="film-figure four">
+      <figure>
+        <picture><source srcset="../../assets/en-film-gilded.webp" type="image/webp"><img src="../../assets/en-film-gilded.jpg" alt="Gilded film design: golden numbers on a blue-violet gradient" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Gilded</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-film-clothbound.webp" type="image/webp"><img src="../../assets/en-film-clothbound.jpg" alt="Clothbound film design: “Reading catalogue” index card with a stamp on green cloth" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Clothbound</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-film-almanac.webp" type="image/webp"><img src="../../assets/en-film-almanac.jpg" alt="Almanac film design: front page of “The BookSafe Almanac”" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Almanac</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-film-passport.webp" type="image/webp"><img src="../../assets/en-film-passport.jpg" alt="Passport film design: title page “A Year in Books” with a “42 books” ticket and a stamp" loading="lazy" width="720" height="1561"></picture>
+        <figcaption>Passport</figcaption>
+      </figure>
+    </div>
+
+    <h4><span class="num">2</span>Share Year in Review as an image or as a video</h4>
+    <p>The share button in Year in Review now asks what you want to share: <strong>“Share image”</strong> for the overview of your year, or <strong>“Share video”</strong> for the film in the design you picked. You can share the video without watching the film first.</p>
+
+    <h4><span class="num">3</span>The cover right when adding a book</h4>
+    <p>In “Add Book” you pick the cover straight away — from your photo library or photographed on the spot. When you take a photo, BookSafe crops the cover automatically. In the book details, both work under “Change cover”.</p>
+
+    <h4><span class="num">4</span>Volume and “Total volumes” by hand</h4>
+    <p>When adding a book you can now enter the volume and the number of volumes under “Series”. “Total volumes” can also be changed in the series sheet of the book details. Automatic updates never overwrite what you entered yourself.</p>
+
+    <h4><span class="num">5</span>Contact &amp; Feedback in Settings</h4>
+    <p>Settings now have <strong>“Contact &amp; Feedback”</strong>. It opens an email to us with the app version and device already filled in. No data from your library is included.</p>
+  
+    <h3>Improved</h3>
+    <ul>
+      <li>comics are recognised correctly: the album title instead of a series name with a number such as “Asterix 02”, the right series instead of a publisher’s title, and the genre “Comic” instead of “Novel”</li>
+      <li>an ISBN that belongs to a box set is added as the box instead of as volume 1</li>
+      <li>“Clean Up Data” in Settings fixes the series of books you have already saved</li>
+      <li>cleaner series names and subtitles: no catalogue brackets or hyphen chains, no marketing copy in the subtitle</li>
+      <li>spin-offs land in their own series</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  
+    <p class="more"><a href="../whats-new-1-8/">Full page for version 1.8 →</a></p>
   </section>
 
   <section class="card version" id="v1-7">

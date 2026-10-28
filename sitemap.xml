@@ -6,7 +6,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -14,7 +14,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
@@ -53,6 +53,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://booksafe.app/neu-in-1-9/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-9/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-9/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/whats-new-1-9/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-9/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-9/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-9/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://booksafe.app/neu-in-1-8/</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-8/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-8/"/>
@@ -73,7 +89,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -81,7 +97,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -90,7 +106,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-7/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-7/"/>
     <lastmod>2026-10-12</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://booksafe.app/en/whats-new-1-7/</loc>
@@ -98,7 +114,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-7/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-7/"/>
     <lastmod>2026-10-12</lastmod>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://booksafe.app/neu-in-1-6/</loc>
@@ -185,7 +201,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -193,7 +209,7 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
