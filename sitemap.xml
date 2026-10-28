@@ -23,34 +23,98 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://booksafe.app/presse/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/press/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://booksafe.app/ratgeber/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://booksafe.app/ratgeber/neuerscheinungen-nicht-verpassen/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://booksafe.app/ratgeber/buchreihe-reihenfolge/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/ratgeber/sub-abbauen/</loc>
-    <lastmod>2026-10-19</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/ratgeber/buecherei-leihfristen/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://booksafe.app/ratgeber/buecher-erfassen/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/buecherei-leihfristen/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/neuerscheinungen-nicht-verpassen/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/ratgeber/sub-abbauen/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/support/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/support/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
+    <lastmod>2026-08-24</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/supportandroid/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/supportandroid/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
+    <lastmod>2026-10-26</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/versionen/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://booksafe.app/en/versions/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
+    <lastmod>2026-10-28</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booksafe.app/neu-in-1-9/</loc>
@@ -83,22 +147,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-8/"/>
     <lastmod>2026-10-17</lastmod>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/versionen/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
-    <lastmod>2026-10-28</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/en/versions/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/versionen/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/versions/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/versionen/"/>
-    <lastmod>2026-10-28</lastmod>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://booksafe.app/neu-in-1-7/</loc>
@@ -195,53 +243,5 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-2/"/>
     <lastmod>2026-09-14</lastmod>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/presse/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
-    <lastmod>2026-10-28</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/en/press/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/presse/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/press/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/presse/"/>
-    <lastmod>2026-10-28</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/support/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/en/support/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/support/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/support/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/support/"/>
-    <lastmod>2026-08-24</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/supportandroid/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
-    <lastmod>2026-10-25</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://booksafe.app/en/supportandroid/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://booksafe.app/supportandroid/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://booksafe.app/en/supportandroid/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://booksafe.app/supportandroid/"/>
-    <lastmod>2026-10-25</lastmod>
-    <priority>0.6</priority>
   </url>
 </urlset>
