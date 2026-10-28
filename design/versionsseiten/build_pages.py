@@ -1,7 +1,7 @@
-"""Erzeugt neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
-Quelle der Detailseiten 1.2–1.7: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
+Quelle der Detailseiten 1.2–1.8: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
 Quelle 0.4–1.1: die im App Store veröffentlichten Versionshinweise (ASC-API).
 """
 import html
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -78,6 +78,7 @@ EXTRA_CSS = """
   section.version h4 .num { font-family: var(--font-display); color: var(--gold-deep); margin-right: 8px; }
   .more { margin-top: 18px; font-weight: 600; }
   .archive-link { display: inline-block; margin-top: 12px; font-weight: 600; }
+  .film-figure.four { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 720px; }
 """
 
 
@@ -197,7 +198,7 @@ def build_18(lang):
     <h2>Worum es in diesem Update geht</h2>
     <p>BookSafe 1.8 ist das Update für alle, die Comics und Reihen sammeln: Comics wie Asterix werden richtig erkannt, Cover, Band und „Bände gesamt“ trägst du schon beim Anlegen ein, und der Jahresrückblick bekommt sein viertes Filmdesign — den „Lesepass“.</p>
     <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
-    <p class="updated">Version 1.8 · veröffentlicht im Oktober 2026</p>
+    <p class="updated">Version 1.8 · veröffentlicht am 17. Oktober 2026</p>
   </section>
 
   <section class="card">
@@ -246,7 +247,7 @@ def build_18(lang):
                     og_title="BookSafe — Neu in Version 1.8",
                     og_desc="Das Update für Comic- und Reihensammler: Comics richtig erkannt, Cover und Band schon beim Anlegen, dazu der Lesepass als viertes Filmdesign — im Detail.",
                     alternates={"de": "neu-in-1-8/", "en": "en/whats-new-1-8/"},
-                    h1="Neu in Version 1.8", sub="Im App Store seit Oktober 2026",
+                    h1="Neu in Version 1.8", sub="Im App Store seit 17. Oktober 2026",
                     header_links='  <a class="home" href="../">← Zur Startseite</a>',
                     body=body, css_patch=four_films)
     body = f"""
@@ -254,7 +255,7 @@ def build_18(lang):
     <h2>What this update is about</h2>
     <p>BookSafe 1.8 is the update for everyone who collects comics and series: comics like Asterix are recognised correctly, you enter the cover, the volume and “Total volumes” right when adding a book, and Year in Review gets its fourth film design — the “Passport”.</p>
     <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
-    <p class="updated">Version 1.8 · released October 2026</p>
+    <p class="updated">Version 1.8 · released 17 October 2026</p>
   </section>
 
   <section class="card">
@@ -303,9 +304,116 @@ def build_18(lang):
                 og_title="BookSafe — What’s new in version 1.8",
                 og_desc="The update for comic and series collectors: comics recognised correctly, cover and volume right when adding a book, plus the Passport as a fourth film design — in detail.",
                 alternates={"de": "neu-in-1-8/", "en": "en/whats-new-1-8/"},
-                h1="What’s new in version 1.8", sub="On the App Store since October 2026",
+                h1="What’s new in version 1.8", sub="On the App Store since 17 October 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
                 body=body, css_patch=four_films)
+
+
+# ---------------------------------------------------------------- Neu in 1.9
+def build_19(lang):
+    if lang == "de":
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.9 nimmt dir Handgriffe ab: Jede gebündelte Reihe bekommt auf Wunsch ihr eigenes Bild, Bücher legst du gleich mit allen Angaben an, und Lesesitzungen trägst du auch ohne Dauer nach. Außerdem sagt BookSafe jetzt Bescheid, wenn der Katalog der Deutschen Nationalbibliothek gestört ist.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.9 · veröffentlicht am 28. Oktober 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Ein eigenes Bild für jede Reihe</h3>
+    <p>Mit „Reihen bündeln“ steht jede Reihe als eine Kachel in der Bibliothek. Statt des Farbverlaufs kann diese Kachel jetzt ein eigenes <strong>Reihenbild</strong> zeigen: Halte die Reihen-Kachel gedrückt oder öffne das Menü in der Reihe und wähle ein Foto aus deiner Fotobibliothek, fotografiere ein Bild oder nimm das Cover eines Bandes. Der Reihenname steht weiter gut lesbar darüber. Das Reihenbild gilt auf dem jeweiligen Gerät und reist im Bibliotheks-Backup mit.</p>
+
+    <h3><span class="num">2</span>Bücher gleich mit allen Angaben anlegen</h3>
+    <p>In „Buch hinzufügen“ klappst du jetzt <strong>„Weitere Angaben“</strong> auf und trägst Verlag, Erscheinungsdatum, Erstveröffentlichung, Originaltitel, Übersetzung, Sprachen und Beschreibung gleich beim Anlegen ein. Du musst das Buch danach nicht mehr heraussuchen, um den Rest zu ergänzen. Was du selbst einträgst, überschreibt die Automatik nicht.</p>
+
+    <h3><span class="num">3</span>Lesesitzungen auch ohne Dauer nachtragen</h3>
+    <p>Beim Nachtragen einer Lesesitzung reichen jetzt die gelesenen Seiten — eine Dauer musst du nicht mehr angeben. Die Seiten stellst du per Schiebebalken ein oder tippst „Seiten gelesen“ direkt ein. Die Dauer geht per Schiebebalken, als Zahl oder per Schnellwahl. Dein Lesetempo rechnet BookSafe nur aus Sitzungen mit Seiten und Dauer.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Ist der Katalog der Deutschen Nationalbibliothek gestört, sagt BookSafe das: Titel- und Autorensuche zeigen einen Hinweis statt „Keine Treffer“ — auch dann, wenn nur englische Ausgaben gefunden wurden und deutsche fehlen können</li>
+      <li>deutsche Ausgaben britischer Verlage werden per ISBN gefunden</li>
+      <li>Reihenangaben aus dem Katalog wie „Robert Langdon ; 1“ werden als Reihe mit Band erkannt</li>
+      <li>Gesamtausgaben werden auch erkannt, wenn die Reihe in deiner Bibliothek anders geschrieben ist</li>
+      <li>Jahresrückblick und Filme zeigen große Zahlen mit Tausenderpunkt, etwa „23.382“ Seiten</li>
+      <li>„Bibliothek PDF“ ist auf Englisch durchgehend englisch — Titel, Seitenzahlen und Dateiname</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{good_to_know(lang, 1)}
+"""
+        return page(lang, path="neu-in-1-9/", depth=1,
+                    title="BookSafe — Neu in Version 1.9",
+                    description="Was BookSafe 1.9 neu bringt: ein eigenes Bild für jede Reihe, Bücher gleich mit allen Angaben anlegen, Lesesitzungen ohne Dauer nachtragen und ein Hinweis, wenn der Katalog der Deutschen Nationalbibliothek gestört ist.",
+                    og_title="BookSafe — Neu in Version 1.9",
+                    og_desc="Ein eigenes Bild für jede Reihe, Bücher gleich mit allen Angaben anlegen und Lesesitzungen auch ohne Dauer nachtragen — im Detail.",
+                    alternates={"de": "neu-in-1-9/", "en": "en/whats-new-1-9/"},
+                    h1="Neu in Version 1.9", sub="Im App Store seit 28. Oktober 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body)
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.9 saves you a few steps: every grouped series can have its own image, you add books with all their details right away, and you can log reading sessions even without a duration. BookSafe also tells you when the German National Library catalogue is disrupted.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.9 · released 28 October 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Your own image for every series</h3>
+    <p>With “Group Series”, each series appears as a single tile in your library. Instead of the colour gradient, that tile can now show its own <strong>series image</strong>: long-press the series tile or open the menu in the series, then pick a photo from your library, take a picture or use the cover of one of its volumes. The series name stays readable on top. The series image applies to that device and travels with your library backup.</p>
+
+    <h3><span class="num">2</span>Add books with all their details right away</h3>
+    <p>In “Add Book” you can now expand <strong>“More Details”</strong> and enter publisher, release date, first published, original title, translation, languages and description while adding the book. No need to look the book up again afterwards to fill in the rest. Automatic updates never overwrite what you entered yourself.</p>
+
+    <h3><span class="num">3</span>Log reading sessions even without a duration</h3>
+    <p>When you log a reading session after the fact, the pages you read are now enough — a duration is no longer required. Set the pages with a slider or type in “Pages read” directly. The duration works with a slider, as a number or with a quick pick. BookSafe calculates your reading pace only from sessions that have both pages and a duration.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>when the German National Library catalogue is disrupted, BookSafe says so: title and author search show a notice instead of “No results” — even when only English editions were found and German ones may be missing</li>
+      <li>German editions from British publishers are found by ISBN</li>
+      <li>series details from the catalogue such as “Robert Langdon ; 1” are recognised as a series with its volume</li>
+      <li>complete editions are detected even when the series is spelled differently in your library</li>
+      <li>Year in Review and its films show large numbers with thousands separators, such as “23,382” pages</li>
+      <li>“Library PDF” is fully in English when your device is set to English — title, page numbers and file name</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>Everything BookSafe has learned since version 0.4 — from the loan tracker to iCloud sync and the Apple Watch to the Year in Review films — is collected in the archive. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">Go to the archive of earlier versions →</a>
+  </section>
+
+{good_to_know(lang, 2)}
+"""
+    return page(lang, path="en/whats-new-1-9/", depth=2,
+                title="BookSafe — What’s new in version 1.9",
+                description="What BookSafe 1.9 adds: your own image for every series, adding books with all their details right away, logging reading sessions without a duration, and a notice when the German National Library catalogue is disrupted.",
+                og_title="BookSafe — What’s new in version 1.9",
+                og_desc="Your own image for every series, add books with all their details right away and log reading sessions even without a duration — in detail.",
+                alternates={"de": "neu-in-1-9/", "en": "en/whats-new-1-9/"},
+                h1="What’s new in version 1.9", sub="On the App Store since 28 October 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body)
 
 
 # ---------------------------------------------------------------- Archiv
@@ -322,8 +430,10 @@ def detail_content(lang, v):
         if is_lead:
             lead_p = re.search(r"<p>(.*?)</p>", inner, re.S).group(1)
             continue
-        if stop in inner:
+        if stop in inner or 'class="archive-link"' in inner:
             continue
+        if inner.count("<figure>") == 4:
+            inner = inner.replace('<div class="film-figure">', '<div class="film-figure four">')
         inner = re.sub(r"<(/?)h3>", r"<\1h4>", inner)
         inner = re.sub(r"<(/?)h2>", r"<\1h3>", inner)
         inner = re.sub(r" (Was Version|What version) [0-9.]+ (gebracht hat|brought)[^<]*<a [^>]*>[^<]*</a>\.", "", inner)
@@ -410,7 +520,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-8/">Seite zu Version 1.8</a>.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-9/">Seite zu Version 1.9</a>.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -419,7 +529,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-8/">version 1.8 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-9/">version 1.9 page</a>.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -433,24 +543,26 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.7: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.8: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.7.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.8.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.7 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-8/">← Neu in Version 1.8</a>',
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.8 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-9/">← Neu in Version 1.9</a>',
                     body=body, extra_css=EXTRA_CSS)
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.7: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.8: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.7.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.8.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.7",
-                header_links='  <a class="home" href="../whats-new-1-8/">← What’s new in version 1.8</a>',
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.8",
+                header_links='  <a class="home" href="../whats-new-1-9/">← What’s new in version 1.9</a>',
                 body=body, extra_css=EXTRA_CSS)
 
 
 OUT = {
+    "neu-in-1-9/index.html": build_19("de"),
+    "en/whats-new-1-9/index.html": build_19("en"),
     "neu-in-1-8/index.html": build_18("de"),
     "en/whats-new-1-8/index.html": build_18("en"),
     "versionen/index.html": build_archive("de"),
