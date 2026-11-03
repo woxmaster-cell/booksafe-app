@@ -81,6 +81,11 @@ EXTRA_CSS = """
   .film-figure.four { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 720px; }
 """
 
+# 1.10: drei Leseupdate-Designs nebeneinander (Grundraster der Vorlage, 3 Spalten) und ein einzelnes Stempel-Bild.
+CSS_110 = """
+  .film-figure.one { grid-template-columns: minmax(0, 1fr); max-width: 240px; }
+"""
+
 
 def page(lang, *, path, depth, title, description, og_title, og_desc, alternates,
          h1, sub, header_links, body, extra_css="", css_patch=None):
@@ -417,7 +422,37 @@ def build_19(lang):
 
 
 # ---------------------------------------------------------------- Neu in 1.10
+def leseupdate_figure(lang, up):
+    names = {"de": [("booksafe", "BookSafe", "Karte mit Spruch des Tages, einem Buch am Lesen und zwei beendeten Büchern"),
+                    ("newspaper", "Zeitung 1900", "Zeitungsseite „The BookSafe Almanac“ mit Büchern am Lesen und Stempeln „Beendet“"),
+                    ("passport", "Lesepass", "Ausweis-Seite „Leseupdate“ mit Fortschritt in Prozent und Stempeln „Beendet“")],
+             "en": [("booksafe", "BookSafe", "card with the quote of the day, a book in progress and two finished books"),
+                    ("newspaper", "Newspaper 1900", "“The BookSafe Almanac” front page with books in progress and “Finished” stamps"),
+                    ("passport", "Passport", "passport page “Reading update” with progress in percent and “Finished” stamps")]}[lang]
+    pre = "Leseupdate im Design" if lang == "de" else "Reading update in the design"
+    figs = []
+    for key, name, alt in names:
+        a = f"{pre} {name}: {alt}"
+        figs.append(f"""      <figure>
+        <picture><source srcset="{up}assets/{lang}-leseupdate-{key}.webp" type="image/webp"><img src="{up}assets/{lang}-leseupdate-{key}.jpg" alt="{html.escape(a, quote=True)}" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>{name}</figcaption>
+      </figure>""")
+    return '    <div class="film-figure">\n' + "\n".join(figs) + "\n    </div>"
+
+
+def milestones_figure(lang, up):
+    alt, cap = {"de": ("Meilensteine mit Stempeln, darunter der neue Exzellent-Stempel „Erstes Buch“", "Meilensteine"),
+                "en": ("Milestones with stamps, including the new Excellent stamp “First book”", "Milestones")}[lang]
+    return f"""    <div class="film-figure one">
+      <figure>
+        <picture><source srcset="{up}assets/{lang}-milestones.webp" type="image/webp"><img src="{up}assets/{lang}-milestones.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>{cap}</figcaption>
+      </figure>
+    </div>"""
+
+
 def build_110(lang):
+    up = "../" if lang == "de" else "../../"
     if lang == "de":
         body = f"""
   <section class="card lead">
@@ -435,9 +470,11 @@ def build_110(lang):
 
     <h3><span class="num">2</span>Beendete Bücher im Leseupdate</h3>
     <p>Dein Leseupdate zeigt jetzt auch <strong>beendete Bücher mit ihrer Bewertung</strong> — alle seit deinem letzten geteilten Leseupdate oder, wenn das länger her ist, die letzten drei. Dazu stehen auf der Karte der Fortschritt in Prozent, das Format und das Genre.</p>
+{leseupdate_figure(lang, up)}
 
     <h3><span class="num">3</span>Neun weitere Stempel für deine Lesemeilensteine</h3>
     <p>Neu sind <strong>Bücher-Stempel bis 200</strong>, drei <strong>Exzellent-Stempel</strong> im Look des Exzellent-Siegels für dein erstes, zehntes und 25. Buch mit sechs Sternen und zwei Stempel für <strong>10.000 und 25.000 gelesene Seiten</strong>. Wer schon so weit ist, bekommt sie sofort.</p>
+{milestones_figure(lang, up)}
   </section>
 
   <section class="card">
@@ -464,7 +501,7 @@ def build_110(lang):
                     alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
                     h1="Neu in Version 1.10", sub="Im App Store seit 3. November 2026",
                     header_links='  <a class="home" href="../">← Zur Startseite</a>',
-                    body=body)
+                    body=body, extra_css=CSS_110)
     body = f"""
   <section class="card lead">
     <h2>What this update is about</h2>
@@ -481,9 +518,11 @@ def build_110(lang):
 
     <h3><span class="num">2</span>Finished books in your reading update</h3>
     <p>Your reading update now also shows <strong>finished books with their rating</strong> — all since your last shared reading update or, if that was a while ago, the last three. The card also shows progress in percent, format and genre.</p>
+{leseupdate_figure(lang, up)}
 
     <h3><span class="num">3</span>Nine more stamps for your reading milestones</h3>
     <p>New are <strong>book stamps up to 200</strong>, three <strong>Excellent stamps</strong> in the style of the Excellent seal for your first, tenth and 25th six-star book, and two stamps for <strong>10,000 and 25,000 pages read</strong>. If you’re already there, you get them right away.</p>
+{milestones_figure(lang, up)}
   </section>
 
   <section class="card">
@@ -510,7 +549,7 @@ def build_110(lang):
                 alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
                 h1="What’s new in version 1.10", sub="On the App Store since 3 November 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
-                body=body)
+                body=body, extra_css=CSS_110)
 
 
 # ---------------------------------------------------------------- Archiv
@@ -529,7 +568,7 @@ def detail_content(lang, v):
             continue
         if stop in inner or 'class="archive-link"' in inner:
             continue
-        if inner.count("<figure>") == 4:
+        if inner.count("<figure>") == 4 and "film-figure one" not in inner:
             inner = inner.replace('<div class="film-figure">', '<div class="film-figure four">')
         inner = re.sub(r"<(/?)h3>", r"<\1h4>", inner)
         inner = re.sub(r"<(/?)h2>", r"<\1h3>", inner)
