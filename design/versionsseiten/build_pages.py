@@ -1,7 +1,7 @@
-"""Erzeugt neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
-Quelle der Detailseiten 1.2–1.8: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
+Quelle der Detailseiten 1.2–1.9: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
 Quelle 0.4–1.1: die im App Store veröffentlichten Versionshinweise (ASC-API).
 """
 import html
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -416,6 +416,103 @@ def build_19(lang):
                 body=body)
 
 
+# ---------------------------------------------------------------- Neu in 1.10
+def build_110(lang):
+    if lang == "de":
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.10 macht dein Leseupdate persönlicher: Du teilst es in fünf Designs, und es zeigt jetzt auch die Bücher, die du zuletzt beendet hast. Dazu kommen neun neue Stempel für deine Lesemeilensteine.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.10 · veröffentlicht am 3. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Leseupdate teilen mit Designwahl</h3>
+    <p>Der Teilen-Knopf im Heute-Tab öffnet jetzt eine Vorschau mit fünf Designs: <strong>BookSafe, Modern, Jahrbuch, Zeitung 1900 und Lesepass</strong>. Wische durch die Karten oder tippe, um das Design zu wechseln, und teile dann dein Leseupdate. BookSafe merkt sich deine Wahl.</p>
+
+    <h3><span class="num">2</span>Beendete Bücher im Leseupdate</h3>
+    <p>Dein Leseupdate zeigt jetzt auch <strong>beendete Bücher mit ihrer Bewertung</strong> — alle seit deinem letzten geteilten Leseupdate oder, wenn das länger her ist, die letzten drei. Dazu stehen auf der Karte der Fortschritt in Prozent, das Format und das Genre.</p>
+
+    <h3><span class="num">3</span>Neun weitere Stempel für deine Lesemeilensteine</h3>
+    <p>Neu sind <strong>Bücher-Stempel bis 200</strong>, drei <strong>Exzellent-Stempel</strong> im Look des Exzellent-Siegels für dein erstes, zehntes und 25. Buch mit sechs Sternen und zwei Stempel für <strong>10.000 und 25.000 gelesene Seiten</strong>. Wer schon so weit ist, bekommt sie sofort.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Die Filmdesigns im Jahresrückblick heißen jetzt wie die Leseupdate-Designs: Modern, Jahrbuch, Zeitung 1900 und Lesepass</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{good_to_know(lang, 1)}
+"""
+        return page(lang, path="neu-in-1-10/", depth=1,
+                    title="BookSafe — Neu in Version 1.10",
+                    description="Was BookSafe 1.10 neu bringt: das Leseupdate in fünf Designs teilen, beendete Bücher mit Bewertung auf der Karte und neun neue Stempel für deine Lesemeilensteine.",
+                    og_title="BookSafe — Neu in Version 1.10",
+                    og_desc="Dein Leseupdate in fünf Designs, mit den Büchern, die du zuletzt beendet hast, und neun neue Stempel — im Detail.",
+                    alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
+                    h1="Neu in Version 1.10", sub="Im App Store seit 3. November 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body)
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.10 makes your reading update more personal: you share it in five designs, and it now also shows the books you’ve just finished. On top of that come nine new stamps for your reading milestones.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.10 · released 3 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Share your reading update with a choice of design</h3>
+    <p>The share button on the Today tab now opens a preview with five designs: <strong>BookSafe, Modern, Yearbook, Newspaper 1900 and Passport</strong>. Swipe through the cards or tap to switch the design, then share your reading update. BookSafe remembers your choice.</p>
+
+    <h3><span class="num">2</span>Finished books in your reading update</h3>
+    <p>Your reading update now also shows <strong>finished books with their rating</strong> — all since your last shared reading update or, if that was a while ago, the last three. The card also shows progress in percent, format and genre.</p>
+
+    <h3><span class="num">3</span>Nine more stamps for your reading milestones</h3>
+    <p>New are <strong>book stamps up to 200</strong>, three <strong>Excellent stamps</strong> in the style of the Excellent seal for your first, tenth and 25th six-star book, and two stamps for <strong>10,000 and 25,000 pages read</strong>. If you’re already there, you get them right away.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>the film designs in Year in Review now share the names of the reading update designs: Modern, Yearbook, Newspaper 1900 and Passport</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>Everything BookSafe has learned since version 0.4 — from the loan tracker to iCloud sync and the Apple Watch to the Year in Review films — is collected in the archive. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">Go to the archive of earlier versions →</a>
+  </section>
+
+{good_to_know(lang, 2)}
+"""
+    return page(lang, path="en/whats-new-1-10/", depth=2,
+                title="BookSafe — What’s new in version 1.10",
+                description="What BookSafe 1.10 adds: share your reading update in five designs, finished books with their rating on the card, and nine new stamps for your reading milestones.",
+                og_title="BookSafe — What’s new in version 1.10",
+                og_desc="Your reading update in five designs, with the books you’ve just finished, plus nine new stamps — in detail.",
+                alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
+                h1="What’s new in version 1.10", sub="On the App Store since 3 November 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body)
+
+
 # ---------------------------------------------------------------- Archiv
 def detail_content(lang, v):
     """Lead-Absatz + alle Inhaltskarten außer Lead und „Gut zu wissen“, eine Ebene tiefer."""
@@ -520,7 +617,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-9/">Seite zu Version 1.9</a>.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-10/">Seite zu Version 1.10</a>.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -529,7 +626,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-9/">version 1.9 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-10/">version 1.10 page</a>.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -543,24 +640,26 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.8: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.9: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.8.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.9.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.8 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-9/">← Neu in Version 1.9</a>',
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.9 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-10/">← Neu in Version 1.10</a>',
                     body=body, extra_css=EXTRA_CSS)
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.8: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.9: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.8.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.9.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.8",
-                header_links='  <a class="home" href="../whats-new-1-9/">← What’s new in version 1.9</a>',
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.9",
+                header_links='  <a class="home" href="../whats-new-1-10/">← What’s new in version 1.10</a>',
                 body=body, extra_css=EXTRA_CSS)
 
 
 OUT = {
+    "neu-in-1-10/index.html": build_110("de"),
+    "en/whats-new-1-10/index.html": build_110("en"),
     "neu-in-1-9/index.html": build_19("de"),
     "en/whats-new-1-9/index.html": build_19("en"),
     "neu-in-1-8/index.html": build_18("de"),
