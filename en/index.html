@@ -510,8 +510,8 @@
   .films-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(16px, 3vw, 36px);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 28px);
     margin-top: 36px;
   }
   .films-grid figure { margin: 0; }
@@ -531,6 +531,20 @@
   }
   .films-grid figcaption span { display: block; font-size: 15px; color: var(--muted); line-height: 1.5; }
   .films-more { margin-top: 28px; font-weight: 600; }
+  .film-stills { margin-top: 44px; text-align: left; }
+  .film-stills h3 { margin: 0 0 6px; font-size: 22px; }
+  .film-stills p { margin: 0; font-size: 16px; color: var(--muted); }
+  .film-stills ul {
+    list-style: none;
+    display: flex;
+    gap: 14px;
+    margin: 20px 0 0;
+    padding: 0 0 12px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+  .film-stills li { flex: 0 0 180px; scroll-snap-align: start; }
+  .film-stills img { display: block; width: 100%; height: auto; border-radius: 12px; }
 
   /* Uhr-Sektion (OPT-282): etwas breitere Karte. Die Telefon-Shots sind rohe
      Screenshots (720x1564) — das Geraet fuellt die Bildbreite ganz. Das Uhr-Motiv ist ein
@@ -720,7 +734,7 @@
   "url": "https://booksafe.app/en/",
   "applicationCategory": "BookApplication",
   "operatingSystem": "iOS 18.0, watchOS 11.0",
-  "softwareVersion": "1.10",
+  "softwareVersion": "1.11",
   "inLanguage": [
     "de",
     "en"
@@ -765,11 +779,11 @@
     <a class="lang-switch" href="../" hreflang="de" lang="de">Deutsch</a>
   </div>
 
-  <p class="hero-update"><a href="whats-new-1-10/"><span class="dot" aria-hidden="true"></span>New in 1.10: reading update in five designs<span class="pill-more"> — details</span></a></p>
+  <p class="hero-update"><a href="whats-new-1-11/"><span class="dot" aria-hidden="true"></span>New in 1.11: My Impression and “Dreamy”<span class="pill-more"> — details</span></a></p>
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.10 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.11 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
       <h1>Your library<br>belongs to <em>you.</em></h1>
       <p class="sub">Scan books by ISBN, keep every series straight down to the half-volume, start a reading session from your wrist — no account, no tracking, no subscription.</p>
       <div class="hero-cta">
@@ -909,7 +923,7 @@
       <ul>
         <li>At the end of the year BookSafe turns your finished books into a <strong>recap</strong>: books, pages, top genre, most productive month and longest book.</li>
         <li><strong>Crown your three favourites</strong> on the top-three podium — gold, silver, bronze; BookSafe suggests your highest-rated ones.</li>
-        <li>And if you like, as an <strong>animated film</strong> to watch and share — in four designs.</li>
+        <li>And if you like, as an <strong>animated film</strong> to watch and share — in five designs.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-yearinreview.webp" type="image/webp"><img src="../assets/en-yearinreview.jpg" alt="Year in review with key figures and a top-three podium" loading="lazy" width="720" height="1564"></picture></div>
@@ -917,9 +931,9 @@
 
   <div class="films" id="filmdesigns" role="region" aria-labelledby="films-title">
     <p class="kicker">Film designs</p>
-    <h2 id="films-title">Four films, one reading year</h2>
+    <h2 id="films-title">Five films, one reading year</h2>
     <p class="films-text">Choose how your Year in Review film looks — each with its own music, shareable as a video.</p>
-    <ul class="films-grid" tabindex="0" aria-label="The four film designs">
+    <ul class="films-grid" tabindex="0" aria-label="The five film designs">
       <li><figure>
         <picture><source srcset="../assets/en-film-gilded.webp" type="image/webp"><img src="../assets/en-film-gilded.jpg" alt="Modern film design: “A total of 13862 pages” in golden numerals on a blue-violet gradient" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Modern</strong><span>Golden numbers on a glowing gradient — the classic, 40 seconds.</span></figcaption>
@@ -936,7 +950,28 @@
         <picture><source srcset="../assets/en-film-passport.webp" type="image/webp"><img src="../assets/en-film-passport.jpg" alt="Passport film design: title page “A Year in Books”, 2026 volume, with a “42 books” ticket and a stamp" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Passport</strong><span>Your reading year as a comic reading passport: ten pages to flip through, with its own song. 80 seconds.</span></figcaption>
       </figure></li>
+      <li><figure>
+        <picture><source srcset="../assets/en-film-dreamy.webp" type="image/webp"><img src="../assets/en-film-dreamy.jpg" alt="Dreamy film design: title page “Your reading year 2026” in a night sky with crescent moon and clouds" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Dreamy</strong><span>A moonlit night of clouds and stars: the crescent grows into a full moon. Just over a minute.</span></figcaption>
+      </figure></li>
     </ul>
+    <div class="film-stills">
+      <h3>Your year as images</h3>
+      <p>Every film can also be shared as individual images. Here is the “Dreamy” set: ten pages and the closing image.</p>
+      <ul tabindex="0" aria-label="The “Dreamy” images">
+        <li><picture><source srcset="../assets/film-dreamy/en-01.webp" type="image/webp"><img src="../assets/film-dreamy/en-01.jpg" alt="Title page “Your reading year 2026” with a crescent moon" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-02.webp" type="image/webp"><img src="../assets/film-dreamy/en-02.jpg" alt="Your first book on a cloud" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-03.webp" type="image/webp"><img src="../assets/film-dreamy/en-03.jpg" alt="42 books read, each star a book" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-04.webp" type="image/webp"><img src="../assets/film-dreamy/en-04.jpg" alt="13,862 pages with drifting sheets" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-05.webp" type="image/webp"><img src="../assets/film-dreamy/en-05.jpg" alt="Your reading calendar, month by month" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-06.webp" type="image/webp"><img src="../assets/film-dreamy/en-06.jpg" alt="4.3 out of five stars" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-07.webp" type="image/webp"><img src="../assets/film-dreamy/en-07.jpg" alt="Your genre of the year on the moon" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-08.webp" type="image/webp"><img src="../assets/film-dreamy/en-08.jpg" alt="Your chunkiest read with 1,022 pages" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-09.webp" type="image/webp"><img src="../assets/film-dreamy/en-09.jpg" alt="Your oldest unread: 1,287 nights" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-10.webp" type="image/webp"><img src="../assets/film-dreamy/en-10.jpg" alt="Your books of the year: the sweetest dreams" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="../assets/film-dreamy/en-11.webp" type="image/webp"><img src="../assets/film-dreamy/en-11.jpg" alt="Closing image “Keep dreaming” with a full moon" loading="lazy" width="480" height="853"></picture></li>
+      </ul>
+    </div>
   </div>
 
   <section class="feature feature--watch">

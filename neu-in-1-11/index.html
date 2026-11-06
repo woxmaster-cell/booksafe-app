@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — Neu in Version 1.11</title>
+<meta name="description" content="Was BookSafe 1.11 neu bringt: dein Eindruck zu jedem Buch mit Stimmungen und Filter, das Design „Verträumt“, die SuB-Leiche im Film, der Film als Bilder und fünf Challenge-Stempel.">
+<meta property="og:title" content="BookSafe — Neu in Version 1.11">
+<meta property="og:description" content="Halte fest, wie ein Buch wirklich war, teile dein Lesejahr im Design „Verträumt“ und sammle fünf Challenge-Stempel — im Detail.">
+<meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Deine Bibliothek gehört dir.">
+<meta property="og:url" content="https://booksafe.app/neu-in-1-11/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="canonical" href="https://booksafe.app/neu-in-1-11/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-11/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-11/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-11/">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  /* iPhone Duo: beide Displays nebeneinander, im echten Groessenverhaeltnis
+     (innen 669 pt, aussen 466 pt breit) und unten buendig. */
+  .duo-figure {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 520px;
+  }
+  .duo-figure figure { margin: 0; }
+  .duo-figure .duo-open   { flex: 0 0 56.5%; }
+  .duo-figure .duo-closed { flex: 0 0 39.5%; }
+  .duo-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .duo-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  /* Filmdesigns (1.7): drei gerenderte Filmszenen nebeneinander, gleiche Groesse (720 x 1561). */
+  .film-figure {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 560px;
+  }
+  .film-figure figure { margin: 0; }
+  .film-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .film-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  picture { display: contents; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+
+  .film-figure.one { grid-template-columns: minmax(0, 1fr); max-width: 240px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../en/whats-new-1-11/" hreflang="en" lang="en">English</a>
+  <picture><source srcset="../assets/app-icon.webp" type="image/webp"><img class="icon" src="../assets/app-icon.png" alt="BookSafe App-Icon" width="72" height="72"></picture>
+  <h1>Neu in Version 1.11</h1>
+  <p class="sub">Im App Store seit 7. November 2026</p>
+  <a class="home" href="../">← Zur Startseite</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.11 fragt, wie ein Buch wirklich war: Du hältst deinen Eindruck fest, findest Bücher nach Stimmung wieder und teilst dein Lesejahr im neuen Design „Verträumt“. Dazu kommen die SuB-Leiche im Film und fünf Challenge-Stempel, die dir erklären, wie du sie bekommst.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.11 · veröffentlicht am 7. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Mein Eindruck</h3>
+    <p>Sterne sagen nicht alles. Wenn du ein Buch beendest, hältst du jetzt fest, wie es war: <strong>bis zu drei Stimmungen</strong>, von spannend über gemütlich bis herzzerreißend, <strong>Punkte für Figuren, Handlung und Schreibstil</strong>, ob du es <strong>wieder lesen</strong> würdest, und eine Notiz. Dein Eindruck steht im Buchdetail, und die Bibliothek filtert nach Stimmung und „Wieder lesen“. Wenn du das Blatt nach dem Beenden nicht sehen möchtest, stellst du es in den Einstellungen ab.</p>
+    <div class="film-figure one">
+      <figure>
+        <picture><source srcset="../assets/de-impression.webp" type="image/webp"><img src="../assets/de-impression.jpg" alt="Blatt „Mein Eindruck“ mit Sternen, Stimmungen, der Frage „Würdest du es wieder lesen?“ und Punkten für Figuren, Handlung und Schreibstil" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Mein Eindruck</figcaption>
+      </figure>
+    </div>
+
+    <h3><span class="num">2</span>Das Design „Verträumt“</h3>
+    <p>Eine Mondnacht als <strong>fünfter Film</strong> im Jahresrückblick: Deine Bücher ruhen auf Wolken, Zahlen werden zu Sternen, und aus der Mondsichel wird ein Vollmond. Dasselbe Design gibt es als <strong>sechstes Leseupdate-Design</strong>.</p>
+    <div class="film-figure">
+      <figure>
+        <picture><source srcset="../assets/film-dreamy/de-01.webp" type="image/webp"><img src="../assets/film-dreamy/de-01.jpg" alt="Titelseite „Dein Lesejahr 2026“ mit Mondsichel" loading="lazy" width="480" height="853"></picture>
+        <figcaption>Titelseite</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../assets/film-dreamy/de-03.webp" type="image/webp"><img src="../assets/film-dreamy/de-03.jpg" alt="42 Bücher gelesen, jeder Stern ein Buch" loading="lazy" width="480" height="853"></picture>
+        <figcaption>Deine Bücher</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../assets/film-dreamy/de-11.webp" type="image/webp"><img src="../assets/film-dreamy/de-11.jpg" alt="Abschlussbild „Träum weiter“ mit Vollmond" loading="lazy" width="480" height="853"></picture>
+        <figcaption>Abschlussbild</figcaption>
+      </figure>
+    </div>
+
+    <h3><span class="num">3</span>Deine SuB-Leiche</h3>
+    <p>Der Film im Jahresrückblick zeigt jetzt das Buch, das <strong>am längsten ungelesen</strong> bei dir liegt. Im Buchdetail siehst du außerdem, seit wie vielen Tagen ein Buch auf dem SuB liegt. Es zählt der Tag, an dem du es in BookSafe aufgenommen hast.</p>
+
+    <h3><span class="num">4</span>Den Film als Bilder teilen</h3>
+    <p>Neben dem Video kannst du deinen Film jetzt auch als <strong>einzelne Bilder</strong> teilen, bis zu zehn Seiten auf einmal.</p>
+
+    <h3><span class="num">5</span>Fünf Challenge-Stempel</h3>
+    <p>Neu im Stempelbuch: <strong>Wälzer</strong> für ein Buch mit mindestens 1000 Seiten, <strong>Sprint</strong> für ein Buch in unter drei Stunden, gemessen mit dem Lese-Timer, <strong>SuB-Retter</strong> für ein Buch, das mindestens ein Jahr ungelesen lag, <strong>100 Seiten an einem Tag</strong> und <strong>Lesemonat</strong> für vier beendete Bücher im selben Kalendermonat. Tippe auf einen Stempel, und du siehst, wie du ihn bekommst und wie weit du bist. Das gilt für alle Stempel im Stempelbuch.</p>
+    <div class="film-figure one">
+      <figure>
+        <picture><source srcset="../assets/de-stamp-detail.webp" type="image/webp"><img src="../assets/de-stamp-detail.jpg" alt="Blatt zum Stempel „Wälzer“: Erklärung, wie du ihn bekommst, und das Buch, mit dem du ihn erreicht hast" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Stempel-Erklärung</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Deine Bewertungen rücken nach vorn: Die Kacheln zeigen die Sterne unter dem Cover, und der neue Filter findet Bücher ab 4 oder 5 Sternen oder nur die exzellenten</li>
+      <li>E-Books: Am Ende einer Lesesitzung trägst du deinen Stand direkt in Prozent ein</li>
+      <li>Hörbücher stehen jetzt auf „Am Hören“ statt „Am Lesen“</li>
+      <li>Der CSV-Export nimmt jetzt auch Eindruck, eigene Listen, Standort und Leihe mit, und BookSafe erkennt seinen eigenen Export beim Import wieder</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+  <section class="card">
+    <h2>Gut zu wissen</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Voraussetzung</th><td>iPhone und iPad ab iOS 18, Apple Watch ab watchOS 11</td></tr>
+        <tr><th>Deine Daten</th><td>Kein Konto, kein Tracking. Deine Bibliothek liegt auf deinem Gerät und gleicht sich über <strong>deine private iCloud</strong> ab.</td></tr>
+        <tr><th>Preis</th><td>Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit dauerhaft auf: einmalig 3,99 €, kein Abo.</td></tr>
+        <tr><th>Update</th><td>Kommt über den App Store — auf dem iPhone unter „App Store → Profil → Apps aktualisieren“.</td></tr>
+      </table>
+    </div>
+    <div class="store">
+      <a href="https://apps.apple.com/de/app/booksafe/id6779730178"><img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <a href="../">← Zurück zur Startseite</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Startseite</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#kontakt">Kontakt</a>
+    <a href="../en/whats-new-1-11/" hreflang="en" lang="en">English</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+</footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
-"""Erzeugt neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
-Quelle der Detailseiten 1.2–1.9: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
+Quelle der Detailseiten 1.2–1.10: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
 Quelle 0.4–1.1: die im App Store veröffentlichten Versionshinweise (ASC-API).
 """
 import html
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -552,6 +552,157 @@ def build_110(lang):
                 body=body, extra_css=CSS_110)
 
 
+# ---------------------------------------------------------------- Neu in 1.11
+def single_figure(lang, up, key, alt, cap):
+    return f"""    <div class="film-figure one">
+      <figure>
+        <picture><source srcset="{up}assets/{lang}-{key}.webp" type="image/webp"><img src="{up}assets/{lang}-{key}.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>{cap}</figcaption>
+      </figure>
+    </div>"""
+
+
+def dreamy_figure(lang, up):
+    names = {"de": [("01", "Titelseite „Dein Lesejahr 2026“ mit Mondsichel", "Titelseite"),
+                    ("03", "42 Bücher gelesen, jeder Stern ein Buch", "Deine Bücher"),
+                    ("11", "Abschlussbild „Träum weiter“ mit Vollmond", "Abschlussbild")],
+             "en": [("01", "Title page “Your reading year 2026” with a crescent moon", "Title page"),
+                    ("03", "42 books read, each star a book", "Your books"),
+                    ("11", "Closing image “Keep dreaming” with a full moon", "Closing image")]}[lang]
+    figs = []
+    for key, alt, cap in names:
+        figs.append(f"""      <figure>
+        <picture><source srcset="{up}assets/film-dreamy/{lang}-{key}.webp" type="image/webp"><img src="{up}assets/film-dreamy/{lang}-{key}.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="480" height="853"></picture>
+        <figcaption>{cap}</figcaption>
+      </figure>""")
+    return '    <div class="film-figure">\n' + "\n".join(figs) + "\n    </div>"
+
+
+def build_111(lang):
+    up = "../" if lang == "de" else "../../"
+    if lang == "de":
+        impression = single_figure(lang, up, "impression", "Blatt „Mein Eindruck“ mit Sternen, Stimmungen, der Frage „Würdest du es wieder lesen?“ und Punkten für Figuren, Handlung und Schreibstil", "Mein Eindruck")
+        stamp = single_figure(lang, up, "stamp-detail", "Blatt zum Stempel „Wälzer“: Erklärung, wie du ihn bekommst, und das Buch, mit dem du ihn erreicht hast", "Stempel-Erklärung")
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.11 fragt, wie ein Buch wirklich war: Du hältst deinen Eindruck fest, findest Bücher nach Stimmung wieder und teilst dein Lesejahr im neuen Design „Verträumt“. Dazu kommen die SuB-Leiche im Film und fünf Challenge-Stempel, die dir erklären, wie du sie bekommst.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.11 · veröffentlicht am 7. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Mein Eindruck</h3>
+    <p>Sterne sagen nicht alles. Wenn du ein Buch beendest, hältst du jetzt fest, wie es war: <strong>bis zu drei Stimmungen</strong>, von spannend über gemütlich bis herzzerreißend, <strong>Punkte für Figuren, Handlung und Schreibstil</strong>, ob du es <strong>wieder lesen</strong> würdest, und eine Notiz. Dein Eindruck steht im Buchdetail, und die Bibliothek filtert nach Stimmung und „Wieder lesen“. Wenn du das Blatt nach dem Beenden nicht sehen möchtest, stellst du es in den Einstellungen ab.</p>
+{impression}
+
+    <h3><span class="num">2</span>Das Design „Verträumt“</h3>
+    <p>Eine Mondnacht als <strong>fünfter Film</strong> im Jahresrückblick: Deine Bücher ruhen auf Wolken, Zahlen werden zu Sternen, und aus der Mondsichel wird ein Vollmond. Dasselbe Design gibt es als <strong>sechstes Leseupdate-Design</strong>.</p>
+{dreamy_figure(lang, up)}
+
+    <h3><span class="num">3</span>Deine SuB-Leiche</h3>
+    <p>Der Film im Jahresrückblick zeigt jetzt das Buch, das <strong>am längsten ungelesen</strong> bei dir liegt. Im Buchdetail siehst du außerdem, seit wie vielen Tagen ein Buch auf dem SuB liegt. Es zählt der Tag, an dem du es in BookSafe aufgenommen hast.</p>
+
+    <h3><span class="num">4</span>Den Film als Bilder teilen</h3>
+    <p>Neben dem Video kannst du deinen Film jetzt auch als <strong>einzelne Bilder</strong> teilen, bis zu zehn Seiten auf einmal.</p>
+
+    <h3><span class="num">5</span>Fünf Challenge-Stempel</h3>
+    <p>Neu im Stempelbuch: <strong>Wälzer</strong> für ein Buch mit mindestens 1000 Seiten, <strong>Sprint</strong> für ein Buch in unter drei Stunden, gemessen mit dem Lese-Timer, <strong>SuB-Retter</strong> für ein Buch, das mindestens ein Jahr ungelesen lag, <strong>100 Seiten an einem Tag</strong> und <strong>Lesemonat</strong> für vier beendete Bücher im selben Kalendermonat. Tippe auf einen Stempel, und du siehst, wie du ihn bekommst und wie weit du bist. Das gilt für alle Stempel im Stempelbuch.</p>
+{stamp}
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Deine Bewertungen rücken nach vorn: Die Kacheln zeigen die Sterne unter dem Cover, und der neue Filter findet Bücher ab 4 oder 5 Sternen oder nur die exzellenten</li>
+      <li>E-Books: Am Ende einer Lesesitzung trägst du deinen Stand direkt in Prozent ein</li>
+      <li>Hörbücher stehen jetzt auf „Am Hören“ statt „Am Lesen“</li>
+      <li>Der CSV-Export nimmt jetzt auch Eindruck, eigene Listen, Standort und Leihe mit, und BookSafe erkennt seinen eigenen Export beim Import wieder</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{good_to_know(lang, 1)}
+"""
+        return page(lang, path="neu-in-1-11/", depth=1,
+                    title="BookSafe — Neu in Version 1.11",
+                    description="Was BookSafe 1.11 neu bringt: dein Eindruck zu jedem Buch mit Stimmungen und Filter, das Design „Verträumt“, die SuB-Leiche im Film, der Film als Bilder und fünf Challenge-Stempel.",
+                    og_title="BookSafe — Neu in Version 1.11",
+                    og_desc="Halte fest, wie ein Buch wirklich war, teile dein Lesejahr im Design „Verträumt“ und sammle fünf Challenge-Stempel — im Detail.",
+                    alternates={"de": "neu-in-1-11/", "en": "en/whats-new-1-11/"},
+                    h1="Neu in Version 1.11", sub="Im App Store seit 7. November 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body, extra_css=CSS_110)
+    impression = single_figure(lang, up, "impression", "“My Impression” sheet with stars, moods, whether you’d read it again and scores for characters, plot and writing style", "My Impression")
+    stamp = single_figure(lang, up, "stamp-detail", "Sheet for the “Tome” stamp: how to earn it and how far along you are", "Stamp explanation")
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.11 asks how a book really was: capture your impression, find books again by mood and share your reading year in the new “Dreamy” design. On top of that come your oldest unread book in the film and five challenge stamps that explain how to earn them.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.11 · released 7 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>My Impression</h3>
+    <p>Stars don’t say everything. When you finish a book, you can now capture how it was: <strong>up to three moods</strong>, from suspenseful and cozy to heartbreaking, <strong>scores for characters, plot and writing style</strong>, whether you’d <strong>read it again</strong>, and a note. Your impression appears in the book details, and the library filters by mood and “Read again”. If you’d rather not see the sheet after finishing a book, you can turn it off in Settings.</p>
+{impression}
+
+    <h3><span class="num">2</span>The “Dreamy” design</h3>
+    <p>A moonlit night as the <strong>fifth film</strong> in Year in Review: your books rest on clouds, numbers turn into stars, and the crescent grows into a full moon. The same look is also the <strong>sixth reading update design</strong>.</p>
+{dreamy_figure(lang, up)}
+
+    <h3><span class="num">3</span>Your oldest unread book</h3>
+    <p>The Year in Review film now shows the book that has been <strong>waiting longest</strong>. In the book details you can also see how many days a book has been on your TBR. The day you added it to BookSafe counts.</p>
+
+    <h3><span class="num">4</span>Share the film as images</h3>
+    <p>Besides the video, you can now also share your film as <strong>individual images</strong>, up to ten pages at once.</p>
+
+    <h3><span class="num">5</span>Five challenge stamps</h3>
+    <p>New in your stamp book: <strong>Tome</strong> for a book with at least 1000 pages, <strong>Sprint</strong> for a book in under three hours, measured with the reading timer, <strong>TBR Rescue</strong> for a book that sat unread for at least a year, <strong>100 Pages in 1 Day</strong> and <strong>Book Month</strong> for four books finished in the same calendar month. Tap a stamp to see how to earn it and how far along you are. That works for every stamp in the book.</p>
+{stamp}
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>Your ratings move to the front: tiles show the stars below the cover, and the new filter finds books with 4 or 5 stars and up, or only the excellent ones</li>
+      <li>E-books: at the end of a reading session, enter where you are directly in percent</li>
+      <li>Audiobooks now show “Listening” instead of “Reading”</li>
+      <li>The CSV export now also includes your impression, custom lists, location and loans, and BookSafe recognises its own export when importing</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>What BookSafe has learned since version 0.4 — from the loan tracker and iCloud sync to the Apple Watch and the Year in Review films — is collected in the archive. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
+  </section>
+
+{good_to_know(lang, 2)}
+"""
+    return page(lang, path="en/whats-new-1-11/", depth=2,
+                title="BookSafe — What’s new in version 1.11",
+                description="What BookSafe 1.11 adds: your impression of every book with moods and filters, the “Dreamy” design, your oldest unread book in the film, the film as images and five challenge stamps.",
+                og_title="BookSafe — What’s new in version 1.11",
+                og_desc="Capture how a book really was, share your reading year in the “Dreamy” design and collect five challenge stamps — in detail.",
+                alternates={"de": "neu-in-1-11/", "en": "en/whats-new-1-11/"},
+                h1="What’s new in version 1.11", sub="On the App Store since 7 November 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body, extra_css=CSS_110)
+
+
 # ---------------------------------------------------------------- Archiv
 def detail_content(lang, v):
     """Lead-Absatz + alle Inhaltskarten außer Lead und „Gut zu wissen“, eine Ebene tiefer."""
@@ -656,7 +807,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-10/">Seite zu Version 1.10</a>.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-11/">Seite zu Version 1.11</a>.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -665,7 +816,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-10/">version 1.10 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-11/">version 1.11 page</a>.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -679,24 +830,26 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.9: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.10: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.9.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.10.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.9 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-10/">← Neu in Version 1.10</a>',
-                    body=body, extra_css=EXTRA_CSS)
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.10 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-11/">← Neu in Version 1.11</a>',
+                    body=body, extra_css=EXTRA_CSS + CSS_110)
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.9: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.10: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.9.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.10.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.9",
-                header_links='  <a class="home" href="../whats-new-1-10/">← What’s new in version 1.10</a>',
-                body=body, extra_css=EXTRA_CSS)
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.10",
+                header_links='  <a class="home" href="../whats-new-1-11/">← What’s new in version 1.11</a>',
+                body=body, extra_css=EXTRA_CSS + CSS_110)
 
 
 OUT = {
+    "neu-in-1-11/index.html": build_111("de"),
+    "en/whats-new-1-11/index.html": build_111("en"),
     "neu-in-1-10/index.html": build_110("de"),
     "en/whats-new-1-10/index.html": build_110("en"),
     "neu-in-1-9/index.html": build_19("de"),
