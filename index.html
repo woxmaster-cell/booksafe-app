@@ -510,8 +510,8 @@
   .films-grid {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(16px, 3vw, 36px);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(14px, 2vw, 28px);
     margin-top: 36px;
   }
   .films-grid figure { margin: 0; }
@@ -531,6 +531,20 @@
   }
   .films-grid figcaption span { display: block; font-size: 15px; color: var(--muted); line-height: 1.5; }
   .films-more { margin-top: 28px; font-weight: 600; }
+  .film-stills { margin-top: 44px; text-align: left; }
+  .film-stills h3 { margin: 0 0 6px; font-size: 22px; }
+  .film-stills p { margin: 0; font-size: 16px; color: var(--muted); }
+  .film-stills ul {
+    list-style: none;
+    display: flex;
+    gap: 14px;
+    margin: 20px 0 0;
+    padding: 0 0 12px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+  .film-stills li { flex: 0 0 180px; scroll-snap-align: start; }
+  .film-stills img { display: block; width: 100%; height: auto; border-radius: 12px; }
 
   /* Uhr-Sektion (OPT-282): etwas breitere Karte. Die Telefon-Shots sind rohe
      Screenshots (720x1564) — das Geraet fuellt die Bildbreite ganz. Das Uhr-Motiv ist ein
@@ -909,7 +923,7 @@
       <ul>
         <li>Am Jahresende macht BookSafe aus deinen gelesenen Büchern einen <strong>Rückblick</strong>: Bücher, Seiten, Top-Genre, produktivster Monat und längstes Buch.</li>
         <li><strong>Kröne deine drei Lieblingsbücher</strong> aufs Top-3-Podest — Gold, Silber, Bronze; die Bestbewerteten schlägt BookSafe dir vor.</li>
-        <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen — in vier Designs.</li>
+        <li>Auf Wunsch als <strong>animierter Film</strong> zum Anschauen und Teilen — in fünf Designs.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="assets/de-yearinreview.webp" type="image/webp"><img src="assets/de-yearinreview.jpg" alt="Jahresrückblick mit Kennzahlen und Top-3-Podest" loading="lazy" width="720" height="1564"></picture></div>
@@ -917,9 +931,9 @@
 
   <div class="films" id="filmdesigns" role="region" aria-labelledby="films-title">
     <p class="kicker">Filmdesigns</p>
-    <h2 id="films-title">Vier Filme, ein Lesejahr</h2>
-    <p class="films-text">Wähle im Jahresrückblick, wie dein Film aussieht — jeder mit eigener Musik und als Video zum Teilen.</p>
-    <ul class="films-grid" tabindex="0" aria-label="Die vier Filmdesigns">
+    <h2 id="films-title">Fünf Filme, ein Lesejahr</h2>
+    <p class="films-text">Wähle im Jahresrückblick, wie dein Film aussieht — jeder mit eigener Musik, zum Teilen als Video oder Bilder.</p>
+    <ul class="films-grid" tabindex="0" aria-label="Die fünf Filmdesigns">
       <li><figure>
         <picture><source srcset="assets/de-film-gilded.webp" type="image/webp"><img src="assets/de-film-gilded.jpg" alt="Filmdesign Modern: „Auf insgesamt 13862 Seiten“ in goldenen Ziffern auf blau-violettem Verlauf" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Modern</strong><span>Goldene Zahlen auf leuchtendem Verlauf — der Klassiker, 40 Sekunden.</span></figcaption>
@@ -936,7 +950,28 @@
         <picture><source srcset="assets/de-film-passport.webp" type="image/webp"><img src="assets/de-film-passport.jpg" alt="Filmdesign Lesepass: Titelseite „Ein Jahr in Büchern“, Jahrgang 2026, mit Ticket „42 Bücher“ und Stempel" loading="lazy" width="720" height="1561"></picture>
         <figcaption><strong>Lesepass</strong><span>Dein Lesejahr als Comic-Lesepass: zehn Seiten zum Umblättern, mit eigenem Song. 80 Sekunden.</span></figcaption>
       </figure></li>
+      <li><figure>
+        <picture><source srcset="assets/de-film-dreamy.webp" type="image/webp"><img src="assets/de-film-dreamy.jpg" alt="Filmdesign Verträumt: Titelseite „Dein Lesejahr 2026“ im Nachthimmel mit Mondsichel und Wolken" loading="lazy" width="720" height="1561"></picture>
+        <figcaption><strong>Verträumt</strong><span>Eine Mondnacht mit Wolken und Sternen: Aus der Sichel wird ein Vollmond. Gut eine Minute.</span></figcaption>
+      </figure></li>
     </ul>
+    <div class="film-stills">
+      <h3>Dein Jahr als Bilder</h3>
+      <p>Jeder Film lässt sich auch als einzelne Bilder teilen. Hier der Satz von „Verträumt“: zehn Seiten und das Abschlussbild.</p>
+      <ul tabindex="0" aria-label="Die Bilder von „Verträumt“">
+        <li><picture><source srcset="assets/film-dreamy/de-01.webp" type="image/webp"><img src="assets/film-dreamy/de-01.jpg" alt="Titelseite „Dein Lesejahr 2026“ mit Mondsichel" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-02.webp" type="image/webp"><img src="assets/film-dreamy/de-02.jpg" alt="Dein erstes Buch auf einer Wolke" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-03.webp" type="image/webp"><img src="assets/film-dreamy/de-03.jpg" alt="42 Bücher gelesen, jeder Stern ein Buch" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-04.webp" type="image/webp"><img src="assets/film-dreamy/de-04.jpg" alt="13.862 Seiten mit fliegenden Blättern" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-05.webp" type="image/webp"><img src="assets/film-dreamy/de-05.jpg" alt="Dein Lesekalender Monat für Monat" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-06.webp" type="image/webp"><img src="assets/film-dreamy/de-06.jpg" alt="4,3 von fünf Sternen" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-07.webp" type="image/webp"><img src="assets/film-dreamy/de-07.jpg" alt="Dein Genre des Jahres auf dem Mond" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-08.webp" type="image/webp"><img src="assets/film-dreamy/de-08.jpg" alt="Dein dickster Brocken mit 1.022 Seiten" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-09.webp" type="image/webp"><img src="assets/film-dreamy/de-09.jpg" alt="Deine SuB-Leiche: 1.287 Nächte ungelesen" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-10.webp" type="image/webp"><img src="assets/film-dreamy/de-10.jpg" alt="Deine Bücher des Jahres: die schönsten Träume" loading="lazy" width="480" height="853"></picture></li>
+        <li><picture><source srcset="assets/film-dreamy/de-11.webp" type="image/webp"><img src="assets/film-dreamy/de-11.jpg" alt="Abschlussbild „Träum weiter“ mit Vollmond" loading="lazy" width="480" height="853"></picture></li>
+      </ul>
+    </div>
   </div>
 
   <section class="feature feature--watch">
