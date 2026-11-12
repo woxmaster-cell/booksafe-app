@@ -91,6 +91,14 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
          h1, sub, header_links, body, extra_css="", css_patch=None):
     c = L[lang]
     up = "../" * depth
+    home_up = "../" * (depth - (1 if lang == "en" else 0))
+    if lang == "de":
+        extra_nav = (
+            f'<a href="{home_up}autoren/">Autorinnen und Autoren</a>\n'
+            f'    <a href="{home_up}versionen/">Versionen</a>\n    '
+        )
+    else:
+        extra_nav = f'<a href="{home_up}versions/">Versions</a>\n    '
     css = style_block(lang)
     if css_patch:
         css = css_patch(css)
@@ -118,8 +126,10 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{c['locale']}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="{up}assets/app-icon.png">
+<link rel="icon" href="{up}favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{up}assets/favicon-32.png">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6779730178">
 <link rel="canonical" href="https://booksafe.app/{path}">
 {alt_links}
 <link rel="stylesheet" href="{up}assets/tokens.css">
@@ -142,15 +152,16 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
 
 <footer>
   <nav>
-    <a href="{'../' * (depth - (1 if lang == 'en' else 0))}">{c['home']}</a>
-    <a href="{'../' * (depth - (1 if lang == 'en' else 0))}support/">{c['support']}</a>
-    <a href="{'../' * (depth - (1 if lang == 'en' else 0))}{c['contact_href']}">{c['contact']}</a>
-    <a href="{rel_other}" hreflang="{c['other_lang']}" lang="{c['other_lang']}">{c['other_name']}</a>
+    <a href="{home_up}">{c['home']}</a>
+    <a href="{home_up}support/">{c['support']}</a>
+    <a href="{home_up}{c['contact_href']}">{c['contact']}</a>
+    {extra_nav}<a href="{rel_other}" hreflang="{c['other_lang']}" lang="{c['other_lang']}">{c['other_name']}</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
   <p>{c['copyright']}</p>
 </footer>
 
+<script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """

@@ -139,8 +139,10 @@ def page(*, url, rel, title, description, h1, sub, kicker, body, jsonld):
 <meta property="og:type" content="article">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="{rel}assets/app-icon.png">
+<link rel="icon" href="{rel}favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{rel}assets/favicon-32.png">
 <link rel="apple-touch-icon" href="{rel}assets/apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6779730178">
 <link rel="canonical" href="{url}">
 <link rel="stylesheet" href="{rel}assets/tokens.css">
 <link rel="stylesheet" href="{rel}assets/fonts.css">
@@ -168,11 +170,14 @@ def page(*, url, rel, title, description, h1, sub, kicker, body, jsonld):
     <a href="{rel}">Startseite</a>
     <a href="{rel}ratgeber/">Ratgeber</a>
     <a href="{rel}support/">Support</a>
+    <a href="{rel}autoren/">Autorinnen und Autoren</a>
+    <a href="{rel}versionen/">Versionen</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
   <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
 </footer>
 
+<script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """
