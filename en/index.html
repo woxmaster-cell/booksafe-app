@@ -6,8 +6,11 @@
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Your library. Beautiful, fast, private.</title>
 <meta name="description" content="BookSafe is the book app with no account, no tracking, no subscription — library, wishlist and reading stats for iPhone, iPad and Apple Watch. Free for up to 50 books.">
-<link rel="icon" type="image/png" href="../assets/app-icon.png">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6779730178">
+<link rel="preload" as="image" href="../assets/en-library.webp" type="image/webp" fetchpriority="high">
 <link rel="canonical" href="https://booksafe.app/en/">
 <link rel="alternate" hreflang="de" href="https://booksafe.app/">
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
@@ -567,6 +570,7 @@
   .pro h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.015em; }
   .pro h2 em { font-style: normal; color: var(--gold); }
   .pro p { color: var(--web-hero-text-muted); margin-top: 10px; font-size: 17px; }
+  .pro .store-badge { display: inline-block; margin-top: 22px; }
 
   /* ---------- Familie ---------- */
   .family { text-align: center; padding: 8px 0 40px; }
@@ -802,10 +806,10 @@
     </ul>
 
     <div class="hero-shots">
-      <picture><source srcset="../assets/en-today.webp" type="image/webp"><img class="shot-today" src="../assets/en-today.jpg" alt="Today tab with quote of the day and yearly goal" width="720" height="1564"></picture>
+      <picture><source srcset="../assets/en-today.webp" type="image/webp"><img class="shot-today" src="../assets/en-today.jpg" alt="Today tab with quote of the day and yearly goal" loading="lazy" decoding="async" width="720" height="1564"></picture>
       <picture><source srcset="../assets/en-library.webp" type="image/webp"><img fetchpriority="high" class="shot-library" src="../assets/en-library.jpg" alt="Library with reading status and loan due dates" width="720" height="1564"></picture>
       <span class="shot-watch">
-        <picture><source srcset="../assets/en-watch.webp" type="image/webp"><img src="../assets/en-watch.jpg" alt="Reading session running on Apple Watch" width="720" height="1062"></picture>
+        <picture><source srcset="../assets/en-watch.webp" type="image/webp"><img src="../assets/en-watch.jpg" alt="Reading session running on Apple Watch" loading="lazy" decoding="async" width="720" height="1062"></picture>
       </span>
     </div>
   </div>
@@ -990,6 +994,9 @@
   <section class="pro">
     <h2>Free for up to 50 books. <em>BookSafe Pro: one-time €3.99, no subscription.</em></h2>
     <p>Every feature is already included in the free version — Pro simply removes the limit.</p>
+    <a class="store-badge" href="https://apps.apple.com/app/booksafe/id6779730178">
+      <img src="../assets/badge-en.svg" alt="Download on the App Store" height="56">
+    </a>
   </section>
 
   <section class="family" id="family">
@@ -1012,11 +1019,13 @@
     <a href="support/">Privacy</a>
     <a href="support/#contact">Contact</a>
     <a href="press/">Press</a>
+    <a href="versions/">Versions</a>
     <a href="../" hreflang="de" lang="de">Deutsch</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
   <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
 </footer>
 
+<script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
