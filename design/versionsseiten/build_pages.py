@@ -1,7 +1,7 @@
-"""Erzeugt neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-12/, en/whats-new-1-12/, neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
-Quelle der Detailseiten 1.2–1.10: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
+Quelle der Detailseiten 1.2–1.11: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
 Quelle 0.4–1.1: die im App Store veröffentlichten Versionshinweise (ASC-API).
 """
 import html
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.12": (15, 11), "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.11", "1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -714,6 +714,146 @@ def build_111(lang):
                 body=body, extra_css=CSS_110)
 
 
+# ---------------------------------------------------------------- Neu in 1.12
+def card_figure(lang, up, items):
+    """Teilen-Karten im Story-Format (1080 × 1920, als 540 × 960 abgelegt), zwei nebeneinander."""
+    figs = []
+    for key, alt, cap in items:
+        figs.append(f"""      <figure>
+        <picture><source srcset="{up}assets/{lang}-{key}.webp" type="image/webp"><img src="{up}assets/{lang}-{key}.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="540" height="960"></picture>
+        <figcaption>{cap}</figcaption>
+      </figure>""")
+    cls = "two" if len(figs) > 1 else "one"
+    return f'    <div class="film-figure {cls}">\n' + "\n".join(figs) + "\n    </div>"
+
+
+# 1.12: zwei Story-Karten nebeneinander.
+CSS_112 = """
+  .film-figure.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 480px; }
+"""
+
+
+def build_112(lang):
+    up = "../" if lang == "de" else "../../"
+    if lang == "de":
+        quick = card_figure(lang, up, [
+            ("kurzbewertung-citylights", "Kurzbewertung im Design Lichterstadt: Buch beendet, Sterne, Nummer im Lesejahr, Gedanken zum Buch, Stimmungen und Punkte", "Lichterstadt"),
+            ("kurzbewertung-dreamy", "Kurzbewertung im Design Verträumt: „Zu Ende geträumt“ mit Sternbild, Gedanken auf einer Wolke, Stimmungen und Punkten", "Verträumt")])
+        xmas = card_figure(lang, up, [
+            ("leseupdate-citylights", "Leseupdate im Design Lichterstadt: Altstadt mit Lichterkugeln, Lebkuchenmann, „3. Advent“, Bücher am Lesen und beendet", "Lichterstadt")])
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.12 bringt den Winter auf deinen Heute-Screen: Im Dezember fällt Schnee hinter deinen Karten und bleibt liegen, dazu gibt es Weihnachts-Sprüche und festliche Sondertage. Außerdem teilst du ein gelesenes Buch jetzt als Kurzbewertung, und das Leseupdate bekommt zwei Weihnachts-Designs.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.12 · veröffentlicht am 15. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Winterzeit auf Heute</h3>
+    <p>Im Dezember fällt <strong>Schnee hinter deinen Karten</strong>, an manchen Tagen dichter, am 14. und 21. Dezember als <strong>Schneesturm</strong>. Die Flocken bleiben auf den Karten liegen, und die <strong>Schneehäubchen wachsen über die Tage</strong>.</p>
+
+    <h3><span class="num">2</span>Weihnachts-Sprüche und festliche Sondertage</h3>
+    <p><strong>Acht Weihnachts-Spruchkarten</strong> und <strong>31 Sprüche nur für den Dezember</strong>. An <strong>Nikolaus, Heiligabend und Silvester</strong> wird der ganze Heute-Screen festlich, an Silvester mit deinem Lesejahr und Feuerwerk. Wer es schlicht mag, schaltet „Saisonale Designs“ in den Einstellungen aus.</p>
+
+    <h3><span class="num">3</span>Kurzbewertung teilen</h3>
+    <p>Teile ein gelesenes oder gehörtes Buch aus dem Buchdetail <strong>als Story</strong>: mit seiner <strong>Nummer im Lesejahr</strong>, deinen Sternen, deinem Eindruck und auf Wunsch deinen Gedanken zum Buch. Die Kurzbewertung gibt es in <strong>allen acht Designs</strong> des Leseupdates.</p>
+{quick}
+
+    <h3><span class="num">4</span>Zwei Weihnachts-Designs für das Leseupdate</h3>
+    <p><strong>„Lichterstadt“</strong> zeigt deine Bücher mit Cover vor einer Altstadtgasse mit Lichterkugeln und einem Lebkuchenmann. In <strong>„Lichterkugeln“</strong> wird jedes laufende Buch selbst zur Lichterkugel, die so weit leuchtet, wie du gelesen hast. Im Advent steht der Adventssonntag auf der Karte.</p>
+{xmas}
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Film „Verträumt“: Bis zu 100 Bücher leuchten als eigener Stern im Sternbild, auf dem iPad hochkant bis zu 200, und am iPad nutzt der Film die ganze Breite</li>
+      <li>Reihen: Die Kopfzeile trennt deinen Bestand von der Wunschliste, Wunschlisten-Bände tragen das lila „W“</li>
+      <li>Pro: Wird ein Kauf nicht sofort freigeschaltet, sagt BookSafe das jetzt klar, und „Käufe wiederherstellen“ behauptet nicht mehr fälschlich, du hättest Pro noch nicht gekauft</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{good_to_know(lang, 1)}
+"""
+        return page(lang, path="neu-in-1-12/", depth=1,
+                    title="BookSafe — Neu in Version 1.12",
+                    description="Was BookSafe 1.12 neu bringt: Schnee auf dem Heute-Screen im Dezember, Weihnachts-Sprüche und festliche Sondertage, Kurzbewertungen als Story und zwei Weihnachts-Designs für das Leseupdate.",
+                    og_title="BookSafe — Neu in Version 1.12",
+                    og_desc="Schnee, der liegen bleibt, Weihnachts-Sprüche, Kurzbewertungen als Story und zwei Weihnachts-Designs — im Detail.",
+                    alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
+                    h1="Neu in Version 1.12", sub="Im App Store seit 15. November 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body, extra_css=CSS_110 + CSS_112)
+    quick = card_figure(lang, up, [
+        ("kurzbewertung-citylights", "Quick review in the City Lights design: book finished, stars, number in your reading year, thoughts on the book, moods and scores", "City Lights"),
+        ("kurzbewertung-dreamy", "Quick review in the Dreamy design: “Dreamt to the end” with a constellation, thoughts on a cloud, moods and scores", "Dreamy")])
+    xmas = card_figure(lang, up, [
+        ("leseupdate-citylights", "Reading update in the City Lights design: old town with glowing spheres, a gingerbread man, Advent week 3, books in progress and finished", "City Lights")])
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.12 brings winter to your Today screen: in December, snow falls behind your cards and settles, plus Christmas quotes and festive special days. You can also share a finished book as a quick review, and the reading update gains two Christmas designs.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.12 · released 15 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Winter on Today</h3>
+    <p>In December, <strong>snow falls behind your cards</strong> — heavier on some days, and as a <strong>snowstorm</strong> on 14 and 21 December. Flakes settle on the cards, and the <strong>snow caps grow over the days</strong>.</p>
+
+    <h3><span class="num">2</span>Christmas quotes and festive special days</h3>
+    <p><strong>Eight Christmas quote cards</strong> and <strong>31 quotes just for December</strong>. On <strong>St Nicholas’ Day, Christmas Eve and New Year’s Eve</strong> the whole Today screen turns festive — on New Year’s Eve with your reading year and fireworks. Prefer it plain? Turn off “Seasonal designs” in Settings.</p>
+
+    <h3><span class="num">3</span>Share a quick review</h3>
+    <p>Share a book you’ve read or listened to from its details <strong>as a story</strong>: with its <strong>number in your reading year</strong>, your stars, your impression and, if you like, your thoughts on the book. The quick review comes in <strong>all eight designs</strong> of the reading update.</p>
+{quick}
+
+    <h3><span class="num">4</span>Two Christmas designs for your reading update</h3>
+    <p><strong>“City Lights”</strong> shows your books with their covers in front of an old-town lane with glowing spheres and a gingerbread man. In <strong>“Glow Spheres”</strong>, each book you’re reading becomes a glowing sphere that lights up as far as you’ve read. During Advent, the Advent week appears on the card.</p>
+{xmas}
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>“Dreamy” film: up to 100 books each shine as their own star in the constellation, up to 200 on iPad in portrait, and on iPad the film uses the full width</li>
+      <li>Series: the header separates the books you own from your wishlist, and wishlist volumes carry the purple “W”</li>
+      <li>Pro: if a purchase isn’t unlocked right away, BookSafe now says so clearly, and “Restore purchases” no longer wrongly claims you haven’t bought Pro</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>What BookSafe has learned since version 0.4 — from the loan tracker and iCloud sync to the Apple Watch and the Year in Review films — is collected in the archive. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
+  </section>
+
+{good_to_know(lang, 2)}
+"""
+    return page(lang, path="en/whats-new-1-12/", depth=2,
+                title="BookSafe — What’s new in version 1.12",
+                description="What BookSafe 1.12 adds: December snow on the Today screen, Christmas quotes and festive special days, quick reviews as a story and two Christmas designs for the reading update.",
+                og_title="BookSafe — What’s new in version 1.12",
+                og_desc="Snow that settles, Christmas quotes, quick reviews as a story and two Christmas designs — in detail.",
+                alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
+                h1="What’s new in version 1.12", sub="On the App Store since 15 November 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body, extra_css=CSS_110 + CSS_112)
+
+
 # ---------------------------------------------------------------- Archiv
 def detail_content(lang, v):
     """Lead-Absatz + alle Inhaltskarten außer Lead und „Gut zu wissen“, eine Ebene tiefer."""
@@ -818,7 +958,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-11/">Seite zu Version 1.11</a>.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-12/">Seite zu Version 1.12</a>.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -827,7 +967,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-11/">version 1.11 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-12/">version 1.12 page</a>.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -841,24 +981,26 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.10: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.11: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.10.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.11.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.10 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-11/">← Neu in Version 1.11</a>',
-                    body=body, extra_css=EXTRA_CSS + CSS_110)
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.11 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-12/">← Neu in Version 1.12</a>',
+                    body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112)
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.10: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.11: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.10.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.11.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.10",
-                header_links='  <a class="home" href="../whats-new-1-11/">← What’s new in version 1.11</a>',
-                body=body, extra_css=EXTRA_CSS + CSS_110)
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.11",
+                header_links='  <a class="home" href="../whats-new-1-12/">← What’s new in version 1.12</a>',
+                body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112)
 
 
 OUT = {
+    "neu-in-1-12/index.html": build_112("de"),
+    "en/whats-new-1-12/index.html": build_112("en"),
     "neu-in-1-11/index.html": build_111("de"),
     "en/whats-new-1-11/index.html": build_111("en"),
     "neu-in-1-10/index.html": build_110("de"),
