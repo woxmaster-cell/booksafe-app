@@ -723,7 +723,8 @@ def card_figure(lang, up, items):
         <picture><source srcset="{up}assets/{lang}-{key}.webp" type="image/webp"><img src="{up}assets/{lang}-{key}.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="540" height="960"></picture>
         <figcaption>{cap}</figcaption>
       </figure>""")
-    return '    <div class="film-figure two">\n' + "\n".join(figs) + "\n    </div>"
+    cls = "two" if len(figs) > 1 else "one"
+    return f'    <div class="film-figure {cls}">\n' + "\n".join(figs) + "\n    </div>"
 
 
 # 1.12: zwei Story-Karten nebeneinander.
@@ -739,8 +740,7 @@ def build_112(lang):
             ("kurzbewertung-citylights", "Kurzbewertung im Design Lichterstadt: Buch beendet, Sterne, Nummer im Lesejahr, Gedanken zum Buch, Stimmungen und Punkte", "Lichterstadt"),
             ("kurzbewertung-dreamy", "Kurzbewertung im Design Verträumt: „Zu Ende geträumt“ mit Sternbild, Gedanken auf einer Wolke, Stimmungen und Punkten", "Verträumt")])
         xmas = card_figure(lang, up, [
-            ("leseupdate-citylights", "Leseupdate im Design Lichterstadt: Altstadt mit Lichterkugeln, Lebkuchenmann, „3. Advent“, Bücher am Lesen und beendet", "Lichterstadt"),
-            ("leseupdate-glowspheres", "Leseupdate im Design Lichterkugeln: leuchtende Kugeln vor der Altstadt, Bücher am Lesen und beendet", "Lichterkugeln")])
+            ("leseupdate-citylights", "Leseupdate im Design Lichterstadt: Altstadt mit Lichterkugeln, Lebkuchenmann, „3. Advent“, Bücher am Lesen und beendet", "Lichterstadt")])
         body = f"""
   <section class="card lead">
     <h2>Worum es in diesem Update geht</h2>
@@ -763,7 +763,7 @@ def build_112(lang):
 {quick}
 
     <h3><span class="num">4</span>Zwei Weihnachts-Designs für das Leseupdate</h3>
-    <p><strong>„Lichterstadt“</strong> und <strong>„Lichterkugeln“</strong>: Lichterkugeln über einer Altstadtgasse, dazu ein Lebkuchenmann. Im Advent steht der Adventssonntag auf der Karte.</p>
+    <p><strong>„Lichterstadt“</strong> zeigt deine Bücher mit Cover vor einer Altstadtgasse mit Lichterkugeln und einem Lebkuchenmann. In <strong>„Lichterkugeln“</strong> wird jedes laufende Buch selbst zur Lichterkugel, die so weit leuchtet, wie du gelesen hast. Im Advent steht der Adventssonntag auf der Karte.</p>
 {xmas}
   </section>
 
@@ -798,8 +798,7 @@ def build_112(lang):
         ("kurzbewertung-citylights", "Quick review in the City Lights design: book finished, stars, number in your reading year, thoughts on the book, moods and scores", "City Lights"),
         ("kurzbewertung-dreamy", "Quick review in the Dreamy design: “Dreamt to the end” with a constellation, thoughts on a cloud, moods and scores", "Dreamy")])
     xmas = card_figure(lang, up, [
-        ("leseupdate-citylights", "Reading update in the City Lights design: old town with glowing spheres, a gingerbread man, Advent week 3, books in progress and finished", "City Lights"),
-        ("leseupdate-glowspheres", "Reading update in the Glow Spheres design: glowing spheres in front of the old town, books in progress and finished", "Glow Spheres")])
+        ("leseupdate-citylights", "Reading update in the City Lights design: old town with glowing spheres, a gingerbread man, Advent week 3, books in progress and finished", "City Lights")])
     body = f"""
   <section class="card lead">
     <h2>What this update is about</h2>
@@ -822,7 +821,7 @@ def build_112(lang):
 {quick}
 
     <h3><span class="num">4</span>Two Christmas designs for your reading update</h3>
-    <p><strong>“City Lights”</strong> and <strong>“Glow Spheres”</strong>: glowing spheres above an old-town lane, plus a gingerbread man. During Advent, the Advent week appears on the card.</p>
+    <p><strong>“City Lights”</strong> shows your books with their covers in front of an old-town lane with glowing spheres and a gingerbread man. In <strong>“Glow Spheres”</strong>, each book you’re reading becomes a glowing sphere that lights up as far as you’ve read. During Advent, the Advent week appears on the card.</p>
 {xmas}
   </section>
 
