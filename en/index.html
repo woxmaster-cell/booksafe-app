@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Your library. Beautiful, fast, private.</title>
-<meta name="description" content="BookSafe is the book app with no account, no tracking, no subscription — library, wishlist and reading stats for iPhone, iPad and Apple Watch. Free for up to 50 books.">
+<meta name="description" content="BookSafe is the book app with no account and no subscription — library, wishlist and reading stats for iPhone, iPad, Apple Watch and Android. Free for up to 50 books.">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
 <link rel="alternate" hreflang="x-default" href="https://booksafe.app/">
 <meta property="og:title" content="BookSafe — Your library. Beautiful, fast, private.">
-<meta property="og:description" content="The book app with no account, no tracking, no subscription — for iPhone, iPad and Apple Watch.">
+<meta property="og:description" content="The book app with no account and no subscription — for iPhone, iPad, Apple Watch and Android.">
 <meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -206,9 +206,15 @@
     display: flex;
     align-items: center;
     gap: 22px;
+    flex-wrap: wrap;
     margin-top: 36px;
   }
+  .store-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .store-badge img { height: 56px; width: auto; display: block; }
+  /* The Play artwork includes transparent padding. 83 px makes the visible
+     badge match the App Store badge (56 px). The English file has more padding
+     than the German one. */
+  .store-badge--play img { height: 83px; }
   .hero-price {
     font-size: 15px;
     line-height: 1.45;
@@ -570,7 +576,7 @@
   .pro h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; letter-spacing: -0.015em; }
   .pro h2 em { font-style: normal; color: var(--gold); }
   .pro p { color: var(--web-hero-text-muted); margin-top: 10px; font-size: 17px; }
-  .pro .store-badge { display: inline-block; margin-top: 22px; }
+  .pro .store-row { justify-content: center; margin-top: 22px; }
 
   /* ---------- Familie ---------- */
   .family { text-align: center; padding: 8px 0 40px; }
@@ -630,6 +636,7 @@
     .hero-kicker::before { width: 32px; margin-right: 12px; }
     .hero-cta { gap: 16px; }
     .store-badge img { height: 48px; }
+    .store-badge--play img { height: 71px; }
     .hero-price { font-size: 13px; }
 
     /* Auf dem Telefon traegt der Kicker nur noch die Neuigkeit: die volle
@@ -737,16 +744,19 @@
   "name": "BookSafe",
   "url": "https://booksafe.app/en/",
   "applicationCategory": "BookApplication",
-  "operatingSystem": "iOS 18.0, watchOS 11.0",
+  "operatingSystem": "iOS 18.0, watchOS 11.0, Android",
   "softwareVersion": "1.12",
   "inLanguage": [
     "de",
     "en"
   ],
-  "description": "Book manager for iPhone, iPad and Apple Watch: scan books by ISBN, track your reading, stay on top of series. No account, no tracking, no third-party servers. Free for up to 50 books; BookSafe Pro lifts the limit for a one-time €3.99, no subscription.",
+  "description": "Book manager for iPhone, iPad, Apple Watch and Android: scan books by ISBN, track your reading, stay on top of series. No account, no subscription. On iPhone, iPad and Apple Watch there is no tracking, and the library syncs through your private iCloud. On Android the library stays on the device, with no widgets and no watch. Free for up to 50 books. BookSafe Pro lifts the limit with a one-time purchase — €3.99 on the App Store, and a separate purchase on Google Play that does not carry across.",
   "image": "https://booksafe.app/assets/og-en.jpg",
   "screenshot": "https://booksafe.app/assets/en-today.jpg",
-  "downloadUrl": "https://apps.apple.com/app/booksafe/id6779730178",
+  "downloadUrl": [
+    "https://apps.apple.com/app/booksafe/id6779730178",
+    "https://play.google.com/store/apps/details?id=de.sisofa.booksafe"
+  ],
   "offers": [
     {
       "@type": "Offer",
@@ -760,7 +770,7 @@
       "name": "BookSafe Pro",
       "price": "3.99",
       "priceCurrency": "EUR",
-      "description": "One-time purchase, no subscription — lifts the 50-book limit."
+      "description": "One-time purchase on the App Store, no subscription — lifts the 50-book limit. On Android, Pro is a separate purchase on Google Play and does not unlock the iPhone app."
     }
   ],
   "author": {
@@ -787,20 +797,25 @@
 
   <div class="hero-inner">
     <div class="hero-copy">
-      <p class="hero-kicker">BookSafe 1.12 · iPhone Duo<span class="kicker-mid"> · iPhone · iPad</span> · Apple Watch</p>
+      <p class="hero-kicker">BookSafe 1.12 · iPhone<span class="kicker-mid"> Duo · iPad · Apple Watch</span> · Android</p>
       <h1>Your library<br>belongs to <em>you.</em></h1>
-      <p class="sub">Scan books by ISBN, keep every series straight down to the half-volume, start a reading session from your wrist — no account, no tracking, no subscription.</p>
+      <p class="sub">Scan books by ISBN, keep every series straight down to the half-volume — no account and no subscription, on iPhone, iPad, Apple Watch and Android.</p>
       <div class="hero-cta">
-        <a class="store-badge" href="https://apps.apple.com/app/booksafe/id6779730178">
-          <img src="../assets/badge-en.svg" alt="Download on the App Store" height="56">
-        </a>
-        <p class="hero-price">Free for up to 50 books.<br>Pro: 3.99 € once — no subscription.</p>
+        <div class="store-row">
+          <a class="store-badge" href="https://apps.apple.com/app/booksafe/id6779730178">
+            <img src="../assets/badge-en.svg" alt="Download on the App Store" width="120" height="40">
+          </a>
+          <a class="store-badge store-badge--play" href="https://play.google.com/store/apps/details?id=de.sisofa.booksafe">
+            <img src="../assets/google-play-badge-en.png" alt="Get it on Google Play" width="646" height="250">
+          </a>
+        </div>
+        <p class="hero-price">Free for up to 50 books.<br>Pro on the App Store: €3.99 once — no subscription.</p>
       </div>
     </div>
 
     <ul class="hero-facts">
       <li>No account</li>
-      <li>No tracking</li>
+      <li>No ads</li>
       <li>No subscription</li>
       <li>Everything on your device</li>
     </ul>
@@ -845,13 +860,13 @@
 
   <section class="lead">
     <p class="kicker">Private</p>
-    <p class="lead-statement">No account. No tracking. No servers of our own.</p>
-    <p class="lead-source">No analytics service, no ad network, no third-party components in the app.</p>
-    <p class="lead-text">Your library lives on your device and syncs only through your own private iCloud — which we cannot see into. And you can leave whenever you like: export as CSV or PDF.</p>
+    <p class="lead-statement">No account. No ads. No servers of our own.</p>
+    <p class="lead-source">On iPhone, iPad and Apple Watch: no analytics service, no ad network, no third-party components. On Android the scanner uses Google ML Kit, which sends diagnostic data to Google.</p>
+    <p class="lead-text">Your library lives on your device. On iPhone and iPad it syncs through your private iCloud — which we cannot see into. On Android there is no ongoing sync with the iPhone: you back everything up as a file, and you can import an iPhone backup in the “Options” tab. Export as CSV or PDF works on both.</p>
     <ul class="lead-points">
-      <li><strong>No account, no sign-up</strong>No email address, no password, nothing to create — and neither ads nor analytics in the app.</li>
-      <li><strong>iPhone and iPad, always in sync</strong>Through Apple’s CloudKit in your private iCloud. You can turn the sync off in iOS Settings.</li>
-      <li><strong>Only the ISBN leaves your device</strong>When looking up book data, with no user identifier attached. Everything else works offline, too.</li>
+      <li><strong>No account, no sign-up</strong>No email address, no password, nothing to create — and no ads in the app.</li>
+      <li><strong>iPhone and iPad, through your iCloud</strong>Through Apple’s CloudKit in your private iCloud. You can turn the sync off in iOS Settings. Apple Watch and widgets exist only here.</li>
+      <li><strong>Android, on the device</strong>No sync with the iPhone, no widgets, no watch. You buy BookSafe Pro there once on Google Play; the purchase does not unlock the iPhone app.</li>
     </ul>
   </section>
 
@@ -899,9 +914,9 @@
       <p class="kicker">Fair pricing</p>
       <h2>Buy once, no subscription</h2>
       <ul>
-        <li><strong>Free for up to 50 books</strong> — with every feature.</li>
-        <li><strong>BookSafe Pro: a one-time €3.99 purchase</strong> for unlimited books. No subscription.</li>
-        <li>No hidden costs, no ads — buy once, yours forever.</li>
+        <li><strong>Free for up to 50 books</strong> — with every feature of that app.</li>
+        <li><strong>BookSafe Pro on the App Store: €3.99 once</strong> for unlimited books. No subscription. On Android, Pro is a separate one-time purchase on Google Play and does not carry over.</li>
+        <li>No hidden costs, no ads.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-paywall.webp" type="image/webp"><img src="../assets/en-paywall.jpg" alt="BookSafe Pro — one-time purchase instead of a subscription" loading="lazy" width="720" height="1564"></picture></div>
@@ -914,7 +929,7 @@
       <ul>
         <li>Share your favourite books as <strong>beautiful share cards</strong>.</li>
         <li><strong>Statistics, reading streak, badges</strong> and a yearly reading challenge with your own goal.</li>
-        <li>On release day, BookSafe celebrates with a big cover and a little <strong>fireworks display</strong> — widgets for your Home and Lock Screen included.</li>
+        <li>On release day, BookSafe celebrates with a big cover and a little <strong>fireworks display</strong>. Widgets for the Home Screen and the Lock Screen are on iPhone and iPad.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-stats.webp" type="image/webp"><img src="../assets/en-stats.jpg" alt="Reading statistics in BookSafe" loading="lazy" width="720" height="1564"></picture></div>
@@ -986,23 +1001,29 @@
         <li>The books you are <strong>currently reading</strong>, right on your wrist — tap, and the reading session is running.</li>
         <li><strong>No iPhone nearby:</strong> your watch remembers everything and syncs up later on its own.</li>
         <li>Set the <strong>end page with the Crown</strong> — progress and reading time land in your statistics.</li>
+        <li><strong>iPhone only.</strong> Android has no watch; a running session shows in the notification shade there.</li>
       </ul>
     </div>
     <div class="shot"><picture><source srcset="../assets/en-watch.webp" type="image/webp"><img src="../assets/en-watch.jpg" alt="BookSafe on Apple Watch Ultra: a running reading session with timer" loading="lazy" width="720" height="1062"></picture></div>
   </section>
 
   <section class="pro">
-    <h2>Free for up to 50 books. <em>BookSafe Pro: one-time €3.99, no subscription.</em></h2>
-    <p>Every feature is already included in the free version — Pro simply removes the limit.</p>
-    <a class="store-badge" href="https://apps.apple.com/app/booksafe/id6779730178">
-      <img src="../assets/badge-en.svg" alt="Download on the App Store" height="56">
-    </a>
+    <h2>Free for up to 50 books. <em>Pro once, no subscription.</em></h2>
+    <p>Every feature of that app is already in the free version — Pro only lifts the limit. On the App Store, BookSafe Pro is €3.99 once. On Android you buy Pro once on Google Play. A purchase applies only on that platform.</p>
+    <div class="store-row">
+      <a class="store-badge" href="https://apps.apple.com/app/booksafe/id6779730178">
+        <img src="../assets/badge-en.svg" alt="Download on the App Store" width="120" height="40">
+      </a>
+      <a class="store-badge store-badge--play" href="https://play.google.com/store/apps/details?id=de.sisofa.booksafe">
+        <img src="../assets/google-play-badge-en.png" alt="Get it on Google Play" width="646" height="250">
+      </a>
+    </div>
   </section>
 
   <section class="family" id="family">
     <h2>Who is behind BookSafe</h2>
     <p>A family in southern Germany. The father writes the code, the mother proofreads every line and finds the mistakes nobody else does, and their daughter collects book series — the fact that series detection gets even “book 8.5” right is down to her standards. The release-day fireworks were her idea, too.</p>
-    <p class="quote">There is no account and no tracking, and that was never a product decision — it was a family decision.</p>
+    <p class="quote">There is no account, and the library does not live on our servers. That was never a product decision — it was a family decision.</p>
     <p>The full story is in the <a href="press/">press kit</a>.</p>
   </section>
 
@@ -1016,6 +1037,7 @@
 <footer>
   <nav>
     <a href="support/">Support</a>
+    <a href="supportandroid/">Android</a>
     <a href="support/">Privacy</a>
     <a href="support/#contact">Contact</a>
     <a href="press/">Press</a>
@@ -1023,7 +1045,7 @@
     <a href="../" hreflang="de" lang="de">Deutsch</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc.</p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc. Android and Google Play are trademarks of Google LLC.</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

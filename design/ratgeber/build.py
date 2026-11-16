@@ -20,6 +20,7 @@ from articles import ARTICLES, PUBLISHED  # noqa: E402
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 BASE = "https://booksafe.app/ratgeber/"
 STORE = "https://apps.apple.com/de/app/booksafe/id6779730178"
+PLAY = "https://play.google.com/store/apps/details?id=de.sisofa.booksafe"
 
 CSS = """
   :root {
@@ -94,6 +95,7 @@ CSS = """
   .cta p { margin-bottom: 4px; }
   .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
   .store img { height: 48px; width: auto; display: block; }
+  .store img.play-badge { height: 63px; }
   .more a { display: block; margin-top: 6px; }
   footer {
     border-top: 1px solid var(--hairline);
@@ -170,11 +172,12 @@ def page(*, url, rel, title, description, h1, sub, kicker, body, jsonld):
     <a href="{rel}">Startseite</a>
     <a href="{rel}ratgeber/">Ratgeber</a>
     <a href="{rel}support/">Support</a>
+    <a href="{rel}supportandroid/">Android</a>
     <a href="{rel}autoren/">Autorinnen und Autoren</a>
     <a href="{rel}versionen/">Versionen</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Android und Google Play sind Marken von Google LLC.</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -192,9 +195,10 @@ def shot(rel, name, alt, caption):
 def cta(rel):
     return f"""  <section class="card cta">
     <h2>BookSafe ausprobieren</h2>
-    <p>BookSafe ist eine Buchverwaltung für iPhone und iPad, ohne Konto und ohne Tracking. Kostenlos bis 50 Bücher, danach einmalig 3,99 € für BookSafe Pro, kein Abo.</p>
+    <p>BookSafe ist eine Buchverwaltung für iPhone, iPad, Apple Watch und Android, ohne Konto. Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit einmalig auf: im App Store für 3,99 €, auf Android als eigener Kauf bei Google Play. Pro gilt nicht auf beiden Plattformen.</p>
     <div class="store">
       <a href="{STORE}"><img src="{rel}assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
+      <a href="{PLAY}"><img class="play-badge" src="{rel}assets/google-play-badge-de.png" alt="Jetzt bei Google Play" width="646" height="250"></a>
     </div>
   </section>"""
 
