@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Support &amp; Datenschutz</title>
-<meta name="description" content="Support, häufige Fragen und Datenschutzerklärung der BookSafe-App für iPhone und iPad — kein Konto, kein Tracking, deine Daten nur auf deinem Gerät und in deiner privaten iCloud.">
+<meta name="description" content="Support und Datenschutz für BookSafe auf iPhone und iPad: kein Konto, kein Tracking, deine Daten nur auf dem Gerät und in deiner privaten iCloud.">
 <meta property="og:title" content="BookSafe — Support &amp; Datenschutz">
 <meta property="og:description" content="Häufige Fragen, Kontakt und die vollständige Datenschutzerklärung: kein Konto, kein Tracking, nur deine private iCloud.">
 <meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
@@ -15,7 +15,11 @@
 <meta property="og:url" content="https://booksafe.app/support/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BookSafe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BookSafe — Support &amp; Datenschutz">
+<meta name="twitter:description" content="Häufige Fragen, Kontakt und die vollständige Datenschutzerklärung: kein Konto, kein Tracking, nur deine private iCloud.">
+<meta name="twitter:image" content="https://booksafe.app/assets/og-de.jpg">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -109,6 +113,10 @@
   .contact-mail { font-size: 17px; font-weight: 600; }
   .store-badge { display: inline-block; margin-top: 16px; }
   .store-badge img { height: 56px; width: auto; display: block; }
+  /* Play-Grafik hat transparenten Rand. 73 px lassen den Badge neben dem
+     App-Store-Badge (56 px) gleich hoch wirken, wie auf der Startseite. */
+  .store-badge--play img { height: 73px; }
+  .brand-note { color: var(--muted); font-size: 13.5px; margin-top: 12px; }
   footer {
     border-top: 1px solid var(--hairline);
     padding: 36px 24px 48px;
@@ -263,6 +271,15 @@
   </section>
 
   <section class="card">
+    <h2>Auch für Android</h2>
+    <p>BookSafe gibt es bei Google Play. Auf Android ohne Widgets, ohne Uhr und ohne Abgleich mit dem iPhone. <a href="../supportandroid/">Zum Android-Support</a>.</p>
+    <a class="store-badge store-badge--play" href="https://play.google.com/store/apps/details?id=de.sisofa.booksafe">
+      <img src="../assets/google-play-badge-de.png" alt="Jetzt bei Google Play" width="646" height="250">
+    </a>
+    <p class="brand-note">Google Play und das Google Play-Logo sind Marken von Google LLC.</p>
+  </section>
+
+  <section class="card">
     <h2>Häufige Fragen</h2>
 
     <h3>Wie füge ich ein Buch hinzu?</h3>
@@ -340,7 +357,7 @@
     <a href="../en/support/" hreflang="en" lang="en">English</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc.</p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Google Play und das Google Play-Logo sind Marken von Google LLC.</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -104,7 +104,12 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
             f'    <a href="{home_up}versionen/">Versionen</a>\n    '
         )
     else:
-        extra_nav = f'<a href="{home_up}versions/">Versions</a>\n    '
+        # Autoren-Angebot gibt es nur auf Deutsch. Der Link trägt hreflang und
+        # einen Sprachhinweis, statt auf eine Seite zu zeigen, die es nicht gibt.
+        extra_nav = (
+            f'<a href="{up}autoren/" hreflang="de" lang="de">Authors (Deutsch)</a>\n'
+            f'    <a href="{home_up}versions/">Versions</a>\n    '
+        )
     css = style_block(lang)
     if css_patch:
         css = css_patch(css)
@@ -131,7 +136,11 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
 <meta property="og:url" content="https://booksafe.app/{path}">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{c['locale']}">
+<meta property="og:site_name" content="BookSafe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(og_title, quote=True)}">
+<meta name="twitter:description" content="{html.escape(og_desc, quote=True)}">
+<meta name="twitter:image" content="https://booksafe.app/assets/{c['og']}">
 <link rel="icon" href="{up}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{up}assets/favicon-32.png">
 <link rel="apple-touch-icon" href="{up}assets/apple-touch-icon.png">
@@ -265,7 +274,7 @@ def build_18(lang):
 """
         return page(lang, path="neu-in-1-8/", depth=1,
                     title="BookSafe — Neu in Version 1.8",
-                    description="Was BookSafe 1.8 neu bringt: das vierte Filmdesign „Lesepass“ für den Jahresrückblick, Teilen als Bild oder Video, Cover und Band schon beim Anlegen, Kontakt & Feedback in den Einstellungen und Comics wie Asterix richtig erkannt.",
+                    description="Was BookSafe 1.8 neu bringt: Filmdesign „Lesepass“, Teilen als Bild oder Video, Cover und Band beim Anlegen und Comics wie Asterix richtig erkannt.",
                     og_title="BookSafe — Neu in Version 1.8",
                     og_desc="Das Update für Comic- und Reihensammler: Comics richtig erkannt, Cover und Band schon beim Anlegen, dazu der Lesepass als viertes Filmdesign — im Detail.",
                     alternates={"de": "neu-in-1-8/", "en": "en/whats-new-1-8/"},
@@ -322,9 +331,9 @@ def build_18(lang):
 """
     return page(lang, path="en/whats-new-1-8/", depth=2,
                 title="BookSafe — What’s new in version 1.8",
-                description="What BookSafe 1.8 adds: the fourth Year in Review film design “Passport”, sharing as an image or video, cover and volume right when adding a book, Contact & Feedback in Settings, and comics like Asterix recognised correctly.",
+                description="What BookSafe 1.8 adds: the “Passport” film design, sharing as image or video, cover and volume when adding a book, and comics recognised correctly.",
                 og_title="BookSafe — What’s new in version 1.8",
-                og_desc="The update for comic and series collectors: comics recognised correctly, cover and volume right when adding a book, plus the Passport as a fourth film design — in detail.",
+                og_desc="Comics recognised correctly, cover and volume when adding a book, plus the Passport as a fourth film design.",
                 alternates={"de": "neu-in-1-8/", "en": "en/whats-new-1-8/"},
                 h1="What’s new in version 1.8", sub="On the App Store since 17 October 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
@@ -378,7 +387,7 @@ def build_19(lang):
 """
         return page(lang, path="neu-in-1-9/", depth=1,
                     title="BookSafe — Neu in Version 1.9",
-                    description="Was BookSafe 1.9 neu bringt: ein eigenes Bild für jede Reihe, Bücher gleich mit allen Angaben anlegen, Lesesitzungen ohne Dauer nachtragen und ein Hinweis, wenn der Katalog der Deutschen Nationalbibliothek gestört ist.",
+                    description="Was BookSafe 1.9 neu bringt: ein eigenes Bild je Reihe, Bücher gleich vollständig anlegen, Lesesitzungen ohne Dauer und ein Hinweis bei Katalogstörung.",
                     og_title="BookSafe — Neu in Version 1.9",
                     og_desc="Ein eigenes Bild für jede Reihe, Bücher gleich mit allen Angaben anlegen und Lesesitzungen auch ohne Dauer nachtragen — im Detail.",
                     alternates={"de": "neu-in-1-9/", "en": "en/whats-new-1-9/"},
@@ -429,7 +438,7 @@ def build_19(lang):
 """
     return page(lang, path="en/whats-new-1-9/", depth=2,
                 title="BookSafe — What’s new in version 1.9",
-                description="What BookSafe 1.9 adds: your own image for every series, adding books with all their details right away, logging reading sessions without a duration, and a notice when the German National Library catalogue is disrupted.",
+                description="What BookSafe 1.9 adds: your own image for every series, full details when adding a book, sessions without a duration and a catalogue-outage notice.",
                 og_title="BookSafe — What’s new in version 1.9",
                 og_desc="Your own image for every series, add books with all their details right away and log reading sessions even without a duration — in detail.",
                 alternates={"de": "neu-in-1-9/", "en": "en/whats-new-1-9/"},
@@ -512,7 +521,7 @@ def build_110(lang):
 """
         return page(lang, path="neu-in-1-10/", depth=1,
                     title="BookSafe — Neu in Version 1.10",
-                    description="Was BookSafe 1.10 neu bringt: das Leseupdate in fünf Designs teilen, beendete Bücher mit Bewertung auf der Karte und neun neue Stempel für deine Lesemeilensteine.",
+                    description="Was BookSafe 1.10 neu bringt: das Leseupdate in fünf Designs teilen, beendete Bücher mit Bewertung und neun neue Stempel.",
                     og_title="BookSafe — Neu in Version 1.10",
                     og_desc="Dein Leseupdate in fünf Designs, mit den Büchern, die du zuletzt beendet hast, und neun neue Stempel — im Detail.",
                     alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
@@ -560,7 +569,7 @@ def build_110(lang):
 """
     return page(lang, path="en/whats-new-1-10/", depth=2,
                 title="BookSafe — What’s new in version 1.10",
-                description="What BookSafe 1.10 adds: share your reading update in five designs, finished books with their rating on the card, and nine new stamps for your reading milestones.",
+                description="What BookSafe 1.10 adds: share your reading update in five designs, finished books with their rating, and nine new stamps.",
                 og_title="BookSafe — What’s new in version 1.10",
                 og_desc="Your reading update in five designs, with the books you’ve just finished, plus nine new stamps — in detail.",
                 alternates={"de": "neu-in-1-10/", "en": "en/whats-new-1-10/"},
@@ -651,7 +660,7 @@ def build_111(lang):
 """
         return page(lang, path="neu-in-1-11/", depth=1,
                     title="BookSafe — Neu in Version 1.11",
-                    description="Was BookSafe 1.11 neu bringt: dein Eindruck zu jedem Buch mit Stimmungen und Filter, das Design „Verträumt“, die SuB-Leiche im Film, der Film als Bilder und fünf Challenge-Stempel.",
+                    description="Was BookSafe 1.11 neu bringt: dein Eindruck mit Stimmungen und Filter, das Design „Verträumt“, die SuB-Leiche im Film und fünf Challenge-Stempel.",
                     og_title="BookSafe — Neu in Version 1.11",
                     og_desc="Halte fest, wie ein Buch wirklich war, teile dein Lesejahr im Design „Verträumt“ und sammle fünf Challenge-Stempel — im Detail.",
                     alternates={"de": "neu-in-1-11/", "en": "en/whats-new-1-11/"},
@@ -711,7 +720,7 @@ def build_111(lang):
 """
     return page(lang, path="en/whats-new-1-11/", depth=2,
                 title="BookSafe — What’s new in version 1.11",
-                description="What BookSafe 1.11 adds: your impression of every book with moods and filters, the “Dreamy” design, your oldest unread book in the film, the film as images and five challenge stamps.",
+                description="What BookSafe 1.11 adds: your impression of every book, the “Dreamy” design, your oldest unread book in the film and five challenge stamps.",
                 og_title="BookSafe — What’s new in version 1.11",
                 og_desc="Capture how a book really was, share your reading year in the “Dreamy” design and collect five challenge stamps — in detail.",
                 alternates={"de": "neu-in-1-11/", "en": "en/whats-new-1-11/"},
@@ -838,7 +847,7 @@ def build_112(lang):
 """
         return page(lang, path="neu-in-1-12/", depth=1,
                     title="BookSafe — Neu in Version 1.12",
-                    description="Was BookSafe 1.12 neu bringt: Schnee auf dem Heute-Screen, Kurzbewertung und Weihnachts-Designs. Im App Store und bei Google Play. Auf Android ohne Widgets und ohne Uhr.",
+                    description="Was BookSafe 1.12 neu bringt: Schnee auf dem Heute-Screen, Kurzbewertung und Weihnachts-Designs. Auf Android ohne Widgets und ohne Uhr.",
                     og_title="BookSafe — Neu in Version 1.12",
                     og_desc="Winter auf dem Heute-Screen und Kurzbewertung als Story — im App Store und bei Google Play. Auf Android ohne Widgets und ohne Uhr.",
                     alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
@@ -899,7 +908,7 @@ def build_112(lang):
 """
     return page(lang, path="en/whats-new-1-12/", depth=2,
                 title="BookSafe — What’s new in version 1.12",
-                description="What BookSafe 1.12 adds: snow on the Today screen, quick reviews and Christmas designs. On the App Store and Google Play. On Android, no widgets and no watch.",
+                description="What BookSafe 1.12 adds: snow on the Today screen, quick reviews and Christmas designs. On Android, no widgets and no watch.",
                 og_title="BookSafe — What’s new in version 1.12",
                 og_desc="Winter on the Today screen and quick reviews as a story — on the App Store and Google Play. On Android, no widgets and no watch.",
                 alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
@@ -1077,3 +1086,111 @@ for rel, text in OUT.items():
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(text)
     print(rel, len(text))
+
+
+# Seiten 1.2–1.7 erzeugt page() nicht neu: ihr <main> ist die Quelle des Archivs.
+# Description, Open Graph, Twitter-Card und der englische Autoren-Link stehen
+# trotzdem hier, damit ein Lauf des Generators die Hülle nachzieht und niemand
+# die fertigen HTML-Dateien von Hand anfassen muss.
+LEGACY_COPY = {
+    "neu-in-1-2/index.html": {
+        "description": "Was BookSafe 1.2 kann: Backup in einer Datei, Scanner für die gedruckte ISBN, Status „Abgebrochen“, Leseupdate als Story und Cover auch offline.",
+    },
+    "en/whats-new-1-2/index.html": {
+        "description": "What BookSafe 1.2 adds: back up your library as one file, scan the printed ISBN, “Abandoned” status, a story image and covers that work offline.",
+    },
+    "neu-in-1-3/index.html": {
+        "description": "Was BookSafe 1.3 verbessert: zuverlässige Erscheinungs-Meldungen, größere Widget-Cover, schnellere Tabs und ein Leseupdate mit bis zu vier Büchern.",
+        "og_description": "Zuverlässigere Erscheinungs-Meldungen, Widgets, die ihre Fläche nutzen, und eine schnellere App — ausführlicher als die Versionshinweise.",
+    },
+    "en/whats-new-1-3/index.html": {
+        "description": "What BookSafe 1.3 improves: reliable bundled release reminders, larger widget covers, faster tabs and a reading update with up to four books.",
+    },
+    "neu-in-1-4/index.html": {
+        "description": "Was BookSafe 1.4 neu bringt: Umzug aus anderen Buch-Apps, Reihen als ein Eintrag, ein Standort für gedruckte Bücher und Sortierung nach Nachnamen.",
+        "og_description": "Umzug mit allen Angaben, Reihen bündeln, ein Standort und die Sortierung nach Nachnamen — ausführlicher als die Versionshinweise.",
+    },
+    "en/whats-new-1-4/index.html": {
+        "description": "What BookSafe 1.4 adds: moving from other book apps with your data, series as one entry, a shelf location and sorting by last name.",
+        "og_description": "Moving with everything included, grouped series, a location for your books and sorting by last name.",
+    },
+    "neu-in-1-5/index.html": {
+        "description": "Was BookSafe 1.5 neu bringt: eigene Listen, Listen und Wunschliste teilen, die Lesesitzung auf dem Sperrbildschirm und die Ausgabe wechseln.",
+        "og_description": "Eigene Listen, Teilen als Bild oder Text, Live-Aktivität für die Lesesitzung und die Ausgabe wechseln.",
+    },
+    "en/whats-new-1-5/index.html": {
+        "description": "What BookSafe 1.5 adds: your own lists, sharing lists and the wishlist, the reading session on the Lock Screen and changing the edition.",
+        "og_description": "Your own lists, sharing as an image or text, a Live Activity for the reading session and changing the edition.",
+    },
+    "neu-in-1-6/index.html": {
+        "description": "Was BookSafe 1.6 neu bringt: bereit für das iPhone Duo, auf dem iPad Liste und Buch nebeneinander und Lesesitzungen beenden oder nachtragen.",
+        "og_description": "iPhone Duo mit Außen- und Innendisplay, iPad quer zweispaltig, Beenden aus der Live-Aktivität und Sitzungen bearbeiten.",
+    },
+    "en/whats-new-1-6/index.html": {
+        "description": "What BookSafe 1.6 adds: ready for iPhone Duo, list and book side by side on iPad, and ending or editing a reading session.",
+        "og_description": "iPhone Duo with outer and inner display, two columns on iPad, ending from the Live Activity and editing sessions.",
+    },
+    "neu-in-1-7/index.html": {
+        "description": "Was BookSafe 1.7 neu bringt: Filmdesigns „Einband“ und „Almanach“, Tropes vom Verlag, ungelesene Leihen zuerst und Buchdaten auch bei einer Katalogstörung.",
+        "og_description": "Dein Lesejahr als Film in drei Designs, dazu Tropes direkt vom Verlag — ausführlicher als die Versionshinweise.",
+    },
+    "en/whats-new-1-7/index.html": {
+        "description": "What BookSafe 1.7 adds: “Clothbound” and “Almanac” film designs, tropes from the publisher, unread loans first and book data during a catalogue outage.",
+        "og_description": "Your reading year as a film in three designs, plus tropes straight from the publisher.",
+    },
+}
+
+
+def ensure_social(text):
+    """og:site_name und eine vollständige Twitter-Card, ohne vorhandene Tags zu doppeln."""
+    if 'property="og:site_name"' not in text:
+        if re.search(r'name="twitter:card"[\s\S]{0,500}property="og:type"', text):
+            text = text.replace(
+                '<meta property="og:type" content="website">',
+                '<meta property="og:type" content="website">\n<meta property="og:site_name" content="BookSafe">',
+                1)
+        else:
+            text = text.replace(
+                '<meta name="twitter:card" content="summary_large_image">',
+                '<meta property="og:site_name" content="BookSafe">\n<meta name="twitter:card" content="summary_large_image">',
+                1)
+    if 'name="twitter:title"' not in text:
+        old = '<meta name="twitter:card" content="summary_large_image">'
+        text = text.replace(old, old + "\n<meta name=\"twitter:title\" content=\"\">\n"
+                             "<meta name=\"twitter:description\" content=\"\">\n"
+                             "<meta name=\"twitter:image\" content=\"\">", 1)
+    title = re.search(r'<meta property="og:title" content="([^"]*)"', text).group(1)
+    desc = re.search(r'<meta property="og:description" content="([^"]*)"', text).group(1)
+    image = re.search(r'<meta property="og:image" content="([^"]*)"', text).group(1)
+    text = re.sub(r'<meta name="twitter:title" content="[^"]*">',
+                  f'<meta name="twitter:title" content="{title}">', text, count=1)
+    text = re.sub(r'<meta name="twitter:description" content="[^"]*">',
+                  f'<meta name="twitter:description" content="{desc}">', text, count=1)
+    text = re.sub(r'<meta name="twitter:image" content="[^"]*">',
+                  f'<meta name="twitter:image" content="{image}">', text, count=1)
+    return text
+
+
+def patch_legacy(rel, spec):
+    path = ROOT / rel
+    text = path.read_text()
+    desc = html.escape(spec["description"], quote=True)
+    text = re.sub(r'<meta name="description" content="[^"]*">',
+                  f'<meta name="description" content="{desc}">', text, count=1)
+    if "og_description" in spec:
+        og = html.escape(spec["og_description"], quote=True)
+        text = re.sub(r'<meta property="og:description" content="[^"]*">',
+                      f'<meta property="og:description" content="{og}">', text, count=1)
+    text = ensure_social(text)
+    author = '<a href="../../autoren/" hreflang="de" lang="de">Authors (Deutsch)</a>'
+    if rel.startswith("en/") and author not in text:
+        needle = '    <a href="../versions/">Versions</a>\n'
+        if needle not in text:
+            raise SystemExit(f"{rel}: Versions-Link im Footer nicht gefunden")
+        text = text.replace(needle, f"    {author}\n{needle}", 1)
+    path.write_text(text)
+    print("legacy", rel)
+
+
+for rel, spec in LEGACY_COPY.items():
+    patch_legacy(rel, spec)

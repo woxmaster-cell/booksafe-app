@@ -22,7 +22,7 @@ ARTICLES = [
     {
         "slug": "neuerscheinungen-nicht-verpassen",
         "title": "Neuerscheinungen nicht verpassen: Erscheinungstermine | BookSafe",
-        "description": "Wie du Erscheinungstermine deiner Lieblingsautorinnen und -autoren im Blick behältst: Wunschliste mit Countdown, Erinnerung am Erscheinungstag und warum der genaue Tag zählt.",
+        "description": "So behältst du Erscheinungstermine im Blick: Wunschliste mit Countdown, Erinnerung am Tag und warum der genaue Tag zählt.",
         "h1": "Neuerscheinungen nicht verpassen",
         "sub": "So behältst du Erscheinungstermine im Blick, ohne ständig nachzusehen.",
         "teaser": "Wunschliste, Countdown und eine Erinnerung am Tag selbst, und warum der genaue Tag zählt.",
@@ -85,7 +85,7 @@ ARTICLES = [
     {
         "slug": "sub-abbauen",
         "title": "SuB abbauen: Tipps für den Stapel ungelesener Bücher | BookSafe",
-        "description": "Der SuB wächst schneller, als du liest? Praktische Tipps, um den Stapel ungelesener Bücher abzubauen: Überblick verschaffen, auswählen, Ziele setzen und auch mal abbrechen.",
+        "description": "So baust du den SuB ab: Überblick verschaffen, auswählen, ein Leseziel setzen und ein Buch auch mal abbrechen.",
         "h1": "SuB abbauen: Tipps für den Stapel ungelesener Bücher",
         "sub": "Wenn der Stapel schneller wächst, als du liest.",
         "teaser": "Überblick verschaffen, bewusst auswählen, ein Jahresziel setzen und auch mal abbrechen.",
@@ -112,7 +112,7 @@ ARTICLES = [
     {
         "slug": "buecherei-leihfristen",
         "title": "Bücherei-Bücher rechtzeitig zurückgeben: Leihfristen | BookSafe",
-        "description": "Nie wieder Mahngebühren: So behältst du die Leihfristen deiner Bücherei-Bücher im Blick, mit Erinnerung vor dem Rückgabetag und dem Ausleihbeleg als Abkürzung.",
+        "description": "So behältst du Leihfristen im Blick: Erinnerung vor dem Rückgabetag und der Ausleihbeleg als Abkürzung gegen Mahngebühren.",
         "h1": "Bücherei-Bücher rechtzeitig zurückgeben",
         "sub": "Leihfristen im Blick, ohne Mahngebühren.",
         "teaser": "Rückgabetage festhalten, rechtzeitig erinnert werden und den Ausleihbeleg als Abkürzung nutzen.",
@@ -138,7 +138,7 @@ ARTICLES = [
     {
         "slug": "buecher-erfassen",
         "title": "Eigene Bücher erfassen: die Bibliothek per ISBN-Scan | BookSafe",
-        "description": "Wie du deine Bücher schnell erfasst: ISBN scannen, Daten aus Bibliothekskatalogen, Standort im Regal festhalten und bestehende Listen aus anderen Apps übernehmen.",
+        "description": "So erfasst du Bücher schnell: ISBN scannen, Daten aus Katalogen, Standort im Regal und Listen aus anderen Apps übernehmen.",
         "h1": "Eigene Bücher erfassen: die Bibliothek per ISBN-Scan",
         "sub": "Vom Regal in die App, ein Buch nach dem anderen oder alle auf einmal.",
         "teaser": "ISBN scannen, Standort festhalten, bestehende Listen übernehmen und die Daten sichern.",

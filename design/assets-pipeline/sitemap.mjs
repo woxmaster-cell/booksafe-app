@@ -1,6 +1,8 @@
 // Erzeugt sitemap.xml. Das <lastmod> jeder Seite kommt aus dem letzten Commit,
-// der genau diese Datei geaendert hat — damit stehen dort echte Daten statt
-// eines Stands, den jemand von Hand nachziehen muesste.
+// der den Inhalt dieser Datei geaendert hat. Reine Meta-Tags und der Footer
+// zaehlen nicht: eine kuerzere Description oder ein zusaetzlicher Footer-Link
+// hebt das Datum nicht an. So stehen dort echte Daten statt eines Stands,
+// den jemand von Hand nachziehen muesste.
 //
 //   node design/assets-pipeline/sitemap.mjs
 //
@@ -47,13 +49,39 @@ const seitenDateien = (ordner = '') => {
   return treffer;
 };
 
-const commitDatum = (datei) => {
-  const d = execFileSync('git', ['log', '-1', '--format=%cs', '--', datei],
-                         { cwd: WURZEL, encoding: 'utf8' }).trim();
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) {
-    throw new Error(`Kein Commit-Datum fuer ${datei} — noch nicht eingecheckt?`);
+// Meta-Tags (description, Open Graph, Twitter) und der ganze Footer. Alles
+// andere — auch JSON-LD, Ueberschriften und der Fliesstext — bleibt Inhalt.
+const ohneMetaUndFooter = (html) => html
+  .replace(/<meta\b[^>]*>\n?/gi, '')
+  .replace(/<footer\b[^>]*>[\s\S]*?<\/footer>\n?/gi, '');
+
+const dateiInhalt = (rev, datei) => {
+  try {
+    return execFileSync('git', ['show', `${rev}:${datei}`], { cwd: WURZEL, encoding: 'utf8' });
+  } catch {
+    return null;
   }
-  return d;
+};
+
+const commitDatum = (datei) => {
+  const log = execFileSync('git', ['log', '--format=%H %cs', '--', datei],
+                           { cwd: WURZEL, encoding: 'utf8' }).trim();
+  if (!log) throw new Error(`Kein Commit-Datum fuer ${datei} — noch nicht eingecheckt?`);
+  const eintraege = log.split('\n').map((zeile) => {
+    const leer = zeile.indexOf(' ');
+    return { hash: zeile.slice(0, leer), datum: zeile.slice(leer + 1) };
+  });
+  for (const { hash, datum } of eintraege) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(datum)) {
+      throw new Error(`Kein Commit-Datum fuer ${datei} (${hash})`);
+    }
+    const nachher = dateiInhalt(hash, datei);
+    const vorher = dateiInhalt(`${hash}^`, datei);
+    // Die Datei entsteht in diesem Commit, oder der Inhalt ausserhalb von
+    // Meta-Tags und Footer hat sich geaendert.
+    if (vorher === null || ohneMetaUndFooter(vorher) !== ohneMetaUndFooter(nachher)) return datum;
+  }
+  return eintraege[eintraege.length - 1].datum;
 };
 
 const seiten = [];

@@ -140,7 +140,11 @@ def page(*, url, rel, title, description, h1, sub, kicker, body, jsonld):
 <meta property="og:url" content="{url}">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BookSafe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(title)}">
+<meta name="twitter:description" content="{e(description)}">
+<meta name="twitter:image" content="https://booksafe.app/assets/og-de.jpg">
 <link rel="icon" href="{rel}favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{rel}assets/favicon-32.png">
 <link rel="apple-touch-icon" href="{rel}assets/apple-touch-icon.png">
@@ -280,7 +284,7 @@ def build():
     }
     jsonld = [jsonld, breadcrumbs(("Ratgeber", BASE))]
     doc = page(url=BASE, rel="../", title="BookSafe Ratgeber: rund ums Lesen und Sammeln",
-               description="Kurze Ratgeber rund um die eigene Bibliothek: Neuerscheinungen im Blick behalten, Buchreihen in der richtigen Reihenfolge lesen, den Stapel ungelesener Bücher abbauen, Leihfristen und Bücher erfassen.",
+               description="Kurze Ratgeber zur eigenen Bibliothek: Neuerscheinungen, Buchreihen, der Stapel ungelesener Bücher, Leihfristen und Bücher erfassen.",
                h1="Ratgeber rund ums Lesen und Sammeln", sub="Kurze Antworten auf Fragen, die sich jede Leserin und jeder Leser irgendwann stellt.",
                kicker="BookSafe", body=content, jsonld=jsonld)
     target = ROOT / "ratgeber" / "index.html"
