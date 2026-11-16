@@ -1107,7 +1107,7 @@ LEGACY_COPY = {
         "description": "What BookSafe 1.3 improves: reliable bundled release reminders, larger widget covers, faster tabs and a reading update with up to four books.",
     },
     "neu-in-1-4/index.html": {
-        "description": "Was BookSafe 1.4 neu bringt: Umzug aus anderen Buch-Apps, Reihen als ein Eintrag, ein Standort für gedruckte Bücher und Sortierung nach Nachname.",
+        "description": "Was BookSafe 1.4 neu bringt: Umzug aus anderen Buch-Apps, Reihen als ein Eintrag, ein Standort für gedruckte Bücher und Sortierung nach Nachnamen.",
         "og_description": "Umzug mit allen Angaben, Reihen bündeln, ein Standort und die Sortierung nach Nachnamen — ausführlicher als die Versionshinweise.",
     },
     "en/whats-new-1-4/index.html": {
