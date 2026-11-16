@@ -37,7 +37,7 @@ ARTICLES = [
     </ul>
 
     <h3>Eine Liste statt vieler Lesezeichen</h3>
-    <p>Wichtig ist, dass alle Termine an einem Ort stehen. In BookSafe setzt du ein angekündigtes Buch auf die <strong>Wunschliste</strong>, per ISBN-Scan oder über die Titelsuche. Die Wunschliste zeigt bei jedem Buch, wie viele Tage es noch dauert, und der Erscheinungskalender zeigt die Cover an ihrem Tag. Ein Widget auf dem Home-Bildschirm zählt ebenfalls herunter.</p>
+    <p>Wichtig ist, dass alle Termine an einem Ort stehen. In BookSafe setzt du ein angekündigtes Buch auf die <strong>Wunschliste</strong>, per ISBN-Scan oder über die Titelsuche. Die Wunschliste zeigt bei jedem Buch, wie viele Tage es noch dauert, und der Erscheinungskalender zeigt die Cover an ihrem Tag. Auf iPhone und iPad zählt ein Widget auf dem Home-Bildschirm ebenfalls herunter. Auf Android gibt es keine Widgets; Countdown und Kalender stecken in der App.</p>
     {SHOT:de-wishlist|Wunschliste in BookSafe: anstehende Erscheinungen mit Countdown in Tagen|Wunschliste mit Countdown}
 
     <h3>Der genaue Tag macht den Unterschied</h3>
@@ -156,7 +156,7 @@ ARTICLES = [
     <p>Wer seine Bücher bisher in einer anderen Buch-App geführt hat, exportiert dort eine CSV-Datei und importiert sie in BookSafe. Bei den Exporten gängiger Buch-Apps kommen Bewertungen, Lesestatus, Lesedaten und Notizen mit. Eine reine ISBN-Liste funktioniert ebenfalls.</p>
 
     <h3>Die eigenen Daten sichern</h3>
-    <p>BookSafe braucht kein Konto. Die Bibliothek liegt auf dem Gerät und gleicht sich über deine private iCloud zwischen iPhone und iPad ab. Dazu kannst du sie jederzeit als CSV oder PDF exportieren oder als eine Backup-Datei sichern.</p>
+    <p>BookSafe braucht kein Konto. Auf iPhone und iPad gleicht sich die Bibliothek über deine private iCloud ab. Auf Android bleibt sie auf dem Gerät; ein Backup vom iPhone übernimmst du als Datei im Tab „Optionen“. Export als CSV oder PDF geht auf beiden.</p>
 """,
     },
 ]

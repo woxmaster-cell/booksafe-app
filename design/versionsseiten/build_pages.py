@@ -87,8 +87,14 @@ CSS_110 = """
 """
 
 
+COPY_PLAY = {
+    "de": "© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Google Play und das Google Play-Logo sind Marken von Google LLC.",
+    "en": "© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.",
+}
+
+
 def page(lang, *, path, depth, title, description, og_title, og_desc, alternates,
-         h1, sub, header_links, body, extra_css="", css_patch=None):
+         h1, sub, header_links, body, extra_css="", css_patch=None, copyright=None):
     c = L[lang]
     up = "../" * depth
     home_up = "../" * (depth - (1 if lang == "en" else 0))
@@ -158,7 +164,7 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
     {extra_nav}<a href="{rel_other}" hreflang="{c['other_lang']}" lang="{c['other_lang']}">{c['other_name']}</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>{c['copyright']}</p>
+  <p>{copyright or c['copyright']}</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -732,6 +738,49 @@ CSS_112 = """
   .film-figure.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 480px; }
 """
 
+PLAY_URL = "https://play.google.com/store/apps/details?id=de.sisofa.booksafe"
+PLAY_CSS = {"de": "\n  .store img.play-badge { height: 63px; }\n",
+            "en": "\n  .store img.play-badge { height: 71px; }\n"}
+
+
+def with_android(lang, card):
+    """Nur die 1.12-Karte „Gut zu wissen“: Android ehrlich dazunehmen, ohne einen Preis zu erfinden."""
+    if lang == "de":
+        card = card.replace(
+            "iPhone und iPad ab iOS 18, Apple Watch ab watchOS 11",
+            "iPhone und iPad ab iOS 18, Apple Watch ab watchOS 11. Android bei Google Play, ohne Widgets und ohne Uhr")
+        card = card.replace(
+            "Kein Konto, kein Tracking. Deine Bibliothek liegt auf deinem Gerät und gleicht sich über <strong>deine private iCloud</strong> ab.",
+            "Auf iPhone und iPad: kein Konto, kein Tracking, Abgleich über <strong>deine private iCloud</strong>. Auf Android liegt die Bibliothek auf dem Gerät. Pro gilt nicht plattformübergreifend.")
+        card = card.replace(
+            "Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit dauerhaft auf: einmalig 3,99 €, kein Abo.",
+            "Kostenlos bis 50 Bücher. BookSafe Pro: einmalig 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, kein Abo. Ein Kauf gilt nur für diese Plattform.")
+        card = card.replace(
+            "Kommt über den App Store — auf dem iPhone unter „App Store → Profil → Apps aktualisieren“.",
+            "Auf dem iPhone über den App Store, auf Android über Google Play.")
+        card = card.replace(
+            '<img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>',
+            '<img src="../assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>\n'
+            f'      <a href="{PLAY_URL}"><img class="play-badge" src="../assets/google-play-badge-de.png" alt="Jetzt bei Google Play" width="646" height="250"></a>')
+    else:
+        card = card.replace(
+            "iPhone and iPad on iOS 18 or later, Apple Watch on watchOS 11 or later",
+            "iPhone and iPad on iOS 18 or later, Apple Watch on watchOS 11 or later. Android on Google Play, with no widgets and no watch")
+        card = card.replace(
+            "No account, no tracking. Your library lives on your device and syncs through <strong>your own private iCloud</strong>.",
+            "On iPhone and iPad: no account, no tracking, sync through <strong>your own private iCloud</strong>. On Android the library stays on the device. Pro does not carry across platforms.")
+        card = card.replace(
+            "Free for up to 50 books. BookSafe Pro lifts the limit for good: €3.99 once, no subscription.",
+            "Free for up to 50 books. BookSafe Pro: €3.99 one-time on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. No subscription. A purchase applies only on that platform.")
+        card = card.replace(
+            "Comes through the App Store — on iPhone under “App Store → profile → update apps”.",
+            "On iPhone through the App Store, on Android through Google Play.")
+        card = card.replace(
+            '<img src="../../assets/badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>',
+            '<img src="../../assets/badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>\n'
+            f'      <a href="{PLAY_URL}"><img class="play-badge" src="../../assets/google-play-badge-en.png" alt="Get it on Google Play" width="646" height="250"></a>')
+    return card
+
 
 def build_112(lang):
     up = "../" if lang == "de" else "../../"
@@ -745,12 +794,14 @@ def build_112(lang):
   <section class="card lead">
     <h2>Worum es in diesem Update geht</h2>
     <p>BookSafe 1.12 bringt den Winter auf deinen Heute-Screen: Im Dezember fällt Schnee hinter deinen Karten und bleibt liegen, dazu gibt es Weihnachts-Sprüche und festliche Sondertage. Außerdem teilst du ein gelesenes Buch jetzt als Kurzbewertung, und das Leseupdate bekommt zwei Weihnachts-Designs.</p>
+    <p>Dieselbe Version 1.12 liegt auch bei Google Play. Dort gibt es Bibliothek, Wunschliste, Lesetimer, Leseupdate und Kurzbewertung, und im Dezember Schnee auf dem Heute-Tab mit festlichen Sondertagen und zwei Weihnachts-Designs zum Teilen. Widgets und die Uhr gibt es auf Android nicht. BookSafe Pro kaufst du dort einmalig bei Google Play; der Kauf gilt nicht auf dem iPhone. Was unten zum iPad steht, gilt nur für iPhone und iPad.</p>
     <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
     <p class="updated">Version 1.12 · veröffentlicht am 15. November 2026</p>
   </section>
 
   <section class="card">
     <h2>Neu</h2>
+    <p>Schneesturm, Spruchkarten und Sprüche in den Punkten 1 und 2 beschreiben BookSafe im App Store, auf iPhone und iPad.</p>
 
     <h3><span class="num">1</span>Winterzeit auf Heute</h3>
     <p>Im Dezember fällt <strong>Schnee hinter deinen Karten</strong>, an manchen Tagen dichter, am 14. und 21. Dezember als <strong>Schneesturm</strong>. Die Flocken bleiben auf den Karten liegen, und die <strong>Schneehäubchen wachsen über die Tage</strong>.</p>
@@ -783,17 +834,18 @@ def build_112(lang):
     <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
   </section>
 
-{good_to_know(lang, 1)}
+{with_android(lang, good_to_know(lang, 1))}
 """
         return page(lang, path="neu-in-1-12/", depth=1,
                     title="BookSafe — Neu in Version 1.12",
-                    description="Was BookSafe 1.12 neu bringt: Schnee auf dem Heute-Screen im Dezember, Weihnachts-Sprüche und festliche Sondertage, Kurzbewertungen als Story und zwei Weihnachts-Designs für das Leseupdate.",
+                    description="Was BookSafe 1.12 neu bringt: Schnee auf dem Heute-Screen, Kurzbewertung und Weihnachts-Designs. Im App Store und bei Google Play. Auf Android ohne Widgets und ohne Uhr.",
                     og_title="BookSafe — Neu in Version 1.12",
-                    og_desc="Schnee, der liegen bleibt, Weihnachts-Sprüche, Kurzbewertungen als Story und zwei Weihnachts-Designs — im Detail.",
+                    og_desc="Winter auf dem Heute-Screen und Kurzbewertung als Story — im App Store und bei Google Play. Auf Android ohne Widgets und ohne Uhr.",
                     alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
-                    h1="Neu in Version 1.12", sub="Im App Store seit 15. November 2026",
+                    h1="Neu in Version 1.12", sub="Im App Store und bei Google Play seit 15. November 2026",
                     header_links='  <a class="home" href="../">← Zur Startseite</a>',
-                    body=body, extra_css=CSS_110 + CSS_112)
+                    body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
     quick = card_figure(lang, up, [
         ("kurzbewertung-citylights", "Quick review in the City Lights design: book finished, stars, number in your reading year, thoughts on the book, moods and scores", "City Lights"),
         ("kurzbewertung-dreamy", "Quick review in the Dreamy design: “Dreamt to the end” with a constellation, thoughts on a cloud, moods and scores", "Dreamy")])
@@ -803,12 +855,14 @@ def build_112(lang):
   <section class="card lead">
     <h2>What this update is about</h2>
     <p>BookSafe 1.12 brings winter to your Today screen: in December, snow falls behind your cards and settles, plus Christmas quotes and festive special days. You can also share a finished book as a quick review, and the reading update gains two Christmas designs.</p>
+    <p>The same version 1.12 is on Google Play. There you get the library, wishlist, reading timer, reading update and quick review, and in December snow on the Today tab with festive special days and two Christmas designs to share. Android has no widgets and no watch. You buy BookSafe Pro there once on Google Play; the purchase does not unlock the iPhone app. What this page says about iPad applies only to iPhone and iPad.</p>
     <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
     <p class="updated">Version 1.12 · released 15 November 2026</p>
   </section>
 
   <section class="card">
     <h2>New</h2>
+    <p>The snowstorm, quote cards and quotes in points 1 and 2 describe BookSafe on the App Store, for iPhone and iPad.</p>
 
     <h3><span class="num">1</span>Winter on Today</h3>
     <p>In December, <strong>snow falls behind your cards</strong> — heavier on some days, and as a <strong>snowstorm</strong> on 14 and 21 December. Flakes settle on the cards, and the <strong>snow caps grow over the days</strong>.</p>
@@ -841,17 +895,18 @@ def build_112(lang):
     <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
   </section>
 
-{good_to_know(lang, 2)}
+{with_android(lang, good_to_know(lang, 2))}
 """
     return page(lang, path="en/whats-new-1-12/", depth=2,
                 title="BookSafe — What’s new in version 1.12",
-                description="What BookSafe 1.12 adds: December snow on the Today screen, Christmas quotes and festive special days, quick reviews as a story and two Christmas designs for the reading update.",
+                description="What BookSafe 1.12 adds: snow on the Today screen, quick reviews and Christmas designs. On the App Store and Google Play. On Android, no widgets and no watch.",
                 og_title="BookSafe — What’s new in version 1.12",
-                og_desc="Snow that settles, Christmas quotes, quick reviews as a story and two Christmas designs — in detail.",
+                og_desc="Winter on the Today screen and quick reviews as a story — on the App Store and Google Play. On Android, no widgets and no watch.",
                 alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
-                h1="What’s new in version 1.12", sub="On the App Store since 15 November 2026",
+                h1="What’s new in version 1.12", sub="On the App Store and Google Play since 15 November 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
-                body=body, extra_css=CSS_110 + CSS_112)
+                body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
 
 
 # ---------------------------------------------------------------- Archiv
@@ -958,7 +1013,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-12/">Seite zu Version 1.12</a>.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-12/">Seite zu Version 1.12</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -967,14 +1022,17 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-12/">version 1.12 page</a>.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-12/">version 1.12 page</a>. BookSafe for Android has been on Google Play since version 1.12; this archive describes the versions for iPhone, iPad and Apple Watch.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
   </section>"""
+    play_img = "google-play-badge-de.png" if de else "google-play-badge-en.png"
+    play_alt = "Jetzt bei Google Play" if de else "Get it on Google Play"
     store = (f"""  <section class="card">
     <div class="store">
       <a href="{L[lang]['store']}"><img src="{up}assets/{L[lang]['badge']}" alt="{L[lang]['badge_alt']}" width="144" height="48"></a>
+      <a href="{PLAY_URL}"><img class="play-badge" src="{up}assets/{play_img}" alt="{play_alt}" width="646" height="250"></a>
       <a href="../">{L[lang]['back2']}</a>
     </div>
   </section>""")
@@ -987,7 +1045,8 @@ def build_archive(lang):
                     alternates={"de": "versionen/", "en": "en/versions/"},
                     h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.11 dazugelernt hat",
                     header_links='  <a class="home" href="../neu-in-1-12/">← Neu in Version 1.12</a>',
-                    body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112)
+                    body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
                 description="Archive of every earlier BookSafe version from 0.4 to 1.11: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
@@ -995,7 +1054,8 @@ def build_archive(lang):
                 alternates={"de": "versionen/", "en": "en/versions/"},
                 h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.11",
                 header_links='  <a class="home" href="../whats-new-1-12/">← What’s new in version 1.12</a>',
-                body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112)
+                body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
 
 
 OUT = {
