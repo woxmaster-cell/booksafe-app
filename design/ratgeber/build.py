@@ -195,7 +195,7 @@ def shot(rel, name, alt, caption):
 def cta(rel):
     return f"""  <section class="card cta">
     <h2>BookSafe ausprobieren</h2>
-    <p>BookSafe ist eine Buchverwaltung für iPhone, iPad, Apple Watch und Android, ohne Konto. Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit einmalig auf: im App Store für 3,99 €, auf Android als eigener Kauf bei Google Play. Pro gilt nicht auf beiden Plattformen.</p>
+    <p>BookSafe ist eine Buchverwaltung für iPhone, iPad, Apple Watch und Android, ohne Konto. Kostenlos bis 50 Bücher. BookSafe Pro: einmalig 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, kein Abo. Pro gilt nicht auf beiden Plattformen.</p>
     <div class="store">
       <a href="{STORE}"><img src="{rel}assets/badge-de.svg" alt="Laden im App Store" width="144" height="48"></a>
       <a href="{PLAY}"><img class="play-badge" src="{rel}assets/google-play-badge-de.png" alt="Jetzt bei Google Play" width="646" height="250"></a>

@@ -754,7 +754,7 @@ def with_android(lang, card):
             "Auf iPhone und iPad: kein Konto, kein Tracking, Abgleich über <strong>deine private iCloud</strong>. Auf Android liegt die Bibliothek auf dem Gerät. Pro gilt nicht plattformübergreifend.")
         card = card.replace(
             "Kostenlos bis 50 Bücher. BookSafe Pro hebt das Limit dauerhaft auf: einmalig 3,99 €, kein Abo.",
-            "Kostenlos bis 50 Bücher. Im App Store hebt BookSafe Pro das Limit einmalig für 3,99 € auf, kein Abo. Auf Android ist Pro ein eigener Einmalkauf bei Google Play.")
+            "Kostenlos bis 50 Bücher. BookSafe Pro: einmalig 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, kein Abo. Ein Kauf gilt nur für diese Plattform.")
         card = card.replace(
             "Kommt über den App Store — auf dem iPhone unter „App Store → Profil → Apps aktualisieren“.",
             "Auf dem iPhone über den App Store, auf Android über Google Play.")
@@ -771,7 +771,7 @@ def with_android(lang, card):
             "On iPhone and iPad: no account, no tracking, sync through <strong>your own private iCloud</strong>. On Android the library stays on the device. Pro does not carry across platforms.")
         card = card.replace(
             "Free for up to 50 books. BookSafe Pro lifts the limit for good: €3.99 once, no subscription.",
-            "Free for up to 50 books. On the App Store, BookSafe Pro lifts the limit for €3.99 once, no subscription. On Android, Pro is a separate one-time purchase on Google Play.")
+            "Free for up to 50 books. BookSafe Pro: €3.99 one-time on the App Store or €3.99 billed via Google Play, no subscription. A purchase applies only on that platform.")
         card = card.replace(
             "Comes through the App Store — on iPhone under “App Store → profile → update apps”.",
             "On iPhone through the App Store, on Android through Google Play.")
