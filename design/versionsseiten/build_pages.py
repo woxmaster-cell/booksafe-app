@@ -771,7 +771,7 @@ def with_android(lang, card):
             "On iPhone and iPad: no account, no tracking, sync through <strong>your own private iCloud</strong>. On Android the library stays on the device. Pro does not carry across platforms.")
         card = card.replace(
             "Free for up to 50 books. BookSafe Pro lifts the limit for good: €3.99 once, no subscription.",
-            "Free for up to 50 books. BookSafe Pro: €3.99 one-time on the App Store or €3.99 billed via Google Play, no subscription. A purchase applies only on that platform.")
+            "Free for up to 50 books. BookSafe Pro: €3.99 one-time on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. No subscription. A purchase applies only on that platform.")
         card = card.replace(
             "Comes through the App Store — on iPhone under “App Store → profile → update apps”.",
             "On iPhone through the App Store, on Android through Google Play.")
