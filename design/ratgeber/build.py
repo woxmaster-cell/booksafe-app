@@ -177,7 +177,7 @@ def page(*, url, rel, title, description, h1, sub, kicker, body, jsonld):
     <a href="{rel}versionen/">Versionen</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Android und Google Play sind Marken von Google LLC.</p>
+  <p>© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Android, Google Play und das Google Play-Logo sind Marken von Google LLC.</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

@@ -87,8 +87,14 @@ CSS_110 = """
 """
 
 
+COPY_PLAY = {
+    "de": "© 2026 Sisofa. Apple, das Apple-Logo und App Store sind Marken von Apple Inc. Google Play und das Google Play-Logo sind Marken von Google LLC.",
+    "en": "© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.",
+}
+
+
 def page(lang, *, path, depth, title, description, og_title, og_desc, alternates,
-         h1, sub, header_links, body, extra_css="", css_patch=None):
+         h1, sub, header_links, body, extra_css="", css_patch=None, copyright=None):
     c = L[lang]
     up = "../" * depth
     home_up = "../" * (depth - (1 if lang == "en" else 0))
@@ -158,7 +164,7 @@ def page(lang, *, path, depth, title, description, og_title, og_desc, alternates
     {extra_nav}<a href="{rel_other}" hreflang="{c['other_lang']}" lang="{c['other_lang']}">{c['other_name']}</a>
   </nav>
   <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
-  <p>{c['copyright']}</p>
+  <p>{copyright or c['copyright']}</p>
 </footer>
 
 <script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
@@ -795,6 +801,7 @@ def build_112(lang):
 
   <section class="card">
     <h2>Neu</h2>
+    <p>Schneesturm, Spruchkarten und Sprüche in den Punkten 1 und 2 beschreiben BookSafe im App Store, auf iPhone und iPad.</p>
 
     <h3><span class="num">1</span>Winterzeit auf Heute</h3>
     <p>Im Dezember fällt <strong>Schnee hinter deinen Karten</strong>, an manchen Tagen dichter, am 14. und 21. Dezember als <strong>Schneesturm</strong>. Die Flocken bleiben auf den Karten liegen, und die <strong>Schneehäubchen wachsen über die Tage</strong>.</p>
@@ -837,7 +844,8 @@ def build_112(lang):
                     alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
                     h1="Neu in Version 1.12", sub="Im App Store und bei Google Play seit 15. November 2026",
                     header_links='  <a class="home" href="../">← Zur Startseite</a>',
-                    body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["de"])
+                    body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
     quick = card_figure(lang, up, [
         ("kurzbewertung-citylights", "Quick review in the City Lights design: book finished, stars, number in your reading year, thoughts on the book, moods and scores", "City Lights"),
         ("kurzbewertung-dreamy", "Quick review in the Dreamy design: “Dreamt to the end” with a constellation, thoughts on a cloud, moods and scores", "Dreamy")])
@@ -854,6 +862,7 @@ def build_112(lang):
 
   <section class="card">
     <h2>New</h2>
+    <p>The snowstorm, quote cards and quotes in points 1 and 2 describe BookSafe on the App Store, for iPhone and iPad.</p>
 
     <h3><span class="num">1</span>Winter on Today</h3>
     <p>In December, <strong>snow falls behind your cards</strong> — heavier on some days, and as a <strong>snowstorm</strong> on 14 and 21 December. Flakes settle on the cards, and the <strong>snow caps grow over the days</strong>.</p>
@@ -896,7 +905,8 @@ def build_112(lang):
                 alternates={"de": "neu-in-1-12/", "en": "en/whats-new-1-12/"},
                 h1="What’s new in version 1.12", sub="On the App Store and Google Play since 15 November 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
-                body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["en"])
+                body=body, extra_css=CSS_110 + CSS_112 + PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
 
 
 # ---------------------------------------------------------------- Archiv
@@ -1035,7 +1045,8 @@ def build_archive(lang):
                     alternates={"de": "versionen/", "en": "en/versions/"},
                     h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.11 dazugelernt hat",
                     header_links='  <a class="home" href="../neu-in-1-12/">← Neu in Version 1.12</a>',
-                    body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["de"])
+                    body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
                 description="Archive of every earlier BookSafe version from 0.4 to 1.11: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
@@ -1043,7 +1054,8 @@ def build_archive(lang):
                 alternates={"de": "versionen/", "en": "en/versions/"},
                 h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.11",
                 header_links='  <a class="home" href="../whats-new-1-12/">← What’s new in version 1.12</a>',
-                body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["en"])
+                body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
 
 
 OUT = {
