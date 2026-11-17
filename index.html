@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Deine Bibliothek. Schön, schnell, privat.</title>
-<meta name="description" content="Buch-App ohne Konto und ohne Abo: Bibliothek, Wunschliste und Lesestatistik für iPhone, iPad, Apple Watch und Android. Kostenlos bis 50 Bücher.">
+<meta name="description" content="Buch-App ohne Konto und ohne Abo für iPhone, iPad, Apple Watch und Android. Kostenlos bis 50 Bücher, danach einmalig 3,99 €.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="de" href="https://booksafe.app/">
 <link rel="alternate" hreflang="x-default" href="https://booksafe.app/">
 <meta property="og:title" content="BookSafe — Deine Bibliothek. Schön, schnell, privat.">
-<meta property="og:description" content="Die Buch-App ohne Konto und ohne Abo — für iPhone, iPad, Apple Watch und Android.">
+<meta property="og:description" content="Die Buch-App ohne Konto und ohne Abo für iPhone, iPad, Apple Watch und Android. Kostenlos bis 50 Bücher, danach einmalig 3,99 €.">
 <meta property="og:image" content="https://booksafe.app/assets/og-de.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BookSafe — Deine Bibliothek. Schön, schnell, privat.">
-<meta name="twitter:description" content="Die Buch-App ohne Konto und ohne Abo — für iPhone, iPad, Apple Watch und Android.">
+<meta name="twitter:description" content="Die Buch-App ohne Konto und ohne Abo für iPhone, iPad, Apple Watch und Android. Kostenlos bis 50 Bücher, danach einmalig 3,99 €.">
 <meta name="twitter:image" content="https://booksafe.app/assets/og-de.jpg">
 <meta property="og:url" content="https://booksafe.app/">
 <meta property="og:type" content="website">
@@ -383,7 +383,8 @@
   .feature h2,
   .pro h2,
   .family h2,
-  .press h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  .press h2,
+  .faq h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .feature h2 {
     font-size: clamp(24px, 3.6vw, 34px);
     font-weight: 800;
@@ -595,6 +596,18 @@
   .press h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 800; margin-bottom: 10px; }
   .press p { color: var(--muted); max-width: 36em; margin: 0 auto; font-size: 17px; }
 
+  /* Nach der letzten Feature-Zeile, damit nth-of-type der Features gleich bleibt.
+     Fragen wie auf der Support-Seite: Überschrift, dann Frage und Antwort. */
+  .faq { max-width: 40em; margin: 0 auto; padding: 8px 0 40px; }
+  .faq h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .faq h3 { font-size: 17px; font-weight: 650; margin: 20px 0 4px; }
+  .faq p { color: var(--muted); font-size: 17px; }
+
   /* ---------- Footer ---------- */
   footer {
     border-top: 1px solid var(--hairline);
@@ -760,30 +773,31 @@
     "https://apps.apple.com/de/app/booksafe/id6779730178",
     "https://play.google.com/store/apps/details?id=de.sisofa.booksafe"
   ],
+  "isAccessibleForFree": true,
   "offers": [
     {
       "@type": "Offer",
-      "name": "BookSafe",
+      "name": "BookSafe (kostenloser Download, bis 50 Bücher)",
       "price": "0",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "Kostenlos bis 50 Bücher."
+      "description": "Kostenloser Download. Kostenlos für bis zu 50 Bücher, mit allen Funktionen der jeweiligen App."
     },
     {
       "@type": "Offer",
-      "name": "BookSafe Pro im App Store",
+      "name": "BookSafe Pro, In-App-Kauf im App Store",
       "price": "3.99",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "Einmalkauf ohne Abo. Hebt das Limit von 50 Büchern auf. Gilt nicht bei Google Play."
+      "description": "Optionaler In-App-Kauf. Einmalig 3,99 € im App Store, kein Abo. Hebt das Limit von 50 Büchern auf. Gilt nicht bei Google Play."
     },
     {
       "@type": "Offer",
-      "name": "BookSafe Pro bei Google Play",
+      "name": "BookSafe Pro, In-App-Kauf bei Google Play",
       "price": "3.99",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "Einmalkauf, 3,99 € bei Abrechnung über Google Play, kein Abo. Gilt nicht im App Store."
+      "description": "Optionaler In-App-Kauf. Einmalig 3,99 € bei Abrechnung über Google Play, kein Abo. Hebt das Limit von 50 Büchern auf. Gilt nicht im App Store."
     }
   ],
   "author": {
@@ -792,6 +806,47 @@
     "url": "https://booksafe.app/",
     "email": "kontakt@sisofa.de"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://booksafe.app/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ist BookSafe kostenlos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Der Download ist kostenlos. Bis zu 50 Bücher nutzt du kostenlos, mit allen Funktionen der jeweiligen App. BookSafe Pro ist danach optional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was kostet BookSafe Pro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BookSafe Pro ist ein optionaler In-App-Kauf: einmalig 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, in Deutschland. Er hebt nur das Limit von 50 Büchern auf."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es ein Abo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Es gibt kein Abo. Wenn du mehr als 50 Bücher speichern willst, zahlst du BookSafe Pro einmal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gilt mein Kauf auf iPhone und Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Ein Kauf gilt nur für die Plattform, auf der du ihn abgeschlossen hast. Pro im App Store gilt nicht bei Google Play, und ein Kauf bei Google Play gilt nicht im App Store."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -1031,6 +1086,18 @@
         <img src="assets/google-play-badge-de.png" alt="Jetzt bei Google Play" width="646" height="250">
       </a>
     </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Häufige Fragen</h2>
+    <h3>Ist BookSafe kostenlos?</h3>
+    <p>Ja. Der Download ist kostenlos. Bis zu 50 Bücher nutzt du kostenlos, mit allen Funktionen der jeweiligen App. BookSafe Pro ist danach optional.</p>
+    <h3>Was kostet BookSafe Pro?</h3>
+    <p>BookSafe Pro ist ein optionaler In-App-Kauf: einmalig 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, in Deutschland. Er hebt nur das Limit von 50 Büchern auf.</p>
+    <h3>Gibt es ein Abo?</h3>
+    <p>Nein. Es gibt kein Abo. Wenn du mehr als 50 Bücher speichern willst, zahlst du BookSafe Pro einmal.</p>
+    <h3>Gilt mein Kauf auf iPhone und Android?</h3>
+    <p>Nein. Ein Kauf gilt nur für die Plattform, auf der du ihn abgeschlossen hast. Pro im App Store gilt nicht bei Google Play, und ein Kauf bei Google Play gilt nicht im App Store.</p>
   </section>
 
   <section class="family" id="familie">

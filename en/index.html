@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#2C4B6B">
 <title>BookSafe — Your library. Beautiful, fast, private.</title>
-<meta name="description" content="The book app with no account and no subscription: library, wishlist and reading stats for iPhone, iPad, Apple Watch and Android. Free for up to 50 books.">
+<meta name="description" content="Book app with no account and no subscription for iPhone, iPad, Apple Watch and Android. Free for up to 50 books, then a one-time €3.99 in Germany.">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <link rel="alternate" hreflang="en" href="https://booksafe.app/en/">
 <link rel="alternate" hreflang="x-default" href="https://booksafe.app/">
 <meta property="og:title" content="BookSafe — Your library. Beautiful, fast, private.">
-<meta property="og:description" content="The book app with no account and no subscription — for iPhone, iPad, Apple Watch and Android.">
+<meta property="og:description" content="The book app with no account and no subscription for iPhone, iPad, Apple Watch and Android. Free for up to 50 books, then a one-time €3.99 in Germany; prices vary by country.">
 <meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BookSafe — Your library. Beautiful, fast, private.">
-<meta name="twitter:description" content="The book app with no account and no subscription — for iPhone, iPad, Apple Watch and Android.">
+<meta name="twitter:description" content="The book app with no account and no subscription for iPhone, iPad, Apple Watch and Android. Free for up to 50 books, then a one-time €3.99 in Germany; prices vary by country.">
 <meta name="twitter:image" content="https://booksafe.app/assets/og-en.jpg">
 <meta property="og:url" content="https://booksafe.app/en/">
 <meta property="og:type" content="website">
@@ -384,7 +384,8 @@
   .feature h2,
   .pro h2,
   .family h2,
-  .press h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  .press h2,
+  .faq h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .feature h2 {
     font-size: clamp(24px, 3.6vw, 34px);
     font-weight: 800;
@@ -596,6 +597,18 @@
   .press h2 { font-size: clamp(22px, 3vw, 28px); font-weight: 800; margin-bottom: 10px; }
   .press p { color: var(--muted); max-width: 36em; margin: 0 auto; font-size: 17px; }
 
+  /* Nach der letzten Feature-Zeile, damit nth-of-type der Features gleich bleibt.
+     Fragen wie auf der Support-Seite: Überschrift, dann Frage und Antwort. */
+  .faq { max-width: 40em; margin: 0 auto; padding: 8px 0 40px; }
+  .faq h2 {
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 800;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+  .faq h3 { font-size: 17px; font-weight: 650; margin: 20px 0 4px; }
+  .faq p { color: var(--muted); font-size: 17px; }
+
   /* ---------- Footer ---------- */
   footer {
     border-top: 1px solid var(--hairline);
@@ -761,30 +774,31 @@
     "https://apps.apple.com/app/booksafe/id6779730178",
     "https://play.google.com/store/apps/details?id=de.sisofa.booksafe"
   ],
+  "isAccessibleForFree": true,
   "offers": [
     {
       "@type": "Offer",
-      "name": "BookSafe",
+      "name": "BookSafe (free download, up to 50 books)",
       "price": "0",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "Free for up to 50 books."
+      "description": "Free download. Free for up to 50 books, with every feature of that app."
     },
     {
       "@type": "Offer",
-      "name": "BookSafe Pro on the App Store",
+      "name": "BookSafe Pro, in-app purchase on the App Store",
       "price": "3.99",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "One-time purchase in Germany; prices vary by country. No subscription. Lifts the 50-book limit. Does not apply on Google Play."
+      "description": "Optional in-app purchase. One-time €3.99 on the App Store in Germany; prices vary by country. No subscription. Lifts the 50-book limit. Does not apply on Google Play."
     },
     {
       "@type": "Offer",
-      "name": "BookSafe Pro on Google Play",
+      "name": "BookSafe Pro, in-app purchase on Google Play",
       "price": "3.99",
       "priceCurrency": "EUR",
       "areaServed": "DE",
-      "description": "One-time purchase, €3.99 billed via Google Play in Germany; prices vary by country. No subscription. Does not apply on the App Store."
+      "description": "Optional in-app purchase. One-time €3.99 billed via Google Play in Germany; prices vary by country. No subscription. Lifts the 50-book limit. Does not apply on the App Store."
     }
   ],
   "author": {
@@ -793,6 +807,47 @@
     "url": "https://booksafe.app/",
     "email": "kontakt@sisofa.de"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://booksafe.app/en/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is BookSafe free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The download is free. Up to 50 books are free, with every feature of that app. BookSafe Pro is optional after that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does BookSafe Pro cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BookSafe Pro is an optional in-app purchase: €3.99 one-time on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. It only lifts the limit of 50 books."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a subscription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no subscription. If you want to store more than 50 books, you pay for BookSafe Pro once."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does my purchase work on iPhone and Android?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A purchase applies only on the platform where you bought it. Pro on the App Store does not apply on Google Play, and a purchase on Google Play does not apply on the App Store."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -1032,6 +1087,18 @@
         <img src="../assets/google-play-badge-en.png" alt="Get it on Google Play" width="646" height="250">
       </a>
     </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Common questions</h2>
+    <h3>Is BookSafe free?</h3>
+    <p>Yes. The download is free. Up to 50 books are free, with every feature of that app. BookSafe Pro is optional after that.</p>
+    <h3>How much does BookSafe Pro cost?</h3>
+    <p>BookSafe Pro is an optional in-app purchase: €3.99 one-time on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. It only lifts the limit of 50 books.</p>
+    <h3>Is there a subscription?</h3>
+    <p>No. There is no subscription. If you want to store more than 50 books, you pay for BookSafe Pro once.</p>
+    <h3>Does my purchase work on iPhone and Android?</h3>
+    <p>No. A purchase applies only on the platform where you bought it. Pro on the App Store does not apply on Google Play, and a purchase on Google Play does not apply on the App Store.</p>
   </section>
 
   <section class="family" id="family">
