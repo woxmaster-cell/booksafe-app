@@ -1,0 +1,42 @@
+# BookSafe
+
+> BookSafe ist eine Buchverwaltung für iPhone, iPad, Apple Watch und Android. Kein Konto, kein Abo. Kostenloser Download, kostenlos für bis zu 50 Bücher mit allen Funktionen der jeweiligen App, danach optional BookSafe Pro als einmaliger In-App-Kauf für 3,99 € (App Store bzw. Google Play, in Deutschland). Ein Kauf gilt nur für die jeweilige Plattform.
+
+Die App scannt Bücher per ISBN, verfolgt den Lesefortschritt und hält Buchreihen im Blick. Die Sprache folgt dem Gerät: Deutsch oder Englisch.
+
+## Preis
+
+- Kostenloser Download. Kostenlos für bis zu 50 Bücher, mit allen Funktionen der jeweiligen App. Pro hebt nur das Limit auf.
+- Danach optional BookSafe Pro als einmaliger In-App-Kauf für 3,99 € im App Store bzw. 3,99 € bei Abrechnung über Google Play, in Deutschland. Kein Abo.
+- Ein Kauf gilt nur für die jeweilige Plattform. Pro im App Store gilt nicht bei Google Play, und ein Kauf bei Google Play gilt nicht im App Store.
+- English, as on the English pages: Free download. Free for up to 50 books, with every feature of the app on your platform. Then optional BookSafe Pro, a one-time in-app purchase of €3.99 on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. No subscription. A purchase applies only on the platform where it was bought.
+
+## Plattformen
+
+- iPhone und iPad ab iOS 18.0. Apple Watch ab watchOS 11.0. Auf iPhone und iPad gleicht sich die Bibliothek über die private iCloud ab. Die Apple Watch und die Widgets gibt es nur hier.
+- Android bei Google Play: keine Widgets, keine Uhr, kein iCloud-Sync. Die Bibliothek bleibt auf dem Gerät. Ein Backup vom iPhone lässt sich als Datei im Tab „Optionen“ übernehmen. Export als CSV oder PDF geht auf beiden.
+
+## Datenschutz
+
+- Kein Konto und keine Registrierung. Keine Werbung in der App.
+- Auf iPhone, iPad und Apple Watch: kein Tracking, kein Analyse-Dienst, kein Werbenetzwerk, keine eigenen Server. Die Bibliothek liegt auf dem Gerät und, wenn iCloud aktiv ist, in der privaten iCloud. Darauf hat BookSafe keinen Zugriff.
+- Auf Android: kein Konto, keine Werbung, keine BookSafe-Server, kein eigenes Tracking. Für ISBN-Scan, Texterkennung und Cover-Scanner nutzt die App Google ML Kit. Die Erkennung läuft auf dem Gerät, Kamerabilder verlassen es nicht. ML Kit sendet aber Diagnose- und Nutzungsdaten an Google, darunter eine Kennung je Installation. Einzelheiten stehen auf der Android-Support-Seite.
+
+## Seiten
+
+- [Startseite (Deutsch)](https://booksafe.app/): Bibliothek, Preis und Datenschutz in Kurzform
+- [Home (English)](https://booksafe.app/en/): library, pricing and privacy in brief
+- [Support und Datenschutz, iPhone, iPad und Apple Watch](https://booksafe.app/support/)
+- [Support and privacy, iPhone, iPad and Apple Watch](https://booksafe.app/en/support/)
+- [Support und Datenschutz, Android](https://booksafe.app/supportandroid/)
+- [Support and privacy, Android](https://booksafe.app/en/supportandroid/)
+- [Presse](https://booksafe.app/presse/): Eckdaten, Funktionen, Preis, Datenschutz
+- [Press](https://booksafe.app/en/press/): key facts, features, price, privacy
+- [Versionen](https://booksafe.app/versionen/)
+- [Versions](https://booksafe.app/en/versions/)
+- [Ratgeber](https://booksafe.app/ratgeber/)
+
+## Stores
+
+- [App Store](https://apps.apple.com/de/app/booksafe/id6779730178)
+- [Google Play](https://play.google.com/store/apps/details?id=de.sisofa.booksafe)
