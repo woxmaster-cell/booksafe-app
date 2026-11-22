@@ -1,4 +1,4 @@
-"""Erzeugt neu-in-1-12/, en/whats-new-1-12/, neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-13/, en/whats-new-1-13/, neu-in-1-12/, en/whats-new-1-12/, neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
 Quelle der Detailseiten 1.2–1.11: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.12": (15, 11), "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.13": (22, 11), "1.12": (15, 11), "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.11", "1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.12", "1.11", "1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -918,6 +918,129 @@ def build_112(lang):
                 copyright=COPY_PLAY["en"])
 
 
+# ---------------------------------------------------------------- Neu in 1.13
+def build_113(lang):
+    """Texte aus AppStoreConnect.md §2/§3 (Versionshinweise 1.13) und Produktstatus.md §3.
+    Kein Bild: für „Kerzenschein“ liegt keins in assets/."""
+    if lang == "de":
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.13 lässt dich ein gelesenes Buch noch einmal starten, und jeder Durchgang zählt. Dazu kommen eine Altersempfehlung, die Sortierung nach Lesedatum, das Teilen-Design „Kerzenschein“ und die Stimmung „Dark“.</p>
+    <p>Dieselbe Version 1.13 liegt auch bei Google Play, seit dem 21. November 2026. Widgets und die Uhr gibt es auf Android nicht. BookSafe Pro kaufst du dort einmalig bei Google Play; der Kauf gilt nicht auf dem iPhone.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.13 · im App Store seit 22. November 2026, bei Google Play seit 21. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Wiederlesen</h3>
+    <p>Starte ein gelesenes Buch über <strong>„Weitere Aktionen“</strong> noch einmal. Es steht dann auf <strong>„Am Wiederlesen“</strong>, bei Hörbüchern auf <strong>„Am Wiederhören“</strong>. Jeder Durchgang zählt für Jahresziel, Jahresrückblick und Stempel. Im Buchdetail siehst du alle Lesedurchgänge mit Datum und deinem Eindruck.</p>
+
+    <h3><span class="num">2</span>Altersempfehlung</h3>
+    <p>Wo der Verlag eine angibt, zeigt das Buchdetail sie an, etwa <strong>„ab 12 Jahren“</strong> — auch bei Büchern auf der Wunschliste. In Bibliothek und Wunschliste steht sie kurz („ab 12“), beim Teilen der Kurzbewertung ausführlich. Du kannst sie jederzeit ändern oder selbst eintragen. In Listen und beim Teilen lässt sie sich unter <strong>Einstellungen › Darstellung</strong> ausblenden.</p>
+
+    <h3><span class="num">3</span>Sortieren nach Lesedatum</h3>
+    <p>In der Bibliothek sortierst du jetzt nach dem <strong>Lesedatum</strong>.</p>
+
+    <h3><span class="num">4</span>Teilen-Design „Kerzenschein“</h3>
+    <p>Zum Advent gibt es das Teilen-Design <strong>„Kerzenschein“</strong> für Leseupdate und Kurzbewertung. Jede Kerze brennt so weit herunter, wie du gelesen hast.</p>
+
+    <h3><span class="num">5</span>Stimmung „Dark“</h3>
+    <p>Für deinen Eindruck gibt es die Stimmung <strong>„Dark“</strong>.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Lesesitzungen zeigen jetzt auch, bis zu welcher Seite du gelesen hast</li>
+      <li>Das Lesedatum lässt sich leer lassen, wenn du nicht mehr weißt, wann du ein Buch beendet hast</li>
+      <li>Die Suche sagt jetzt, wenn keine Verbindung besteht, statt „Keine Treffer“ zu melden</li>
+      <li>Antwortet die Deutsche Nationalbibliothek gerade nicht, sagt BookSafe das jetzt auch beim Hinzufügen per ISBN und bei „Buchdaten erneut suchen“</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Die vorige Version, 1.12, steht dort ebenfalls. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{with_android(lang, good_to_know(lang, 1))}
+"""
+        return page(lang, path="neu-in-1-13/", depth=1,
+                    title="BookSafe — Neu in Version 1.13",
+                    description="Was BookSafe 1.13 neu bringt: Wiederlesen, Altersempfehlung, Sortierung nach Lesedatum, das Design „Kerzenschein“ und die Stimmung „Dark“.",
+                    og_title="BookSafe — Neu in Version 1.13",
+                    og_desc="Ein gelesenes Buch noch einmal starten, Altersempfehlung und das Teilen-Design „Kerzenschein“ — im App Store und bei Google Play.",
+                    alternates={"de": "neu-in-1-13/", "en": "en/whats-new-1-13/"},
+                    h1="Neu in Version 1.13",
+                    sub="Im App Store seit 22. November 2026, bei Google Play seit 21. November 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body, extra_css=PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.13 lets you start a book you’ve already read once more, and every read counts. It also adds a recommended age, sorting by date read, the “Candlelight” share design and the “Dark” mood.</p>
+    <p>The same version 1.13 has been on Google Play since 21 November 2026. Android has no widgets and no watch. You buy BookSafe Pro there once on Google Play; the purchase does not unlock the iPhone app.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.13 · on the App Store since 22 November 2026, on Google Play since 21 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Rereading</h3>
+    <p>Start a book you’ve read once more from <strong>“More actions”</strong>. It then shows as <strong>“Rereading”</strong>, and for audiobooks as <strong>“Relistening”</strong>. Every read counts towards your annual goal, Year in Review and stamps. The book’s details list every read with its date and your impression.</p>
+
+    <h3><span class="num">2</span>Recommended age</h3>
+    <p>Where the publisher provides one, the book’s details show it, for example <strong>“12+ years”</strong> — for books on your wishlist too. Library and wishlist show it in short form (“12+”), and a shared quick review shows it in full. You can change it or add your own at any time. To hide it in lists and when sharing, go to <strong>Settings › Appearance</strong>.</p>
+
+    <h3><span class="num">3</span>Sort by date read</h3>
+    <p>You can now sort your library by <strong>date read</strong>.</p>
+
+    <h3><span class="num">4</span>“Candlelight” share design</h3>
+    <p>For Advent there is the <strong>“Candlelight”</strong> share design for reading updates and quick reviews. Each candle burns down as far as you’ve read.</p>
+
+    <h3><span class="num">5</span>“Dark” mood</h3>
+    <p>Your impression gains the <strong>“Dark”</strong> mood.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>Reading sessions now also show the page you read up to</li>
+      <li>You can leave the date read empty if you no longer remember when you finished a book</li>
+      <li>Search now tells you when there’s no connection, instead of reporting “No matches found”</li>
+      <li>If the German National Library isn’t responding, BookSafe now says so when you add a book by ISBN and in “Search book data again” too</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>What BookSafe has learned since version 0.4 — from the loan tracker and iCloud sync to the Apple Watch and the Year in Review films — is collected in the archive. The previous version, 1.12, is there too. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
+  </section>
+
+{with_android(lang, good_to_know(lang, 2))}
+"""
+    return page(lang, path="en/whats-new-1-13/", depth=2,
+                title="BookSafe — What’s new in version 1.13",
+                description="What BookSafe 1.13 adds: rereading, recommended ages, sorting by date read, the “Candlelight” design and the “Dark” mood.",
+                og_title="BookSafe — What’s new in version 1.13",
+                og_desc="Start a finished book once more, recommended ages and the “Candlelight” share design — on the App Store and Google Play.",
+                alternates={"de": "neu-in-1-13/", "en": "en/whats-new-1-13/"},
+                h1="What’s new in version 1.13",
+                sub="On the App Store since 22 November 2026, on Google Play since 21 November 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body, extra_css=PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
+
+
 # ---------------------------------------------------------------- Archiv
 def detail_content(lang, v):
     """Lead-Absatz + alle Inhaltskarten außer Lead und „Gut zu wissen“, eine Ebene tiefer."""
@@ -1022,7 +1145,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-12/">Seite zu Version 1.12</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-13/">Seite zu Version 1.13</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; Android ist inzwischen ebenfalls bei Version 1.13. Dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -1031,7 +1154,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-12/">version 1.12 page</a>. BookSafe for Android has been on Google Play since version 1.12; this archive describes the versions for iPhone, iPad and Apple Watch.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-13/">version 1.13 page</a>. BookSafe for Android has been on Google Play since version 1.12; Android is on version 1.13 as well. This archive describes the versions for iPhone, iPad and Apple Watch.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -1048,26 +1171,28 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.11: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.12: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.11.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.12.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.11 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-12/">← Neu in Version 1.12</a>',
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.12 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-13/">← Neu in Version 1.13</a>',
                     body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["de"],
                     copyright=COPY_PLAY["de"])
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.11: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.12: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.11.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.12.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.11",
-                header_links='  <a class="home" href="../whats-new-1-12/">← What’s new in version 1.12</a>',
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.12",
+                header_links='  <a class="home" href="../whats-new-1-13/">← What’s new in version 1.13</a>',
                 body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["en"],
                 copyright=COPY_PLAY["en"])
 
 
 OUT = {
+    "neu-in-1-13/index.html": build_113("de"),
+    "en/whats-new-1-13/index.html": build_113("en"),
     "neu-in-1-12/index.html": build_112("de"),
     "en/whats-new-1-12/index.html": build_112("en"),
     "neu-in-1-11/index.html": build_111("de"),
