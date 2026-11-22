@@ -4,6 +4,8 @@
 
 Die App scannt Bücher per ISBN, verfolgt den Lesefortschritt und hält Buchreihen im Blick. Die Sprache folgt dem Gerät: Deutsch oder Englisch.
 
+Aktuelle Version: 1.13. Im App Store seit dem 22. November 2026, bei Google Play seit dem 21. November 2026.
+
 ## Preis
 
 - Kostenloser Download. Kostenlos für bis zu 50 Bücher, mit allen Funktionen der jeweiligen App. Pro hebt nur das Limit auf.
@@ -32,6 +34,8 @@ Die App scannt Bücher per ISBN, verfolgt den Lesefortschritt und hält Buchreih
 - [Support and privacy, Android](https://booksafe.app/en/supportandroid/)
 - [Presse](https://booksafe.app/presse/): Eckdaten, Funktionen, Preis, Datenschutz
 - [Press](https://booksafe.app/en/press/): key facts, features, price, privacy
+- [Neu in 1.13](https://booksafe.app/neu-in-1-13/)
+- [What’s new in 1.13](https://booksafe.app/en/whats-new-1-13/)
 - [Versionen](https://booksafe.app/versionen/)
 - [Versions](https://booksafe.app/en/versions/)
 - [Ratgeber](https://booksafe.app/ratgeber/)
