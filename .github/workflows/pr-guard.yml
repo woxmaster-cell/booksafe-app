@@ -1,0 +1,43 @@
+# pr-guard: mechanischer Check fuer jeden PR (Identitaet, Trailer, Sperrliste, Secret-Muster,
+# Klarpfade, Freibuecher-Limit, Stufe, Testlog). Nur Anzeige rot/gruen, blockiert keinen Merge.
+# Die Sperrliste liegt nur im Actions-Secret PR_GUARD_DENYLIST.
+name: pr-guard
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-guard-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  pr-guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout (PR-Head, ohne gespeicherte Zugangsdaten)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: pr-guard
+        env:
+          PR_GUARD_DENYLIST: ${{ secrets.PR_GUARD_DENYLIST }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_GUARD_REPO: ${{ github.repository }}
+        run: |
+          if git cat-file -e "${BASE_SHA}:.github/scripts/pr-guard.py" 2>/dev/null; then
+            git show "${BASE_SHA}:.github/scripts/pr-guard.py" > "${RUNNER_TEMP}/pr-guard.py"
+            echo "pr-guard: Skript aus der Basis."
+          else
+            cp .github/scripts/pr-guard.py "${RUNNER_TEMP}/pr-guard.py"
+            echo "pr-guard: Skript aus dem PR-Head (Erstinstallation)."
+          fi
+          python3 "${RUNNER_TEMP}/pr-guard.py"
