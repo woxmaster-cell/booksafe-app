@@ -4,7 +4,7 @@
 
 Die App scannt Bücher per ISBN, verfolgt den Lesefortschritt und hält Buchreihen im Blick. Die Sprache folgt dem Gerät: Deutsch oder Englisch.
 
-Aktuelle Version: 1.13. Im App Store seit dem 22. November 2026, bei Google Play seit dem 21. November 2026.
+Aktuelle Version: 1.14. Im App Store seit dem 27. November 2026; bei Google Play ist 1.14 eingereicht, bis dahin gilt dort 1.13.1. Auf Android gibt es Booky als einziges Farbschema.
 
 ## Preis
 
@@ -34,6 +34,8 @@ Aktuelle Version: 1.13. Im App Store seit dem 22. November 2026, bei Google Play
 - [Support and privacy, Android](https://booksafe.app/en/supportandroid/)
 - [Presse](https://booksafe.app/presse/): Eckdaten, Funktionen, Preis, Datenschutz
 - [Press](https://booksafe.app/en/press/): key facts, features, price, privacy
+- [Neu in 1.14](https://booksafe.app/neu-in-1-14/)
+- [What’s new in 1.14](https://booksafe.app/en/whats-new-1-14/)
 - [Neu in 1.13](https://booksafe.app/neu-in-1-13/)
 - [What’s new in 1.13](https://booksafe.app/en/whats-new-1-13/)
 - [Versionen](https://booksafe.app/versionen/)
