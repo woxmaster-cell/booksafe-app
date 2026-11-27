@@ -1063,7 +1063,7 @@ def scheme_figure(lang, up):
 
 def build_114(lang):
     """Texte aus AppStoreConnect.md §2/§3 (Versionshinweise 1.14, freigegeben 27.11.2026) und Produktstatus.md §3.
-    Android 1.14 ist bei Google Play eingereicht (27.11.2026), noch nicht live: dort nur Booky, keine Auswahl."""
+    Android 1.14 seit 27.11.2026 bei Google Play: dort nur Booky, keine Auswahl."""
     up = "../" if lang == "de" else "../../"
     schemes = scheme_figure(lang, up)
     if lang == "de":
@@ -1071,9 +1071,9 @@ def build_114(lang):
   <section class="card lead">
     <h2>Worum es in diesem Update geht</h2>
     <p>BookSafe 1.14 bringt drei Farbschemen zur Wahl, jedes hell und dunkel, und macht das Wiederlesen vollständig: BookSafe fragt nach, bevor ein gelesenes Buch zurückgesetzt wird, und zeigt, wie oft du es gelesen hast.</p>
-    <p>Für Android ist Version 1.14 bei Google Play eingereicht und folgt in Kürze. Dort gibt es Booky als einziges Farbschema; die Auswahl zwischen Booky, Nordic und Kintsugi gibt es nur auf iPhone und iPad. Widgets und die Uhr gibt es auf Android nicht.</p>
+    <p>Dieselbe Version 1.14 liegt auch bei Google Play, seit dem 27. November 2026. Auf Android gibt es Booky als einziges Farbschema; die Auswahl zwischen Booky, Nordic und Kintsugi gibt es nur auf iPhone und iPad. Widgets und die Uhr gibt es auf Android nicht.</p>
     <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
-    <p class="updated">Version 1.14 · im App Store seit 27. November 2026</p>
+    <p class="updated">Version 1.14 · im App Store und bei Google Play seit 27. November 2026</p>
   </section>
 
   <section class="card">
@@ -1114,7 +1114,7 @@ def build_114(lang):
                     og_desc="Drei Farbschemen zur Wahl, jedes hell und dunkel, und Wiederlesen mit allen Durchgängen und ihren Sitzungen.",
                     alternates={"de": "neu-in-1-14/", "en": "en/whats-new-1-14/"},
                     h1="Neu in Version 1.14",
-                    sub="Im App Store seit 27. November 2026",
+                    sub="Im App Store und bei Google Play seit 27. November 2026",
                     header_links='  <a class="home" href="../">← Zur Startseite</a>',
                     body=body, extra_css=PLAY_CSS["de"],
                     copyright=COPY_PLAY["de"])
@@ -1122,9 +1122,9 @@ def build_114(lang):
   <section class="card lead">
     <h2>What this update is about</h2>
     <p>BookSafe 1.14 lets you choose between three color schemes, each in light and dark, and completes rereading: BookSafe asks before a finished book is reset, and shows how many times you’ve read it.</p>
-    <p>Version 1.14 for Android has been submitted to Google Play and follows shortly. There, Booky is the only color scheme; choosing between Booky, Nordic and Kintsugi is available on iPhone and iPad only. Android has no widgets and no watch.</p>
+    <p>The same version 1.14 has been on Google Play since 27 November 2026. On Android, Booky is the only color scheme; choosing between Booky, Nordic and Kintsugi is available on iPhone and iPad only. Android has no widgets and no watch.</p>
     <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
-    <p class="updated">Version 1.14 · on the App Store since 27 November 2026</p>
+    <p class="updated">Version 1.14 · on the App Store and Google Play since 27 November 2026</p>
   </section>
 
   <section class="card">
@@ -1165,7 +1165,7 @@ def build_114(lang):
                 og_desc="Three color schemes to choose from, each in light and dark, and rereading that keeps every pass and its sessions.",
                 alternates={"de": "neu-in-1-14/", "en": "en/whats-new-1-14/"},
                 h1="What’s new in version 1.14",
-                sub="On the App Store since 27 November 2026",
+                sub="On the App Store and Google Play since 27 November 2026",
                 header_links='  <a class="home" href="../">← Back to the home page</a>',
                 body=body, extra_css=PLAY_CSS["en"],
                 copyright=COPY_PLAY["en"])
@@ -1275,7 +1275,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-14/">Seite zu Version 1.14</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; Version 1.14 für Android ist eingereicht und folgt in Kürze. Dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-14/">Seite zu Version 1.14</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; Android ist inzwischen ebenfalls bei Version 1.14. Dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -1284,7 +1284,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-14/">version 1.14 page</a>. BookSafe for Android has been on Google Play since version 1.12; version 1.14 for Android has been submitted and follows shortly. This archive describes the versions for iPhone, iPad and Apple Watch.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-14/">version 1.14 page</a>. BookSafe for Android has been on Google Play since version 1.12; Android is on version 1.14 as well. This archive describes the versions for iPhone, iPad and Apple Watch.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
