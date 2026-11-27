@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2C4B6B">
+<title>BookSafe — What’s new in version 1.14</title>
+<meta name="description" content="What BookSafe 1.14 adds: three color schemes (Booky, Nordic, Kintsugi) in light and dark, the “Read this book again?” prompt and “Read · 2×”.">
+<meta property="og:title" content="BookSafe — What’s new in version 1.14">
+<meta property="og:description" content="Three color schemes to choose from, each in light and dark, and rereading that keeps every pass and its sessions.">
+<meta property="og:image" content="https://booksafe.app/assets/og-en.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BookSafe — Your library belongs to you.">
+<meta property="og:url" content="https://booksafe.app/en/whats-new-1-14/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BookSafe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BookSafe — What’s new in version 1.14">
+<meta name="twitter:description" content="Three color schemes to choose from, each in light and dark, and rereading that keeps every pass and its sessions.">
+<meta name="twitter:image" content="https://booksafe.app/assets/og-en.jpg">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="apple-itunes-app" content="app-id=6779730178">
+<link rel="canonical" href="https://booksafe.app/en/whats-new-1-14/">
+<link rel="alternate" hreflang="en" href="https://booksafe.app/en/whats-new-1-14/">
+<link rel="alternate" hreflang="de" href="https://booksafe.app/neu-in-1-14/">
+<link rel="alternate" hreflang="x-default" href="https://booksafe.app/neu-in-1-14/">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --navy: var(--brand-navy);
+    --navy-2: var(--brand-navy-light);
+    --gold: var(--brand-gold);
+    --gold-deep: var(--brand-gold-deep);
+    --bg: var(--web-light-bg);
+    --panel: var(--web-light-panel);
+    --text: var(--web-light-text);
+    --muted: var(--web-light-muted);
+    --hairline: var(--web-light-hairline);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: var(--web-dark-bg);
+      --panel: var(--web-dark-panel);
+      --text: var(--web-dark-text);
+      --muted: var(--web-dark-muted);
+      /* Bewusst brand-gold, nicht goldDeep: Dark-Links/Kicker laufen im hellen
+         Brand-Gold (frueher als ueberschriebenes Hex-Literal, OPT-204). */
+      --gold-deep: var(--brand-gold);
+      --hairline: var(--web-dark-hairline);
+    }
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--gold-deep); }
+  header {
+    position: relative;
+    background: linear-gradient(180deg, var(--navy-2) 0%, var(--navy) 100%);
+    color: var(--web-hero-text);
+    text-align: center;
+    padding: 48px 24px 52px;
+  }
+  .lang-switch {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    font-size: 14px;
+    color: var(--web-hero-text-subtle);
+    text-decoration: none;
+    border: 1px solid var(--web-hero-pill-stroke);
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .lang-switch:hover { background: var(--web-hero-pill-hover-fill); }
+  header .icon { width: 72px; height: 72px; border-radius: 17px; margin: 0 auto 18px; display: block; box-shadow: 0 8px 22px var(--web-hero-icon-shadow); }
+  header h1 { font-size: 28px; letter-spacing: -0.02em; }
+  header .sub { color: var(--web-hero-text-faint); margin-top: 4px; }
+  header .home { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; display: inline-block; margin-top: 14px; }
+  header .home:hover { text-decoration: underline; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 24px; }
+  section.card {
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 24px 26px;
+    margin-bottom: 24px;
+  }
+  /* Wie auf der Startseite: Ueberschriften tragen die Display-Schrift. Ohne das
+     steht diese Seite in einer anderen Schrift als die, von der die Leserin kommt. */
+  h1, h2 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h2 { font-size: 22px; margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 26px 0 4px; }
+  section.card > h3:first-of-type { margin-top: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 1.2em; margin-top: 8px; }
+  li { margin-bottom: 6px; }
+  .lead p { font-size: 17px; }
+  .updated { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+  .note { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  /* Die Nummer vor jeder neuen Funktion: dieselbe Rolle wie der Kicker in der
+     App — klein, gold, in der Display-Schrift. */
+  h3 .num {
+    font-family: var(--font-display);
+    color: var(--gold-deep);
+    margin-right: 8px;
+  }
+  .facts { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 15.5px; }
+  .facts th, .facts td { text-align: left; vertical-align: top; padding: 8px 0; border-bottom: 1px solid var(--hairline); }
+  .facts th { width: 38%; font-weight: 600; padding-right: 14px; }
+  .facts tr:last-child th, .facts tr:last-child td { border-bottom: 0; }
+  .table-scroll { overflow-x: auto; }
+  /* iPhone Duo: beide Displays nebeneinander, im echten Groessenverhaeltnis
+     (innen 669 pt, aussen 466 pt breit) und unten buendig. */
+  .duo-figure {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 520px;
+  }
+  .duo-figure figure { margin: 0; }
+  .duo-figure .duo-open   { flex: 0 0 56.5%; }
+  .duo-figure .duo-closed { flex: 0 0 39.5%; }
+  .duo-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .duo-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  /* Filmdesigns (1.7): drei gerenderte Filmszenen nebeneinander, gleiche Groesse (720 x 1561). */
+  .film-figure {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4%;
+    margin: 18px auto 6px;
+    max-width: 560px;
+  }
+  .film-figure figure { margin: 0; }
+  .film-figure img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--hairline); }
+  .film-figure figcaption { margin-top: 8px; font-size: 13.5px; color: var(--muted); text-align: center; }
+  picture { display: contents; }
+  .store { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 14px; }
+  .store img { height: 48px; width: auto; display: block; }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding: 36px 24px 48px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  footer nav { margin-bottom: 12px; }
+  footer nav a { margin: 0 12px; text-decoration: none; font-weight: 600; }
+  footer nav a:hover { text-decoration: underline; }
+
+  /* Sichtbarer Fokus fuer Tastaturnutzung — Navy auf hellem Grund, Gold auf den
+     dunklen Flaechen; beide Kombinationen liegen ueber 5:1. Kein border-radius
+     hier: der Umriss folgt der Rundung des Elements von selbst. */
+  :focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  header :focus-visible { outline-color: var(--gold); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  @media (max-width: 520px) {
+    header { padding: 40px 20px 44px; }
+    header h1 { font-size: 24px; }
+    section.card { padding: 20px 18px; }
+  }
+
+  .store img.play-badge { height: 71px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="lang-switch" href="../../neu-in-1-14/" hreflang="de" lang="de">Deutsch</a>
+  <picture><source srcset="../../assets/app-icon.webp" type="image/webp"><img class="icon" src="../../assets/app-icon.png" alt="BookSafe app icon" width="72" height="72"></picture>
+  <h1>What’s new in version 1.14</h1>
+  <p class="sub">On the App Store since 27 November 2026</p>
+  <a class="home" href="../">← Back to the home page</a>
+</header>
+
+<main>
+
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.14 lets you choose between three color schemes, each in light and dark, and completes rereading: BookSafe asks before a finished book is reset, and shows how many times you’ve read it.</p>
+    <p>Version 1.14 for Android has been submitted to Google Play and follows shortly. There, Booky is the only color scheme; choosing between Booky, Nordic and Kintsugi is available on iPhone and iPad only. Android has no widgets and no watch.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.14 · on the App Store since 27 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Color schemes</h3>
+    <p>Choose between <strong>Booky</strong>, <strong>Nordic</strong> and <strong>Kintsugi</strong> under <strong>“Color Scheme”</strong> in Settings — each with its own light and dark design. Booky is the new default, with colors that are easier to read by day and by night. The color schemes are free.</p>
+    <div class="film-figure">
+      <figure>
+        <picture><source srcset="../../assets/en-today-booky-dark.webp" type="image/webp"><img src="../../assets/en-today-booky-dark.jpg" alt="Today screen in the Booky color scheme, dark" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Booky · dark</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-today-nordic-dark.webp" type="image/webp"><img src="../../assets/en-today-nordic-dark.jpg" alt="Today screen in the Nordic color scheme, dark" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Nordic · dark</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-today-kintsugi-dark.webp" type="image/webp"><img src="../../assets/en-today-kintsugi-dark.jpg" alt="Today screen in the Kintsugi color scheme, dark" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Kintsugi · dark</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-today-booky-light.webp" type="image/webp"><img src="../../assets/en-today-booky-light.jpg" alt="Today screen in the Booky color scheme, light" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Booky · light</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-today-nordic-light.webp" type="image/webp"><img src="../../assets/en-today-nordic-light.jpg" alt="Today screen in the Nordic color scheme, light" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Nordic · light</figcaption>
+      </figure>
+      <figure>
+        <picture><source srcset="../../assets/en-today-kintsugi-light.webp" type="image/webp"><img src="../../assets/en-today-kintsugi-light.jpg" alt="Today screen in the Kintsugi color scheme, light" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>Kintsugi · light</figcaption>
+      </figure>
+    </div>
+
+    <h3><span class="num">2</span>“Read this book again?”</h3>
+    <p>When you move a finished or listened book back to <strong>“Reading”</strong> or <strong>“Unread”</strong>, BookSafe now asks whether you’re reading or listening to it again. Your first time is kept and still counts. If it was a slip, everything stays as it was.</p>
+
+    <h3><span class="num">3</span>How many times read</h3>
+    <p>Your library and the book’s details now show how many times you’ve read a book (<strong>“Read · 2×”</strong>). Each book lists its sessions per read, Today shows which read you’re on, and <strong>Statistics</strong> counts your reread books.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>The light design has been reworked throughout, with more contrast</li>
+      <li>In the book’s details, the shading over the cover adapts to each image so text on it stays readable</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>What BookSafe has learned since version 0.4 — from the loan tracker and iCloud sync to the Apple Watch and the Year in Review films — is collected in the archive. The previous version, 1.13, is there too. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
+  </section>
+
+  <section class="card">
+    <h2>Good to know</h2>
+    <div class="table-scroll">
+      <table class="facts">
+        <tr><th>Requirements</th><td>iPhone and iPad on iOS 18 or later, Apple Watch on watchOS 11 or later. Android on Google Play, with no widgets and no watch</td></tr>
+        <tr><th>Your data</th><td>On iPhone and iPad: no account, no tracking, sync through <strong>your own private iCloud</strong>. On Android the library stays on the device. Pro does not carry across platforms.</td></tr>
+        <tr><th>Price</th><td>Free for up to 50 books. BookSafe Pro: €3.99 one-time on the App Store or €3.99 billed via Google Play, in Germany; prices vary by country. No subscription. A purchase applies only on the platform where you bought it.</td></tr>
+        <tr><th>Updating</th><td>On iPhone through the App Store, on Android through Google Play.</td></tr>
+      </table>
+    </div>
+    <div class="store">
+      <a href="https://apps.apple.com/app/booksafe/id6779730178"><img src="../../assets/badge-en.svg" alt="Download on the App Store" width="144" height="48"></a>
+      <a href="https://play.google.com/store/apps/details?id=de.sisofa.booksafe"><img class="play-badge" src="../../assets/google-play-badge-en.png" alt="Get it on Google Play" width="646" height="250"></a>
+      <a href="../">← Back to the home page</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../support/">Support</a>
+    <a href="../support/#contact">Contact</a>
+    <a href="../../autoren/" hreflang="de" lang="de">Authors (Deutsch)</a>
+    <a href="../versions/">Versions</a>
+    <a href="../../neu-in-1-14/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+  <p>BookSafe · Sisofa · <a href="mailto:kontakt@sisofa.de">kontakt@sisofa.de</a></p>
+  <p>© 2026 Sisofa. Apple, the Apple logo and App Store are trademarks of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+</footer>
+
+<script data-goatcounter="https://booksafe.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

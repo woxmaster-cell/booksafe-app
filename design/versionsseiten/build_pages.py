@@ -1,4 +1,4 @@
-"""Erzeugt neu-in-1-13/, en/whats-new-1-13/, neu-in-1-12/, en/whats-new-1-12/, neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
+"""Erzeugt neu-in-1-14/, en/whats-new-1-14/, neu-in-1-13/, en/whats-new-1-13/, neu-in-1-12/, en/whats-new-1-12/, neu-in-1-11/, en/whats-new-1-11/, neu-in-1-10/, en/whats-new-1-10/, neu-in-1-9/, en/whats-new-1-9/, neu-in-1-8/, en/whats-new-1-8/, versionen/ und en/versions/ der Landingpage.
 
 Aufruf: python3 -I build_pages.py <landingpage-repo> <asc_notes.json>
 Quelle der Detailseiten 1.2–1.11: deren eigenes <main> (Karten „Neu“/„Verbessert“/„Behoben“).
@@ -19,11 +19,11 @@ EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Au
              "September", "October", "November", "December"]
 # Store-live-Daten (Produktstatus.md §3)
 RELEASES = {
-    "1.13": (22, 11), "1.12": (15, 11), "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
+    "1.14": (27, 11), "1.13": (22, 11), "1.12": (15, 11), "1.11": (7, 11), "1.10": (3, 11), "1.9": (28, 10), "1.8": (17, 10), "1.7": (12, 10), "1.6": (7, 10), "1.5": (27, 9), "1.4": (25, 9), "1.3": (23, 9),
     "1.2": (14, 9), "1.1": (15, 8), "1.0": (6, 8), "0.9": (28, 7), "0.8": (24, 7),
     "0.7": (16, 7), "0.6": (12, 7), "0.5": (7, 7), "0.4": (1, 7),
 }
-DETAIL_PAGES = ["1.12", "1.11", "1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
+DETAIL_PAGES = ["1.13", "1.12", "1.11", "1.10", "1.9", "1.8", "1.7", "1.6", "1.5", "1.4", "1.3", "1.2"]
 NOTE_ONLY = ["1.1", "1.0", "0.9", "0.8", "0.7", "0.6", "0.5", "0.4"]
 
 
@@ -1041,6 +1041,136 @@ def build_113(lang):
                 copyright=COPY_PLAY["en"])
 
 
+# ---------------------------------------------------------------- Neu in 1.14
+def scheme_figure(lang, up):
+    """Derselbe Heute-Bildschirm je Farbschema: oben dunkel, unten hell (Grundraster, 3 Spalten)."""
+    names = [("booky", "Booky"), ("nordic", "Nordic"), ("kintsugi", "Kintsugi")]
+    figs = []
+    for mode in ("dark", "light"):
+        for key, name in names:
+            if lang == "de":
+                m = "dunkel" if mode == "dark" else "hell"
+                alt = f"Heute-Bildschirm im Farbschema {name}, {m}"
+            else:
+                m = "dark" if mode == "dark" else "light"
+                alt = f"Today screen in the {name} color scheme, {m}"
+            figs.append(f"""      <figure>
+        <picture><source srcset="{up}assets/{lang}-today-{key}-{mode}.webp" type="image/webp"><img src="{up}assets/{lang}-today-{key}-{mode}.jpg" alt="{html.escape(alt, quote=True)}" loading="lazy" width="720" height="1564"></picture>
+        <figcaption>{name} · {m}</figcaption>
+      </figure>""")
+    return '    <div class="film-figure">\n' + "\n".join(figs) + "\n    </div>"
+
+
+def build_114(lang):
+    """Texte aus AppStoreConnect.md §2/§3 (Versionshinweise 1.14, freigegeben 27.11.2026) und Produktstatus.md §3.
+    Android 1.14 ist bei Google Play eingereicht (27.11.2026), noch nicht live: dort nur Booky, keine Auswahl."""
+    up = "../" if lang == "de" else "../../"
+    schemes = scheme_figure(lang, up)
+    if lang == "de":
+        body = f"""
+  <section class="card lead">
+    <h2>Worum es in diesem Update geht</h2>
+    <p>BookSafe 1.14 bringt drei Farbschemen zur Wahl, jedes hell und dunkel, und macht das Wiederlesen vollständig: BookSafe fragt nach, bevor ein gelesenes Buch zurückgesetzt wird, und zeigt, wie oft du es gelesen hast.</p>
+    <p>Für Android ist Version 1.14 bei Google Play eingereicht und folgt in Kürze. Dort gibt es Booky als einziges Farbschema; die Auswahl zwischen Booky, Nordic und Kintsugi gibt es nur auf iPhone und iPad. Widgets und die Uhr gibt es auf Android nicht.</p>
+    <p>Diese Seite beschreibt die Änderungen ausführlicher, als es in die Versionshinweise im App Store passt.</p>
+    <p class="updated">Version 1.14 · im App Store seit 27. November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>Neu</h2>
+
+    <h3><span class="num">1</span>Farbschemen</h3>
+    <p>Wähle in den Einstellungen unter <strong>„Farbschema“</strong> zwischen <strong>Booky</strong>, <strong>Nordic</strong> und <strong>Kintsugi</strong> — jedes mit eigenem hellen und dunklen Design. Booky ist der neue Standard, mit besser lesbaren Farben bei Tag und bei Nacht. Die Farbschemen sind kostenlos.</p>
+{schemes}
+
+    <h3><span class="num">2</span>„Buch erneut lesen?“</h3>
+    <p>Setzt du ein gelesenes oder gehörtes Buch wieder auf <strong>„Am Lesen“</strong> oder <strong>„Ungelesen“</strong>, fragt BookSafe jetzt, ob du es erneut liest oder hörst. Deine erste Lesung bleibt erhalten und zählt weiter. War es nur ein Versehen, bleibt alles, wie es war.</p>
+
+    <h3><span class="num">3</span>Wie oft gelesen</h3>
+    <p>Wie oft du ein Buch gelesen hast, steht jetzt in der Bibliothek und im Buchdetail (<strong>„Gelesen · 2×“</strong>). Im Buch siehst du die Sitzungen je Lesedurchgang, auf Heute steht beim laufenden Buch der Durchgang, und unter <strong>Statistiken</strong> werden deine wiedergelesenen Bücher gezählt.</p>
+  </section>
+
+  <section class="card">
+    <h2>Verbessert</h2>
+    <ul>
+      <li>Das helle Design ist durchgehend überarbeitet, mit mehr Kontrast</li>
+      <li>Im Buchdetail passt sich die Abdunklung über dem Cover dem jeweiligen Bild an, damit Text darauf lesbar bleibt</li>
+    </ul>
+    <p class="note">Dazu viele weitere Detailverbesserungen.</p>
+  </section>
+
+  <section class="card">
+    <h2>Ältere Versionen</h2>
+    <p>Was BookSafe seit Version 0.4 dazugelernt hat — vom Ausleih-Tracker über iCloud-Sync und die Apple Watch bis zu den Filmen im Jahresrückblick —, steht gesammelt im Archiv. Die vorige Version, 1.13, steht dort ebenfalls. Zusammen zeigen die Versionen, was die App heute alles kann.</p>
+    <a class="archive-link" href="../versionen/">Zum Archiv der älteren Versionen →</a>
+  </section>
+
+{with_android(lang, good_to_know(lang, 1))}
+"""
+        return page(lang, path="neu-in-1-14/", depth=1,
+                    title="BookSafe — Neu in Version 1.14",
+                    description="Was BookSafe 1.14 neu bringt: drei Farbschemen (Booky, Nordic, Kintsugi) hell und dunkel, die Frage „Buch erneut lesen?“ und „Gelesen · 2×“.",
+                    og_title="BookSafe — Neu in Version 1.14",
+                    og_desc="Drei Farbschemen zur Wahl, jedes hell und dunkel, und Wiederlesen mit allen Durchgängen und ihren Sitzungen.",
+                    alternates={"de": "neu-in-1-14/", "en": "en/whats-new-1-14/"},
+                    h1="Neu in Version 1.14",
+                    sub="Im App Store seit 27. November 2026",
+                    header_links='  <a class="home" href="../">← Zur Startseite</a>',
+                    body=body, extra_css=PLAY_CSS["de"],
+                    copyright=COPY_PLAY["de"])
+    body = f"""
+  <section class="card lead">
+    <h2>What this update is about</h2>
+    <p>BookSafe 1.14 lets you choose between three color schemes, each in light and dark, and completes rereading: BookSafe asks before a finished book is reset, and shows how many times you’ve read it.</p>
+    <p>Version 1.14 for Android has been submitted to Google Play and follows shortly. There, Booky is the only color scheme; choosing between Booky, Nordic and Kintsugi is available on iPhone and iPad only. Android has no widgets and no watch.</p>
+    <p>This page describes the changes in more detail than fits into the App Store release notes.</p>
+    <p class="updated">Version 1.14 · on the App Store since 27 November 2026</p>
+  </section>
+
+  <section class="card">
+    <h2>New</h2>
+
+    <h3><span class="num">1</span>Color schemes</h3>
+    <p>Choose between <strong>Booky</strong>, <strong>Nordic</strong> and <strong>Kintsugi</strong> under <strong>“Color Scheme”</strong> in Settings — each with its own light and dark design. Booky is the new default, with colors that are easier to read by day and by night. The color schemes are free.</p>
+{schemes}
+
+    <h3><span class="num">2</span>“Read this book again?”</h3>
+    <p>When you move a finished or listened book back to <strong>“Reading”</strong> or <strong>“Unread”</strong>, BookSafe now asks whether you’re reading or listening to it again. Your first time is kept and still counts. If it was a slip, everything stays as it was.</p>
+
+    <h3><span class="num">3</span>How many times read</h3>
+    <p>Your library and the book’s details now show how many times you’ve read a book (<strong>“Read · 2×”</strong>). Each book lists its sessions per read, Today shows which read you’re on, and <strong>Statistics</strong> counts your reread books.</p>
+  </section>
+
+  <section class="card">
+    <h2>Improved</h2>
+    <ul>
+      <li>The light design has been reworked throughout, with more contrast</li>
+      <li>In the book’s details, the shading over the cover adapts to each image so text on it stays readable</li>
+    </ul>
+    <p class="note">Plus many further refinements.</p>
+  </section>
+
+  <section class="card">
+    <h2>Earlier versions</h2>
+    <p>What BookSafe has learned since version 0.4 — from the loan tracker and iCloud sync to the Apple Watch and the Year in Review films — is collected in the archive. The previous version, 1.13, is there too. Together, the versions show everything the app can do today.</p>
+    <a class="archive-link" href="../versions/">To the archive of earlier versions →</a>
+  </section>
+
+{with_android(lang, good_to_know(lang, 2))}
+"""
+    return page(lang, path="en/whats-new-1-14/", depth=2,
+                title="BookSafe — What’s new in version 1.14",
+                description="What BookSafe 1.14 adds: three color schemes (Booky, Nordic, Kintsugi) in light and dark, the “Read this book again?” prompt and “Read · 2×”.",
+                og_title="BookSafe — What’s new in version 1.14",
+                og_desc="Three color schemes to choose from, each in light and dark, and rereading that keeps every pass and its sessions.",
+                alternates={"de": "neu-in-1-14/", "en": "en/whats-new-1-14/"},
+                h1="What’s new in version 1.14",
+                sub="On the App Store since 27 November 2026",
+                header_links='  <a class="home" href="../">← Back to the home page</a>',
+                body=body, extra_css=PLAY_CSS["en"],
+                copyright=COPY_PLAY["en"])
+
+
 # ---------------------------------------------------------------- Archiv
 def detail_content(lang, v):
     """Lead-Absatz + alle Inhaltskarten außer Lead und „Gut zu wissen“, eine Ebene tiefer."""
@@ -1145,7 +1275,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Was BookSafe alles kann</h2>
     <p>Hier stehen die Neuerungen aller früheren Versionen, von der neuesten zur ältesten. Zusammen zeigen sie, was in BookSafe steckt — vom Scannen und den Reihen über Ausleihen, Wunschliste und Statistik bis zu iCloud-Sync, Apple Watch und den Filmen im Jahresrückblick.</p>
-    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-13/">Seite zu Version 1.13</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; Android ist inzwischen ebenfalls bei Version 1.13. Dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
+    <p>Jede Beschreibung gibt den Stand ihrer Version wieder; manches wurde seither weiter ausgebaut. Was die aktuelle Version bringt, steht auf der <a href="../neu-in-1-14/">Seite zu Version 1.14</a>. BookSafe für Android gibt es seit Version 1.12 bei Google Play; Version 1.14 für Android ist eingereicht und folgt in Kürze. Dieses Archiv beschreibt die Versionen für iPhone, iPad und Apple Watch.</p>
     <nav class="version-nav" aria-label="Versionen">
 {nav}
     </nav>
@@ -1154,7 +1284,7 @@ def build_archive(lang):
         lead = f"""  <section class="card lead">
     <h2>Everything BookSafe can do</h2>
     <p>Here are the new features of every earlier version, newest first. Together they show what BookSafe has to offer — from scanning and series to loans, wishlist and statistics, all the way to iCloud sync, Apple Watch and the Year in Review films.</p>
-    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-13/">version 1.13 page</a>. BookSafe for Android has been on Google Play since version 1.12; Android is on version 1.13 as well. This archive describes the versions for iPhone, iPad and Apple Watch.</p>
+    <p>Each description reflects the state of its version; some things have been developed further since. What the current version brings is on the <a href="../whats-new-1-14/">version 1.14 page</a>. BookSafe for Android has been on Google Play since version 1.12; version 1.14 for Android has been submitted and follows shortly. This archive describes the versions for iPhone, iPad and Apple Watch.</p>
     <nav class="version-nav" aria-label="Versions">
 {nav}
     </nav>
@@ -1171,26 +1301,28 @@ def build_archive(lang):
     body = "\n" + lead + "\n\n" + "\n\n".join(cards) + "\n\n" + store + "\n"
     if de:
         return page(lang, path="versionen/", depth=1, title="BookSafe — Ältere Versionen",
-                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.12: was jede Version neu gebracht hat — und damit alles, was die App kann.",
+                    description="Archiv aller früheren BookSafe-Versionen von 0.4 bis 1.13: was jede Version neu gebracht hat — und damit alles, was die App kann.",
                     og_title="BookSafe — Ältere Versionen",
-                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.12.",
+                    og_desc="Alle früheren Versionen im Überblick: Neuerungen, Verbesserungen und Fehlerbehebungen von 0.4 bis 1.13.",
                     alternates={"de": "versionen/", "en": "en/versions/"},
-                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.12 dazugelernt hat",
-                    header_links='  <a class="home" href="../neu-in-1-13/">← Neu in Version 1.13</a>',
+                    h1="Ältere Versionen", sub="Alles, was BookSafe von Version 0.4 bis 1.13 dazugelernt hat",
+                    header_links='  <a class="home" href="../neu-in-1-14/">← Neu in Version 1.14</a>',
                     body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["de"],
                     copyright=COPY_PLAY["de"])
     return page(lang, path="en/versions/", depth=2, title="BookSafe — Earlier versions",
-                description="Archive of every earlier BookSafe version from 0.4 to 1.12: what each version added — and with it, everything the app can do.",
+                description="Archive of every earlier BookSafe version from 0.4 to 1.13: what each version added — and with it, everything the app can do.",
                 og_title="BookSafe — Earlier versions",
-                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.12.",
+                og_desc="All earlier versions at a glance: new features, improvements and fixes from 0.4 to 1.13.",
                 alternates={"de": "versionen/", "en": "en/versions/"},
-                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.12",
-                header_links='  <a class="home" href="../whats-new-1-13/">← What’s new in version 1.13</a>',
+                h1="Earlier versions", sub="Everything BookSafe learned from version 0.4 to 1.13",
+                header_links='  <a class="home" href="../whats-new-1-14/">← What’s new in version 1.14</a>',
                 body=body, extra_css=EXTRA_CSS + CSS_110 + CSS_112 + PLAY_CSS["en"],
                 copyright=COPY_PLAY["en"])
 
 
 OUT = {
+    "neu-in-1-14/index.html": build_114("de"),
+    "en/whats-new-1-14/index.html": build_114("en"),
     "neu-in-1-13/index.html": build_113("de"),
     "en/whats-new-1-13/index.html": build_113("en"),
     "neu-in-1-12/index.html": build_112("de"),
