@@ -4,7 +4,7 @@
 
 Die App scannt Bücher per ISBN, verfolgt den Lesefortschritt und hält Buchreihen im Blick. Die Sprache folgt dem Gerät: Deutsch oder Englisch.
 
-Aktuelle Version: 1.14. Im App Store seit dem 27. November 2026; bei Google Play ist 1.14 eingereicht, bis dahin gilt dort 1.13.1. Auf Android gibt es Booky als einziges Farbschema.
+Aktuelle Version: 1.14. Im App Store und bei Google Play seit dem 27. November 2026. Auf Android gibt es Booky als einziges Farbschema.
 
 ## Preis
 
